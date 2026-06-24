@@ -295,7 +295,7 @@ export const WhyHavaPage = () => {
                 {/* Background image */}
                 <div
                   className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-                  style={{ backgroundImage: `url('/images/hava-factory.png')` }}
+                  style={{ backgroundImage: `url('/assets/hava-factory.png')` }}
                 />
                 {/* Dark overlay */}
                 <div className="absolute inset-0 bg-gradient-to-br from-charcoal/85 to-trust-blue/75" />
