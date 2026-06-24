@@ -132,7 +132,6 @@ const QualityProcess = () => {
                   : 'border-steel-gray bg-white hover:border-hava-red/40 hover:shadow-lg'
               }`}
             >
-              {/* Active glow */}
               {isActive && (
                 <motion.div
                   layoutId="activeGlow"
@@ -283,31 +282,78 @@ export const WhyHavaPage = () => {
         <div className="absolute bottom-20 left-0 w-96 h-96 bg-trust-blue/5 rounded-full blur-3xl" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-            <motion.div initial={{ opacity: 0, x: -50 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="relative">
-              <div className="relative rounded-3xl overflow-hidden shadow-2xl bg-gradient-to-br from-charcoal to-trust-blue p-10">
-                <div className="grid grid-cols-2 gap-4">
-                  {[{ icon: Factory, label: 'In-House Manufacturing', value: '25,000', sub: 'Sq. Ft. Facility' }, { icon: Settings, label: 'CNC Precision', value: 'Tight', sub: 'Tolerances' }, { icon: ShieldCheck, label: 'Quality Assured', value: 'ISO', sub: '9001:2015' }, { icon: Globe, label: 'Global Export', value: '20+', sub: 'Countries' }].map((card, i) => (
-                    <motion.div key={i} initial={{ opacity: 0, scale: 0.8 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 0.4, delay: i * 0.1 }} className="bg-white/10 backdrop-blur-md rounded-2xl p-5 border border-white/20">
-                      <div className="w-10 h-10 bg-gradient-to-br from-hava-red to-accent-orange rounded-xl flex items-center justify-center mb-3">
-                        <card.icon className="w-5 h-5 text-white" />
-                      </div>
-                      <div className="text-2xl font-black text-white">{card.value}</div>
-                      <div className="text-[10px] text-white/70 uppercase tracking-wider mt-1">{card.sub}</div>
-                      <div className="text-xs text-accent-orange font-semibold mt-2">{card.label}</div>
-                    </motion.div>
-                  ))}
+
+            {/* LEFT — stats card with background image */}
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="relative"
+            >
+              <div className="relative rounded-3xl overflow-hidden shadow-2xl">
+                {/* Background image */}
+                <div
+                  className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+                  style={{ backgroundImage: `url('/images/hava-factory.png')` }}
+                />
+                {/* Dark overlay */}
+                <div className="absolute inset-0 bg-gradient-to-br from-charcoal/85 to-trust-blue/75" />
+
+                {/* Content */}
+                <div className="relative p-10">
+                  <div className="grid grid-cols-2 gap-4">
+                    {[
+                      { icon: Factory, label: 'In-House Manufacturing', value: '25,000', sub: 'Sq. Ft. Facility' },
+                      { icon: Settings, label: 'CNC Precision', value: 'Tight', sub: 'Tolerances' },
+                      { icon: ShieldCheck, label: 'Quality Assured', value: 'ISO', sub: '9001:2015' },
+                      { icon: Globe, label: 'Global Export', value: '20+', sub: 'Countries' },
+                    ].map((card, i) => (
+                      <motion.div
+                        key={i}
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.4, delay: i * 0.1 }}
+                        className="bg-white/10 backdrop-blur-md rounded-2xl p-5 border border-white/20 hover:bg-white/15 transition-colors"
+                      >
+                        <div className="w-10 h-10 bg-gradient-to-br from-hava-red to-accent-orange rounded-xl flex items-center justify-center mb-3">
+                          <card.icon className="w-5 h-5 text-white" />
+                        </div>
+                        <div className="text-2xl font-black text-white">{card.value}</div>
+                        <div className="text-[10px] text-white/70 uppercase tracking-wider mt-1">{card.sub}</div>
+                        <div className="text-xs text-accent-orange font-semibold mt-2">{card.label}</div>
+                      </motion.div>
+                    ))}
+                  </div>
+                  <div className="absolute -top-4 -right-4 w-24 h-24 border-4 border-accent-orange/30 rounded-3xl rotate-12" />
+                  <div className="absolute -bottom-4 -left-4 w-32 h-32 border-4 border-white/10 rounded-3xl -rotate-12" />
                 </div>
-                <div className="absolute -top-4 -right-4 w-24 h-24 border-4 border-accent-orange/30 rounded-3xl rotate-12" />
-                <div className="absolute -bottom-4 -left-4 w-32 h-32 border-4 border-white/10 rounded-3xl -rotate-12" />
               </div>
             </motion.div>
-            <motion.div initial={{ opacity: 0, x: 50 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }}>
+
+            {/* RIGHT — text content */}
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+            >
               <SectionBadge color="hava-red" className="mb-5">{d.section1.label}</SectionBadge>
-              <h2 className="text-3xl lg:text-4xl font-black text-charcoal mb-5 leading-tight">Designed, Machined & Tested <span className="gradient-text">In-House</span> — Every Product, Every Time.</h2>
+              <h2 className="text-3xl lg:text-4xl font-black text-charcoal mb-5 leading-tight">
+                Designed, Machined & Tested <span className="gradient-text">In-House</span> — Every Product, Every Time.
+              </h2>
               <p className="text-base text-gray-700 leading-relaxed mb-7">{d.section1.body}</p>
               <div className="space-y-3">
                 {d.section1.points.map((p, i) => (
-                  <motion.div key={i} initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.4, delay: i * 0.1 }} className="flex items-start gap-3 border-l-4 border-hava-red pl-4 py-2">
+                  <motion.div
+                    key={i}
+                    initial={{ opacity: 0, x: 20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.4, delay: i * 0.1 }}
+                    className="flex items-start gap-3 border-l-4 border-hava-red pl-4 py-2"
+                  >
                     <CheckCircle2 className="w-5 h-5 text-hava-red flex-shrink-0 mt-0.5" />
                     <div>
                       <div className="font-bold text-charcoal">{p.title}</div>
@@ -317,6 +363,7 @@ export const WhyHavaPage = () => {
                 ))}
               </div>
             </motion.div>
+
           </div>
         </div>
       </section>
@@ -347,7 +394,7 @@ export const WhyHavaPage = () => {
         </div>
       </section>
 
-      {/* SECTION 3 — Quality Process — REDESIGNED */}
+      {/* SECTION 3 — Quality Process */}
       <section className="relative py-12 lg:py-16 overflow-hidden bg-white">
         <div className="absolute top-20 right-0 w-72 h-72 bg-hava-red/5 rounded-full blur-3xl" />
         <div className="absolute bottom-20 left-0 w-96 h-96 bg-trust-blue/5 rounded-full blur-3xl" />
