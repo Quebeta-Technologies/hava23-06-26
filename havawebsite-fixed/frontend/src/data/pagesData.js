@@ -75,7 +75,7 @@ export const whyHavaPageData = {
     body:
       "HAVA equipment is engineered for environments where reliability isn't optional — it's the only standard. From open-pit mines to deep underground tunnels.",
     cards: [
-      { title: "Mining Operations", text: "Quarry drilling, bench mining, surface excavation — RH-658/5L and RH-656/4W rock drills." },
+      { title: "Mining Operations", text: "Quarry drilling, bench mining, surface excavation — RH-656/4W rock drills." },
       { title: "Underground Tunnelling", text: "BBC-120F Drifter and BMK62S Pusher Leg for horizontal and inclined drilling." },
       { title: "Construction & Infrastructure", text: "CP-117 Pavement Breakers for concrete demolition, frozen ground, boulders." },
       { title: "Marble & Granite", text: "Precision drilling in natural stone for the marble and granite processing industry." },
@@ -377,17 +377,17 @@ export const productsPageData = {
   },
   categories: [
     // CAT A — ROCK DRILLS
+    // CHANGE 1: Removed RH-658/5L row
     {
       code: "A",
       name: "Rock Drills",
-      productCount: "3 Products · 3 Pages",
+      productCount: "2 Products · 2 Pages",
       image: "/products/rock-drill-dry.jpg",
       description:
         "Air-flushed and water-flushed pneumatic drills capable of drilling 27–48mm diameter holes using H22 integral steel, up to 6 metres depth. Available in dry and wet variants with T-Handle or Spade Handle to suit surface and underground drilling environments.",
       table: {
         headers: ["Model", "Type", "Weight", "Impact Rate", "Drilling Rate", "Air Hose", "Water Hose"],
         rows: [
-          ["RH-658/5L", "Dry — Air Flushed", "25 kg", "2000 bpm", "425 mm/min", "19mm", "—"],
           ["RH-656/4W (T-Handle)", "Wet — Water Flushed", "26 kg", "2050 bpm", "410 mm/min", "19mm", "12.7mm"],
           ["RH-656/4W (Spade Handle)", "Wet — Water Flushed", "26 kg", "2050 bpm", "410 mm/min", "19mm", "12.7mm"],
         ],
@@ -397,7 +397,7 @@ export const productsPageData = {
         { heading: "Product Features (Wet)", text: "Rifle Bar Rotation · Kick Latch Retainer · Valve for Air Flushing" },
       ],
       note: "Each product page includes: Applications · Technical Data table · Spare parts CTA · Atlas Copco Compatibility Note · Enquiry CTA · Brochure Download.",
-      summaryLine: "RH-658/5L Dry · RH-656/4W Wet T-Handle · RH-656/4W Wet Spade Handle",
+      summaryLine: "RH-656/4W Wet T-Handle · RH-656/4W Wet Spade Handle",
     },
     // CAT B — DRIFTERS
     {
@@ -422,6 +422,7 @@ export const productsPageData = {
       summaryLine: "BBC-120F Heavy Duty Drifter · Shank Adapter R32 & R38 · Coupling Sleeve",
     },
     // CAT C — PAVEMENT BREAKERS
+    // CHANGE 2: Restructured table to show Spring & Latch as two separate model columns
     {
       code: "C",
       name: "Pavement Breakers",
@@ -430,16 +431,16 @@ export const productsPageData = {
       description:
         "Medium-duty pneumatic pavement breaker designed to operate at 80–90 PSI. High hitting power, balanced power-to-weight ratio, oil-chamber lubrication. Available in Spring Retainer and Latch Retainer variants.",
       table: {
-        headers: ["Spec", "Value"],
+        headers: ["Spec", "Spring Retainer", "Latch Retainer"],
         rows: [
-          ["Models", "CP-117 / HR-117 — Spring Retainer | CP-117 — Latch Retainer variant"],
-          ["Weight", "36 kg"],
-          ["Air Consumption", "2.5 m³/min at 6 bar (88 cfm)"],
-          ["Piston Diameter", "57mm"],
-          ["Overall Length", "710mm (28 inch)"],
-          ["Frequency", "1200 bpm"],
-          ["Air Hose Connection", "19mm (3/4 inch)"],
-          ["Operating Pressure", "80–90 PSI (6 bar)"],
+          ["Model", "CP-117 / HR-117", "CP-117"],
+          ["Weight", "36 kg", "36 kg"],
+          ["Air Consumption", "2.5 m³/min at 6 bar (88 cfm)", "2.5 m³/min at 6 bar (88 cfm)"],
+          ["Piston Diameter", "57mm", "57mm"],
+          ["Overall Length", "710mm (28 inch)", "710mm (28 inch)"],
+          ["Frequency", "1200 bpm", "1200 bpm"],
+          ["Air Hose Connection", "19mm (3/4 inch)", "19mm (3/4 inch)"],
+          ["Operating Pressure", "80–90 PSI (6 bar)", "80–90 PSI (6 bar)"],
         ],
       },
       twoCol: [
@@ -473,10 +474,11 @@ export const productsPageData = {
       summaryLine: "BMK62S Air Leg",
     },
     // CAT E — AIRLINE ACCESSORIES
+    // CHANGE 3: Removed E2 (HAVA Lubri Plus Oil) and E6 (Duster Bib)
     {
       code: "E",
       name: "Airline Accessories",
-      productCount: "6 Products · 6 Pages",
+      productCount: "4 Products · 4 Pages",
       image: "/products/airline-accessories.jpg",
       description:
         "Complete airline accessories range ensuring pneumatic equipment runs efficiently, safely, and with minimum wear. Never drill without the lubricator — placed at exactly 3 metres from the drill.",
@@ -484,16 +486,14 @@ export const productsPageData = {
         headers: ["#", "Product", "Detail"],
         rows: [
           ["E1", "Airline Lubricator BLG-30", "Weight: 3 kg (6.6 lb) | Volume: 1.3 ltr (44 oz) | Air Flow: 25–134 l/S (53–284 cfm) | Place at 3M from drill"],
-          ["E2", "HAVA Lubri Plus Oil", "High-performance rock drill lubrication oil. Extreme pressure formula. Increased wear protection. Rust & corrosion protection. Reduces maintenance cost."],
           ["E3", "Clamps", "Air line clamp accessories for drill connections"],
           ["E4", "Hose Jointers", "Joiner fittings for airline hose connections"],
           ["E5", "Hose Pipe", "High-pressure airline hose for pneumatic equipment"],
-          ["E6", "Duster Bib", "Rubber/leather skirt fitted around drill steel to deflect dust and chips away from the operator"],
         ],
       },
       criticalNote:
         "Insufficient lubrication causes frictional wear. The piston in the average Rock Drill reciprocates about 1800 to 2000 times per min. Always use Rock Drill Oil — never engine oil.",
-      summaryLine: "BLG-30 Lubricator · Lubri Plus Oil · Clamps · Hose Jointers · Hose Pipe · Duster Bib",
+      summaryLine: "BLG-30 Lubricator · Clamps · Hose Jointers · Hose Pipe",
     },
     // CAT F — EXTENSION EQUIPMENT
     {
@@ -518,6 +518,7 @@ export const productsPageData = {
       summaryLine: "Chisel/Moil Points · Integrated Rods · Taper Rods · Shank Adapters · Coupling Sleeves · R32 Extension Rods",
     },
     // CAT G — BUTTON BITS
+    // CHANGE 4: Labels already correct — Rock Drill sizes under "For Rock Drills", Drifter sizes under "For Drifter"
     {
       code: "G",
       name: "Button Bits",
@@ -533,10 +534,11 @@ export const productsPageData = {
       summaryLine: "Carbide 30/32/34mm for Rock Drills · R32 45/51/64/76mm for Drifter",
     },
     // CAT H — SPARE PARTS
+    // CHANGE 5: Removed H1 (Rock Drill Spare Parts) and H4 (Pusher Leg Spare Parts) kits entirely
     {
       code: "H",
       name: "Spare Parts",
-      productCount: "4 Kits · 4 Pages",
+      productCount: "2 Kits · 2 Pages",
       image: "/products/spare-parts.jpg",
       description:
         "Genuine HAVA spare parts manufactured in-house to the exact same tolerances, materials, and specifications as original equipment. Because HAVA makes every product, HAVA makes every part — no third-party sourcing, no compromise on fit or function.",
@@ -551,21 +553,6 @@ export const productsPageData = {
         { title: "Atlas Copco Compatible", text: "All kits compatible with HAVA equipment and Atlas Copco reference equivalents." },
       ],
       kits: [
-        {
-          name: "H1 — Rock Drill Spare Parts",
-          forText: "For: RH-658/5L & RH-656/4W",
-          intro: "Complete spare kit for HAVA Dry and Wet Rock Drills. Rock drills reciprocate 2000 bpm — components must meet exact specifications to maintain impact energy and operational reliability.",
-          parts: [
-            { title: "Piston", text: "High-strength alloy steel, heat-treated. Replace when cylindrical wear or dimensional loss detected." },
-            { title: "Cylinder", text: "Precision-bored for exact piston clearance. Ensures air efficiency and impact consistency." },
-            { title: "Chuck & Chuck Body", text: "Holds drill steel. Replace when worn to prevent energy loss and drill steel damage." },
-            { title: "Rotation Gear / Pawl Set", text: "Drives rifle bar rotation. Regular replacement maintains drilling accuracy and bit life." },
-            { title: "Latch & Latch Spring", text: "Retains drill steel during operation. Critical safety item — replace when worn." },
-            { title: "Valve & Valve Chest", text: "Controls air for each power stroke. Worn valve reduces impact rate and efficiency." },
-            { title: "Bushings", text: "Front and back head bushings maintain alignment. Replace when clearances exceed tolerance." },
-            { title: "Water Tube (Wet Model)", text: "Directs flushing water through drill steel. Replace when corroded or damaged." },
-          ],
-        },
         {
           name: "H2 — Drifter BBC-120F Spare Parts",
           forText: "For: BBC-120F",
@@ -594,46 +581,31 @@ export const productsPageData = {
             { title: "Cylinder & Bushings", text: "Worn bore reduces air efficiency and impact rate." },
           ],
         },
-        {
-          name: "H4 — Pusher Leg Spare Parts",
-          forText: "For: BMK62S",
-          intro: "Spare kit for the BMK62S Pusher Leg. Operating in dusty underground environments — seals, valves, and the feed cylinder are primary wear items requiring regular inspection.",
-          parts: [
-            { title: "Feed Cylinder", text: "Drives leg extension. Inspect for bore wear when feed force becomes inconsistent." },
-            { title: "Piston Seals", text: "Seals feed cylinder. Replace when air leakage or reduced force is detected." },
-            { title: "Throttle Control Valve", text: "Regulates air flow. Worn valve causes uncontrolled feed." },
-            { title: "Relief Valve (Bottom)", text: "Unloads feed pressure safely. Must function correctly to protect operator." },
-            { title: "Control Valve Body", text: "Main air control. Replace if compromised, stuck, or leaking." },
-            { title: "O-Rings & Seal Kit", text: "Replace complete seal set at every major service to prevent recurring leakage." },
-          ],
-        },
       ],
       sparesSummary: {
         headers: ["Kit", "Equipment", "Key Components", "Recommended Inspection"],
         rows: [
-          ["H1 — Rock Drill", "RH-658/5L & RH-656/4W", "Piston, cylinder, chuck, rotation gear, latch, valve, bushings", "Every 250 hours or on reduced impact rate"],
           ["H2 — Drifter", "BBC-120F", "Piston, cylinder, front/back head, rifle bar, pawl set, rifle nut, bushings", "Every 500 hours; rifle bar & pawls at each major service"],
           ["H3 — Breaker", "CP-117 / HR-117", "Piston, retainer, buffer spring, front head bolts", "Every 3 months or on tool retention issues"],
-          ["H4 — Pusher Leg", "BMK62S", "Feed cylinder, seals, throttle valve, relief valve, O-ring kit", "All seals at major overhaul; valves every 6 months"],
         ],
       },
-      summaryLine: "Rock Drill · Drifter BBC-120F · Pavement Breaker · Pusher Leg",
+      summaryLine: "Drifter BBC-120F · Pavement Breaker",
     },
   ],
   summary: {
     title: "Product Category Summary",
     headers: ["Cat.", "Category", "Products", "Web Pages"],
     rows: [
-      ["A", "Rock Drills", "3 products (Dry + Wet T-Handle + Wet Spade)", "3 pages"],
+      ["A", "Rock Drills", "2 products (Wet T-Handle + Wet Spade)", "2 pages"],
       ["B", "Drifter", "3 products (BBC-120F + Shank Adapter + Coupling Sleeve)", "4 pages"],
       ["C", "Pavement Breakers", "2 products (Spring + Latch Retainer)", "3 pages"],
       ["D", "Pusher Leg", "1 product (BMK62S)", "1 page"],
-      ["E", "Airline Accessories", "6 products (BLG-30, Oil, Clamps, Hose Jointers, Hose Pipe, Duster Bib)", "6 pages"],
+      ["E", "Airline Accessories", "4 products (BLG-30, Clamps, Hose Jointers, Hose Pipe)", "4 pages"],
       ["F", "Extension Equipment", "6 items (Chisel/Moil, Integrated, Taper, Shank, Coupling, Extension Rods)", "6 pages"],
       ["G", "Button Bits", "2 product lines (Carbide 30–34mm | R32 45–76mm)", "2 pages"],
-      ["H", "Spare Parts", "4 kits (Rock Drill, Drifter, Breaker, Pusher Leg)", "4 pages"],
+      ["H", "Spare Parts", "2 kits (Drifter, Breaker)", "2 pages"],
     ],
-    total: { label: "Total Product Zone Pages", value: "29 pages" },
+    total: { label: "Total Product Zone Pages", value: "24 pages" },
   },
   finalCta: {
     title: "Not Sure Which Product Suits Your Application?",
