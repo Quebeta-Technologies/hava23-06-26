@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import {
   ArrowRight,
   Download,
+  Wrench,
   AlertCircle,
   ChevronDown,
   ChevronUp,
