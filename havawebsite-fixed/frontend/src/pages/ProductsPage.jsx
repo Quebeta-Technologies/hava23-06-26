@@ -3,13 +3,11 @@ import { motion, AnimatePresence } from 'framer-motion';
 import {
   ArrowRight,
   Download,
-
-  Wrench,
   AlertCircle,
   ChevronDown,
   ChevronUp,
 } from 'lucide-react';
-import { Drill, Layers, Zap, Wind, Link, CircleDot, Package, Settings } from 'lucide-react';
+import { Drill, Layers, Zap, Wind, Link, CircleDot, Package } from 'lucide-react';
 import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
 import { QuoteModal } from '../components/QuoteModal';
@@ -31,7 +29,7 @@ const categoryIcons = {
 };
 
 // Mobile-friendly product table — cards on small screens, table on large
-const ProductTable = ({ table, showAction = false }) => (
+const ProductTable = ({ table }) => (
   <>
     {/* Desktop table */}
     <div className="hidden md:block overflow-x-auto rounded-2xl border-2 border-steel-gray shadow-md">
@@ -262,7 +260,6 @@ export const ProductsPage = () => {
                   >
                     {/* Header — content LEFT, image RIGHT */}
                     <div className="flex flex-col sm:flex-row items-start gap-4 sm:gap-6 mb-6">
-                      {/* Left: icon + title + description */}
                       <div className="flex-1 min-w-0">
                         <div className="flex items-center gap-3 mb-3">
                           <div className="w-12 h-12 sm:w-14 sm:h-14 bg-gradient-to-br from-hava-red to-accent-orange rounded-2xl flex items-center justify-center shadow-lg flex-shrink-0">
@@ -278,7 +275,6 @@ export const ProductsPage = () => {
                         <p className="text-sm sm:text-base text-gray-700 leading-relaxed">{activeCat.description}</p>
                       </div>
 
-                      {/* Right: product image — bigger */}
                       {activeCat.image && (
                         <div className="w-full sm:w-48 lg:w-56 h-44 sm:h-48 lg:h-52 bg-gradient-to-br from-slate-100 to-blue-50 rounded-2xl border-2 border-steel-gray flex items-center justify-center p-4 flex-shrink-0 self-start">
                           <img
@@ -334,7 +330,6 @@ export const ProductsPage = () => {
                           <p className="font-bold text-hava-red text-sm uppercase tracking-wider mb-2">Why Genuine HAVA Spares Matter</p>
                           <p className="text-sm text-gray-700 leading-relaxed">{activeCat.whyGenuine}</p>
                         </div>
-
                         <p className="font-bold text-accent-orange text-xs uppercase tracking-[2px] mt-8 mb-4">Why Use Genuine HAVA Spare Parts</p>
                         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
                           {activeCat.whyCards.map((c, i) => (
@@ -343,39 +338,6 @@ export const ProductsPage = () => {
                               <p className="text-xs text-gray-600 leading-relaxed">{c.text}</p>
                             </div>
                           ))}
-                        </div>
-
-                        {/* Kit blocks */}
-                        {activeCat.kits.map((kit, ki) => (
-                          <div key={ki} className="mt-8 pt-6 border-t-2 border-dashed border-steel-gray">
-                            <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3 mb-3">
-                              <div className="flex items-start gap-3">
-                                <div className="w-10 h-10 bg-gradient-to-br from-trust-blue to-trust-blue/80 rounded-xl flex items-center justify-center flex-shrink-0">
-                                  <Wrench className="w-5 h-5 text-white" />
-                                </div>
-                                <div>
-                                  <p className="font-black text-charcoal text-base lg:text-lg" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
-                                    {kit.name.replace(/^H\d+\s*[—-]\s*/, '')}
-                                  </p>
-                                  <p className="text-xs font-bold text-accent-orange uppercase tracking-wider">{kit.forText}</p>
-                                </div>
-                              </div>
-                            </div>
-                            <p className="text-sm text-gray-700 leading-relaxed mb-4">{kit.intro}</p>
-                            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-                              {kit.parts.map((p, pi) => (
-                                <div key={pi} className="bg-white border-l-2 border-accent-orange rounded-r-xl p-3">
-                                  <p className="font-bold text-charcoal text-xs mb-1 uppercase tracking-wide">{p.title}</p>
-                                  <p className="text-[11px] text-gray-600 leading-relaxed">{p.text}</p>
-                                </div>
-                              ))}
-                            </div>
-                          </div>
-                        ))}
-
-                        <div className="mt-8">
-                          <p className="font-bold text-accent-orange text-xs uppercase tracking-[2px] mb-4">Spare Parts Summary & Service Intervals</p>
-                          <ProductTable table={activeCat.sparesSummary} />
                         </div>
                       </>
                     )}

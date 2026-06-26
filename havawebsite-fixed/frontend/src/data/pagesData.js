@@ -534,11 +534,10 @@ export const productsPageData = {
       summaryLine: "Carbide 30/32/34mm for Rock Drills · R32 45/51/64/76mm for Drifter",
     },
     // CAT H — SPARE PARTS
-    // CHANGE 5: Removed H1 (Rock Drill Spare Parts) and H4 (Pusher Leg Spare Parts) kits entirely
     {
       code: "H",
       name: "Spare Parts",
-      productCount: "2 Kits · 2 Pages",
+      productCount: "Genuine Parts",
       image: "/products/spare-parts.jpg",
       description:
         "Genuine HAVA spare parts manufactured in-house to the exact same tolerances, materials, and specifications as original equipment. Because HAVA makes every product, HAVA makes every part — no third-party sourcing, no compromise on fit or function.",
@@ -552,44 +551,6 @@ export const productsPageData = {
         { title: "Extended Equipment Life", text: "Genuine parts maintain original clearances and mechanical integrity." },
         { title: "Atlas Copco Compatible", text: "All kits compatible with HAVA equipment and Atlas Copco reference equivalents." },
       ],
-      kits: [
-        {
-          name: "H2 — Drifter BBC-120F Spare Parts",
-          forText: "For: BBC-120F",
-          intro: "Spare kit for the BBC-120F delivering 7.2 kW at 2100 bpm. Worn components directly reduce impact energy and drilling speed — replace at correct intervals to maintain performance.",
-          parts: [
-            { title: "Piston (120mm Dia.)", text: "Large-diameter heat-treated alloy steel piston. Replace when surface wear or dimensional loss detected." },
-            { title: "Cylinder", text: "Precision-bored to 120mm for complete impact transfer." },
-            { title: "Front Head", text: "Houses chuck, absorbs impact forces. Inspect for cracks regularly." },
-            { title: "Back Head", text: "Houses valve mechanism and air inlet. Replace when damaged or air-leakage detected." },
-            { title: "Rifle Bar", text: "Drives piston rotation each stroke. Replace when rifling worn — affects rotation control." },
-            { title: "Rotation Pawl Set (×8)", text: "4 pawls per direction. Replace complete set at each major service." },
-            { title: "Rifle Nut", text: "Locks rifle bar mechanism. Replace if thread-worn." },
-            { title: "Bushings", text: "Front, middle, and back head bushings maintain alignment and reduce wear." },
-          ],
-        },
-        {
-          name: "H3 — Pavement Breaker Spare Parts",
-          forText: "For: CP-117 / HR-117",
-          intro: "Spare kit for Spring and Latch Retainer Breakers operating at 1200 bpm. High-stress components must be replaced proactively to maintain safety and performance.",
-          parts: [
-            { title: "Piston (57mm Dia.)", text: "Delivers 1200 bpm. Replace when cylindrical wear exceeds specification." },
-            { title: "Spring Retainer", text: "Holds breaking tool. Worn retainer creates tool-loss risk — inspect regularly." },
-            { title: "Latch Retainer", text: "Latch Retainer variant. Replace when latch spring or body is worn." },
-            { title: "Buffer Spring", text: "Absorbs recoil shock. Replace when spring set (loss of free length) is detected." },
-            { title: "Front Head Bolts", text: "High-tension fasteners. Replace if thread-worn." },
-            { title: "Cylinder & Bushings", text: "Worn bore reduces air efficiency and impact rate." },
-          ],
-        },
-      ],
-      sparesSummary: {
-        headers: ["Kit", "Equipment", "Key Components", "Recommended Inspection"],
-        rows: [
-          ["H2 — Drifter", "BBC-120F", "Piston, cylinder, front/back head, rifle bar, pawl set, rifle nut, bushings", "Every 500 hours; rifle bar & pawls at each major service"],
-          ["H3 — Breaker", "CP-117 / HR-117", "Piston, retainer, buffer spring, front head bolts", "Every 3 months or on tool retention issues"],
-        ],
-      },
-      summaryLine: "Drifter BBC-120F · Pavement Breaker",
     },
   ],
   summary: {
@@ -603,7 +564,7 @@ export const productsPageData = {
       ["E", "Airline Accessories", "4 products (BLG-30, Clamps, Hose Jointers, Hose Pipe)", "4 pages"],
       ["F", "Extension Equipment", "6 items (Chisel/Moil, Integrated, Taper, Shank, Coupling, Extension Rods)", "6 pages"],
       ["G", "Button Bits", "2 product lines (Carbide 30–34mm | R32 45–76mm)", "2 pages"],
-      ["H", "Spare Parts", "2 kits (Drifter, Breaker)", "2 pages"],
+      ["H", "Spare Parts", "Genuine spare parts — enquire for details", "1 page"],
     ],
     total: { label: "Total Product Zone Pages", value: "24 pages" },
   },
