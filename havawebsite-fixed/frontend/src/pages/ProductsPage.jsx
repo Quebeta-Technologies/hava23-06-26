@@ -8,7 +8,6 @@ import {
   AlertCircle,
   ChevronDown,
   ChevronUp,
-  ExternalLink,
 } from 'lucide-react';
 import { Drill, Layers, Zap, Wind, Link, CircleDot, Package, Settings } from 'lucide-react';
 import { Header } from '../components/Header';
@@ -32,7 +31,7 @@ const categoryIcons = {
 };
 
 // Mobile-friendly product table — cards on small screens, table on large
-const ProductTable = ({ table, onViewDetails, showAction = true }) => (
+const ProductTable = ({ table, showAction = false }) => (
   <>
     {/* Desktop table */}
     <div className="hidden md:block overflow-x-auto rounded-2xl border-2 border-steel-gray shadow-md">
@@ -44,7 +43,6 @@ const ProductTable = ({ table, onViewDetails, showAction = true }) => (
                 {h}
               </th>
             ))}
-            {showAction && <th className="px-4 py-3 text-left text-xs font-bold uppercase tracking-wider">Action</th>}
           </tr>
         </thead>
         <tbody>
@@ -55,16 +53,6 @@ const ProductTable = ({ table, onViewDetails, showAction = true }) => (
                   {cell}
                 </td>
               ))}
-              {showAction && (
-                <td className="px-4 py-3">
-                  <button
-                    onClick={onViewDetails}
-                    className="inline-flex items-center gap-1.5 text-xs font-bold text-hava-red hover:text-accent-orange border border-hava-red/30 hover:border-accent-orange rounded-lg px-3 py-1.5 transition-all hover:bg-hava-red/5 whitespace-nowrap"
-                  >
-                    <ExternalLink className="w-3 h-3" /> View Details
-                  </button>
-                </td>
-              )}
             </tr>
           ))}
         </tbody>
@@ -305,44 +293,23 @@ export const ProductsPage = () => {
                     {/* Spec Table */}
                     {activeCat.table && (
                       <div className="mb-2">
-                        <ProductTable
-                          table={activeCat.table}
-                          onViewDetails={handleEnquire}
-                          showAction={activeCat.code !== 'C' && activeCat.code !== 'D'}
-                        />
-                        {/* Single View Details button for Pavement Breakers (C) & Pusher Leg (D) */}
-                        {(activeCat.code === 'C' || activeCat.code === 'D') && (
-                          <div className="mt-3 flex justify-end">
-                            <button
-                              onClick={handleEnquire}
-                              className="inline-flex items-center gap-1.5 text-xs font-bold text-hava-red hover:text-white border border-hava-red/30 hover:bg-hava-red rounded-lg px-3 py-2 transition-all"
-                            >
-                              <ExternalLink className="w-3 h-3" /> View Details
-                            </button>
-                          </div>
-                        )}
+                        <ProductTable table={activeCat.table} />
                       </div>
                     )}
 
                     {/* Two-col block */}
                     {activeCat.twoCol && <TwoColBlock items={activeCat.twoCol} />}
 
-                    {/* Tags with View Details per tag group */}
+                    {/* Tags */}
                     {activeCat.tags && (
                       <div className="mt-5">
-                        <div className="flex flex-wrap gap-2 mb-3">
+                        <div className="flex flex-wrap gap-2">
                           {activeCat.tags.map((tag, i) => (
                             <span key={i} className="text-xs font-bold uppercase tracking-wider bg-slate-50 border border-steel-gray text-charcoal px-3 py-1.5 rounded-full">
                               {tag}
                             </span>
                           ))}
                         </div>
-                        <button
-                          onClick={handleEnquire}
-                          className="inline-flex items-center gap-1.5 text-xs font-bold text-hava-red hover:text-white border border-hava-red/30 hover:bg-hava-red rounded-lg px-3 py-2 transition-all"
-                        >
-                          <ExternalLink className="w-3 h-3" /> View Details
-                        </button>
                       </div>
                     )}
 
@@ -393,12 +360,6 @@ export const ProductsPage = () => {
                                   <p className="text-xs font-bold text-accent-orange uppercase tracking-wider">{kit.forText}</p>
                                 </div>
                               </div>
-                              <button
-                                onClick={handleEnquire}
-                                className="inline-flex items-center gap-1.5 text-xs font-bold text-hava-red hover:text-white border border-hava-red/30 hover:bg-hava-red rounded-lg px-3 py-2 transition-all self-start flex-shrink-0"
-                              >
-                                <ExternalLink className="w-3 h-3" /> View Details
-                              </button>
                             </div>
                             <p className="text-sm text-gray-700 leading-relaxed mb-4">{kit.intro}</p>
                             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
@@ -414,7 +375,7 @@ export const ProductsPage = () => {
 
                         <div className="mt-8">
                           <p className="font-bold text-accent-orange text-xs uppercase tracking-[2px] mb-4">Spare Parts Summary & Service Intervals</p>
-                          <ProductTable table={activeCat.sparesSummary} onViewDetails={handleEnquire} />
+                          <ProductTable table={activeCat.sparesSummary} />
                         </div>
                       </>
                     )}
