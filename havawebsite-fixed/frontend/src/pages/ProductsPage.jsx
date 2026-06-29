@@ -127,7 +127,7 @@ const CategoryContent = ({ cat, onEnquire }) => {
     // ── A: Rock Drills ──────────────────────────────────────────────────────
     if (cat.code === 'A') {
       const images = [
-        '/products/tyty.jpeg',
+        '/products/ytyt.jpeg',
         '/products/rh-656-spade-handle.jpg',
       ];
       return (
