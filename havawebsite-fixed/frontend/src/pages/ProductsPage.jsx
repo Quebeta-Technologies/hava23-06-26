@@ -7,6 +7,7 @@ import {
   AlertCircle,
   ChevronDown,
   ChevronUp,
+  CheckCircle2,
 } from 'lucide-react';
 import { Drill, Layers, Zap, Wind, Link, CircleDot, Package } from 'lucide-react';
 import { Header } from '../components/Header';
@@ -29,56 +30,94 @@ const categoryIcons = {
   H: Package,
 };
 
-// Mobile-friendly product table — cards on small screens, table on large
-const ProductTable = ({ table }) => (
-  <>
-    {/* Desktop table */}
-    <div className="hidden md:block overflow-x-auto rounded-2xl border-2 border-steel-gray shadow-md">
-      <table className="w-full text-sm">
-        <thead>
-          <tr className="bg-charcoal text-white">
-            {table.headers.map((h, i) => (
-              <th key={i} className="px-4 py-3 text-left text-xs font-bold uppercase tracking-wider border-r border-white/10 last:border-r-0 whitespace-nowrap">
-                {h}
-              </th>
-            ))}
-          </tr>
-        </thead>
-        <tbody>
-          {table.rows.map((row, ri) => (
-            <tr key={ri} className={`border-t border-steel-gray ${ri % 2 === 0 ? 'bg-slate-50/60' : 'bg-white'}`}>
-              {row.map((cell, ci) => (
-                <td key={ci} className={`px-4 py-3 border-r border-steel-gray ${ci === 0 ? 'font-bold text-charcoal' : 'text-gray-700'}`}>
-                  {cell}
-                </td>
-              ))}
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
+// ─── Product Card (image left, details right) ───────────────────────────────
+const ProductCard = ({ row, headers, image, catCode, onEnquire }) => {
+  // Build spec pills from table row (skip first col which is model name)
+  const specs = headers.slice(1).map((h, i) => ({ label: h, value: row[i + 1] })).filter(s => s.value);
 
-    {/* Mobile cards */}
-    <div className="md:hidden space-y-3">
-      {table.rows.map((row, ri) => (
-        <div key={ri} className="bg-white rounded-2xl border-2 border-steel-gray shadow-sm overflow-hidden">
-          <div className="bg-charcoal px-4 py-2.5">
-            <p className="text-white font-bold text-sm">{row[0]}</p>
+  return (
+    <div className="bg-white rounded-2xl border-2 border-steel-gray hover:border-hava-red/40 hover:shadow-xl transition-all overflow-hidden flex flex-col sm:flex-row gap-0">
+      {/* LEFT — image */}
+      <div className="w-full sm:w-48 lg:w-56 flex-shrink-0 bg-gradient-to-br from-slate-100 to-blue-50 flex items-center justify-center p-6 min-h-[160px]">
+        {image ? (
+          <img src={image} alt={row[0]} className="max-h-32 w-auto object-contain" />
+        ) : (
+          <div className="w-20 h-20 bg-gradient-to-br from-hava-red/20 to-accent-orange/20 rounded-2xl flex items-center justify-center">
+            {(() => { const Icon = categoryIcons[catCode]; return <Icon className="w-10 h-10 text-hava-red/60" />; })()}
           </div>
-          <div className="p-4 space-y-2">
-            {table.headers.slice(1).map((header, hi) => (
-              row[hi + 1] && (
-                <div key={hi} className="flex justify-between items-start gap-2">
-                  <span className="text-xs font-bold text-gray-500 uppercase tracking-wider flex-shrink-0">{header}</span>
-                  <span className="text-xs text-charcoal font-medium text-right">{row[hi + 1]}</span>
-                </div>
-              )
+        )}
+      </div>
+
+      {/* RIGHT — details */}
+      <div className="flex-1 p-5 flex flex-col justify-between">
+        <div>
+          {/* Model name + badge */}
+          <div className="flex items-start justify-between gap-3 mb-3">
+            <p className="font-black text-charcoal text-base lg:text-lg leading-tight" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
+              {row[0]}
+            </p>
+            <span className="text-[10px] font-bold bg-hava-red/10 text-hava-red border border-hava-red/20 px-2.5 py-1 rounded-full whitespace-nowrap flex-shrink-0 uppercase tracking-wider">
+              HAVA
+            </span>
+          </div>
+
+          {/* Spec pills */}
+          <div className="flex flex-wrap gap-2 mb-3">
+            {specs.map((s, i) => (
+              <div key={i} className="flex items-center gap-1.5 bg-slate-50 border border-steel-gray rounded-lg px-2.5 py-1">
+                <span className="text-[10px] font-bold text-gray-400 uppercase tracking-wider">{s.label}</span>
+                <span className="text-[11px] font-bold text-charcoal">{s.value}</span>
+              </div>
             ))}
           </div>
         </div>
-      ))}
+
+        {/* Bottom row */}
+        <div className="flex items-center justify-between pt-3 border-t border-steel-gray mt-2">
+          <span className="text-[10px] text-gray-400 font-bold uppercase tracking-wider">ISO 9001:2015 · Made in India</span>
+          <button
+            onClick={onEnquire}
+            className="text-xs font-bold text-hava-red hover:text-accent-orange flex items-center gap-1 transition-colors"
+          >
+            Enquire Now <ArrowRight className="w-3 h-3" />
+          </button>
+        </div>
+      </div>
     </div>
-  </>
+  );
+};
+
+// Special card for non-table items (single row items like F, G rows, etc.)
+const SimpleProductCard = ({ title, detail, image, catCode, onEnquire }) => (
+  <div className="bg-white rounded-2xl border-2 border-steel-gray hover:border-hava-red/40 hover:shadow-xl transition-all overflow-hidden flex flex-col sm:flex-row gap-0">
+    {/* LEFT — image */}
+    <div className="w-full sm:w-48 lg:w-56 flex-shrink-0 bg-gradient-to-br from-slate-100 to-blue-50 flex items-center justify-center p-6 min-h-[140px]">
+      {image ? (
+        <img src={image} alt={title} className="max-h-28 w-auto object-contain" />
+      ) : (
+        <div className="w-16 h-16 bg-gradient-to-br from-hava-red/20 to-accent-orange/20 rounded-2xl flex items-center justify-center">
+          {(() => { const Icon = categoryIcons[catCode]; return <Icon className="w-8 h-8 text-hava-red/60" />; })()}
+        </div>
+      )}
+    </div>
+
+    {/* RIGHT */}
+    <div className="flex-1 p-5 flex flex-col justify-between">
+      <div>
+        <div className="flex items-start justify-between gap-3 mb-2">
+          <p className="font-black text-charcoal text-base leading-tight" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>{title}</p>
+          <span className="text-[10px] font-bold bg-hava-red/10 text-hava-red border border-hava-red/20 px-2.5 py-1 rounded-full whitespace-nowrap flex-shrink-0 uppercase tracking-wider">HAVA</span>
+        </div>
+        {detail && <p className="text-xs text-gray-600 leading-relaxed">{detail}</p>}
+      </div>
+      <div className="flex items-center justify-between pt-3 border-t border-steel-gray mt-3">
+        <span className="text-[10px] text-gray-400 font-bold uppercase tracking-wider">ISO 9001:2015 · Made in India</span>
+        <button onClick={onEnquire} className="text-xs font-bold text-hava-red hover:text-accent-orange flex items-center gap-1 transition-colors">
+          Enquire Now <ArrowRight className="w-3 h-3" />
+        </button>
+      </div>
+    </div>
+  </div>
 );
 
 // Two-col block
@@ -259,54 +298,120 @@ export const ProductsPage = () => {
                     transition={{ duration: 0.3 }}
                     className="bg-white rounded-3xl shadow-xl border-2 border-steel-gray p-5 sm:p-6 lg:p-8"
                   >
-                    {/* Header — content LEFT, image RIGHT */}
-                    <div className="flex flex-col sm:flex-row items-start gap-4 sm:gap-6 mb-6">
-                      <div className="flex-1 min-w-0">
-                        <div className="flex items-center gap-3 mb-3">
-                          <div className="w-12 h-12 sm:w-14 sm:h-14 bg-gradient-to-br from-hava-red to-accent-orange rounded-2xl flex items-center justify-center shadow-lg flex-shrink-0">
-                            {(() => { const Icon = categoryIcons[activeCat.code]; return <Icon className="w-6 h-6 sm:w-7 sm:h-7 text-white" />; })()}
-                          </div>
-                          <div>
-                            <p className="text-xl sm:text-2xl lg:text-3xl font-black text-charcoal" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
-                              {activeCat.name}
-                            </p>
-                            <div className="w-10 h-1 bg-gradient-to-r from-hava-red to-accent-orange rounded-full mt-1.5" />
-                          </div>
-                        </div>
-                        <p className="text-sm sm:text-base text-gray-700 leading-relaxed">{activeCat.description}</p>
+                    {/* Category Header */}
+                    <div className="flex items-center gap-3 mb-2">
+                      <div className="w-12 h-12 bg-gradient-to-br from-hava-red to-accent-orange rounded-2xl flex items-center justify-center shadow-lg flex-shrink-0">
+                        {(() => { const Icon = categoryIcons[activeCat.code]; return <Icon className="w-6 h-6 text-white" />; })()}
                       </div>
-
-                      {activeCat.image && (
-                        <div className="w-full sm:w-48 lg:w-56 h-44 sm:h-48 lg:h-52 bg-gradient-to-br from-slate-100 to-blue-50 rounded-2xl border-2 border-steel-gray flex items-center justify-center p-4 flex-shrink-0 self-start">
-                          <img
-                            src={activeCat.image}
-                            alt={activeCat.name}
-                            className="max-h-36 sm:max-h-40 lg:max-h-44 w-auto object-contain"
-                          />
-                        </div>
-                      )}
+                      <div>
+                        <p className="text-xl sm:text-2xl lg:text-3xl font-black text-charcoal" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
+                          {activeCat.name}
+                        </p>
+                        <div className="w-10 h-1 bg-gradient-to-r from-hava-red to-accent-orange rounded-full mt-1.5" />
+                      </div>
                     </div>
 
-                    {/* Spec Table */}
-                    {activeCat.table && (
-                      <div className="mb-2">
-                        <ProductTable table={activeCat.table} />
+                    <p className="text-sm text-gray-600 leading-relaxed mb-6">{activeCat.description}</p>
+
+                    {/* ── PRODUCT CARDS from table rows ── */}
+                    {activeCat.table && activeCat.table.rows.length > 0 && (
+                      <div className="space-y-4 mb-6">
+                        <p className="text-xs font-bold text-gray-400 uppercase tracking-[2px] mb-3">
+                          {activeCat.table.rows.length} Model{activeCat.table.rows.length > 1 ? 's' : ''} Available
+                        </p>
+                        {activeCat.table.rows.map((row, ri) => (
+                          <ProductCard
+                            key={ri}
+                            row={row}
+                            headers={activeCat.table.headers}
+                            image={activeCat.image}
+                            catCode={activeCat.code}
+                            onEnquire={handleEnquire}
+                          />
+                        ))}
                       </div>
                     )}
 
-                    {/* Two-col block */}
-                    {activeCat.twoCol && <TwoColBlock items={activeCat.twoCol} />}
+                    {/* ── F: Extension Equipment — SimpleProductCard per row ── */}
+                    {activeCat.code === 'F' && activeCat.table && (
+                      <div className="space-y-4 mb-6">
+                        <p className="text-xs font-bold text-gray-400 uppercase tracking-[2px] mb-3">6 Items Available</p>
+                        {activeCat.table.rows.map((row, ri) => (
+                          <SimpleProductCard
+                            key={ri}
+                            title={row[1]}
+                            detail={row[2]}
+                            image={activeCat.image}
+                            catCode={activeCat.code}
+                            onEnquire={handleEnquire}
+                          />
+                        ))}
+                      </div>
+                    )}
+
+                    {/* ── G: Button Bits — cards from twoCol ── */}
+                    {activeCat.code === 'G' && activeCat.twoCol && (
+                      <div className="space-y-4 mb-6">
+                        <p className="text-xs font-bold text-gray-400 uppercase tracking-[2px] mb-3">2 Product Lines Available</p>
+                        {activeCat.twoCol.map((item, i) => (
+                          <div key={i} className="bg-white rounded-2xl border-2 border-steel-gray hover:border-hava-red/40 hover:shadow-xl transition-all overflow-hidden flex flex-col sm:flex-row">
+                            <div className="w-full sm:w-48 lg:w-56 flex-shrink-0 bg-gradient-to-br from-slate-100 to-blue-50 flex items-center justify-center p-6 min-h-[140px]">
+                              <img src={activeCat.image} alt={item.heading} className="max-h-28 w-auto object-contain" />
+                            </div>
+                            <div className="flex-1 p-5 flex flex-col justify-between">
+                              <div>
+                                <div className="flex items-start justify-between gap-3 mb-2">
+                                  <p className="font-black text-charcoal text-base leading-tight" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>{item.heading}</p>
+                                  <span className="text-[10px] font-bold bg-hava-red/10 text-hava-red border border-hava-red/20 px-2.5 py-1 rounded-full whitespace-nowrap flex-shrink-0 uppercase tracking-wider">HAVA</span>
+                                </div>
+                                <div className="flex flex-wrap gap-2 mt-2">
+                                  {item.text.split(' / ').map((size, si) => (
+                                    <span key={si} className="text-xs font-bold bg-slate-50 border border-steel-gray text-charcoal px-3 py-1.5 rounded-full">{size}</span>
+                                  ))}
+                                </div>
+                              </div>
+                              <div className="flex items-center justify-between pt-3 border-t border-steel-gray mt-3">
+                                <span className="text-[10px] text-gray-400 font-bold uppercase tracking-wider">ISO 9001:2015 · Made in India</span>
+                                <button onClick={handleEnquire} className="text-xs font-bold text-hava-red hover:text-accent-orange flex items-center gap-1 transition-colors">
+                                  Enquire Now <ArrowRight className="w-3 h-3" />
+                                </button>
+                              </div>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    )}
+
+                    {/* ── E: Airline Accessories — SimpleProductCard per row ── */}
+                    {activeCat.code === 'E' && activeCat.table && (
+                      <div className="space-y-4 mb-6">
+                        <p className="text-xs font-bold text-gray-400 uppercase tracking-[2px] mb-3">4 Products Available</p>
+                        {activeCat.table.rows.map((row, ri) => (
+                          <SimpleProductCard
+                            key={ri}
+                            title={row[1]}
+                            detail={row[2]}
+                            image={activeCat.image}
+                            catCode={activeCat.code}
+                            onEnquire={handleEnquire}
+                          />
+                        ))}
+                      </div>
+                    )}
+
+                    {/* twoCol block — skip G (handled above) */}
+                    {activeCat.twoCol && activeCat.code !== 'G' && (
+                      <TwoColBlock items={activeCat.twoCol} />
+                    )}
 
                     {/* Tags */}
                     {activeCat.tags && (
-                      <div className="mt-5">
-                        <div className="flex flex-wrap gap-2">
-                          {activeCat.tags.map((tag, i) => (
-                            <span key={i} className="text-xs font-bold uppercase tracking-wider bg-slate-50 border border-steel-gray text-charcoal px-3 py-1.5 rounded-full">
-                              {tag}
-                            </span>
-                          ))}
-                        </div>
+                      <div className="mt-5 flex flex-wrap gap-2">
+                        {activeCat.tags.map((tag, i) => (
+                          <span key={i} className="text-xs font-bold uppercase tracking-wider bg-slate-50 border border-steel-gray text-charcoal px-3 py-1.5 rounded-full">
+                            {tag}
+                          </span>
+                        ))}
                       </div>
                     )}
 
