@@ -110,7 +110,7 @@ const CategoryContent = ({ cat, onEnquire }) => {
     // ── A: Rock Drills ──────────────────────────────────────────────────────
     if (cat.code === 'A') {
       const images = [
-        '/products/rh-656-t-handle.jpg',
+        '/products/tyty.jpeg',
         '/products/rh-656-spade-handle.jpg',
       ];
       return (
