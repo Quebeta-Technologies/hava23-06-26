@@ -57,14 +57,16 @@ export const whyHavaPageData = {
     label: "Quality Process",
     title: "Every Product Is Tested Before It Reaches You",
     body:
-      "Quality is non-negotiable in industrial equipment. Our six-stage manufacturing process ensures every unit leaves our facility performing exactly as it should.",
+      "Quality is non-negotiable in industrial equipment. Our eight-stage manufacturing process ensures every unit leaves our facility performing exactly as it should.",
     stages: [
       "Raw Material Verification",
       "CNC Precision Machining",
-      "Dimensional Inspection",
-      "Assembly Verification",
-      "Functional Testing",
-      "Final Dispatch Approval",
+      "Heat Treatment",
+      "Grinding",
+      "QC & Functional Testing",
+      "Accept & Testing",
+      "Painting & Packing",
+      "Dispatch",
     ],
     iso:
       "ISO 9001:2015 | Certificate No. V3QC/QMS/D26/0031 | Issued by V3 Quality Certification | Valid Until April 2029",
@@ -152,7 +154,7 @@ export const aboutPageData = {
     vision:
       "To be the Market Leader in the Rock Drilling Industry and manufacture innovative products, providing ease-of-use to our users.",
     manufacturingCapability:
-      "Our 25,000 sq. ft. manufacturing facility at MIDC Pimpri, Pune is equipped with advanced CNC machining centres, heat treatment systems, precision assembly areas, and rigorous quality inspection stations — a complete six-stage manufacturing process from raw material to dispatch.",
+      "Our 25,000 sq. ft. manufacturing facility at MIDC Pimpri, Pune is equipped with advanced CNC machining centres, heat treatment systems, precision assembly areas, and rigorous quality inspection stations — a complete eight-stage manufacturing process from raw material to dispatch.",
     capabilityCards: [
       { title: "CNC Precision", text: "Multi-axis machining for tight tolerances and repeatable quality." },
       { title: "Heat Treatment", text: "In-house thermal processes for hardness and wear resistance." },
@@ -248,12 +250,12 @@ export const infraQualityPageData = {
     eyebrow: "Built to Manufacture. Equipped to Deliver.",
     heading: "Inside the HAVA 25,000 Sq. Ft. Manufacturing Facility",
     body:
-      "Our facility at MIDC Pimpri, Pune is a full manufacturing plant — not a warehouse or assembly point. Raw material arrives and finished, tested, dispatch-ready equipment leaves. Six controlled stages. Zero compromise. Every unit.",
+      "Our facility at MIDC Pimpri, Pune is a full manufacturing plant — not a warehouse or assembly point. Raw material arrives and finished, tested, dispatch-ready equipment leaves. Eight controlled stages. Zero compromise. Every unit.",
   },
   factoryOverview: {
     title: "MIDC Pimpri Manufacturing Plant",
     body:
-      "The HAVA manufacturing facility has been continuously upgraded since 1970. Today it operates as a fully self-sufficient plant covering raw material intake, CNC precision machining, heat treatment, assembly, quality inspection, functional testing, and export packaging — all under one roof.",
+      "The HAVA manufacturing facility has been continuously upgraded since 1970. Today it operates as a fully self-sufficient plant covering raw material intake, CNC precision machining, heat treatment, grinding, assembly, quality inspection, functional testing, painting, packing, and export packaging — all under one roof.",
     cards: [
       { title: "Total Area", text: "25,000 sq. ft. manufacturing premises" },
       { title: "Location", text: "A-55, H Block, MIDC Pimpri, Pune – 411018" },
@@ -273,16 +275,18 @@ export const infraQualityPageData = {
     },
   },
   processChart: {
-    title: "Six Stages. Zero Compromise.",
+    title: "Eight Stages. Zero Compromise.",
     body:
-      "Every HAVA product — without exception — passes through all six manufacturing stages. Each stage is documented, quality-checked, and signed off before the next begins. This is what ISO 9001:2015 process discipline looks like in practice.",
+      "Every HAVA product — without exception — passes through all eight manufacturing stages. Each stage is documented, quality-checked, and signed off before the next begins. This is what ISO 9001:2015 process discipline looks like in practice.",
     flow: [
       { num: "01", name: "Raw Material", sub: "Intake & Verify" },
       { num: "02", name: "CNC Machining", sub: "Precision Parts" },
       { num: "03", name: "Heat Treatment", sub: "Harden & Temper" },
-      { num: "04", name: "Assembly", sub: "Standard Build" },
+      { num: "04", name: "Grinding", sub: "Surface Finish" },
       { num: "05", name: "QC & Testing", sub: "Inspect & Function Test" },
-      { num: "06", name: "Dispatch", sub: "Export Ready" },
+      { num: "06", name: "Accept & Testing", sub: "Final Acceptance" },
+      { num: "07", name: "Painting & Packing", sub: "Finish & Protect" },
+      { num: "08", name: "Dispatch", sub: "Export Ready" },
     ],
     note: "Every unit · Every time · No exceptions — ISO 9001:2015 Certified",
     stages: [
@@ -314,11 +318,11 @@ export const infraQualityPageData = {
       },
       {
         num: "Stage 04",
-        label: "Assembly",
-        title: "Standardised Build Procedures",
+        label: "Grinding",
+        title: "Surface Finishing & Tight Tolerances",
         body:
-          "Each product category has its own dedicated assembly workstation with documented build procedures, torque specifications, and component sequences. Every unit assembled by skilled technicians following standardised procedures — correct fits, correct torques, correct clearances.",
-        activities: "Component assembly · Torque verification · Clearance checks · Assembly documentation",
+          "Precision grinding ensures all mating surfaces, bores, and shafts meet the tight tolerances required for smooth assembly and long service life. Surface finish is verified to specification before components proceed to assembly.",
+        activities: "Cylindrical grinding · Surface grinding · Internal grinding · Finish verification",
       },
       {
         num: "Stage 05",
@@ -331,11 +335,27 @@ export const infraQualityPageData = {
       },
       {
         num: "Stage 06",
+        label: "Accept & Testing",
+        title: "Final Acceptance Check",
+        body:
+          "Units that pass QC are formally accepted into finished goods. A final verification pass confirms all specifications are met — performance, dimensional, and visual. Rejected units are returned for rework; no exceptions to acceptance criteria.",
+        activities: "Acceptance sign-off · Performance validation · Visual inspection · Rework loop if needed",
+      },
+      {
+        num: "Stage 07",
+        label: "Painting & Packing",
+        title: "Finish & Protection",
+        body:
+          "Accepted units are cleaned, primed, and painted to HAVA's standard finish. Components are individually packed with protective wrapping and placed in export-grade packaging to prevent damage in transit.",
+        activities: "Surface cleaning · Painting & drying · Component wrapping · Export-grade packing",
+      },
+      {
+        num: "Stage 08",
         label: "Dispatch",
         title: "Export-Ready Packaging & Documentation",
         body:
-          "Cleared units are cleaned, protected, and packed in export-ready packaging. All documentation — packing lists, commercial invoices, certificates of origin, technical papers — prepared and verified before dispatch. Every shipment tracked to the customer.",
-        activities: "Product cleaning · Export packaging · Documentation · Shipment verification",
+          "Cleared units are dispatched with full documentation — packing lists, commercial invoices, certificates of origin — prepared and verified before release. Every shipment tracked to the customer. No unit leaves without complete paperwork.",
+        activities: "Documentation prep · Invoice & cert of origin · Shipment release · Tracking to customer",
         highlighted: true,
       },
     ],
@@ -348,11 +368,13 @@ export const infraQualityPageData = {
       { type: "Material Verification", check: "Raw material grade, composition, certification", stage: "Stage 01 — Intake", method: "Supplier cert + incoming inspection" },
       { type: "Dimensional Accuracy", check: "All critical dimensions against drawing specification", stage: "Stage 02 — Post-CNC", method: "CNC machine verification + manual gauging" },
       { type: "Surface Hardness", check: "Hardness of heat-treated components", stage: "Stage 03 — Post Heat Treatment", method: "Hardness tester per component specification" },
-      { type: "Assembly Torque", check: "All fasteners torqued to specification", stage: "Stage 04 — Assembly", method: "Torque wrench — documented" },
-      { type: "Clearance & Fit", check: "Piston-cylinder clearance, chuck fit, rotation", stage: "Stage 04 — Assembly", method: "Feeler gauge / go-no-go gauging" },
+      { type: "Grinding Finish", check: "Surface finish and dimensional tolerance post-grinding", stage: "Stage 04 — Post Grinding", method: "Surface roughness tester + go-no-go gauging" },
+      { type: "Assembly Torque", check: "All fasteners torqued to specification", stage: "Stage 05 — Assembly", method: "Torque wrench — documented" },
+      { type: "Clearance & Fit", check: "Piston-cylinder clearance, chuck fit, rotation", stage: "Stage 05 — Assembly", method: "Feeler gauge / go-no-go gauging" },
       { type: "Air Pressure Test", check: "No leakage at 6 bar operating pressure", stage: "Stage 05 — Testing", method: "Pressure test to 6 bar / 87 PSI" },
       { type: "Functional Test", check: "Impact rate, rotation, flushing, all controls", stage: "Stage 05 — Testing", method: "Run test under load — results documented" },
-      { type: "Visual & Final", check: "Surface finish, marking, completeness, packaging", stage: "Stage 06 — Pre-Dispatch", method: "Visual inspection checklist" },
+      { type: "Final Acceptance", check: "Performance, dimensional, and visual confirmation", stage: "Stage 06 — Accept & Testing", method: "Acceptance checklist sign-off" },
+      { type: "Visual & Final", check: "Surface finish, marking, completeness, packaging", stage: "Stage 08 — Pre-Dispatch", method: "Visual inspection checklist" },
     ],
     isoNote:
       "ISO 9001:2015 — Cert No. V3QC/QMS/D26/0031: Issued 29th April 2026 · Valid until 28th April 2029 · Accredited by UAF (CB-MS-10165) · Issued by V3 Quality Certification Pvt. Ltd., Delhi.",
@@ -377,7 +399,6 @@ export const productsPageData = {
   },
   categories: [
     // CAT A — ROCK DRILLS
-    // CHANGE 1: Removed RH-658/5L row
     {
       code: "A",
       name: "Rock Drills",
@@ -422,7 +443,6 @@ export const productsPageData = {
       summaryLine: "BBC-120F Heavy Duty Drifter · Shank Adapter R32 & R38 · Coupling Sleeve",
     },
     // CAT C — PAVEMENT BREAKERS
-    // CHANGE 2: Restructured table to show Spring & Latch as two separate model columns
     {
       code: "C",
       name: "Pavement Breakers",
@@ -474,7 +494,6 @@ export const productsPageData = {
       summaryLine: "BMK62S Air Leg",
     },
     // CAT E — AIRLINE ACCESSORIES
-    // CHANGE 3: Removed E2 (HAVA Lubri Plus Oil) and E6 (Duster Bib)
     {
       code: "E",
       name: "Airline Accessories",
@@ -518,7 +537,6 @@ export const productsPageData = {
       summaryLine: "Chisel/Moil Points · Integrated Rods · Taper Rods · Shank Adapters · Coupling Sleeves · R32 Extension Rods",
     },
     // CAT G — BUTTON BITS
-    // CHANGE 4: Labels already correct — Rock Drill sizes under "For Rock Drills", Drifter sizes under "For Drifter"
     {
       code: "G",
       name: "Button Bits",

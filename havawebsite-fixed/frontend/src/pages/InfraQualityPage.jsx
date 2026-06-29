@@ -19,6 +19,7 @@ import {
   ChevronRight,
   ChevronLeft,
   ChevronDown,
+  Hammer,
 } from 'lucide-react';
 import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
@@ -30,7 +31,7 @@ import { Button } from '../components/ui/button';
 import { Toaster } from 'sonner';
 import { infraQualityPageData as d } from '../data/pagesData';
 
-const stageIcons = [Layers, Settings, Flame, Wrench, ClipboardCheck, Truck];
+const stageIcons = [Layers, Settings, Flame, Hammer, ClipboardCheck, CheckCircle2, Wrench, Truck];
 
 const ProcessChart = ({ data }) => {
   const [active, setActive] = useState(0);
@@ -45,7 +46,7 @@ const ProcessChart = ({ data }) => {
   const select = (i) => { setActive(i); setAutoPlay(false); };
 
   const stepColors = [
-    '#d33f24', '#185FA5', '#e88c30', '#0F6E56', '#534AB7', '#d33f24'
+    '#d33f24', '#185FA5', '#e88c30', '#0F6E56', '#534AB7', '#d33f24', '#185FA5', '#e88c30'
   ];
 
   return (
@@ -108,7 +109,7 @@ const ProcessChart = ({ data }) => {
                       className="text-[10px] font-bold uppercase tracking-[1.5px] transition-colors"
                       style={{ color: isOpen ? col : '#9ca3af' }}
                     >
-                      Stage {s.num}
+                      {s.num}
                     </span>
                     {isDone && (
                       <span
@@ -332,7 +333,7 @@ export const InfraQualityPage = () => {
         </div>
       </section>
 
-      {/* PROCESS CHART — redesigned animated interactive */}
+      {/* PROCESS CHART */}
       <section className="relative py-12 lg:py-16 overflow-hidden bg-gradient-to-br from-slate-50 via-white to-blue-50">
         <AnimatedBackground />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -340,7 +341,7 @@ export const InfraQualityPage = () => {
             badge="Manufacturing Process Chart"
             badgeColor="trust-blue"
             badgeIcon={Settings}
-            title="Six Stages."
+            title="Eight Stages."
             titleGradient="Zero Compromise."
             intro={d.processChart.body}
           />
