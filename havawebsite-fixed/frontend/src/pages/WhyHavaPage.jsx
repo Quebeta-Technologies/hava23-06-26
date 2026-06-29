@@ -26,7 +26,6 @@ import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
 import { QuoteModal } from '../components/QuoteModal';
 import { AnimatedBackground } from '../components/AnimatedBackground';
-import { PageHero } from '../components/PageHero';
 import { SectionHeader, SectionBadge } from '../components/SectionBadge';
 import { Button } from '../components/ui/button';
 import { Toaster } from 'sonner';
@@ -115,6 +114,13 @@ const qualitySteps = [
   },
 ];
 
+const trustItems = [
+  { icon: '🏭', text: '25,000 Sq. Ft. Facility' },
+  { icon: '✅', text: 'ISO 9001:2015 Certified' },
+  { icon: '🌍', text: 'Exported to 20+ Countries' },
+  { icon: '🔧', text: 'In-House Manufacturing' },
+];
+
 const QualityProcess = () => {
   const [active, setActive] = useState(0);
   const [autoPlay, setAutoPlay] = useState(true);
@@ -135,7 +141,6 @@ const QualityProcess = () => {
 
   return (
     <div className="mt-10">
-      {/* Step cards row */}
       <div className="grid grid-cols-4 md:grid-cols-8 gap-3 mb-8">
         {qualitySteps.map((step, i) => {
           const StepIcon = step.icon;
@@ -147,34 +152,22 @@ const QualityProcess = () => {
               whileHover={{ y: -4 }}
               whileTap={{ scale: 0.97 }}
               className={`relative rounded-2xl p-4 text-center transition-all border-2 ${
-                isActive
-                  ? 'border-hava-red shadow-xl bg-white'
-                  : 'border-steel-gray bg-white hover:border-hava-red/40 hover:shadow-lg'
+                isActive ? 'border-hava-red shadow-xl bg-white' : 'border-steel-gray bg-white hover:border-hava-red/40 hover:shadow-lg'
               }`}
             >
-              {isActive && (
-                <motion.div
-                  layoutId="activeGlow"
-                  className="absolute inset-0 rounded-2xl bg-hava-red/5"
-                />
-              )}
+              {isActive && <motion.div layoutId="activeGlow" className="absolute inset-0 rounded-2xl bg-hava-red/5" />}
               <div className="relative">
-                <div className="text-[10px] font-bold text-gray-400 uppercase tracking-[1.5px] mb-2">
-                  {step.num}
-                </div>
+                <div className="text-[10px] font-bold text-gray-400 uppercase tracking-[1.5px] mb-2">{step.num}</div>
                 <div className={`w-10 h-10 bg-gradient-to-br ${step.color} rounded-xl flex items-center justify-center mx-auto mb-2 ${isActive ? 'scale-110' : ''} transition-transform`}>
                   <StepIcon className="w-5 h-5 text-white" />
                 </div>
-                <p className={`text-xs font-bold leading-tight ${isActive ? 'text-hava-red' : 'text-charcoal'} transition-colors`}>
-                  {step.title}
-                </p>
+                <p className={`text-xs font-bold leading-tight ${isActive ? 'text-hava-red' : 'text-charcoal'} transition-colors`}>{step.title}</p>
               </div>
             </motion.button>
           );
         })}
       </div>
 
-      {/* Progress bar */}
       <div className="h-1 bg-steel-gray rounded-full mb-6 overflow-hidden">
         <motion.div
           className="h-full bg-gradient-to-r from-hava-red to-accent-orange rounded-full"
@@ -183,7 +176,6 @@ const QualityProcess = () => {
         />
       </div>
 
-      {/* Detail panel */}
       <AnimatePresence mode="wait">
         <motion.div
           key={active}
@@ -195,50 +187,30 @@ const QualityProcess = () => {
         >
           <div className="absolute -top-10 -right-10 w-40 h-40 bg-hava-red/20 rounded-full blur-3xl" />
           <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-accent-orange/10 rounded-full blur-3xl" />
-
           <div className="relative">
             <div className="flex items-start gap-4 mb-4">
               <div className={`w-14 h-14 bg-gradient-to-br ${s.color} rounded-2xl flex items-center justify-center flex-shrink-0 shadow-xl`}>
                 <Icon className="w-7 h-7 text-white" />
               </div>
               <div className="flex-1">
-                <div className="text-[10px] font-bold text-accent-orange uppercase tracking-[2px] mb-1">
-                  Stage {s.num} of 08 — {s.sub}
-                </div>
-                <p className="text-xl lg:text-2xl font-black text-white" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
-                  {s.title}
-                </p>
+                <div className="text-[10px] font-bold text-accent-orange uppercase tracking-[2px] mb-1">Stage {s.num} of 08 — {s.sub}</div>
+                <p className="text-xl lg:text-2xl font-black text-white" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>{s.title}</p>
               </div>
             </div>
-
             <p className="text-sm text-white/80 leading-relaxed mb-5">{s.detail}</p>
-
             <div className="flex flex-wrap gap-2 mb-5">
               {s.activities.map((a, ai) => (
-                <span key={ai} className="text-xs font-bold text-white/90 bg-white/10 border border-white/20 px-3 py-1.5 rounded-full">
-                  {a}
-                </span>
+                <span key={ai} className="text-xs font-bold text-white/90 bg-white/10 border border-white/20 px-3 py-1.5 rounded-full">{a}</span>
               ))}
             </div>
-
             <div className="flex items-center justify-between pt-4 border-t border-white/10">
-              <p className="text-[10px] text-white/50 uppercase tracking-wider font-bold">
-                ISO 9001:2015 · Cert No. V3QC/QMS/D26/0031 · Every unit · No exceptions
-              </p>
+              <p className="text-[10px] text-white/50 uppercase tracking-wider font-bold">ISO 9001:2015 · Cert No. V3QC/QMS/D26/0031 · Every unit · No exceptions</p>
               <div className="flex items-center gap-2">
-                <button
-                  onClick={() => { handleSelect(Math.max(0, active - 1)); }}
-                  disabled={active === 0}
-                  className="w-8 h-8 bg-white/10 hover:bg-white/20 rounded-lg flex items-center justify-center transition-colors disabled:opacity-30"
-                >
+                <button onClick={() => handleSelect(Math.max(0, active - 1))} disabled={active === 0} className="w-8 h-8 bg-white/10 hover:bg-white/20 rounded-lg flex items-center justify-center transition-colors disabled:opacity-30">
                   <ChevronLeft className="w-4 h-4 text-white" />
                 </button>
                 <span className="text-xs text-white/60 font-bold">{active + 1}/{qualitySteps.length}</span>
-                <button
-                  onClick={() => { handleSelect(Math.min(qualitySteps.length - 1, active + 1)); }}
-                  disabled={active === qualitySteps.length - 1}
-                  className="w-8 h-8 bg-white/10 hover:bg-white/20 rounded-lg flex items-center justify-center transition-colors disabled:opacity-30"
-                >
+                <button onClick={() => handleSelect(Math.min(qualitySteps.length - 1, active + 1))} disabled={active === qualitySteps.length - 1} className="w-8 h-8 bg-white/10 hover:bg-white/20 rounded-lg flex items-center justify-center transition-colors disabled:opacity-30">
                   <ChevronRight className="w-4 h-4 text-white" />
                 </button>
               </div>
@@ -247,16 +219,9 @@ const QualityProcess = () => {
         </motion.div>
       </AnimatePresence>
 
-      {/* Dot navigation */}
       <div className="flex items-center justify-center gap-2 mt-5">
         {qualitySteps.map((_, i) => (
-          <button
-            key={i}
-            onClick={() => handleSelect(i)}
-            className={`rounded-full transition-all ${
-              i === active ? 'w-6 h-2 bg-hava-red' : 'w-2 h-2 bg-steel-gray hover:bg-hava-red/40'
-            }`}
-          />
+          <button key={i} onClick={() => handleSelect(i)} className={`rounded-full transition-all ${i === active ? 'w-6 h-2 bg-hava-red' : 'w-2 h-2 bg-steel-gray hover:bg-hava-red/40'}`} />
         ))}
       </div>
     </div>
@@ -271,56 +236,73 @@ export const WhyHavaPage = () => {
       <Toaster position="top-right" richColors />
       <Header onQuoteClick={() => setQuoteModalOpen(true)} />
 
-      {/* HERO */}
-      <PageHero
-        eyebrow={d.hero.eyebrow}
-        title="Precision Manufacturing."
-        titleGradient="Trusted Globally."
-        body={d.hero.subheading}
-      >
-        <div className="flex flex-col sm:flex-row gap-3 justify-center items-center">
-          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-            <Button onClick={() => setQuoteModalOpen(true)} className="bg-gradient-to-r from-hava-red to-hava-red/90 text-white font-bold px-8 py-6 text-base shadow-2xl rounded-xl animate-pulse-glow group w-full sm:w-auto">
-              <span className="flex items-center justify-center gap-2">
-                {d.hero.primaryCTA}
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </span>
-            </Button>
-          </motion.div>
-          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-            <Button onClick={() => (window.location.href = '/products')} className="glass-morphism border-2 border-trust-blue/50 text-trust-blue hover:bg-trust-blue hover:text-white font-bold px-8 py-6 text-base rounded-xl shadow-lg backdrop-blur-xl w-full sm:w-auto">
-              {d.hero.secondaryCTA}
-            </Button>
-          </motion.div>
+      {/* ── HERO — left text, right buttons + trust boxes ── */}
+      <section className="relative py-10 lg:py-14 overflow-hidden bg-gradient-to-br from-slate-50 via-white to-blue-50">
+        <div className="absolute top-0 right-0 w-96 h-96 bg-hava-red/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 left-0 w-96 h-96 bg-trust-blue/5 rounded-full blur-3xl" />
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col lg:flex-row items-start lg:items-center gap-8 lg:gap-12">
+
+            {/* LEFT — eyebrow + title + body */}
+            <div className="flex-1 min-w-0">
+              <div className="inline-flex items-center gap-2 bg-white border border-steel-gray rounded-full px-4 py-2 mb-4 shadow-sm">
+                <span className="text-accent-orange text-sm">✦</span>
+                <span className="text-xs font-bold uppercase tracking-[2px] text-charcoal">{d.hero.eyebrow}</span>
+                <span className="w-2 h-2 bg-accent-orange rounded-full" />
+              </div>
+              <h1 className="text-3xl lg:text-5xl font-black text-charcoal leading-tight mb-4" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
+                Precision Manufacturing.{' '}
+                <span className="gradient-text">Trusted Globally.</span>
+              </h1>
+              <p className="text-base text-gray-600 leading-relaxed max-w-xl">{d.hero.subheading}</p>
+            </div>
+
+            {/* RIGHT — buttons + 4 trust boxes */}
+            <div className="flex-shrink-0 w-full lg:w-80 flex flex-col gap-4">
+              <div className="flex flex-col sm:flex-row lg:flex-col gap-3">
+                <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }} className="w-full">
+                  <Button
+                    onClick={() => setQuoteModalOpen(true)}
+                    className="w-full bg-gradient-to-r from-hava-red to-hava-red/90 text-white font-bold px-6 py-5 text-sm shadow-xl rounded-xl group animate-pulse-glow"
+                  >
+                    {d.hero.primaryCTA} <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  </Button>
+                </motion.div>
+                <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }} className="w-full">
+                  <Button
+                    onClick={() => (window.location.href = '/products')}
+                    className="w-full glass-morphism border-2 border-trust-blue/50 text-trust-blue hover:bg-trust-blue hover:text-white font-bold px-6 py-5 text-sm rounded-xl shadow-lg backdrop-blur-xl"
+                  >
+                    {d.hero.secondaryCTA}
+                  </Button>
+                </motion.div>
+              </div>
+
+              {/* 4 trust boxes */}
+              <div className="grid grid-cols-2 gap-2">
+                {trustItems.map((item, i) => (
+                  <div key={i} className="bg-white border-2 border-steel-gray rounded-xl px-3 py-2.5 flex items-center gap-2 shadow-sm">
+                    <span className="text-base flex-shrink-0">{item.icon}</span>
+                    <span className="text-[11px] font-bold text-charcoal leading-tight">{item.text}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+          </div>
         </div>
-        <p className="mt-6 text-sm text-gray-600 max-w-2xl mx-auto">Built for Your Success.</p>
-      </PageHero>
+      </section>
 
       {/* SECTION 1 — Our Difference */}
-      <section className="relative py-12 lg:py-16 overflow-hidden bg-white">
+      <section className="relative py-10 lg:py-14 overflow-hidden bg-white">
         <div className="absolute top-20 right-0 w-72 h-72 bg-hava-red/5 rounded-full blur-3xl" />
         <div className="absolute bottom-20 left-0 w-96 h-96 bg-trust-blue/5 rounded-full blur-3xl" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-
-            {/* LEFT — stats card with background image */}
-            <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-              className="relative"
-            >
+            <motion.div initial={{ opacity: 0, x: -50 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="relative">
               <div className="relative rounded-3xl overflow-hidden shadow-2xl">
-                {/* Background image */}
-                <div
-                  className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-                  style={{ backgroundImage: `url('/assets/hava-factory.png')` }}
-                />
-                {/* Dark overlay */}
+                <div className="absolute inset-0 bg-cover bg-center bg-no-repeat" style={{ backgroundImage: `url('/assets/hava-factory.png')` }} />
                 <div className="absolute inset-0 bg-gradient-to-br from-charcoal/85 to-trust-blue/75" />
-
-                {/* Content */}
                 <div className="relative p-10">
                   <div className="grid grid-cols-2 gap-4">
                     {[
@@ -329,14 +311,7 @@ export const WhyHavaPage = () => {
                       { icon: ShieldCheck, label: 'Quality Assured', value: 'ISO', sub: '9001:2015' },
                       { icon: Globe, label: 'Global Export', value: '20+', sub: 'Countries' },
                     ].map((card, i) => (
-                      <motion.div
-                        key={i}
-                        initial={{ opacity: 0, scale: 0.8 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.4, delay: i * 0.1 }}
-                        className="bg-white/10 backdrop-blur-md rounded-2xl p-5 border border-white/20 hover:bg-white/15 transition-colors"
-                      >
+                      <motion.div key={i} initial={{ opacity: 0, scale: 0.8 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 0.4, delay: i * 0.1 }} className="bg-white/10 backdrop-blur-md rounded-2xl p-5 border border-white/20 hover:bg-white/15 transition-colors">
                         <div className="w-10 h-10 bg-gradient-to-br from-hava-red to-accent-orange rounded-xl flex items-center justify-center mb-3">
                           <card.icon className="w-5 h-5 text-white" />
                         </div>
@@ -352,13 +327,7 @@ export const WhyHavaPage = () => {
               </div>
             </motion.div>
 
-            {/* RIGHT — text content */}
-            <motion.div
-              initial={{ opacity: 0, x: 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-            >
+            <motion.div initial={{ opacity: 0, x: 50 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }}>
               <SectionBadge color="hava-red" className="mb-5">{d.section1.label}</SectionBadge>
               <h2 className="text-3xl lg:text-4xl font-black text-charcoal mb-5 leading-tight">
                 Designed, Machined & Tested <span className="gradient-text">In-House</span> — Every Product, Every Time.
@@ -366,14 +335,7 @@ export const WhyHavaPage = () => {
               <p className="text-base text-gray-700 leading-relaxed mb-7">{d.section1.body}</p>
               <div className="space-y-3">
                 {d.section1.points.map((p, i) => (
-                  <motion.div
-                    key={i}
-                    initial={{ opacity: 0, x: 20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.4, delay: i * 0.1 }}
-                    className="flex items-start gap-3 border-l-4 border-hava-red pl-4 py-2"
-                  >
+                  <motion.div key={i} initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.4, delay: i * 0.1 }} className="flex items-start gap-3 border-l-4 border-hava-red pl-4 py-2">
                     <CheckCircle2 className="w-5 h-5 text-hava-red flex-shrink-0 mt-0.5" />
                     <div>
                       <div className="font-bold text-charcoal">{p.title}</div>
@@ -383,13 +345,12 @@ export const WhyHavaPage = () => {
                 ))}
               </div>
             </motion.div>
-
           </div>
         </div>
       </section>
 
       {/* SECTION 2 — Compatibility */}
-      <section className="relative py-12 lg:py-16 overflow-hidden bg-gradient-to-br from-slate-50 via-white to-blue-50">
+      <section className="relative py-10 lg:py-14 overflow-hidden bg-gradient-to-br from-slate-50 via-white to-blue-50">
         <AnimatedBackground />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader badge={d.section2.label} badgeColor="trust-blue" badgeIcon={ShieldCheck} title="Atlas Copco" titleGradient="Compatible Solutions" intro={d.section2.body} />
@@ -415,7 +376,7 @@ export const WhyHavaPage = () => {
       </section>
 
       {/* SECTION 3 — Quality Process */}
-      <section className="relative py-12 lg:py-16 overflow-hidden bg-white">
+      <section className="relative py-10 lg:py-14 overflow-hidden bg-white">
         <div className="absolute top-20 right-0 w-72 h-72 bg-hava-red/5 rounded-full blur-3xl" />
         <div className="absolute bottom-20 left-0 w-96 h-96 bg-trust-blue/5 rounded-full blur-3xl" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -425,7 +386,7 @@ export const WhyHavaPage = () => {
       </section>
 
       {/* SECTION 4 — Where We Work */}
-      <section className="relative py-12 lg:py-16 overflow-hidden bg-gradient-to-br from-slate-50 via-white to-blue-50">
+      <section className="relative py-10 lg:py-14 overflow-hidden bg-gradient-to-br from-slate-50 via-white to-blue-50">
         <AnimatedBackground />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader badge={d.section4.label} badgeColor="accent-orange" badgeIcon={Globe} title="Built for" titleGradient="Tough Working Conditions" intro={d.section4.body} />
@@ -444,7 +405,7 @@ export const WhyHavaPage = () => {
       </section>
 
       {/* SECTION 5 — HAVA vs Trader */}
-      <section className="relative py-12 lg:py-16 overflow-hidden bg-white">
+      <section className="relative py-10 lg:py-14 overflow-hidden bg-white">
         <div className="absolute top-20 left-0 w-96 h-96 bg-hava-red/5 rounded-full blur-3xl" />
         <div className="absolute bottom-20 right-0 w-72 h-72 bg-trust-blue/5 rounded-full blur-3xl" />
         <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -471,7 +432,7 @@ export const WhyHavaPage = () => {
       </section>
 
       {/* SECTION 6 — Why Buyers Return */}
-      <section className="relative py-12 lg:py-16 overflow-hidden bg-gradient-to-br from-slate-50 via-white to-blue-50">
+      <section className="relative py-10 lg:py-14 overflow-hidden bg-gradient-to-br from-slate-50 via-white to-blue-50">
         <AnimatedBackground />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader badge={d.section6.label} badgeColor="trust-blue" badgeIcon={Users} title="Why Buyers Keep" titleGradient="Coming Back to HAVA" />
@@ -497,13 +458,13 @@ export const WhyHavaPage = () => {
       </section>
 
       {/* FINAL CTA */}
-      <section className="relative py-12 lg:py-16 overflow-hidden bg-charcoal">
+      <section className="relative py-10 lg:py-14 overflow-hidden bg-charcoal">
         <div className="absolute top-0 right-0 w-96 h-96 bg-hava-red/10 rounded-full blur-3xl" />
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-trust-blue/10 rounded-full blur-3xl" />
         <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="text-center mb-10">
-            <p className="text-3xl lg:text-5xl font-black text-white mb-4">Ready to Work With <span className="gradient-text">HAVA?</span></p>
-            <p className="text-base lg:text-lg text-white/70 max-w-2xl mx-auto">{d.finalCta.body}</p>
+            <p className="text-3xl lg:text-4xl font-black text-white mb-4">Ready to Work With <span className="gradient-text">HAVA?</span></p>
+            <p className="text-base text-white/70 max-w-2xl mx-auto">{d.finalCta.body}</p>
           </motion.div>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 max-w-5xl mx-auto">
             <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="bg-gradient-to-br from-hava-red/20 to-accent-orange/20 backdrop-blur-xl border border-white/10 rounded-3xl p-7">
@@ -528,8 +489,7 @@ export const WhyHavaPage = () => {
               <p className="text-xl font-bold text-accent-orange mb-4" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>Quick Enquiry</p>
               <p className="text-sm text-white/70 mb-5">Share your requirement and our team will get back to you with a tailored solution.</p>
               <Button onClick={() => setQuoteModalOpen(true)} className="w-full bg-gradient-to-r from-hava-red to-accent-orange hover:from-hava-red/90 hover:to-accent-orange/90 text-white font-bold py-6 text-base shadow-xl rounded-xl group">
-                Submit Enquiry
-                <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                Submit Enquiry <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </Button>
             </motion.div>
           </div>
