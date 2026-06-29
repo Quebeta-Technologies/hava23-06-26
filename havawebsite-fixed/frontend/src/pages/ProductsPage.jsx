@@ -29,66 +29,61 @@ const categoryIcons = {
   H: Package,
 };
 
-// ─── Generic Product Card: image left, specs right ──────────────────────────
+// ─── Generic Product Card ────────────────────────────────────────────────────
 const ProductCard = ({ title, subtitle, image, specs, catCode, onEnquire, badge }) => {
   const Icon = categoryIcons[catCode];
   return (
     <div className="bg-white rounded-2xl border-2 border-steel-gray hover:border-hava-red/40 hover:shadow-xl transition-all overflow-hidden flex flex-col sm:flex-row">
-      {/* LEFT — image 700×1000 aspect */}
-      <div
-        className="w-full sm:w-44 lg:w-52 flex-shrink-0 bg-gradient-to-br from-slate-100 to-blue-50 flex items-center justify-center p-5"
-        style={{ minHeight: '200px' }}
-      >
+      {/* LEFT — image, full cover */}
+      <div className="w-full sm:w-44 lg:w-52 flex-shrink-0 bg-gradient-to-br from-slate-100 to-blue-50 overflow-hidden" style={{ minHeight: '220px' }}>
         {image ? (
           <img
             src={image}
             alt={title}
-            className="w-full object-contain"
-            style={{ maxWidth: '140px', aspectRatio: '700/1000' }}
+            className="w-full h-full object-cover"
+            style={{ minHeight: '220px' }}
           />
         ) : (
-          <div className="w-20 h-28 bg-gradient-to-br from-hava-red/20 to-accent-orange/20 rounded-2xl flex items-center justify-center">
-            <Icon className="w-10 h-10 text-hava-red/60" />
+          <div className="w-full h-full flex items-center justify-center" style={{ minHeight: '220px' }}>
+            <Icon className="w-12 h-12 text-hava-red/40" />
           </div>
         )}
       </div>
 
       {/* RIGHT — details */}
-      <div className="flex-1 p-5 flex flex-col justify-between">
-        <div>
-          <div className="mb-3">
+      <div className="flex-1 p-5 flex flex-col">
+        {/* Top row: badge + title + Enquire Now */}
+        <div className="flex items-start justify-between gap-3 mb-3">
+          <div>
             {badge && (
-              <span className="text-[10px] font-bold bg-trust-blue/10 text-trust-blue border border-trust-blue/20 px-2.5 py-1 rounded-full uppercase tracking-wider mb-2 inline-block">
+              <span className="text-[10px] font-bold bg-trust-blue/10 text-trust-blue border border-trust-blue/20 px-2.5 py-1 rounded-full uppercase tracking-wider mb-1.5 inline-block">
                 {badge}
               </span>
             )}
-            <p className="font-black text-charcoal text-lg leading-tight mt-1" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
+            <p className="font-black text-charcoal text-lg leading-tight" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
               {title}
             </p>
             {subtitle && <p className="text-xs text-gray-500 mt-0.5">{subtitle}</p>}
           </div>
-
-          {specs && specs.length > 0 && (
-            <div className="flex flex-wrap gap-2 mb-3">
-              {specs.map((s, i) => (
-                <div key={i} className="flex items-center gap-1.5 bg-slate-50 border border-steel-gray rounded-lg px-2.5 py-1">
-                  <span className="text-[10px] font-bold text-gray-400 uppercase tracking-wider">{s.label}</span>
-                  <span className="text-[11px] font-bold text-charcoal">{s.value}</span>
-                </div>
-              ))}
-            </div>
-          )}
-        </div>
-
-        <div className="flex items-center justify-between pt-3 border-t border-steel-gray mt-2">
-          <span className="text-[10px] text-gray-400 font-bold uppercase tracking-wider">ISO 9001:2015 · Made in India</span>
           <button
             onClick={onEnquire}
-            className="text-xs font-bold text-hava-red hover:text-accent-orange flex items-center gap-1 transition-colors"
+            className="text-xs font-bold text-hava-red hover:text-accent-orange flex items-center gap-1 transition-colors whitespace-nowrap flex-shrink-0 mt-1"
           >
             Enquire Now <ArrowRight className="w-3 h-3" />
           </button>
         </div>
+
+        {/* Spec pills */}
+        {specs && specs.length > 0 && (
+          <div className="flex flex-wrap gap-2">
+            {specs.map((s, i) => (
+              <div key={i} className="flex items-center gap-1.5 bg-slate-50 border border-steel-gray rounded-lg px-2.5 py-1">
+                <span className="text-[10px] font-bold text-gray-400 uppercase tracking-wider">{s.label}</span>
+                <span className="text-[11px] font-bold text-charcoal">{s.value}</span>
+              </div>
+            ))}
+          </div>
+        )}
       </div>
     </div>
   );
@@ -106,18 +101,6 @@ const TwoColBlock = ({ items }) => (
   </div>
 );
 
-// ─── Action bar ──────────────────────────────────────────────────────────────
-const CategoryActionBar = ({ onEnquire }) => (
-  <div className="mt-6 flex flex-wrap gap-3 justify-end">
-    <Button variant="outline" className="border-2 border-steel-gray text-charcoal hover:border-hava-red hover:text-hava-red text-xs h-9 px-4">
-      <Download className="w-3 h-3 mr-1" /> Brochure
-    </Button>
-    <Button onClick={onEnquire} className="bg-gradient-to-r from-hava-red to-accent-orange text-white text-xs font-bold h-9 px-4 group">
-      Request a Quote <ArrowRight className="w-3 h-3 ml-1 group-hover:translate-x-1 transition-transform" />
-    </Button>
-  </div>
-);
-
 // ─── Category content renderer ───────────────────────────────────────────────
 const CategoryContent = ({ cat, onEnquire }) => {
   const Icon = categoryIcons[cat.code];
@@ -127,7 +110,7 @@ const CategoryContent = ({ cat, onEnquire }) => {
     // ── A: Rock Drills ──────────────────────────────────────────────────────
     if (cat.code === 'A') {
       const images = [
-        '/products/ytyt.jpeg',
+        '/products/rh-656-t-handle.jpg',
         '/products/rh-656-spade-handle.jpg',
       ];
       return (
@@ -171,7 +154,7 @@ const CategoryContent = ({ cat, onEnquire }) => {
       );
     }
 
-    // ── C: Pavement Breakers — 2 model cards ────────────────────────────────
+    // ── C: Pavement Breakers ─────────────────────────────────────────────────
     if (cat.code === 'C') {
       const models = [
         {
@@ -207,7 +190,7 @@ const CategoryContent = ({ cat, onEnquire }) => {
       );
     }
 
-    // ── D: Pusher Leg — Metric + Imperial ───────────────────────────────────
+    // ── D: Pusher Leg ────────────────────────────────────────────────────────
     if (cat.code === 'D') {
       const metricSpecs = cat.table.rows.map(r => ({ label: r[0], value: r[1] }));
       const imperialSpecs = cat.table.rows.map(r => ({ label: r[0], value: r[2] }));
@@ -235,7 +218,7 @@ const CategoryContent = ({ cat, onEnquire }) => {
       );
     }
 
-    // ── E: Airline Accessories — 4 product cards ────────────────────────────
+    // ── E: Airline Accessories ───────────────────────────────────────────────
     if (cat.code === 'E') {
       const products = [
         {
@@ -280,7 +263,7 @@ const CategoryContent = ({ cat, onEnquire }) => {
       );
     }
 
-    // ── F: Extension Equipment — single combined card ────────────────────────
+    // ── F: Extension Equipment ───────────────────────────────────────────────
     if (cat.code === 'F') {
       const items = [
         'Chisel & Moil Points',
@@ -292,46 +275,40 @@ const CategoryContent = ({ cat, onEnquire }) => {
       ];
       return (
         <div className="bg-white rounded-2xl border-2 border-steel-gray hover:border-hava-red/40 hover:shadow-xl transition-all overflow-hidden flex flex-col sm:flex-row">
-          <div
-            className="w-full sm:w-44 lg:w-52 flex-shrink-0 bg-gradient-to-br from-slate-100 to-blue-50 flex items-center justify-center p-5"
-            style={{ minHeight: '200px' }}
-          >
+          <div className="w-full sm:w-44 lg:w-52 flex-shrink-0 bg-gradient-to-br from-slate-100 to-blue-50 overflow-hidden" style={{ minHeight: '220px' }}>
             <img
               src="/products/extension-equipment.jpg"
               alt="Extension Equipment"
-              className="w-full object-contain"
-              style={{ maxWidth: '140px', aspectRatio: '700/1000' }}
+              className="w-full h-full object-cover"
+              style={{ minHeight: '220px' }}
             />
           </div>
-          <div className="flex-1 p-5 flex flex-col justify-between">
-            <div>
-              <p className="font-black text-charcoal text-lg leading-tight mb-4" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
+          <div className="flex-1 p-5 flex flex-col">
+            <div className="flex items-start justify-between gap-3 mb-4">
+              <p className="font-black text-charcoal text-lg leading-tight" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
                 Extension Equipment — Full Range
               </p>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                {items.map((item, i) => (
-                  <div key={i} className="flex items-center gap-2 bg-slate-50 border border-steel-gray rounded-xl px-3 py-2.5">
-                    <div className="w-1.5 h-1.5 bg-hava-red rounded-full flex-shrink-0" />
-                    <span className="text-sm font-bold text-charcoal">{item}</span>
-                  </div>
-                ))}
-              </div>
-              {cat.tags && (
-                <div className="flex flex-wrap gap-2 mt-4">
-                  {cat.tags.map((tag, i) => (
-                    <span key={i} className="text-xs font-bold uppercase tracking-wider bg-slate-50 border border-steel-gray text-charcoal px-3 py-1.5 rounded-full">
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              )}
-            </div>
-            <div className="flex items-center justify-between pt-3 border-t border-steel-gray mt-4">
-              <span className="text-[10px] text-gray-400 font-bold uppercase tracking-wider">ISO 9001:2015 · Made in India</span>
-              <button onClick={onEnquire} className="text-xs font-bold text-hava-red hover:text-accent-orange flex items-center gap-1 transition-colors">
+              <button onClick={onEnquire} className="text-xs font-bold text-hava-red hover:text-accent-orange flex items-center gap-1 transition-colors whitespace-nowrap flex-shrink-0">
                 Enquire Now <ArrowRight className="w-3 h-3" />
               </button>
             </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+              {items.map((item, i) => (
+                <div key={i} className="flex items-center gap-2 bg-slate-50 border border-steel-gray rounded-xl px-3 py-2.5">
+                  <div className="w-1.5 h-1.5 bg-hava-red rounded-full flex-shrink-0" />
+                  <span className="text-sm font-bold text-charcoal">{item}</span>
+                </div>
+              ))}
+            </div>
+            {cat.tags && (
+              <div className="flex flex-wrap gap-2 mt-4">
+                {cat.tags.map((tag, i) => (
+                  <span key={i} className="text-xs font-bold uppercase tracking-wider bg-slate-50 border border-steel-gray text-charcoal px-3 py-1.5 rounded-full">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            )}
           </div>
         </div>
       );
@@ -347,31 +324,25 @@ const CategoryContent = ({ cat, onEnquire }) => {
         <div className="space-y-4">
           {cat.twoCol.map((item, i) => (
             <div key={i} className="bg-white rounded-2xl border-2 border-steel-gray hover:border-hava-red/40 hover:shadow-xl transition-all overflow-hidden flex flex-col sm:flex-row">
-              <div
-                className="w-full sm:w-44 lg:w-52 flex-shrink-0 bg-gradient-to-br from-slate-100 to-blue-50 flex items-center justify-center p-5"
-                style={{ minHeight: '200px' }}
-              >
+              <div className="w-full sm:w-44 lg:w-52 flex-shrink-0 bg-gradient-to-br from-slate-100 to-blue-50 overflow-hidden" style={{ minHeight: '220px' }}>
                 <img
                   src={images[i] || cat.image}
                   alt={item.heading}
-                  className="w-full object-contain"
-                  style={{ maxWidth: '140px', aspectRatio: '700/1000' }}
+                  className="w-full h-full object-cover"
+                  style={{ minHeight: '220px' }}
                 />
               </div>
-              <div className="flex-1 p-5 flex flex-col justify-between">
-                <div>
-                  <p className="font-black text-charcoal text-lg leading-tight mb-3" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>{item.heading}</p>
-                  <div className="flex flex-wrap gap-2">
-                    {item.text.split(' / ').map((size, si) => (
-                      <span key={si} className="text-sm font-bold bg-slate-50 border-2 border-steel-gray text-charcoal px-4 py-2 rounded-xl">{size}</span>
-                    ))}
-                  </div>
-                </div>
-                <div className="flex items-center justify-between pt-3 border-t border-steel-gray mt-4">
-                  <span className="text-[10px] text-gray-400 font-bold uppercase tracking-wider">ISO 9001:2015 · Made in India</span>
-                  <button onClick={onEnquire} className="text-xs font-bold text-hava-red hover:text-accent-orange flex items-center gap-1 transition-colors">
+              <div className="flex-1 p-5 flex flex-col">
+                <div className="flex items-start justify-between gap-3 mb-3">
+                  <p className="font-black text-charcoal text-lg leading-tight" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>{item.heading}</p>
+                  <button onClick={onEnquire} className="text-xs font-bold text-hava-red hover:text-accent-orange flex items-center gap-1 transition-colors whitespace-nowrap flex-shrink-0">
                     Enquire Now <ArrowRight className="w-3 h-3" />
                   </button>
+                </div>
+                <div className="flex flex-wrap gap-2">
+                  {item.text.split(' / ').map((size, si) => (
+                    <span key={si} className="text-sm font-bold bg-slate-50 border-2 border-steel-gray text-charcoal px-4 py-2 rounded-xl">{size}</span>
+                  ))}
                 </div>
               </div>
             </div>
@@ -413,24 +384,37 @@ const CategoryContent = ({ cat, onEnquire }) => {
       transition={{ duration: 0.3 }}
       className="bg-white rounded-3xl shadow-xl border-2 border-steel-gray p-5 sm:p-6 lg:p-8"
     >
-      {/* Category header */}
-      <div className="flex items-center gap-3 mb-2">
-        <div className="w-12 h-12 bg-gradient-to-br from-hava-red to-accent-orange rounded-2xl flex items-center justify-center shadow-lg flex-shrink-0">
-          <Icon className="w-6 h-6 text-white" />
+      {/* Category header row: icon+title LEFT, Brochure+Quote RIGHT */}
+      <div className="flex items-center justify-between gap-4 mb-2 flex-wrap">
+        <div className="flex items-center gap-3">
+          <div className="w-12 h-12 bg-gradient-to-br from-hava-red to-accent-orange rounded-2xl flex items-center justify-center shadow-lg flex-shrink-0">
+            <Icon className="w-6 h-6 text-white" />
+          </div>
+          <div>
+            <p className="text-xl sm:text-2xl lg:text-3xl font-black text-charcoal" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
+              {cat.name}
+            </p>
+            <div className="w-10 h-1 bg-gradient-to-r from-hava-red to-accent-orange rounded-full mt-1.5" />
+          </div>
         </div>
-        <div>
-          <p className="text-xl sm:text-2xl lg:text-3xl font-black text-charcoal" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
-            {cat.name}
-          </p>
-          <div className="w-10 h-1 bg-gradient-to-r from-hava-red to-accent-orange rounded-full mt-1.5" />
+
+        {/* Brochure + Request a Quote — top right */}
+        <div className="flex items-center gap-2 flex-shrink-0">
+          <Button variant="outline" className="border-2 border-steel-gray text-charcoal hover:border-hava-red hover:text-hava-red text-xs h-9 px-4">
+            <Download className="w-3 h-3 mr-1" /> Brochure
+          </Button>
+          <Button onClick={onEnquire} className="bg-gradient-to-r from-hava-red to-accent-orange text-white text-xs font-bold h-9 px-4 group">
+            Request a Quote <ArrowRight className="w-3 h-3 ml-1 group-hover:translate-x-1 transition-transform" />
+          </Button>
         </div>
       </div>
+
       <p className="text-sm text-gray-600 leading-relaxed mb-6">{cat.description}</p>
 
       {/* Products */}
       {renderProducts()}
 
-      {/* twoCol info — A, B, C, D only */}
+      {/* twoCol info */}
       {cat.twoCol && !['G'].includes(cat.code) && (
         <TwoColBlock items={cat.twoCol} />
       )}
@@ -448,8 +432,6 @@ const CategoryContent = ({ cat, onEnquire }) => {
           <p className="text-sm text-gray-700"><strong className="text-hava-red uppercase tracking-wider">Critical:</strong> {cat.criticalNote}</p>
         </div>
       )}
-
-      <CategoryActionBar onEnquire={onEnquire} />
     </motion.div>
   );
 };
@@ -555,7 +537,7 @@ export const ProductsPage = () => {
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col lg:flex-row gap-6 lg:gap-8 items-start">
 
-            {/* LEFT SIDEBAR — desktop only */}
+            {/* LEFT SIDEBAR */}
             <div className="hidden lg:block lg:w-64 flex-shrink-0">
               <div className="bg-white rounded-3xl border-2 border-steel-gray shadow-xl overflow-hidden sticky top-36">
                 <div className="bg-gradient-to-br from-charcoal to-trust-blue px-5 py-4">
