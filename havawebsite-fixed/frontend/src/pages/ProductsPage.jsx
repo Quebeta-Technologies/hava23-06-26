@@ -7,7 +7,6 @@ import {
   AlertCircle,
   ChevronDown,
   ChevronUp,
-  CheckCircle2,
 } from 'lucide-react';
 import { Drill, Layers, Zap, Wind, Link, CircleDot, Package } from 'lucide-react';
 import { Header } from '../components/Header';
@@ -30,20 +29,26 @@ const categoryIcons = {
   H: Package,
 };
 
-// ─── Product Card (image left, details right) ───────────────────────────────
-const ProductCard = ({ row, headers, image, catCode, onEnquire }) => {
-  // Build spec pills from table row (skip first col which is model name)
-  const specs = headers.slice(1).map((h, i) => ({ label: h, value: row[i + 1] })).filter(s => s.value);
-
+// ─── Generic Product Card: image left, specs right ──────────────────────────
+const ProductCard = ({ title, subtitle, image, specs, catCode, onEnquire, badge }) => {
+  const Icon = categoryIcons[catCode];
   return (
-    <div className="bg-white rounded-2xl border-2 border-steel-gray hover:border-hava-red/40 hover:shadow-xl transition-all overflow-hidden flex flex-col sm:flex-row gap-0">
-      {/* LEFT — image */}
-      <div className="w-full sm:w-48 lg:w-56 flex-shrink-0 bg-gradient-to-br from-slate-100 to-blue-50 flex items-center justify-center p-6 min-h-[160px]">
+    <div className="bg-white rounded-2xl border-2 border-steel-gray hover:border-hava-red/40 hover:shadow-xl transition-all overflow-hidden flex flex-col sm:flex-row">
+      {/* LEFT — image 700×1000 aspect */}
+      <div
+        className="w-full sm:w-44 lg:w-52 flex-shrink-0 bg-gradient-to-br from-slate-100 to-blue-50 flex items-center justify-center p-5"
+        style={{ minHeight: '200px' }}
+      >
         {image ? (
-          <img src={image} alt={row[0]} className="max-h-32 w-auto object-contain" />
+          <img
+            src={image}
+            alt={title}
+            className="w-full object-contain"
+            style={{ maxWidth: '140px', aspectRatio: '700/1000' }}
+          />
         ) : (
-          <div className="w-20 h-20 bg-gradient-to-br from-hava-red/20 to-accent-orange/20 rounded-2xl flex items-center justify-center">
-            {(() => { const Icon = categoryIcons[catCode]; return <Icon className="w-10 h-10 text-hava-red/60" />; })()}
+          <div className="w-20 h-28 bg-gradient-to-br from-hava-red/20 to-accent-orange/20 rounded-2xl flex items-center justify-center">
+            <Icon className="w-10 h-10 text-hava-red/60" />
           </div>
         )}
       </div>
@@ -51,28 +56,33 @@ const ProductCard = ({ row, headers, image, catCode, onEnquire }) => {
       {/* RIGHT — details */}
       <div className="flex-1 p-5 flex flex-col justify-between">
         <div>
-          {/* Model name + badge */}
-          <div className="flex items-start justify-between gap-3 mb-3">
-            <p className="font-black text-charcoal text-base lg:text-lg leading-tight" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
-              {row[0]}
+          {/* Title */}
+          <div className="mb-3">
+            {badge && (
+              <span className="text-[10px] font-bold bg-trust-blue/10 text-trust-blue border border-trust-blue/20 px-2.5 py-1 rounded-full uppercase tracking-wider mb-2 inline-block">
+                {badge}
+              </span>
+            )}
+            <p className="font-black text-charcoal text-lg leading-tight mt-1" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
+              {title}
             </p>
-            <span className="text-[10px] font-bold bg-hava-red/10 text-hava-red border border-hava-red/20 px-2.5 py-1 rounded-full whitespace-nowrap flex-shrink-0 uppercase tracking-wider">
-              HAVA
-            </span>
+            {subtitle && <p className="text-xs text-gray-500 mt-0.5">{subtitle}</p>}
           </div>
 
           {/* Spec pills */}
-          <div className="flex flex-wrap gap-2 mb-3">
-            {specs.map((s, i) => (
-              <div key={i} className="flex items-center gap-1.5 bg-slate-50 border border-steel-gray rounded-lg px-2.5 py-1">
-                <span className="text-[10px] font-bold text-gray-400 uppercase tracking-wider">{s.label}</span>
-                <span className="text-[11px] font-bold text-charcoal">{s.value}</span>
-              </div>
-            ))}
-          </div>
+          {specs && specs.length > 0 && (
+            <div className="flex flex-wrap gap-2 mb-3">
+              {specs.map((s, i) => (
+                <div key={i} className="flex items-center gap-1.5 bg-slate-50 border border-steel-gray rounded-lg px-2.5 py-1">
+                  <span className="text-[10px] font-bold text-gray-400 uppercase tracking-wider">{s.label}</span>
+                  <span className="text-[11px] font-bold text-charcoal">{s.value}</span>
+                </div>
+              ))}
+            </div>
+          )}
         </div>
 
-        {/* Bottom row */}
+        {/* Bottom */}
         <div className="flex items-center justify-between pt-3 border-t border-steel-gray mt-2">
           <span className="text-[10px] text-gray-400 font-bold uppercase tracking-wider">ISO 9001:2015 · Made in India</span>
           <button
@@ -87,40 +97,7 @@ const ProductCard = ({ row, headers, image, catCode, onEnquire }) => {
   );
 };
 
-// Special card for non-table items (single row items like F, G rows, etc.)
-const SimpleProductCard = ({ title, detail, image, catCode, onEnquire }) => (
-  <div className="bg-white rounded-2xl border-2 border-steel-gray hover:border-hava-red/40 hover:shadow-xl transition-all overflow-hidden flex flex-col sm:flex-row gap-0">
-    {/* LEFT — image */}
-    <div className="w-full sm:w-48 lg:w-56 flex-shrink-0 bg-gradient-to-br from-slate-100 to-blue-50 flex items-center justify-center p-6 min-h-[140px]">
-      {image ? (
-        <img src={image} alt={title} className="max-h-28 w-auto object-contain" />
-      ) : (
-        <div className="w-16 h-16 bg-gradient-to-br from-hava-red/20 to-accent-orange/20 rounded-2xl flex items-center justify-center">
-          {(() => { const Icon = categoryIcons[catCode]; return <Icon className="w-8 h-8 text-hava-red/60" />; })()}
-        </div>
-      )}
-    </div>
-
-    {/* RIGHT */}
-    <div className="flex-1 p-5 flex flex-col justify-between">
-      <div>
-        <div className="flex items-start justify-between gap-3 mb-2">
-          <p className="font-black text-charcoal text-base leading-tight" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>{title}</p>
-          <span className="text-[10px] font-bold bg-hava-red/10 text-hava-red border border-hava-red/20 px-2.5 py-1 rounded-full whitespace-nowrap flex-shrink-0 uppercase tracking-wider">HAVA</span>
-        </div>
-        {detail && <p className="text-xs text-gray-600 leading-relaxed">{detail}</p>}
-      </div>
-      <div className="flex items-center justify-between pt-3 border-t border-steel-gray mt-3">
-        <span className="text-[10px] text-gray-400 font-bold uppercase tracking-wider">ISO 9001:2015 · Made in India</span>
-        <button onClick={onEnquire} className="text-xs font-bold text-hava-red hover:text-accent-orange flex items-center gap-1 transition-colors">
-          Enquire Now <ArrowRight className="w-3 h-3" />
-        </button>
-      </div>
-    </div>
-  </div>
-);
-
-// Two-col block
+// ─── Two-col info block ───────────────────────────────────────────────────────
 const TwoColBlock = ({ items }) => (
   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-5">
     {items.map((item, i) => (
@@ -132,8 +109,8 @@ const TwoColBlock = ({ items }) => (
   </div>
 );
 
-// Action bar
-const CategoryActionBar = ({ name, onEnquire }) => (
+// ─── Action bar ──────────────────────────────────────────────────────────────
+const CategoryActionBar = ({ onEnquire }) => (
   <div className="mt-6 flex flex-wrap gap-3 justify-end">
     <Button variant="outline" className="border-2 border-steel-gray text-charcoal hover:border-hava-red hover:text-hava-red text-xs h-9 px-4">
       <Download className="w-3 h-3 mr-1" /> Brochure
@@ -144,6 +121,322 @@ const CategoryActionBar = ({ name, onEnquire }) => (
   </div>
 );
 
+// ─── Category content renderer ───────────────────────────────────────────────
+const CategoryContent = ({ cat, onEnquire }) => {
+  const Icon = categoryIcons[cat.code];
+
+  const renderProducts = () => {
+    // ── A: Rock Drills ──────────────────────────────────────────────────────
+    if (cat.code === 'A') {
+      return (
+        <div className="space-y-4">
+          {cat.table.rows.map((row, ri) => (
+            <ProductCard
+              key={ri}
+              catCode="A"
+              image={cat.image}
+              title={row[0]}
+              subtitle={row[1]}
+              specs={cat.table.headers.slice(2).map((h, i) => ({ label: h, value: row[i + 2] }))}
+              onEnquire={onEnquire}
+            />
+          ))}
+        </div>
+      );
+    }
+
+    // ── B: Drifters ─────────────────────────────────────────────────────────
+    if (cat.code === 'B') {
+      return (
+        <div className="space-y-4">
+          {cat.table.rows.map((row, ri) => (
+            <ProductCard
+              key={ri}
+              catCode="B"
+              image={cat.image}
+              title={row[0]}
+              subtitle={row[1]}
+              specs={[]}
+              onEnquire={onEnquire}
+            />
+          ))}
+        </div>
+      );
+    }
+
+    // ── C: Pavement Breakers — 2 model cards ────────────────────────────────
+    if (cat.code === 'C') {
+      const models = [
+        {
+          title: 'CP-117 / HR-117',
+          subtitle: 'Spring Retainer',
+          badge: 'Spring Retainer',
+          image: '/products/pavement-breaker-spring.jpg',
+          specs: cat.table.rows.map(r => ({ label: r[0], value: r[1] })).filter(s => s.label !== 'Model'),
+        },
+        {
+          title: 'CP-117',
+          subtitle: 'Latch Retainer',
+          badge: 'Latch Retainer',
+          image: '/products/pavement-breaker-latch.jpg',
+          specs: cat.table.rows.map(r => ({ label: r[0], value: r[2] })).filter(s => s.label !== 'Model'),
+        },
+      ];
+      return (
+        <div className="space-y-4">
+          {models.map((m, i) => (
+            <ProductCard
+              key={i}
+              catCode="C"
+              image={m.image}
+              title={m.title}
+              subtitle={m.subtitle}
+              badge={m.badge}
+              specs={m.specs}
+              onEnquire={onEnquire}
+            />
+          ))}
+        </div>
+      );
+    }
+
+    // ── D: Pusher Leg — 2 sections: product + application ───────────────────
+    if (cat.code === 'D') {
+      const metricSpecs = cat.table.rows.map(r => ({ label: r[0], value: r[1] }));
+      const imperialSpecs = cat.table.rows.map(r => ({ label: r[0], value: r[2] }));
+      return (
+        <div className="space-y-4">
+          <ProductCard
+            catCode="D"
+            image={cat.image}
+            title="BMK62S Air Leg"
+            badge="Metric"
+            subtitle="Used with RH-656/4W Wet Rock Drill"
+            specs={metricSpecs}
+            onEnquire={onEnquire}
+          />
+          <ProductCard
+            catCode="D"
+            image={cat.image}
+            title="BMK62S Air Leg"
+            badge="Imperial"
+            subtitle="Used with RH-656/4W Wet Rock Drill"
+            specs={imperialSpecs}
+            onEnquire={onEnquire}
+          />
+        </div>
+      );
+    }
+
+    // ── E: Airline Accessories — 4 product cards, no prefix ─────────────────
+    if (cat.code === 'E') {
+      const products = [
+        {
+          title: 'Airline Lubricator BLG-30',
+          specs: [
+            { label: 'Weight', value: '3 kg (6.6 lb)' },
+            { label: 'Volume', value: '1.3 ltr (44 oz)' },
+            { label: 'Air Flow', value: '25–134 l/S (53–284 cfm)' },
+            { label: 'Placement', value: '3M from drill' },
+          ],
+        },
+        {
+          title: 'Clamps',
+          specs: [{ label: 'Type', value: 'Air line clamp accessories' }],
+        },
+        {
+          title: 'Hose Jointers',
+          specs: [{ label: 'Type', value: 'Joiner fittings for airline hose connections' }],
+        },
+        {
+          title: 'Hose Pipe',
+          specs: [{ label: 'Type', value: 'High-pressure airline hose' }],
+        },
+      ];
+      return (
+        <div className="space-y-4">
+          {products.map((p, i) => (
+            <ProductCard
+              key={i}
+              catCode="E"
+              image={cat.image}
+              title={p.title}
+              specs={p.specs}
+              onEnquire={onEnquire}
+            />
+          ))}
+        </div>
+      );
+    }
+
+    // ── F: Extension Equipment — single combined card ────────────────────────
+    if (cat.code === 'F') {
+      const items = [
+        'Chisel & Moil Points',
+        'Integrated Drill Rods',
+        'Taper Drill Rods',
+        'R32 / R38 Shank Adapter',
+        'R32 & R38 Coupling Sleeve',
+        'R32 Extension Rods',
+      ];
+      return (
+        <div className="bg-white rounded-2xl border-2 border-steel-gray hover:border-hava-red/40 hover:shadow-xl transition-all overflow-hidden flex flex-col sm:flex-row">
+          {/* Image */}
+          <div
+            className="w-full sm:w-44 lg:w-52 flex-shrink-0 bg-gradient-to-br from-slate-100 to-blue-50 flex items-center justify-center p-5"
+            style={{ minHeight: '200px' }}
+          >
+            <img
+              src={cat.image}
+              alt="Extension Equipment"
+              className="w-full object-contain"
+              style={{ maxWidth: '140px', aspectRatio: '700/1000' }}
+            />
+          </div>
+          {/* Details */}
+          <div className="flex-1 p-5 flex flex-col justify-between">
+            <div>
+              <p className="font-black text-charcoal text-lg leading-tight mb-4" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
+                Extension Equipment — Full Range
+              </p>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                {items.map((item, i) => (
+                  <div key={i} className="flex items-center gap-2 bg-slate-50 border border-steel-gray rounded-xl px-3 py-2.5">
+                    <div className="w-1.5 h-1.5 bg-hava-red rounded-full flex-shrink-0" />
+                    <span className="text-sm font-bold text-charcoal">{item}</span>
+                  </div>
+                ))}
+              </div>
+              {cat.tags && (
+                <div className="flex flex-wrap gap-2 mt-4">
+                  {cat.tags.map((tag, i) => (
+                    <span key={i} className="text-xs font-bold uppercase tracking-wider bg-slate-50 border border-steel-gray text-charcoal px-3 py-1.5 rounded-full">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              )}
+            </div>
+            <div className="flex items-center justify-between pt-3 border-t border-steel-gray mt-4">
+              <span className="text-[10px] text-gray-400 font-bold uppercase tracking-wider">ISO 9001:2015 · Made in India</span>
+              <button onClick={onEnquire} className="text-xs font-bold text-hava-red hover:text-accent-orange flex items-center gap-1 transition-colors">
+                Enquire Now <ArrowRight className="w-3 h-3" />
+              </button>
+            </div>
+          </div>
+        </div>
+      );
+    }
+
+    // ── G: Button Bits ──────────────────────────────────────────────────────
+    if (cat.code === 'G') {
+      return (
+        <div className="space-y-4">
+          {cat.twoCol.map((item, i) => (
+            <div key={i} className="bg-white rounded-2xl border-2 border-steel-gray hover:border-hava-red/40 hover:shadow-xl transition-all overflow-hidden flex flex-col sm:flex-row">
+              <div
+                className="w-full sm:w-44 lg:w-52 flex-shrink-0 bg-gradient-to-br from-slate-100 to-blue-50 flex items-center justify-center p-5"
+                style={{ minHeight: '200px' }}
+              >
+                <img src={cat.image} alt={item.heading} className="w-full object-contain" style={{ maxWidth: '140px', aspectRatio: '700/1000' }} />
+              </div>
+              <div className="flex-1 p-5 flex flex-col justify-between">
+                <div>
+                  <p className="font-black text-charcoal text-lg leading-tight mb-3" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>{item.heading}</p>
+                  <div className="flex flex-wrap gap-2">
+                    {item.text.split(' / ').map((size, si) => (
+                      <span key={si} className="text-sm font-bold bg-slate-50 border-2 border-steel-gray text-charcoal px-4 py-2 rounded-xl">{size}</span>
+                    ))}
+                  </div>
+                </div>
+                <div className="flex items-center justify-between pt-3 border-t border-steel-gray mt-4">
+                  <span className="text-[10px] text-gray-400 font-bold uppercase tracking-wider">ISO 9001:2015 · Made in India</span>
+                  <button onClick={onEnquire} className="text-xs font-bold text-hava-red hover:text-accent-orange flex items-center gap-1 transition-colors">
+                    Enquire Now <ArrowRight className="w-3 h-3" />
+                  </button>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      );
+    }
+
+    // ── H: Spare Parts ──────────────────────────────────────────────────────
+    if (cat.code === 'H') {
+      return (
+        <>
+          <div className="bg-gradient-to-br from-hava-red/5 to-accent-orange/5 border-l-4 border-hava-red rounded-r-2xl p-5">
+            <p className="font-bold text-hava-red text-sm uppercase tracking-wider mb-2">Why Genuine Spares Matter</p>
+            <p className="text-sm text-gray-700 leading-relaxed">{cat.whyGenuine}</p>
+          </div>
+          <p className="font-bold text-accent-orange text-xs uppercase tracking-[2px] mt-8 mb-4">Why Use Genuine Spare Parts</p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+            {cat.whyCards.map((c, i) => (
+              <div key={i} className="bg-slate-50 border-l-2 border-hava-red rounded-r-xl p-4">
+                <p className="font-bold text-charcoal text-sm mb-1 uppercase tracking-wide">{c.title}</p>
+                <p className="text-xs text-gray-600 leading-relaxed">{c.text}</p>
+              </div>
+            ))}
+          </div>
+        </>
+      );
+    }
+
+    return null;
+  };
+
+  return (
+    <motion.div
+      key={cat.code}
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -10 }}
+      transition={{ duration: 0.3 }}
+      className="bg-white rounded-3xl shadow-xl border-2 border-steel-gray p-5 sm:p-6 lg:p-8"
+    >
+      {/* Category header */}
+      <div className="flex items-center gap-3 mb-2">
+        <div className="w-12 h-12 bg-gradient-to-br from-hava-red to-accent-orange rounded-2xl flex items-center justify-center shadow-lg flex-shrink-0">
+          <Icon className="w-6 h-6 text-white" />
+        </div>
+        <div>
+          <p className="text-xl sm:text-2xl lg:text-3xl font-black text-charcoal" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
+            {cat.name}
+          </p>
+          <div className="w-10 h-1 bg-gradient-to-r from-hava-red to-accent-orange rounded-full mt-1.5" />
+        </div>
+      </div>
+      <p className="text-sm text-gray-600 leading-relaxed mb-6">{cat.description}</p>
+
+      {/* Products */}
+      {renderProducts()}
+
+      {/* twoCol info — only for A, B, C, D */}
+      {cat.twoCol && !['G'].includes(cat.code) && (
+        <TwoColBlock items={cat.twoCol} />
+      )}
+
+      {/* Notes */}
+      {cat.note && (
+        <div className="mt-5 bg-accent-orange/5 border-l-4 border-accent-orange rounded-r-xl p-4 flex items-start gap-3">
+          <AlertCircle className="w-4 h-4 text-accent-orange flex-shrink-0 mt-0.5" />
+          <p className="text-sm text-gray-700"><strong className="text-charcoal">Note:</strong> {cat.note}</p>
+        </div>
+      )}
+      {cat.criticalNote && (
+        <div className="mt-5 bg-hava-red/5 border-l-4 border-hava-red rounded-r-xl p-4 flex items-start gap-3">
+          <AlertCircle className="w-4 h-4 text-hava-red flex-shrink-0 mt-0.5" />
+          <p className="text-sm text-gray-700"><strong className="text-hava-red uppercase tracking-wider">Critical:</strong> {cat.criticalNote}</p>
+        </div>
+      )}
+
+      <CategoryActionBar onEnquire={onEnquire} />
+    </motion.div>
+  );
+};
+
+// ─── Main Page ───────────────────────────────────────────────────────────────
 export const ProductsPage = () => {
   const [quoteModalOpen, setQuoteModalOpen] = useState(false);
   const [activeCategory, setActiveCategory] = useState('A');
@@ -290,194 +583,36 @@ export const ProductsPage = () => {
             <div id="product-detail" className="flex-1 min-w-0 scroll-mt-32">
               <AnimatePresence mode="wait">
                 {activeCat && (
-                  <motion.div
-                    key={activeCat.code}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -10 }}
-                    transition={{ duration: 0.3 }}
-                    className="bg-white rounded-3xl shadow-xl border-2 border-steel-gray p-5 sm:p-6 lg:p-8"
-                  >
-                    {/* Category Header */}
-                    <div className="flex items-center gap-3 mb-2">
-                      <div className="w-12 h-12 bg-gradient-to-br from-hava-red to-accent-orange rounded-2xl flex items-center justify-center shadow-lg flex-shrink-0">
-                        {(() => { const Icon = categoryIcons[activeCat.code]; return <Icon className="w-6 h-6 text-white" />; })()}
-                      </div>
-                      <div>
-                        <p className="text-xl sm:text-2xl lg:text-3xl font-black text-charcoal" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
-                          {activeCat.name}
-                        </p>
-                        <div className="w-10 h-1 bg-gradient-to-r from-hava-red to-accent-orange rounded-full mt-1.5" />
-                      </div>
-                    </div>
-
-                    <p className="text-sm text-gray-600 leading-relaxed mb-6">{activeCat.description}</p>
-
-                    {/* ── PRODUCT CARDS from table rows ── */}
-                    {activeCat.table && activeCat.table.rows.length > 0 && (
-                      <div className="space-y-4 mb-6">
-                        <p className="text-xs font-bold text-gray-400 uppercase tracking-[2px] mb-3">
-                          {activeCat.table.rows.length} Model{activeCat.table.rows.length > 1 ? 's' : ''} Available
-                        </p>
-                        {activeCat.table.rows.map((row, ri) => (
-                          <ProductCard
-                            key={ri}
-                            row={row}
-                            headers={activeCat.table.headers}
-                            image={activeCat.image}
-                            catCode={activeCat.code}
-                            onEnquire={handleEnquire}
-                          />
-                        ))}
-                      </div>
-                    )}
-
-                    {/* ── F: Extension Equipment — SimpleProductCard per row ── */}
-                    {activeCat.code === 'F' && activeCat.table && (
-                      <div className="space-y-4 mb-6">
-                        <p className="text-xs font-bold text-gray-400 uppercase tracking-[2px] mb-3">6 Items Available</p>
-                        {activeCat.table.rows.map((row, ri) => (
-                          <SimpleProductCard
-                            key={ri}
-                            title={row[1]}
-                            detail={row[2]}
-                            image={activeCat.image}
-                            catCode={activeCat.code}
-                            onEnquire={handleEnquire}
-                          />
-                        ))}
-                      </div>
-                    )}
-
-                    {/* ── G: Button Bits — cards from twoCol ── */}
-                    {activeCat.code === 'G' && activeCat.twoCol && (
-                      <div className="space-y-4 mb-6">
-                        <p className="text-xs font-bold text-gray-400 uppercase tracking-[2px] mb-3">2 Product Lines Available</p>
-                        {activeCat.twoCol.map((item, i) => (
-                          <div key={i} className="bg-white rounded-2xl border-2 border-steel-gray hover:border-hava-red/40 hover:shadow-xl transition-all overflow-hidden flex flex-col sm:flex-row">
-                            <div className="w-full sm:w-48 lg:w-56 flex-shrink-0 bg-gradient-to-br from-slate-100 to-blue-50 flex items-center justify-center p-6 min-h-[140px]">
-                              <img src={activeCat.image} alt={item.heading} className="max-h-28 w-auto object-contain" />
-                            </div>
-                            <div className="flex-1 p-5 flex flex-col justify-between">
-                              <div>
-                                <div className="flex items-start justify-between gap-3 mb-2">
-                                  <p className="font-black text-charcoal text-base leading-tight" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>{item.heading}</p>
-                                  <span className="text-[10px] font-bold bg-hava-red/10 text-hava-red border border-hava-red/20 px-2.5 py-1 rounded-full whitespace-nowrap flex-shrink-0 uppercase tracking-wider">HAVA</span>
-                                </div>
-                                <div className="flex flex-wrap gap-2 mt-2">
-                                  {item.text.split(' / ').map((size, si) => (
-                                    <span key={si} className="text-xs font-bold bg-slate-50 border border-steel-gray text-charcoal px-3 py-1.5 rounded-full">{size}</span>
-                                  ))}
-                                </div>
-                              </div>
-                              <div className="flex items-center justify-between pt-3 border-t border-steel-gray mt-3">
-                                <span className="text-[10px] text-gray-400 font-bold uppercase tracking-wider">ISO 9001:2015 · Made in India</span>
-                                <button onClick={handleEnquire} className="text-xs font-bold text-hava-red hover:text-accent-orange flex items-center gap-1 transition-colors">
-                                  Enquire Now <ArrowRight className="w-3 h-3" />
-                                </button>
-                              </div>
-                            </div>
-                          </div>
-                        ))}
-                      </div>
-                    )}
-
-                    {/* ── E: Airline Accessories — SimpleProductCard per row ── */}
-                    {activeCat.code === 'E' && activeCat.table && (
-                      <div className="space-y-4 mb-6">
-                        <p className="text-xs font-bold text-gray-400 uppercase tracking-[2px] mb-3">4 Products Available</p>
-                        {activeCat.table.rows.map((row, ri) => (
-                          <SimpleProductCard
-                            key={ri}
-                            title={row[1]}
-                            detail={row[2]}
-                            image={activeCat.image}
-                            catCode={activeCat.code}
-                            onEnquire={handleEnquire}
-                          />
-                        ))}
-                      </div>
-                    )}
-
-                    {/* twoCol block — skip G (handled above) */}
-                    {activeCat.twoCol && activeCat.code !== 'G' && (
-                      <TwoColBlock items={activeCat.twoCol} />
-                    )}
-
-                    {/* Tags */}
-                    {activeCat.tags && (
-                      <div className="mt-5 flex flex-wrap gap-2">
-                        {activeCat.tags.map((tag, i) => (
-                          <span key={i} className="text-xs font-bold uppercase tracking-wider bg-slate-50 border border-steel-gray text-charcoal px-3 py-1.5 rounded-full">
-                            {tag}
-                          </span>
-                        ))}
-                      </div>
-                    )}
-
-                    {/* Notes */}
-                    {activeCat.note && (
-                      <div className="mt-5 bg-accent-orange/5 border-l-4 border-accent-orange rounded-r-xl p-4 flex items-start gap-3">
-                        <AlertCircle className="w-4 h-4 text-accent-orange flex-shrink-0 mt-0.5" />
-                        <p className="text-sm text-gray-700"><strong className="text-charcoal">Note:</strong> {activeCat.note}</p>
-                      </div>
-                    )}
-                    {activeCat.criticalNote && (
-                      <div className="mt-5 bg-hava-red/5 border-l-4 border-hava-red rounded-r-xl p-4 flex items-start gap-3">
-                        <AlertCircle className="w-4 h-4 text-hava-red flex-shrink-0 mt-0.5" />
-                        <p className="text-sm text-gray-700"><strong className="text-hava-red uppercase tracking-wider">Critical:</strong> {activeCat.criticalNote}</p>
-                      </div>
-                    )}
-
-                    {/* H — Spare parts */}
-                    {activeCat.code === 'H' && (
-                      <>
-                        <div className="mt-5 bg-gradient-to-br from-hava-red/5 to-accent-orange/5 border-l-4 border-hava-red rounded-r-2xl p-5">
-                          <p className="font-bold text-hava-red text-sm uppercase tracking-wider mb-2">Why Genuine HAVA Spares Matter</p>
-                          <p className="text-sm text-gray-700 leading-relaxed">{activeCat.whyGenuine}</p>
-                        </div>
-                        <p className="font-bold text-accent-orange text-xs uppercase tracking-[2px] mt-8 mb-4">Why Use Genuine HAVA Spare Parts</p>
-                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-                          {activeCat.whyCards.map((c, i) => (
-                            <div key={i} className="bg-slate-50 border-l-2 border-hava-red rounded-r-xl p-4">
-                              <p className="font-bold text-charcoal text-sm mb-1 uppercase tracking-wide">{c.title}</p>
-                              <p className="text-xs text-gray-600 leading-relaxed">{c.text}</p>
-                            </div>
-                          ))}
-                        </div>
-                      </>
-                    )}
-
-                    {/* Action Bar */}
-                    <CategoryActionBar name={activeCat.name} onEnquire={handleEnquire} />
-
-                    {/* Prev / Next */}
-                    <div className="flex justify-between items-center mt-6 pt-4 border-t border-steel-gray">
-                      <Button
-                        variant="outline"
-                        className="border-2 border-steel-gray text-charcoal hover:border-hava-red hover:text-hava-red text-xs font-bold"
-                        onClick={() => {
-                          const idx = d.categories.findIndex(c => c.code === activeCategory);
-                          if (idx > 0) handleCategorySelect(d.categories[idx - 1].code);
-                        }}
-                        disabled={activeCategory === d.categories[0].code}
-                      >← Previous</Button>
-                      <span className="text-xs text-gray-500 font-medium">
-                        {d.categories.findIndex(c => c.code === activeCategory) + 1} / {d.categories.length}
-                      </span>
-                      <Button
-                        variant="outline"
-                        className="border-2 border-steel-gray text-charcoal hover:border-hava-red hover:text-hava-red text-xs font-bold"
-                        onClick={() => {
-                          const idx = d.categories.findIndex(c => c.code === activeCategory);
-                          if (idx < d.categories.length - 1) handleCategorySelect(d.categories[idx + 1].code);
-                        }}
-                        disabled={activeCategory === d.categories[d.categories.length - 1].code}
-                      >Next →</Button>
-                    </div>
-                  </motion.div>
+                  <CategoryContent cat={activeCat} onEnquire={handleEnquire} />
                 )}
               </AnimatePresence>
+
+              {/* Prev / Next */}
+              {activeCat && (
+                <div className="flex justify-between items-center mt-4 px-1">
+                  <Button
+                    variant="outline"
+                    className="border-2 border-steel-gray text-charcoal hover:border-hava-red hover:text-hava-red text-xs font-bold"
+                    onClick={() => {
+                      const idx = d.categories.findIndex(c => c.code === activeCategory);
+                      if (idx > 0) handleCategorySelect(d.categories[idx - 1].code);
+                    }}
+                    disabled={activeCategory === d.categories[0].code}
+                  >← Previous</Button>
+                  <span className="text-xs text-gray-500 font-medium">
+                    {d.categories.findIndex(c => c.code === activeCategory) + 1} / {d.categories.length}
+                  </span>
+                  <Button
+                    variant="outline"
+                    className="border-2 border-steel-gray text-charcoal hover:border-hava-red hover:text-hava-red text-xs font-bold"
+                    onClick={() => {
+                      const idx = d.categories.findIndex(c => c.code === activeCategory);
+                      if (idx < d.categories.length - 1) handleCategorySelect(d.categories[idx + 1].code);
+                    }}
+                    disabled={activeCategory === d.categories[d.categories.length - 1].code}
+                  >Next →</Button>
+                </div>
+              )}
             </div>
           </div>
         </div>
