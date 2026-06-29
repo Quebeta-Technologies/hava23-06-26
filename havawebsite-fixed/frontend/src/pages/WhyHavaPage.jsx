@@ -68,10 +68,10 @@ const qualitySteps = [
     icon: Hammer,
     color: 'from-trust-blue/80 to-charcoal',
     bg: 'bg-charcoal/10',
-    title: 'Assembly',
-    sub: 'Standardised build',
-    detail: 'Each product category has its own dedicated assembly workstation with documented build procedures, torque specifications, and component sequences. Every unit assembled by skilled technicians — correct fits, correct torques, correct clearances.',
-    activities: ['Component assembly', 'Torque verification', 'Clearance checks', 'Assembly documentation'],
+    title: 'Grinding',
+    sub: 'Surface finishing & tolerances',
+    detail: 'Precision grinding ensures all mating surfaces, bores, and shafts meet the tight tolerances required for smooth assembly and long service life. Surface finish is verified to specification before components proceed to assembly.',
+    activities: ['Cylindrical grinding', 'Surface grinding', 'Internal grinding', 'Finish verification'],
   },
   {
     num: '05',
@@ -85,13 +85,33 @@ const qualitySteps = [
   },
   {
     num: '06',
+    icon: CheckCircle2,
+    color: 'from-trust-blue to-hava-red/80',
+    bg: 'bg-trust-blue/10',
+    title: 'Accept & Testing',
+    sub: 'Final acceptance check',
+    detail: 'Units that pass QC are formally accepted into finished goods. A final verification pass confirms all specifications are met — performance, dimensional, and visual. Rejected units are returned for rework; no exceptions to acceptance criteria.',
+    activities: ['Acceptance sign-off', 'Performance validation', 'Visual inspection', 'Rework loop if needed'],
+  },
+  {
+    num: '07',
+    icon: Wrench,
+    color: 'from-accent-orange/90 to-trust-blue',
+    bg: 'bg-accent-orange/10',
+    title: 'Painting & Packing',
+    sub: 'Finish & protection',
+    detail: 'Accepted units are cleaned, primed, and painted to HAVA\'s standard finish. Components are then individually packed with protective wrapping and placed in export-grade packaging to prevent damage in transit.',
+    activities: ['Surface cleaning', 'Painting & drying', 'Component wrapping', 'Export-grade packing'],
+  },
+  {
+    num: '08',
     icon: Truck,
-    color: 'from-accent-orange/90 to-hava-red',
+    color: 'from-hava-red to-accent-orange',
     bg: 'bg-hava-red/10',
     title: 'Dispatch',
-    sub: 'Export-ready packaging',
-    detail: 'Cleared units are cleaned, protected, and packed in export-ready packaging. All documentation — packing lists, commercial invoices, certificates of origin — prepared and verified before dispatch. Every shipment tracked to the customer.',
-    activities: ['Product cleaning', 'Export packaging', 'Documentation prep', 'Shipment verification'],
+    sub: 'Shipment & documentation',
+    detail: 'Packed units are dispatched with full documentation — packing lists, commercial invoices, and certificates of origin — verified before release. Every shipment is tracked to the customer. No unit leaves without complete paperwork.',
+    activities: ['Documentation prep', 'Invoice & cert of origin', 'Shipment release', 'Tracking to customer'],
   },
 ];
 
@@ -116,7 +136,7 @@ const QualityProcess = () => {
   return (
     <div className="mt-10">
       {/* Step cards row */}
-      <div className="grid grid-cols-3 md:grid-cols-6 gap-3 mb-8">
+      <div className="grid grid-cols-4 md:grid-cols-8 gap-3 mb-8">
         {qualitySteps.map((step, i) => {
           const StepIcon = step.icon;
           const isActive = i === active;
@@ -183,7 +203,7 @@ const QualityProcess = () => {
               </div>
               <div className="flex-1">
                 <div className="text-[10px] font-bold text-accent-orange uppercase tracking-[2px] mb-1">
-                  Stage {s.num} of 06 — {s.sub}
+                  Stage {s.num} of 08 — {s.sub}
                 </div>
                 <p className="text-xl lg:text-2xl font-black text-white" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
                   {s.title}
