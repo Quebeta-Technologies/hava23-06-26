@@ -56,7 +56,6 @@ const ProductCard = ({ title, subtitle, image, specs, catCode, onEnquire, badge 
       {/* RIGHT — details */}
       <div className="flex-1 p-5 flex flex-col justify-between">
         <div>
-          {/* Title */}
           <div className="mb-3">
             {badge && (
               <span className="text-[10px] font-bold bg-trust-blue/10 text-trust-blue border border-trust-blue/20 px-2.5 py-1 rounded-full uppercase tracking-wider mb-2 inline-block">
@@ -69,7 +68,6 @@ const ProductCard = ({ title, subtitle, image, specs, catCode, onEnquire, badge 
             {subtitle && <p className="text-xs text-gray-500 mt-0.5">{subtitle}</p>}
           </div>
 
-          {/* Spec pills */}
           {specs && specs.length > 0 && (
             <div className="flex flex-wrap gap-2 mb-3">
               {specs.map((s, i) => (
@@ -82,7 +80,6 @@ const ProductCard = ({ title, subtitle, image, specs, catCode, onEnquire, badge 
           )}
         </div>
 
-        {/* Bottom */}
         <div className="flex items-center justify-between pt-3 border-t border-steel-gray mt-2">
           <span className="text-[10px] text-gray-400 font-bold uppercase tracking-wider">ISO 9001:2015 · Made in India</span>
           <button
@@ -126,15 +123,20 @@ const CategoryContent = ({ cat, onEnquire }) => {
   const Icon = categoryIcons[cat.code];
 
   const renderProducts = () => {
+
     // ── A: Rock Drills ──────────────────────────────────────────────────────
     if (cat.code === 'A') {
+      const images = [
+        '/products/rh-656-t-handle.jpg',
+        '/products/rh-656-spade-handle.jpg',
+      ];
       return (
         <div className="space-y-4">
           {cat.table.rows.map((row, ri) => (
             <ProductCard
               key={ri}
               catCode="A"
-              image={cat.image}
+              image={images[ri] || cat.image}
               title={row[0]}
               subtitle={row[1]}
               specs={cat.table.headers.slice(2).map((h, i) => ({ label: h, value: row[i + 2] }))}
@@ -147,13 +149,18 @@ const CategoryContent = ({ cat, onEnquire }) => {
 
     // ── B: Drifters ─────────────────────────────────────────────────────────
     if (cat.code === 'B') {
+      const images = [
+        '/products/bbc-120f-drifter.jpg',
+        '/products/shank-adapter.jpg',
+        '/products/coupling-sleeve.jpg',
+      ];
       return (
         <div className="space-y-4">
           {cat.table.rows.map((row, ri) => (
             <ProductCard
               key={ri}
               catCode="B"
-              image={cat.image}
+              image={images[ri] || cat.image}
               title={row[0]}
               subtitle={row[1]}
               specs={[]}
@@ -200,7 +207,7 @@ const CategoryContent = ({ cat, onEnquire }) => {
       );
     }
 
-    // ── D: Pusher Leg — 2 sections: product + application ───────────────────
+    // ── D: Pusher Leg — Metric + Imperial ───────────────────────────────────
     if (cat.code === 'D') {
       const metricSpecs = cat.table.rows.map(r => ({ label: r[0], value: r[1] }));
       const imperialSpecs = cat.table.rows.map(r => ({ label: r[0], value: r[2] }));
@@ -208,7 +215,7 @@ const CategoryContent = ({ cat, onEnquire }) => {
         <div className="space-y-4">
           <ProductCard
             catCode="D"
-            image={cat.image}
+            image="/products/bmk62s-pusher-leg.jpg"
             title="BMK62S Air Leg"
             badge="Metric"
             subtitle="Used with RH-656/4W Wet Rock Drill"
@@ -217,7 +224,7 @@ const CategoryContent = ({ cat, onEnquire }) => {
           />
           <ProductCard
             catCode="D"
-            image={cat.image}
+            image="/products/bmk62s-pusher-leg.jpg"
             title="BMK62S Air Leg"
             badge="Imperial"
             subtitle="Used with RH-656/4W Wet Rock Drill"
@@ -228,11 +235,12 @@ const CategoryContent = ({ cat, onEnquire }) => {
       );
     }
 
-    // ── E: Airline Accessories — 4 product cards, no prefix ─────────────────
+    // ── E: Airline Accessories — 4 product cards ────────────────────────────
     if (cat.code === 'E') {
       const products = [
         {
           title: 'Airline Lubricator BLG-30',
+          image: '/products/blg-30-lubricator.jpg',
           specs: [
             { label: 'Weight', value: '3 kg (6.6 lb)' },
             { label: 'Volume', value: '1.3 ltr (44 oz)' },
@@ -242,14 +250,17 @@ const CategoryContent = ({ cat, onEnquire }) => {
         },
         {
           title: 'Clamps',
+          image: '/products/airline-clamps.jpg',
           specs: [{ label: 'Type', value: 'Air line clamp accessories' }],
         },
         {
           title: 'Hose Jointers',
+          image: '/products/hose-jointers.jpg',
           specs: [{ label: 'Type', value: 'Joiner fittings for airline hose connections' }],
         },
         {
           title: 'Hose Pipe',
+          image: '/products/hose-pipe.jpg',
           specs: [{ label: 'Type', value: 'High-pressure airline hose' }],
         },
       ];
@@ -259,7 +270,7 @@ const CategoryContent = ({ cat, onEnquire }) => {
             <ProductCard
               key={i}
               catCode="E"
-              image={cat.image}
+              image={p.image}
               title={p.title}
               specs={p.specs}
               onEnquire={onEnquire}
@@ -281,19 +292,17 @@ const CategoryContent = ({ cat, onEnquire }) => {
       ];
       return (
         <div className="bg-white rounded-2xl border-2 border-steel-gray hover:border-hava-red/40 hover:shadow-xl transition-all overflow-hidden flex flex-col sm:flex-row">
-          {/* Image */}
           <div
             className="w-full sm:w-44 lg:w-52 flex-shrink-0 bg-gradient-to-br from-slate-100 to-blue-50 flex items-center justify-center p-5"
             style={{ minHeight: '200px' }}
           >
             <img
-              src={cat.image}
+              src="/products/extension-equipment.jpg"
               alt="Extension Equipment"
               className="w-full object-contain"
               style={{ maxWidth: '140px', aspectRatio: '700/1000' }}
             />
           </div>
-          {/* Details */}
           <div className="flex-1 p-5 flex flex-col justify-between">
             <div>
               <p className="font-black text-charcoal text-lg leading-tight mb-4" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
@@ -330,6 +339,10 @@ const CategoryContent = ({ cat, onEnquire }) => {
 
     // ── G: Button Bits ──────────────────────────────────────────────────────
     if (cat.code === 'G') {
+      const images = [
+        '/products/button-bits-rock-drill.jpg',
+        '/products/button-bits-drifter.jpg',
+      ];
       return (
         <div className="space-y-4">
           {cat.twoCol.map((item, i) => (
@@ -338,7 +351,12 @@ const CategoryContent = ({ cat, onEnquire }) => {
                 className="w-full sm:w-44 lg:w-52 flex-shrink-0 bg-gradient-to-br from-slate-100 to-blue-50 flex items-center justify-center p-5"
                 style={{ minHeight: '200px' }}
               >
-                <img src={cat.image} alt={item.heading} className="w-full object-contain" style={{ maxWidth: '140px', aspectRatio: '700/1000' }} />
+                <img
+                  src={images[i] || cat.image}
+                  alt={item.heading}
+                  className="w-full object-contain"
+                  style={{ maxWidth: '140px', aspectRatio: '700/1000' }}
+                />
               </div>
               <div className="flex-1 p-5 flex flex-col justify-between">
                 <div>
@@ -412,7 +430,7 @@ const CategoryContent = ({ cat, onEnquire }) => {
       {/* Products */}
       {renderProducts()}
 
-      {/* twoCol info — only for A, B, C, D */}
+      {/* twoCol info — A, B, C, D only */}
       {cat.twoCol && !['G'].includes(cat.code) && (
         <TwoColBlock items={cat.twoCol} />
       )}
