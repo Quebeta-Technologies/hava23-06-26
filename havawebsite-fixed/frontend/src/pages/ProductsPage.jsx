@@ -111,7 +111,7 @@ const CategoryContent = ({ cat, onEnquire }) => {
     if (cat.code === 'A') {
       const images = [
         '/products/uy.jpeg',
-        '/products/rh-656-spade-handle.jpg',
+        '/products/45.png',
       ];
       return (
         <div className="space-y-4">
