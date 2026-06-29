@@ -22,7 +22,6 @@ import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
 import { QuoteModal } from '../components/QuoteModal';
 import { AnimatedBackground } from '../components/AnimatedBackground';
-import { PageHero } from '../components/PageHero';
 import { SectionHeader, SectionBadge } from '../components/SectionBadge';
 import { Button } from '../components/ui/button';
 import { Toaster } from 'sonner';
@@ -97,6 +96,13 @@ const contactData = {
   ],
 };
 
+const trustItems = [
+  { icon: '📞', text: '+91 20 2744 0025 / 26' },
+  { icon: '📧', text: 'sales.haryrock@gmail.com' },
+  { icon: '🕐', text: 'Mon–Sat 9AM–6PM' },
+  { icon: '🌍', text: '20+ Countries Served' },
+];
+
 export const ContactPage = () => {
   const [quoteModalOpen, setQuoteModalOpen] = useState(false);
 
@@ -105,51 +111,68 @@ export const ContactPage = () => {
       <Toaster position="top-right" richColors />
       <Header onQuoteClick={() => setQuoteModalOpen(true)} />
 
-      {/* HERO */}
-      <PageHero
-        eyebrow={contactData.hero.eyebrow}
-        title={contactData.hero.title}
-        titleGradient={contactData.hero.titleGradient}
-        body={contactData.hero.body}
-      >
-        <div className="flex flex-col sm:flex-row gap-3 justify-center items-center">
-          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-            <Button
-              onClick={() => setQuoteModalOpen(true)}
-              className="bg-gradient-to-r from-hava-red to-hava-red/90 hover:from-hava-red/90 hover:to-hava-red text-white font-bold px-8 py-6 text-base shadow-2xl rounded-xl group w-full sm:w-auto"
-            >
-              <span className="flex items-center justify-center gap-2">
-                Request a Quote
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </span>
-            </Button>
-          </motion.div>
-          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-            <a href="tel:+912027440025">
-              <Button
-                className="glass-morphism border-2 border-trust-blue/50 text-trust-blue hover:bg-trust-blue hover:text-white font-bold px-8 py-6 text-base rounded-xl shadow-lg backdrop-blur-xl w-full sm:w-auto"
-              >
-                <Phone className="w-4 h-4 mr-2" />
-                Call Us Now
-              </Button>
-            </a>
-          </motion.div>
+      {/* ── HERO — left text, right buttons + trust boxes ── */}
+      <section className="relative py-10 lg:py-14 overflow-hidden bg-gradient-to-br from-slate-50 via-white to-blue-50">
+        <div className="absolute top-0 right-0 w-96 h-96 bg-hava-red/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 left-0 w-96 h-96 bg-trust-blue/5 rounded-full blur-3xl" />
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col lg:flex-row items-start lg:items-center gap-8 lg:gap-12">
+
+            {/* LEFT — eyebrow + title + body */}
+            <div className="flex-1 min-w-0">
+              <div className="inline-flex items-center gap-2 bg-white border border-steel-gray rounded-full px-4 py-2 mb-4 shadow-sm">
+                <span className="text-accent-orange text-sm">✦</span>
+                <span className="text-xs font-bold uppercase tracking-[2px] text-charcoal">{contactData.hero.eyebrow}</span>
+                <span className="w-2 h-2 bg-accent-orange rounded-full" />
+              </div>
+              <h1 className="text-3xl lg:text-5xl font-black text-charcoal leading-tight mb-4" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
+                {contactData.hero.title}{' '}
+                <span className="gradient-text">{contactData.hero.titleGradient}</span>
+              </h1>
+              <p className="text-base text-gray-600 leading-relaxed max-w-xl">{contactData.hero.body}</p>
+            </div>
+
+            {/* RIGHT — buttons + 4 trust boxes */}
+            <div className="flex-shrink-0 w-full lg:w-80 flex flex-col gap-4">
+              <div className="flex flex-col sm:flex-row lg:flex-col gap-3">
+                <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }} className="w-full">
+                  <Button
+                    onClick={() => setQuoteModalOpen(true)}
+                    className="w-full bg-gradient-to-r from-hava-red to-hava-red/90 text-white font-bold px-6 py-5 text-sm shadow-xl rounded-xl group"
+                  >
+                    Request a Quote <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  </Button>
+                </motion.div>
+                <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }} className="w-full">
+                  <a href="tel:+912027440025" className="block w-full">
+                    <Button className="w-full glass-morphism border-2 border-trust-blue/50 text-trust-blue hover:bg-trust-blue hover:text-white font-bold px-6 py-5 text-sm rounded-xl shadow-lg backdrop-blur-xl">
+                      <Phone className="w-4 h-4 mr-2" /> Call Us Now
+                    </Button>
+                  </a>
+                </motion.div>
+              </div>
+
+              {/* 4 trust boxes */}
+              <div className="grid grid-cols-2 gap-2">
+                {trustItems.map((item, i) => (
+                  <div key={i} className="bg-white border-2 border-steel-gray rounded-xl px-3 py-2.5 flex items-center gap-2 shadow-sm">
+                    <span className="text-base flex-shrink-0">{item.icon}</span>
+                    <span className="text-[11px] font-bold text-charcoal leading-tight">{item.text}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+          </div>
         </div>
-      </PageHero>
+      </section>
 
       {/* QUICK CONTACT GRID */}
-      <section className="relative py-12 lg:py-16 overflow-hidden bg-white">
+      <section className="relative py-10 lg:py-14 overflow-hidden bg-white">
         <div className="absolute top-20 right-0 w-72 h-72 bg-hava-red/5 rounded-full blur-3xl" />
         <div className="absolute bottom-20 left-0 w-96 h-96 bg-trust-blue/5 rounded-full blur-3xl" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeader
-            badge="Quick Contact"
-            badgeColor="hava-red"
-            badgeIcon={Phone}
-            title="Get in Touch"
-            titleGradient="Right Now"
-          />
-
+          <SectionHeader badge="Quick Contact" badgeColor="hava-red" badgeIcon={Phone} title="Get in Touch" titleGradient="Right Now" />
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-10">
             {contactData.quickContact.map((c, i) => {
               const Icon = c.icon;
@@ -159,13 +182,7 @@ export const ContactPage = () => {
                 'accent-orange': 'from-accent-orange to-hava-red',
               };
               const Content = (
-                <motion.div
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: i * 0.06 }}
-                  className="bg-white rounded-2xl p-5 border-2 border-steel-gray hover:border-hava-red/40 shadow-md hover:shadow-2xl transition-all group h-full"
-                >
+                <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4, delay: i * 0.06 }} className="bg-white rounded-2xl p-5 border-2 border-steel-gray hover:border-hava-red/40 shadow-md hover:shadow-2xl transition-all group h-full">
                   <div className="flex items-start gap-4">
                     <div className={`w-12 h-12 bg-gradient-to-br ${colorMap[c.color]} rounded-2xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 group-hover:rotate-6 transition-transform`}>
                       <Icon className="w-6 h-6 text-white" />
@@ -178,9 +195,7 @@ export const ContactPage = () => {
                 </motion.div>
               );
               return c.href ? (
-                <a key={i} href={c.href} target={c.external ? '_blank' : undefined} rel={c.external ? 'noopener noreferrer' : undefined}>
-                  {Content}
-                </a>
+                <a key={i} href={c.href} target={c.external ? '_blank' : undefined} rel={c.external ? 'noopener noreferrer' : undefined}>{Content}</a>
               ) : <div key={i}>{Content}</div>;
             })}
           </div>
@@ -188,24 +203,11 @@ export const ContactPage = () => {
       </section>
 
       {/* CORPORATE OFFICE */}
-      <section className="relative py-12 lg:py-16 overflow-hidden bg-gradient-to-br from-slate-50 via-white to-blue-50">
+      <section className="relative py-10 lg:py-14 overflow-hidden bg-gradient-to-br from-slate-50 via-white to-blue-50">
         <AnimatedBackground />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeader
-            badge="Get In Touch"
-            badgeColor="trust-blue"
-            badgeIcon={MapPin}
-            title="Corporate Office"
-            titleGradient="& Factory"
-          />
-
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="max-w-4xl mx-auto mt-10 bg-gradient-to-br from-charcoal to-trust-blue rounded-3xl p-8 lg:p-10 text-white relative overflow-hidden"
-          >
+          <SectionHeader badge="Get In Touch" badgeColor="trust-blue" badgeIcon={MapPin} title="Corporate Office" titleGradient="& Factory" />
+          <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="max-w-4xl mx-auto mt-10 bg-gradient-to-br from-charcoal to-trust-blue rounded-3xl p-8 lg:p-10 text-white relative overflow-hidden">
             <div className="absolute -top-12 -right-12 w-48 h-48 bg-hava-red/20 rounded-full blur-3xl" />
             <div className="absolute -bottom-12 -left-12 w-48 h-48 bg-accent-orange/10 rounded-full blur-3xl" />
             <div className="relative">
@@ -216,29 +218,14 @@ export const ContactPage = () => {
                 <div className="flex-1 min-w-[250px]">
                   <h4 className="text-accent-orange text-xs font-bold uppercase tracking-wider mb-2">Registered & Manufacturing Address</h4>
                   <p className="font-bold text-white text-lg mb-1" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>{contactData.address.company}</p>
-                  <p className="text-base text-white/80 leading-relaxed mb-4">
-                    {contactData.address.line1}<br />
-                    {contactData.address.line2}
-                  </p>
+                  <p className="text-base text-white/80 leading-relaxed mb-4">{contactData.address.line1}<br />{contactData.address.line2}</p>
                   <div className="space-y-2 pt-4 border-t border-white/10 mb-4">
-                    <div className="flex items-start gap-3 text-white/90 text-sm">
-                      <Phone className="w-4 h-4 mt-0.5 flex-shrink-0" /> <span>{contactData.address.phone}</span>
-                    </div>
-                    <a href={`mailto:${contactData.address.email}`} className="flex items-start gap-3 text-white/90 hover:text-accent-orange text-sm transition-colors">
-                      <Mail className="w-4 h-4 mt-0.5 flex-shrink-0" /> <span>{contactData.address.email}</span>
-                    </a>
-                    <div className="flex items-start gap-3 text-white/90 text-sm">
-                      <Clock className="w-4 h-4 mt-0.5 flex-shrink-0" /> <span>{contactData.address.hours}</span>
-                    </div>
+                    <div className="flex items-start gap-3 text-white/90 text-sm"><Phone className="w-4 h-4 mt-0.5 flex-shrink-0" /> <span>{contactData.address.phone}</span></div>
+                    <a href={`mailto:${contactData.address.email}`} className="flex items-start gap-3 text-white/90 hover:text-accent-orange text-sm transition-colors"><Mail className="w-4 h-4 mt-0.5 flex-shrink-0" /> <span>{contactData.address.email}</span></a>
+                    <div className="flex items-start gap-3 text-white/90 text-sm"><Clock className="w-4 h-4 mt-0.5 flex-shrink-0" /> <span>{contactData.address.hours}</span></div>
                   </div>
-                  <a
-                    href={contactData.address.mapLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 bg-accent-orange hover:bg-white text-charcoal text-sm font-bold px-5 py-3 rounded-xl transition-all group hover:scale-105"
-                  >
-                    📍 Get Directions on Google Maps
-                    <ExternalLink className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+                  <a href={contactData.address.mapLink} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-accent-orange hover:bg-white text-charcoal text-sm font-bold px-5 py-3 rounded-xl transition-all group hover:scale-105">
+                    📍 Get Directions on Google Maps <ExternalLink className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
                   </a>
                 </div>
               </div>
@@ -248,94 +235,49 @@ export const ContactPage = () => {
       </section>
 
       {/* ENQUIRY FORM */}
-      <section className="relative py-12 lg:py-16 overflow-hidden bg-white">
+      <section className="relative py-10 lg:py-14 overflow-hidden bg-white">
         <div className="absolute top-20 left-0 w-96 h-96 bg-hava-red/5 rounded-full blur-3xl" />
         <div className="absolute bottom-20 right-0 w-72 h-72 bg-trust-blue/5 rounded-full blur-3xl" />
         <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeader
-            badge="Request a Quote"
-            badgeColor="hava-red"
-            badgeIcon={Send}
-            title="Send Us Your"
-            titleGradient="Enquiry"
-            intro="Fill out the form below — our team will get back to you within one business day."
-          />
-
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="mt-10 bg-white rounded-3xl border-2 border-steel-gray shadow-2xl p-6 lg:p-8"
-          >
+          <SectionHeader badge="Request a Quote" badgeColor="hava-red" badgeIcon={Send} title="Send Us Your" titleGradient="Enquiry" intro="Fill out the form below — our team will get back to you within one business day." />
+          <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="mt-10 bg-white rounded-3xl border-2 border-steel-gray shadow-2xl p-6 lg:p-8">
             {contactData.form.sections.map((section, si) => (
               <div key={si} className="mb-8 last:mb-0">
                 <div className="flex items-center gap-3 mb-4">
-                  <span className="bg-gradient-to-br from-hava-red to-accent-orange text-white w-8 h-8 rounded-lg flex items-center justify-center font-black text-sm">
-                    {si + 1}
-                  </span>
-                  <h4 className="font-black text-charcoal text-base uppercase tracking-wider" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
-                    {section.title}
-                  </h4>
+                  <span className="bg-gradient-to-br from-hava-red to-accent-orange text-white w-8 h-8 rounded-lg flex items-center justify-center font-black text-sm">{si + 1}</span>
+                  <h4 className="font-black text-charcoal text-base uppercase tracking-wider" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>{section.title}</h4>
                 </div>
                 <div className={`grid grid-cols-1 ${section.fields.length > 1 ? 'md:grid-cols-2' : ''} gap-4`}>
                   {section.fields.map((field, fi) => (
                     <div key={fi} className={field.textarea ? 'md:col-span-2' : ''}>
                       <label className="block text-xs font-bold text-charcoal mb-1.5 uppercase tracking-wider">
-                        {field.label}
-                        {field.required && <span className="text-hava-red ml-1">*</span>}
+                        {field.label}{field.required && <span className="text-hava-red ml-1">*</span>}
                       </label>
                       {field.textarea ? (
-                        <textarea
-                          rows={4}
-                          className="w-full px-4 py-3 border-2 border-steel-gray rounded-xl text-sm focus:outline-none focus:border-hava-red transition-colors resize-none"
-                          placeholder="Tell us about your requirements..."
-                        />
+                        <textarea rows={4} className="w-full px-4 py-3 border-2 border-steel-gray rounded-xl text-sm focus:outline-none focus:border-hava-red transition-colors resize-none" placeholder="Tell us about your requirements..." />
                       ) : (
-                        <input
-                          type="text"
-                          className="w-full px-4 py-3 border-2 border-steel-gray rounded-xl text-sm focus:outline-none focus:border-hava-red transition-colors"
-                          placeholder={`Enter ${field.label.toLowerCase()}`}
-                        />
+                        <input type="text" className="w-full px-4 py-3 border-2 border-steel-gray rounded-xl text-sm focus:outline-none focus:border-hava-red transition-colors" placeholder={`Enter ${field.label.toLowerCase()}`} />
                       )}
                     </div>
                   ))}
                 </div>
               </div>
             ))}
-
-            <Button
-              onClick={() => setQuoteModalOpen(true)}
-              className="w-full bg-gradient-to-r from-hava-red to-accent-orange hover:from-hava-red/90 hover:to-accent-orange/90 text-white font-bold py-6 text-base shadow-xl rounded-xl group mt-4"
-            >
-              Submit Enquiry
-              <Send className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            <Button onClick={() => setQuoteModalOpen(true)} className="w-full bg-gradient-to-r from-hava-red to-accent-orange hover:from-hava-red/90 hover:to-accent-orange/90 text-white font-bold py-6 text-base shadow-xl rounded-xl group mt-4">
+              Submit Enquiry <Send className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </Button>
           </motion.div>
         </div>
       </section>
 
       {/* VISIT FACILITY */}
-      <section className="relative py-12 lg:py-16 overflow-hidden bg-gradient-to-br from-slate-50 via-white to-blue-50">
+      <section className="relative py-10 lg:py-14 overflow-hidden bg-gradient-to-br from-slate-50 via-white to-blue-50">
         <AnimatedBackground />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeader
-            badge="Schedule a Visit"
-            badgeColor="accent-orange"
-            badgeIcon={MapPin}
-            title="Visit Our"
-            titleGradient="Facility"
-            intro="Visit our 25,000 sq. ft. manufacturing facility in Pimpri, Pune to see our production capabilities, quality systems, and engineering expertise firsthand."
-          />
+          <SectionHeader badge="Schedule a Visit" badgeColor="accent-orange" badgeIcon={MapPin} title="Visit Our" titleGradient="Facility" intro="Visit our 25,000 sq. ft. manufacturing facility in Pimpri, Pune to see our production capabilities, quality systems, and engineering expertise firsthand." />
           <div className="flex flex-wrap gap-3 justify-center mt-8">
-            <a
-              href={contactData.address.mapLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-gradient-to-r from-hava-red to-hava-red/90 hover:from-hava-red/90 hover:to-hava-red text-white font-bold px-8 py-3 text-sm shadow-xl rounded-xl transition-transform hover:scale-105"
-            >
-              📍 Get Directions on Google Maps
-              <ExternalLink className="w-3.5 h-3.5" />
+            <a href={contactData.address.mapLink} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-gradient-to-r from-hava-red to-hava-red/90 hover:from-hava-red/90 hover:to-hava-red text-white font-bold px-8 py-3 text-sm shadow-xl rounded-xl transition-transform hover:scale-105">
+              📍 Get Directions on Google Maps <ExternalLink className="w-3.5 h-3.5" />
             </a>
             <Button onClick={() => setQuoteModalOpen(true)} variant="outline" className="border-2 border-trust-blue text-trust-blue hover:bg-trust-blue hover:text-white font-bold px-8 py-3 rounded-xl">
               Schedule a Visit
@@ -345,29 +287,16 @@ export const ContactPage = () => {
       </section>
 
       {/* HOW CAN WE HELP */}
-      <section className="relative py-12 lg:py-16 overflow-hidden bg-white">
+      <section className="relative py-10 lg:py-14 overflow-hidden bg-white">
         <div className="absolute top-20 right-0 w-72 h-72 bg-hava-red/5 rounded-full blur-3xl" />
         <div className="absolute bottom-20 left-0 w-96 h-96 bg-trust-blue/5 rounded-full blur-3xl" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeader
-            badge="Support Options"
-            badgeColor="hava-red"
-            badgeIcon={Sparkles}
-            title="How Can We"
-            titleGradient="Help You?"
-          />
+          <SectionHeader badge="Support Options" badgeColor="hava-red" badgeIcon={Sparkles} title="How Can We" titleGradient="Help You?" />
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-10">
             {contactData.helpOptions.map((opt, i) => {
               const Icon = opt.icon;
               return (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: i * 0.08 }}
-                  className="bg-white rounded-3xl p-6 border-2 border-steel-gray hover:border-hava-red/40 shadow-md hover:shadow-2xl transition-all card-hover group"
-                >
+                <motion.div key={i} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.08 }} className="bg-white rounded-3xl p-6 border-2 border-steel-gray hover:border-hava-red/40 shadow-md hover:shadow-2xl transition-all card-hover group">
                   <div className="w-12 h-12 bg-gradient-to-br from-hava-red to-accent-orange rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 group-hover:rotate-6 transition-transform">
                     <Icon className="w-6 h-6 text-white" />
                   </div>
@@ -381,26 +310,13 @@ export const ContactPage = () => {
       </section>
 
       {/* GLOBAL SUPPORT */}
-      <section className="relative py-12 lg:py-16 overflow-hidden bg-gradient-to-br from-slate-50 via-white to-blue-50">
+      <section className="relative py-10 lg:py-14 overflow-hidden bg-gradient-to-br from-slate-50 via-white to-blue-50">
         <AnimatedBackground />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeader
-            badge="Global Support"
-            badgeColor="trust-blue"
-            badgeIcon={Globe}
-            title="Serving Customers"
-            titleGradient="Across 20+ Countries"
-          />
+          <SectionHeader badge="Global Support" badgeColor="trust-blue" badgeIcon={Globe} title="Serving Customers" titleGradient="Across 20+ Countries" />
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-10">
             {contactData.globalSupport.map((g, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: i * 0.08 }}
-                className="bg-white border-2 border-steel-gray rounded-2xl p-5 hover:border-accent-orange/40 hover:shadow-xl transition-all group"
-              >
+              <motion.div key={i} initial={{ opacity: 0, scale: 0.9 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 0.4, delay: i * 0.08 }} className="bg-white border-2 border-steel-gray rounded-2xl p-5 hover:border-accent-orange/40 hover:shadow-xl transition-all group">
                 <div className="flex items-start gap-3">
                   <div className="text-3xl flex-shrink-0">{g.flag}</div>
                   <div>
