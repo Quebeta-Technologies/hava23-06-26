@@ -107,7 +107,7 @@ const CategoryContent = ({ cat, onEnquire }) => {
     }
 
     if (cat.code === 'B') {
-      const images = ['/products/bbc.jpeg', '/products/shank.jpeg', '/products/coupling-sleeve.jpg'];
+      const images = ['/products/bbc.jpeg', '/products/shank.jpeg', '/products/shank.jpeg'];
       return (
         <div className="space-y-4">
           {cat.table.rows.map((row, ri) => (
