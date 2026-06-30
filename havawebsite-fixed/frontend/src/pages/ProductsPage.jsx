@@ -161,7 +161,7 @@ const CategoryContent = ({ cat, onEnquire }) => {
       return (
         <div className="bg-white rounded-2xl border-2 border-steel-gray hover:border-hava-red/40 hover:shadow-xl transition-all overflow-hidden flex flex-col sm:flex-row">
           <div className="w-full sm:w-44 lg:w-52 flex-shrink-0 bg-gradient-to-br from-slate-100 to-blue-50 overflow-hidden" style={{ minHeight: '220px' }}>
-            <img src="/products/extension-equipment.jpg" alt="Extension Equipment" className="w-full h-full object-cover" style={{ minHeight: '220px' }} />
+            <img src="/products/ex.jpeg" alt="Extension Equipment" className="w-full h-full object-cover" style={{ minHeight: '220px' }} />
           </div>
           <div className="flex-1 p-5 flex flex-col">
             <div className="flex items-start justify-between gap-3 mb-4">
@@ -183,7 +183,7 @@ const CategoryContent = ({ cat, onEnquire }) => {
     }
 
     if (cat.code === 'G') {
-      const images = ['/products/button-bits-rock-drill.jpg', '/products/button-bits-drifter.jpg'];
+      const images = ['/products/caribe.jpeg', '/products/button-bits-drifter.jpg'];
       return (
         <div className="space-y-4">
           {cat.twoCol.map((item, i) => (
