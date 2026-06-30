@@ -95,7 +95,7 @@ const CategoryContent = ({ cat, onEnquire }) => {
 
   const renderProducts = () => {
     if (cat.code === 'A') {
-      const images = ['/products/uy.jpeg', '/products/45.png'];
+      const images = ['/products/wet.jpeg', '/products/wet.jpeg'];
       return (
         <div className="space-y-4">
           {cat.table.rows.map((row, ri) => (
@@ -107,7 +107,7 @@ const CategoryContent = ({ cat, onEnquire }) => {
     }
 
     if (cat.code === 'B') {
-      const images = ['/products/bbc.jpeg', '/products/shank-adapter.jpg', '/products/coupling-sleeve.jpg'];
+      const images = ['/products/bbc.jpeg', '/products/shank.jpeg', '/products/coupling-sleeve.jpg'];
       return (
         <div className="space-y-4">
           {cat.table.rows.map((row, ri) => (
@@ -119,9 +119,9 @@ const CategoryContent = ({ cat, onEnquire }) => {
 
     if (cat.code === 'C') {
       const models = [
-        { title: 'CP-117 / HR-117', subtitle: 'Spring Retainer', badge: 'Spring Retainer', image: '/products/pavement-breaker-spring.jpg',
+        { title: 'CP-117 / HR-117', subtitle: 'Spring Retainer', badge: 'Spring Retainer', image: '/products/cp.jpeg',
           specs: cat.table.rows.map(r => ({ label: r[0], value: r[1] })).filter(s => s.label !== 'Model') },
-        { title: 'CP-117', subtitle: 'Latch Retainer', badge: 'Latch Retainer', image: '/products/pavement-breaker-latch.jpg',
+        { title: 'CP-117', subtitle: 'Latch Retainer', badge: 'Latch Retainer', image: '/products/cp.jpeg',
           specs: cat.table.rows.map(r => ({ label: r[0], value: r[2] })).filter(s => s.label !== 'Model') },
       ];
       return (
@@ -136,15 +136,15 @@ const CategoryContent = ({ cat, onEnquire }) => {
       const imperialSpecs = cat.table.rows.map(r => ({ label: r[0], value: r[2] }));
       return (
         <div className="space-y-4">
-          <ProductCard catCode="D" image="/products/bmk62s-pusher-leg.jpg" title="BMK62S Air Leg" badge="Metric" subtitle="Used with RH-656/4W Wet Rock Drill" specs={metricSpecs} onEnquire={onEnquire} />
-          <ProductCard catCode="D" image="/products/bmk62s-pusher-leg.jpg" title="BMK62S Air Leg" badge="Imperial" subtitle="Used with RH-656/4W Wet Rock Drill" specs={imperialSpecs} onEnquire={onEnquire} />
+          <ProductCard catCode="D" image="/products/bmk.jpeg" title="BMK62S Air Leg" badge="Metric" subtitle="Used with RH-656/4W Wet Rock Drill" specs={metricSpecs} onEnquire={onEnquire} />
+          <ProductCard catCode="D" image="/products/bmk.jpeg" title="BMK62S Air Leg" badge="Imperial" subtitle="Used with RH-656/4W Wet Rock Drill" specs={imperialSpecs} onEnquire={onEnquire} />
         </div>
       );
     }
 
     if (cat.code === 'E') {
       const products = [
-        { title: 'Airline Lubricator BLG-30', image: '/products/blg-30-lubricator.jpg', specs: [{ label: 'Weight', value: '3 kg (6.6 lb)' }, { label: 'Volume', value: '1.3 ltr (44 oz)' }, { label: 'Air Flow', value: '25–134 l/S (53–284 cfm)' }, { label: 'Placement', value: '3M from drill' }] },
+        { title: 'Airline Lubricator BLG-30', image: '/products/blg.jpeg', specs: [{ label: 'Weight', value: '3 kg (6.6 lb)' }, { label: 'Volume', value: '1.3 ltr (44 oz)' }, { label: 'Air Flow', value: '25–134 l/S (53–284 cfm)' }, { label: 'Placement', value: '3M from drill' }] },
         { title: 'Clamps', image: '/products/airline-clamps.jpg', specs: [{ label: 'Type', value: 'Air line clamp accessories' }] },
         { title: 'Hose Jointers', image: '/products/hose-jointers.jpg', specs: [{ label: 'Type', value: 'Joiner fittings for airline hose connections' }] },
         { title: 'Hose Pipe', image: '/products/hose-pipe.jpg', specs: [{ label: 'Type', value: 'High-pressure airline hose' }] },
