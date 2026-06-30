@@ -406,10 +406,10 @@ export const footerData = {
   ],
   contact: {
     company: "Haryrock Engineering Pvt. Ltd.",
-    address: "Plot No. 123, Industrial Area, Pune - 411019, Maharashtra, India",
+    address: "A-55, H Block, MIDC Pimpri,Pune – 411018, Maharashtra, India",
     customerCare: "+91-20-1234-5678",
-    mobile: "+91-98765-43210",
-    email: "sales@havarock.in",
+    mobile: "+91 20 2744 0025 | +91 20 2744 0026",
+    email: "sales.haryrock@gmail.com",
     hours: "Mon-Sat: 9:00 AM - 6:00 PM"
   },
   mapEmbedUrl: "https://maps.google.com/maps?q=Haryrock+Engineering+Pvt+Ltd&output=embed",
