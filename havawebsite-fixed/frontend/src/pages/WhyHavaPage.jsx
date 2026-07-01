@@ -49,7 +49,7 @@ const qualitySteps = [
     bg: 'bg-trust-blue/10',
     title: 'CNC Precision Machining',
     sub: 'Multi-axis manufacturing',
-    detail: 'Advanced multi-axis CNC machining centres produce all components to exact dimensional specifications. Every dimension is machine-verified — not manually estimated. This is the foundation of HAVA\'s consistent quality across every production run.',
+    detail: "Advanced multi-axis CNC machining centres produce all components to exact dimensional specifications. Every dimension is machine-verified — not manually estimated. This is the foundation of HAVA's consistent quality across every production run.",
     activities: ['Turning & boring', 'Milling & threading', 'Surface grinding', 'CNC dimensional verification'],
   },
   {
@@ -59,7 +59,7 @@ const qualitySteps = [
     bg: 'bg-accent-orange/10',
     title: 'Heat Treatment',
     sub: 'Hardening & tempering',
-    detail: 'In-house heat treatment achieves the required hardness, wear resistance, and fatigue strength. Piston, cylinder, rifle bar, and high-stress components are heat-treated to specific hardness specifications critical for rock drilling performance.',
+    detail: "In-house heat treatment achieves the required hardness, wear resistance, and fatigue strength. Piston, cylinder, rifle bar, and high-stress components are heat-treated to specific hardness specifications critical for rock drilling performance.",
     activities: ['Case hardening', 'Through hardening', 'Tempering', 'Hardness verification'],
   },
   {
@@ -89,7 +89,7 @@ const qualitySteps = [
     bg: 'bg-trust-blue/10',
     title: 'Accept & Testing',
     sub: 'Final acceptance check',
-    detail: 'Units that pass QC are formally accepted into finished goods. A final verification pass confirms all specifications are met — performance, dimensional, and visual. Rejected units are returned for rework; no exceptions to acceptance criteria.',
+    detail: "Units that pass QC are formally accepted into finished goods. A final verification pass confirms all specifications are met — performance, dimensional, and visual. Rejected units are returned for rework; no exceptions to acceptance criteria.",
     activities: ['Acceptance sign-off', 'Performance validation', 'Visual inspection', 'Rework loop if needed'],
   },
   {
@@ -99,7 +99,7 @@ const qualitySteps = [
     bg: 'bg-accent-orange/10',
     title: 'Painting & Packing',
     sub: 'Finish & protection',
-    detail: 'Accepted units are cleaned, primed, and painted to HAVA\'s standard finish. Components are then individually packed with protective wrapping and placed in export-grade packaging to prevent damage in transit.',
+    detail: "Accepted units are cleaned, primed, and painted to HAVA's standard finish. Components are then individually packed with protective wrapping and placed in export-grade packaging to prevent damage in transit.",
     activities: ['Surface cleaning', 'Painting & drying', 'Component wrapping', 'Export-grade packing'],
   },
   {
@@ -119,6 +119,38 @@ const trustItems = [
   { icon: '✅', text: 'ISO 9001:2015 Certified' },
   { icon: '🌍', text: 'Exported to 20+ Countries' },
   { icon: '🔧', text: 'In-House Manufacturing' },
+];
+
+// Floating stat cards data
+const floatingStats = [
+  {
+    icon: Factory,
+    value: '25,000',
+    unit: 'SQ. FT. FACILITY',
+    label: 'In-House Manufacturing',
+    gradient: 'from-hava-red to-accent-orange',
+  },
+  {
+    icon: Settings,
+    value: 'Tight',
+    unit: 'TOLERANCES',
+    label: 'CNC Precision',
+    gradient: 'from-trust-blue to-trust-blue/80',
+  },
+  {
+    icon: ShieldCheck,
+    value: 'ISO',
+    unit: '9001:2015',
+    label: 'Quality Assured',
+    gradient: 'from-hava-red to-accent-orange',
+  },
+  {
+    icon: Globe,
+    value: '20+',
+    unit: 'COUNTRIES',
+    label: 'Global Export',
+    gradient: 'from-trust-blue to-charcoal',
+  },
 ];
 
 const QualityProcess = () => {
@@ -236,14 +268,12 @@ export const WhyHavaPage = () => {
       <Toaster position="top-right" richColors />
       <Header onQuoteClick={() => setQuoteModalOpen(true)} />
 
-      {/* ── HERO — left text, right buttons + trust boxes ── */}
+      {/* ── HERO ── */}
       <section className="relative py-10 lg:py-14 overflow-hidden bg-gradient-to-br from-slate-50 via-white to-blue-50">
         <div className="absolute top-0 right-0 w-96 h-96 bg-hava-red/5 rounded-full blur-3xl" />
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-trust-blue/5 rounded-full blur-3xl" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col lg:flex-row items-start lg:items-center gap-8 lg:gap-12">
-
-            {/* LEFT — eyebrow + title + body */}
             <div className="flex-1 min-w-0">
               <div className="inline-flex items-center gap-2 bg-white border border-steel-gray rounded-full px-4 py-2 mb-4 shadow-sm">
                 <span className="text-accent-orange text-sm">✦</span>
@@ -256,29 +286,19 @@ export const WhyHavaPage = () => {
               </h1>
               <p className="text-base text-gray-600 leading-relaxed max-w-xl">{d.hero.subheading}</p>
             </div>
-
-            {/* RIGHT — buttons + 4 trust boxes */}
             <div className="flex-shrink-0 w-full lg:w-80 flex flex-col gap-4">
               <div className="flex flex-col sm:flex-row lg:flex-col gap-3">
                 <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }} className="w-full">
-                  <Button
-                    onClick={() => setQuoteModalOpen(true)}
-                    className="w-full bg-gradient-to-r from-hava-red to-hava-red/90 text-white font-bold px-6 py-5 text-sm shadow-xl rounded-xl group animate-pulse-glow"
-                  >
+                  <Button onClick={() => setQuoteModalOpen(true)} className="w-full bg-gradient-to-r from-hava-red to-hava-red/90 text-white font-bold px-6 py-5 text-sm shadow-xl rounded-xl group animate-pulse-glow">
                     {d.hero.primaryCTA} <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </Button>
                 </motion.div>
                 <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }} className="w-full">
-                  <Button
-                    onClick={() => (window.location.href = '/products')}
-                    className="w-full glass-morphism border-2 border-trust-blue/50 text-trust-blue hover:bg-trust-blue hover:text-white font-bold px-6 py-5 text-sm rounded-xl shadow-lg backdrop-blur-xl"
-                  >
+                  <Button onClick={() => (window.location.href = '/products')} className="w-full glass-morphism border-2 border-trust-blue/50 text-trust-blue hover:bg-trust-blue hover:text-white font-bold px-6 py-5 text-sm rounded-xl shadow-lg backdrop-blur-xl">
                     {d.hero.secondaryCTA}
                   </Button>
                 </motion.div>
               </div>
-
-              {/* 4 trust boxes */}
               <div className="grid grid-cols-2 gap-2">
                 {trustItems.map((item, i) => (
                   <div key={i} className="bg-white border-2 border-steel-gray rounded-xl px-3 py-2.5 flex items-center gap-2 shadow-sm">
@@ -288,7 +308,6 @@ export const WhyHavaPage = () => {
                 ))}
               </div>
             </div>
-
           </div>
         </div>
       </section>
@@ -299,34 +318,107 @@ export const WhyHavaPage = () => {
         <div className="absolute bottom-20 left-0 w-96 h-96 bg-trust-blue/5 rounded-full blur-3xl" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-            <motion.div initial={{ opacity: 0, x: -50 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="relative">
-              <div className="relative rounded-3xl overflow-hidden shadow-2xl">
-                <div className="absolute inset-0 bg-cover bg-center bg-no-repeat" style={{ backgroundImage: `url('/assets/hava-factory.png')` }} />
-                <div className="absolute inset-0 bg-gradient-to-br from-charcoal/85 to-trust-blue/75" />
-                <div className="relative p-10">
-                  <div className="grid grid-cols-2 gap-4">
-                    {[
-                      { icon: Factory, label: 'In-House Manufacturing', value: '25,000', sub: 'Sq. Ft. Facility' },
-                      { icon: Settings, label: 'CNC Precision', value: 'Tight', sub: 'Tolerances' },
-                      { icon: ShieldCheck, label: 'Quality Assured', value: 'ISO', sub: '9001:2015' },
-                      { icon: Globe, label: 'Global Export', value: '20+', sub: 'Countries' },
-                    ].map((card, i) => (
-                      <motion.div key={i} initial={{ opacity: 0, scale: 0.8 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 0.4, delay: i * 0.1 }} className="bg-white/10 backdrop-blur-md rounded-2xl p-5 border border-white/20 hover:bg-white/15 transition-colors">
-                        <div className="w-10 h-10 bg-gradient-to-br from-hava-red to-accent-orange rounded-xl flex items-center justify-center mb-3">
-                          <card.icon className="w-5 h-5 text-white" />
-                        </div>
-                        <div className="text-2xl font-black text-white">{card.value}</div>
-                        <div className="text-[10px] text-white/70 uppercase tracking-wider mt-1">{card.sub}</div>
-                        <div className="text-xs text-accent-orange font-semibold mt-2">{card.label}</div>
-                      </motion.div>
-                    ))}
-                  </div>
-                  <div className="absolute -top-4 -right-4 w-24 h-24 border-4 border-accent-orange/30 rounded-3xl rotate-12" />
-                  <div className="absolute -bottom-4 -left-4 w-32 h-32 border-4 border-white/10 rounded-3xl -rotate-12" />
-                </div>
+
+            {/* LEFT — 500×700 image with floating stat cards */}
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="relative mx-auto lg:mx-0"
+              style={{ width: '100%', maxWidth: 500 }}
+            >
+              {/* Image container — fixed 500×700 aspect */}
+              <div
+                className="relative rounded-3xl overflow-hidden shadow-2xl"
+                style={{ height: 700 }}
+              >
+                {/* Actual image */}
+                <img
+                  src="/assets/hava-factory.png"
+                  alt="HAVA Manufacturing Facility"
+                  className="w-full h-full object-cover"
+                  onError={(e) => {
+                    e.target.style.display = 'none';
+                  }}
+                />
+                {/* Fallback dark gradient (shows if image fails) */}
+                <div className="absolute inset-0 bg-gradient-to-br from-charcoal via-trust-blue/80 to-charcoal/90" />
+                {/* Subtle vignette so cards pop */}
+                <div className="absolute inset-0 bg-gradient-to-t from-charcoal/60 via-transparent to-charcoal/30" />
+
+                {/* Decorative corner accents */}
+                <div className="absolute top-4 right-4 w-16 h-16 border-2 border-accent-orange/40 rounded-2xl rotate-12 pointer-events-none" />
+                <div className="absolute bottom-4 left-4 w-20 h-20 border-2 border-white/10 rounded-2xl -rotate-12 pointer-events-none" />
               </div>
+
+              {/* ── Floating stat cards — positioned OUTSIDE (on top of) the image ── */}
+              {/* Top-left */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.7, y: -10 }}
+                whileInView={{ opacity: 1, scale: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+                className="absolute top-6 left-[-18px] z-10 bg-white/15 backdrop-blur-xl border border-white/30 rounded-2xl p-4 shadow-2xl min-w-[148px]"
+              >
+                <div className="w-9 h-9 bg-gradient-to-br from-hava-red to-accent-orange rounded-xl flex items-center justify-center mb-2 shadow-lg">
+                  <Factory className="w-4 h-4 text-white" />
+                </div>
+                <div className="text-white font-black text-xl leading-none">25,000</div>
+                <div className="text-white/60 text-[10px] uppercase tracking-wider font-medium mt-0.5">Sq. Ft. Facility</div>
+                <div className="text-accent-orange text-xs font-bold mt-1">In-House Manufacturing</div>
+              </motion.div>
+
+              {/* Top-right */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.7, y: -10 }}
+                whileInView={{ opacity: 1, scale: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.3 }}
+                className="absolute top-6 right-[-18px] z-10 bg-white/15 backdrop-blur-xl border border-white/30 rounded-2xl p-4 shadow-2xl min-w-[140px]"
+              >
+                <div className="w-9 h-9 bg-gradient-to-br from-trust-blue to-trust-blue/70 rounded-xl flex items-center justify-center mb-2 shadow-lg">
+                  <Settings className="w-4 h-4 text-white" />
+                </div>
+                <div className="text-white font-black text-xl leading-none">Tight</div>
+                <div className="text-white/60 text-[10px] uppercase tracking-wider font-medium mt-0.5">Tolerances</div>
+                <div className="text-accent-orange text-xs font-bold mt-1">CNC Precision</div>
+              </motion.div>
+
+              {/* Bottom-left */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.7, y: 10 }}
+                whileInView={{ opacity: 1, scale: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.4 }}
+                className="absolute bottom-6 left-[-18px] z-10 bg-white/15 backdrop-blur-xl border border-white/30 rounded-2xl p-4 shadow-2xl min-w-[140px]"
+              >
+                <div className="w-9 h-9 bg-gradient-to-br from-hava-red to-accent-orange rounded-xl flex items-center justify-center mb-2 shadow-lg">
+                  <ShieldCheck className="w-4 h-4 text-white" />
+                </div>
+                <div className="text-white font-black text-xl leading-none">ISO</div>
+                <div className="text-white/60 text-[10px] uppercase tracking-wider font-medium mt-0.5">9001:2015</div>
+                <div className="text-accent-orange text-xs font-bold mt-1">Quality Assured</div>
+              </motion.div>
+
+              {/* Bottom-right */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.7, y: 10 }}
+                whileInView={{ opacity: 1, scale: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.5 }}
+                className="absolute bottom-6 right-[-18px] z-10 bg-white/15 backdrop-blur-xl border border-white/30 rounded-2xl p-4 shadow-2xl min-w-[140px]"
+              >
+                <div className="w-9 h-9 bg-gradient-to-br from-trust-blue to-charcoal rounded-xl flex items-center justify-center mb-2 shadow-lg">
+                  <Globe className="w-4 h-4 text-white" />
+                </div>
+                <div className="text-white font-black text-xl leading-none">20+</div>
+                <div className="text-white/60 text-[10px] uppercase tracking-wider font-medium mt-0.5">Countries</div>
+                <div className="text-accent-orange text-xs font-bold mt-1">Global Export</div>
+              </motion.div>
             </motion.div>
 
+            {/* RIGHT — text */}
             <motion.div initial={{ opacity: 0, x: 50 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }}>
               <SectionBadge color="hava-red" className="mb-5">{d.section1.label}</SectionBadge>
               <h2 className="text-3xl lg:text-4xl font-black text-charcoal mb-5 leading-tight">
