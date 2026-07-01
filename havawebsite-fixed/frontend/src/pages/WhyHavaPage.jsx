@@ -342,10 +342,7 @@ export const WhyHavaPage = () => {
                     e.target.style.display = 'none';
                   }}
                 />
-                {/* Fallback dark gradient (shows if image fails) */}
-                <div className="absolute inset-0 bg-gradient-to-br from-charcoal via-trust-blue/80 to-charcoal/90" />
-                {/* Subtle vignette so cards pop */}
-                <div className="absolute inset-0 bg-gradient-to-t from-charcoal/60 via-transparent to-charcoal/30" />
+
 
                 {/* Decorative corner accents */}
                 <div className="absolute top-4 right-4 w-16 h-16 border-2 border-accent-orange/40 rounded-2xl rotate-12 pointer-events-none" />
