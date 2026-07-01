@@ -403,7 +403,7 @@ export const productsPageData = {
       code: "A",
       name: "Rock Drills",
       productCount: "2 Products · 2 Pages",
-      image: "/products/rock.png",
+      image: "/public/products/rock.png",
       description:
         "Air-flushed and water-flushed pneumatic drills capable of drilling 27–48mm diameter holes using H22 integral steel, up to 6 metres depth. Available in dry and wet variants with T-Handle or Spade Handle to suit surface and underground drilling environments.",
       table: {
