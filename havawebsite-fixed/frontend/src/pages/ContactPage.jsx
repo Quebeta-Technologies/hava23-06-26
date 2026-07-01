@@ -16,13 +16,13 @@ import {
   Users,
   Briefcase,
   Sparkles,
-  CheckCircle2,
 } from 'lucide-react';
 import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
 import { QuoteModal } from '../components/QuoteModal';
+import { ContactFormSection } from '../components/ContactFormSection';
 import { AnimatedBackground } from '../components/AnimatedBackground';
-import { SectionHeader, SectionBadge } from '../components/SectionBadge';
+import { SectionHeader } from '../components/SectionBadge';
 import { Button } from '../components/ui/button';
 import { Toaster } from 'sonner';
 
@@ -49,34 +49,6 @@ const contactData = {
     email: "sales.haryrock@gmail.com",
     hours: "Monday–Saturday: 9:00 AM – 6:00 PM  |  Sunday: Closed",
     mapLink: "https://share.google/eJDTDWB6XWYJowsS3",
-  },
-  form: {
-    sections: [
-      {
-        title: "Personal Information",
-        fields: [
-          { label: "Full Name", required: true },
-          { label: "Company Name", required: false },
-          { label: "Designation", required: false },
-          { label: "Phone Number", required: true },
-          { label: "Email Address", required: true },
-        ],
-      },
-      {
-        title: "Business Information",
-        fields: [
-          { label: "Country", required: false },
-          { label: "Industry", required: false },
-          { label: "Product Interested In", required: false },
-        ],
-      },
-      {
-        title: "Message",
-        fields: [
-          { label: "Requirement, application, quantity, technical specifications, or additional details", required: false, textarea: true },
-        ],
-      },
-    ],
   },
   helpOptions: [
     { title: "Product Information", text: "Specifications, features, and applications for your specific requirements.", icon: Briefcase },
@@ -111,14 +83,12 @@ export const ContactPage = () => {
       <Toaster position="top-right" richColors />
       <Header onQuoteClick={() => setQuoteModalOpen(true)} />
 
-      {/* ── HERO — left text, right buttons + trust boxes ── */}
+      {/* HERO */}
       <section className="relative py-10 lg:py-14 overflow-hidden bg-gradient-to-br from-slate-50 via-white to-blue-50">
         <div className="absolute top-0 right-0 w-96 h-96 bg-hava-red/5 rounded-full blur-3xl" />
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-trust-blue/5 rounded-full blur-3xl" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col lg:flex-row items-start lg:items-center gap-8 lg:gap-12">
-
-            {/* LEFT — eyebrow + title + body */}
             <div className="flex-1 min-w-0">
               <div className="inline-flex items-center gap-2 bg-white border border-steel-gray rounded-full px-4 py-2 mb-4 shadow-sm">
                 <span className="text-accent-orange text-sm">✦</span>
@@ -131,8 +101,6 @@ export const ContactPage = () => {
               </h1>
               <p className="text-base text-gray-600 leading-relaxed max-w-xl">{contactData.hero.body}</p>
             </div>
-
-            {/* RIGHT — buttons + 4 trust boxes */}
             <div className="flex-shrink-0 w-full lg:w-80 flex flex-col gap-4">
               <div className="flex flex-col sm:flex-row lg:flex-col gap-3">
                 <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }} className="w-full">
@@ -151,8 +119,6 @@ export const ContactPage = () => {
                   </a>
                 </motion.div>
               </div>
-
-              {/* 4 trust boxes */}
               <div className="grid grid-cols-2 gap-2">
                 {trustItems.map((item, i) => (
                   <div key={i} className="bg-white border-2 border-steel-gray rounded-xl px-3 py-2.5 flex items-center gap-2 shadow-sm">
@@ -162,7 +128,6 @@ export const ContactPage = () => {
                 ))}
               </div>
             </div>
-
           </div>
         </div>
       </section>
@@ -234,41 +199,8 @@ export const ContactPage = () => {
         </div>
       </section>
 
-      {/* ENQUIRY FORM */}
-      <section className="relative py-10 lg:py-14 overflow-hidden bg-white">
-        <div className="absolute top-20 left-0 w-96 h-96 bg-hava-red/5 rounded-full blur-3xl" />
-        <div className="absolute bottom-20 right-0 w-72 h-72 bg-trust-blue/5 rounded-full blur-3xl" />
-        <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeader badge="Request a Quote" badgeColor="hava-red" badgeIcon={Send} title="Send Us Your" titleGradient="Enquiry" intro="Fill out the form below — our team will get back to you within one business day." />
-          <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="mt-10 bg-white rounded-3xl border-2 border-steel-gray shadow-2xl p-6 lg:p-8">
-            {contactData.form.sections.map((section, si) => (
-              <div key={si} className="mb-8 last:mb-0">
-                <div className="flex items-center gap-3 mb-4">
-                  <span className="bg-gradient-to-br from-hava-red to-accent-orange text-white w-8 h-8 rounded-lg flex items-center justify-center font-black text-sm">{si + 1}</span>
-                  <h4 className="font-black text-charcoal text-base uppercase tracking-wider" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>{section.title}</h4>
-                </div>
-                <div className={`grid grid-cols-1 ${section.fields.length > 1 ? 'md:grid-cols-2' : ''} gap-4`}>
-                  {section.fields.map((field, fi) => (
-                    <div key={fi} className={field.textarea ? 'md:col-span-2' : ''}>
-                      <label className="block text-xs font-bold text-charcoal mb-1.5 uppercase tracking-wider">
-                        {field.label}{field.required && <span className="text-hava-red ml-1">*</span>}
-                      </label>
-                      {field.textarea ? (
-                        <textarea rows={4} className="w-full px-4 py-3 border-2 border-steel-gray rounded-xl text-sm focus:outline-none focus:border-hava-red transition-colors resize-none" placeholder="Tell us about your requirements..." />
-                      ) : (
-                        <input type="text" className="w-full px-4 py-3 border-2 border-steel-gray rounded-xl text-sm focus:outline-none focus:border-hava-red transition-colors" placeholder={`Enter ${field.label.toLowerCase()}`} />
-                      )}
-                    </div>
-                  ))}
-                </div>
-              </div>
-            ))}
-            <Button onClick={() => setQuoteModalOpen(true)} className="w-full bg-gradient-to-r from-hava-red to-accent-orange hover:from-hava-red/90 hover:to-accent-orange/90 text-white font-bold py-6 text-base shadow-xl rounded-xl group mt-4">
-              Submit Enquiry <Send className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </Button>
-          </motion.div>
-        </div>
-      </section>
+      {/* ENQUIRY FORM — replaced with ContactFormSection */}
+      <ContactFormSection />
 
       {/* VISIT FACILITY */}
       <section className="relative py-10 lg:py-14 overflow-hidden bg-gradient-to-br from-slate-50 via-white to-blue-50">
