@@ -98,7 +98,7 @@ export const productCategories = [
     id: 1,
     name: "Rock Drills",
     description: "High-performance pneumatic rock drills for drilling operations in mining, quarrying, and construction. Built for durability, precision, and efficient air consumption.",
-    image: "/products/rock-drill-dry.jpg"
+    image: "/products/rock.png"
   },
   {
     id: 2,
