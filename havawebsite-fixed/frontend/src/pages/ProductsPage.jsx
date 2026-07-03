@@ -121,7 +121,7 @@ const CategoryContent = ({ cat, onEnquire }) => {
       const models = [
         { title: 'CP-117 / HR-117', subtitle: 'Spring Retainer', badge: 'Spring Retainer', image: '/products/cp.jpeg',
           specs: cat.table.rows.map(r => ({ label: r[0], value: r[1] })).filter(s => s.label !== 'Model') },
-        { title: 'CP-117', subtitle: 'Latch Retainer', badge: 'Latch Retainer', image: '/products/cp.jpeg',
+        { title: 'CP-117', subtitle: 'Latch Retainer', badge: 'Latch Retainer', image: '/products/latch.png',
           specs: cat.table.rows.map(r => ({ label: r[0], value: r[2] })).filter(s => s.label !== 'Model') },
       ];
       return (
@@ -145,9 +145,9 @@ const CategoryContent = ({ cat, onEnquire }) => {
     if (cat.code === 'E') {
       const products = [
         { title: 'Airline Lubricator BLG-30', image: '/products/blg.jpeg', specs: [{ label: 'Weight', value: '3 kg (6.6 lb)' }, { label: 'Volume', value: '1.3 ltr (44 oz)' }, { label: 'Air Flow', value: '25–134 l/S (53–284 cfm)' }, { label: 'Placement', value: '3M from drill' }] },
-        { title: 'Clamps', image: '/products/airline-clamps.jpg', specs: [{ label: 'Type', value: 'Air line clamp accessories' }] },
-        { title: 'Hose Jointers', image: '/products/hose-jointers.jpg', specs: [{ label: 'Type', value: 'Joiner fittings for airline hose connections' }] },
-        { title: 'Hose Pipe', image: '/products/hose-pipe.jpg', specs: [{ label: 'Type', value: 'High-pressure airline hose' }] },
+        { title: 'Clamps', image: '/products/clamp.png', specs: [{ label: 'Type', value: 'Air line clamp accessories' }] },
+        { title: 'Hose Jointers', image: '/products/hose.png', specs: [{ label: 'Type', value: 'Joiner fittings for airline hose connections' }] },
+        { title: 'Hose Pipe', image: '/products/hpipe.png', specs: [{ label: 'Type', value: 'High-pressure airline hose' }] },
       ];
       return (
         <div className="space-y-4">
@@ -185,7 +185,7 @@ const CategoryContent = ({ cat, onEnquire }) => {
     }
 
     if (cat.code === 'G') {
-      const images = ['/products/caribe.jpeg', '/products/button-bits-drifter.jpg'];
+      const images = ['/products/caribe.jpeg', '/products/r32.png'];
       return (
         <div className="space-y-4">
           {cat.twoCol.map((item, i) => (
