@@ -60,8 +60,8 @@ const ProductCard = ({ title, subtitle, image, specs, catCode, onEnquire, badge 
             <p className="font-black text-charcoal text-lg leading-tight" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>{title}</p>
             {subtitle && <p className="text-xs text-gray-500 mt-0.5">{subtitle}</p>}
           </div>
-          <button onClick={onEnquire} className="text-xs font-bold text-hava-red hover:text-accent-orange flex items-center gap-1 transition-colors whitespace-nowrap flex-shrink-0 mt-1">
-            Enquire Now <ArrowRight className="w-3 h-3" />
+          <button onClick={onEnquire} className="text-xs font-bold bg-gradient-to-r from-hava-red to-accent-orange text-white flex items-center gap-1 px-3 py-1.5 rounded-lg whitespace-nowrap flex-shrink-0 mt-1 group hover:opacity-90 transition-opacity">
+            Enquire Now <ArrowRight className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" />
           </button>
         </div>
         {specs && specs.length > 0 && (
@@ -166,7 +166,9 @@ const CategoryContent = ({ cat, onEnquire }) => {
           <div className="flex-1 p-5 flex flex-col">
             <div className="flex items-start justify-between gap-3 mb-4">
               <p className="font-black text-charcoal text-lg leading-tight" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>Extension Equipment — Full Range</p>
-              <button onClick={onEnquire} className="text-xs font-bold text-hava-red hover:text-accent-orange flex items-center gap-1 transition-colors whitespace-nowrap flex-shrink-0">Enquire Now <ArrowRight className="w-3 h-3" /></button>
+              <button onClick={onEnquire} className="text-xs font-bold bg-gradient-to-r from-hava-red to-accent-orange text-white flex items-center gap-1 px-3 py-1.5 rounded-lg whitespace-nowrap flex-shrink-0 group hover:opacity-90 transition-opacity">
+                Enquire Now <ArrowRight className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" />
+              </button>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
               {items.map((item, i) => (
@@ -194,7 +196,9 @@ const CategoryContent = ({ cat, onEnquire }) => {
               <div className="flex-1 p-5 flex flex-col">
                 <div className="flex items-start justify-between gap-3 mb-3">
                   <p className="font-black text-charcoal text-lg leading-tight" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>{item.heading}</p>
-                  <button onClick={onEnquire} className="text-xs font-bold text-hava-red hover:text-accent-orange flex items-center gap-1 transition-colors whitespace-nowrap flex-shrink-0">Enquire Now <ArrowRight className="w-3 h-3" /></button>
+                  <button onClick={onEnquire} className="text-xs font-bold bg-gradient-to-r from-hava-red to-accent-orange text-white flex items-center gap-1 px-3 py-1.5 rounded-lg whitespace-nowrap flex-shrink-0 group hover:opacity-90 transition-opacity">
+                    Enquire Now <ArrowRight className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" />
+                  </button>
                 </div>
                 <div className="flex flex-wrap gap-2">
                   {item.text.split(' / ').map((size, si) => <span key={si} className="text-sm font-bold bg-slate-50 border-2 border-steel-gray text-charcoal px-4 py-2 rounded-xl">{size}</span>)}
