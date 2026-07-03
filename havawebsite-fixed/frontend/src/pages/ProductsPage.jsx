@@ -95,7 +95,7 @@ const CategoryContent = ({ cat, onEnquire }) => {
 
   const renderProducts = () => {
     if (cat.code === 'A') {
-      const images = ['/products/wet.jpeg', '/products/wet.jpeg'];
+      const images = ['/products/wet.jpeg', '/products/wets.png'];
       return (
         <div className="space-y-4">
           {cat.table.rows.map((row, ri) => (
@@ -107,7 +107,7 @@ const CategoryContent = ({ cat, onEnquire }) => {
     }
 
     if (cat.code === 'B') {
-      const images = ['/products/bbc.jpeg', '/products/shank.jpeg', '/products/shank.jpeg'];
+      const images = ['/products/bbc.jpeg', '/products/shank.png', '/products/couple.png'];
       return (
         <div className="space-y-4">
           {cat.table.rows.map((row, ri) => (
