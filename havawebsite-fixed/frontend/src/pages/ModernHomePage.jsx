@@ -84,6 +84,55 @@ export const ModernHomePage = () => {
       {/* 2. TRUST STRIP */}
       <TrustStrip />
 
+      {/* Product Categories - Mobile only (above hero section) */}
+      <div className="block md:hidden py-10 bg-gradient-to-br from-slate-50 via-white to-blue-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="text-center mb-8">
+            <div className="inline-flex items-center gap-2 bg-hava-red/10 text-hava-red px-4 py-2 rounded-full mb-3 font-bold text-xs uppercase tracking-wider">
+              <div className="w-2 h-2 bg-hava-red rounded-full animate-pulse" />
+              Product Range
+            </div>
+            <h2 className="text-3xl font-black text-charcoal mb-2">
+              Complete <span className="gradient-text">Product Range</span>
+            </h2>
+            <p className="text-base text-gray-600">
+              HAVA offers a complete range of pneumatic rock drilling equipment, demolition tools, accessories, and spare parts.
+            </p>
+          </div>
+          <div
+            className="flex gap-4 overflow-x-auto scrollbar-hide pb-4"
+            style={{ scrollbarWidth: 'none', msOverflowStyle: 'none', WebkitOverflowScrolling: 'touch' }}
+          >
+            {productCategories.map((product) => (
+              <div key={product.id} className="flex-shrink-0 w-[85vw]">
+                <div className="bg-white border border-steel-gray rounded-3xl overflow-hidden shadow-md h-full">
+                  <div className="h-56 overflow-hidden relative bg-gradient-to-br from-slate-100 to-blue-50">
+                    <img src={product.image} alt={product.name} className="w-full h-full object-contain p-4" />
+                  </div>
+                  <CardContent className="p-6">
+                    <h3 className="text-xl font-bold text-charcoal mb-3">{product.name}</h3>
+                    <p className="text-sm text-gray-600 mb-6 line-clamp-3">{product.description}</p>
+                    <div className="flex flex-col gap-3">
+                      <Button onClick={handleEnquireNow} className="w-full bg-gradient-to-r from-hava-red to-hava-red/90 text-white font-semibold shadow-lg">
+                        Enquire Now
+                      </Button>
+                      <div className="flex gap-2">
+                        <Button onClick={handleReadMore} variant="outline" className="flex-1 border-trust-blue text-trust-blue hover:bg-trust-blue hover:text-white">
+                          Read More
+                        </Button>
+                        <Button onClick={handleDownloadBrochure} variant="outline" className="flex-1 border-steel-gray text-charcoal hover:bg-steel-gray">
+                          <Download className="w-4 h-4 mr-2" />PDF
+                        </Button>
+                      </div>
+                    </div>
+                  </CardContent>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
       {/* 3. HERO SECTION */}
       <section ref={heroRef} className="relative py-8 lg:py-12 overflow-hidden bg-gradient-to-br from-slate-50 via-white to-blue-50">
         <AnimatedBackground />
@@ -216,8 +265,8 @@ export const ModernHomePage = () => {
       {/* 4. About Us */}
       <AboutSection onCtaClick={() => setQuoteModalOpen(true)} />
 
-      {/* 5. Product Categories */}
-      <section id="products" className="py-10 lg:py-14 relative overflow-hidden bg-gradient-to-br from-slate-50 via-white to-blue-50">
+      {/* 5. Product Categories - Desktop only */}
+      <section id="products" className="hidden md:block py-10 lg:py-14 relative overflow-hidden bg-gradient-to-br from-slate-50 via-white to-blue-50">
         <AnimatedBackground />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
