@@ -81,11 +81,6 @@ export const ModernHomePage = () => {
       {/* 1. VIDEO SECTION */}
       <VideoSection />
 
-      {/* Featured Products - Mobile only (above trust strip) */}
-      <div className="block md:hidden">
-        <FeaturedProductsCarousel onEnquireClick={handleEnquireNow} />
-      </div>
-
       {/* 2. TRUST STRIP */}
       <TrustStrip />
 
@@ -246,6 +241,7 @@ export const ModernHomePage = () => {
           </motion.div>
 
           <div className="relative">
+            {/* Scroll Left Button — desktop only */}
             <motion.button
               whileHover={{ scale: 1.1, x: -5 }}
               whileTap={{ scale: 0.9 }}
@@ -256,6 +252,7 @@ export const ModernHomePage = () => {
               <ChevronLeft className="w-6 h-6 text-trust-blue" />
             </motion.button>
 
+            {/* Scroll Right Button — desktop only */}
             <motion.button
               whileHover={{ scale: 1.1, x: 5 }}
               whileTap={{ scale: 0.9 }}
@@ -266,6 +263,7 @@ export const ModernHomePage = () => {
               <ChevronRight className="w-6 h-6 text-trust-blue" />
             </motion.button>
 
+            {/* Cards — pause auto-scroll on touch/hover */}
             <div
               ref={productScrollRef}
               className="flex gap-4 overflow-x-auto scrollbar-hide px-4 lg:px-12 pb-4"
@@ -348,10 +346,8 @@ export const ModernHomePage = () => {
       {/* 8. Stats with Tabs */}
       <StatsTabsSection />
 
-      {/* 9. Featured Products Carousel - Desktop only (original position) */}
-      <div className="hidden md:block">
-        <FeaturedProductsCarousel onEnquireClick={handleEnquireNow} />
-      </div>
+      {/* 9. Featured Products Carousel */}
+      <FeaturedProductsCarousel onEnquireClick={handleEnquireNow} />
 
       {/* 10. Countries Served */}
       <CountriesSection />
