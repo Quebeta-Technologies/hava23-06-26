@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect, useCallback } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { ChevronLeft, ChevronRight, Download, ArrowRight, Sparkles, Award } from 'lucide-react';
@@ -41,7 +41,14 @@ export const ModernHomePage = () => {
     }
   };
 
-  const startAutoScroll = () => {
+  const stopAutoScroll = useCallback(() => {
+    if (autoScrollRef.current) {
+      clearInterval(autoScrollRef.current);
+      autoScrollRef.current = null;
+    }
+  }, []);
+
+  const startAutoScroll = useCallback(() => {
     stopAutoScroll();
     autoScrollRef.current = setInterval(() => {
       const el = productScrollRef.current;
@@ -53,19 +60,12 @@ export const ModernHomePage = () => {
         el.scrollBy({ left: 320, behavior: 'smooth' });
       }
     }, 2500);
-  };
-
-  const stopAutoScroll = () => {
-    if (autoScrollRef.current) {
-      clearInterval(autoScrollRef.current);
-      autoScrollRef.current = null;
-    }
-  };
+  }, [stopAutoScroll]);
 
   useEffect(() => {
     startAutoScroll();
     return () => stopAutoScroll();
-  }, []);
+  }, [startAutoScroll, stopAutoScroll]);
 
   const handleEnquireNow = () => setQuoteModalOpen(true);
   const handleReadMore = () => toast.info('Product details page coming soon!');
