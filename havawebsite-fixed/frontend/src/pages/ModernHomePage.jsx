@@ -81,13 +81,13 @@ export const ModernHomePage = () => {
       {/* 1. VIDEO SECTION */}
       <VideoSection />
 
-      {/* 2. TRUST STRIP */}
-      <TrustStrip />
-
-      {/* Featured Products - Mobile only (above hero section) */}
+      {/* Featured Products - Mobile only (above trust strip) */}
       <div className="block md:hidden">
         <FeaturedProductsCarousel onEnquireClick={handleEnquireNow} />
       </div>
+
+      {/* 2. TRUST STRIP */}
+      <TrustStrip />
 
       {/* 3. HERO SECTION */}
       <section ref={heroRef} className="relative py-8 lg:py-12 overflow-hidden bg-gradient-to-br from-slate-50 via-white to-blue-50">
