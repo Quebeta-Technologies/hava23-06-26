@@ -224,30 +224,37 @@ export const ModernHomePage = () => {
           </motion.div>
 
           <div className="relative">
+            {/* Scroll Left Button */}
             <motion.button
               whileHover={{ scale: 1.1, x: -5 }}
               whileTap={{ scale: 0.9 }}
               onClick={() => scrollProducts('left')}
-              className="absolute left-0 top-1/2 -translate-y-1/2 z-20 glass-morphism shadow-2xl rounded-full p-4 hover:bg-white transition-all"
+              className="absolute left-0 top-1/2 -translate-y-1/2 z-20 glass-morphism shadow-2xl rounded-full p-2 lg:p-4 hover:bg-white transition-all"
               data-testid="products-scroll-left-btn"
             >
-              <ChevronLeft className="w-6 h-6 text-trust-blue" />
+              <ChevronLeft className="w-4 h-4 lg:w-6 lg:h-6 text-trust-blue" />
             </motion.button>
 
+            {/* Scroll Right Button */}
             <motion.button
               whileHover={{ scale: 1.1, x: 5 }}
               whileTap={{ scale: 0.9 }}
               onClick={() => scrollProducts('right')}
-              className="absolute right-0 top-1/2 -translate-y-1/2 z-20 glass-morphism shadow-2xl rounded-full p-4 hover:bg-white transition-all"
+              className="absolute right-0 top-1/2 -translate-y-1/2 z-20 glass-morphism shadow-2xl rounded-full p-2 lg:p-4 hover:bg-white transition-all"
               data-testid="products-scroll-right-btn"
             >
-              <ChevronRight className="w-6 h-6 text-trust-blue" />
+              <ChevronRight className="w-4 h-4 lg:w-6 lg:h-6 text-trust-blue" />
             </motion.button>
 
+            {/* Cards Scroll Container — snap removed to fix mobile glitch */}
             <div
               ref={productScrollRef}
-              className="flex gap-6 overflow-x-auto scrollbar-hide px-12 pb-4 snap-x snap-mandatory"
-              style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+              className="flex gap-6 overflow-x-auto scrollbar-hide px-8 lg:px-12 pb-4"
+              style={{
+                scrollbarWidth: 'none',
+                msOverflowStyle: 'none',
+                WebkitOverflowScrolling: 'touch'
+              }}
             >
               {productCategories.map((product, index) => (
                 <motion.div
