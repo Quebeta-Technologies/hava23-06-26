@@ -224,32 +224,32 @@ export const ModernHomePage = () => {
           </motion.div>
 
           <div className="relative">
-            {/* Scroll Left Button */}
+            {/* Scroll Left Button — desktop only */}
             <motion.button
               whileHover={{ scale: 1.1, x: -5 }}
               whileTap={{ scale: 0.9 }}
               onClick={() => scrollProducts('left')}
-              className="absolute left-0 top-1/2 -translate-y-1/2 z-20 glass-morphism shadow-2xl rounded-full p-2 lg:p-4 hover:bg-white transition-all"
+              className="hidden lg:flex absolute left-0 top-1/2 -translate-y-1/2 z-20 glass-morphism shadow-2xl rounded-full p-4 hover:bg-white transition-all"
               data-testid="products-scroll-left-btn"
             >
-              <ChevronLeft className="w-4 h-4 lg:w-6 lg:h-6 text-trust-blue" />
+              <ChevronLeft className="w-6 h-6 text-trust-blue" />
             </motion.button>
 
-            {/* Scroll Right Button */}
+            {/* Scroll Right Button — desktop only */}
             <motion.button
               whileHover={{ scale: 1.1, x: 5 }}
               whileTap={{ scale: 0.9 }}
               onClick={() => scrollProducts('right')}
-              className="absolute right-0 top-1/2 -translate-y-1/2 z-20 glass-morphism shadow-2xl rounded-full p-2 lg:p-4 hover:bg-white transition-all"
+              className="hidden lg:flex absolute right-0 top-1/2 -translate-y-1/2 z-20 glass-morphism shadow-2xl rounded-full p-4 hover:bg-white transition-all"
               data-testid="products-scroll-right-btn"
             >
-              <ChevronRight className="w-4 h-4 lg:w-6 lg:h-6 text-trust-blue" />
+              <ChevronRight className="w-6 h-6 text-trust-blue" />
             </motion.button>
 
-            {/* Cards Scroll Container — snap removed to fix mobile glitch */}
+            {/* Cards Scroll Container */}
             <div
               ref={productScrollRef}
-              className="flex gap-6 overflow-x-auto scrollbar-hide px-8 lg:px-12 pb-4"
+              className="flex gap-4 overflow-x-auto scrollbar-hide px-4 lg:px-12 pb-4"
               style={{
                 scrollbarWidth: 'none',
                 msOverflowStyle: 'none',
@@ -263,7 +263,7 @@ export const ModernHomePage = () => {
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: index * 0.05 }}
-                  className="flex-shrink-0 w-80 snap-center"
+                  className="flex-shrink-0 w-[85vw] sm:w-80"
                   data-testid={`product-card-${index}`}
                 >
                   <div className="bg-white border border-steel-gray rounded-3xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-500 group h-full">
