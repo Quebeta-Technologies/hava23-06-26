@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { ChevronLeft, ChevronRight, Download, ArrowRight, Sparkles, Award } from 'lucide-react';
@@ -29,6 +29,7 @@ export const ModernHomePage = () => {
   const [quoteModalOpen, setQuoteModalOpen] = useState(false);
   const [brochureModalOpen, setBrochureModalOpen] = useState(false);
   const productScrollRef = useRef(null);
+  const autoScrollRef = useRef(null);
 
   const scrollProducts = (direction) => {
     if (productScrollRef.current) {
@@ -39,6 +40,32 @@ export const ModernHomePage = () => {
       });
     }
   };
+
+  const startAutoScroll = () => {
+    stopAutoScroll();
+    autoScrollRef.current = setInterval(() => {
+      const el = productScrollRef.current;
+      if (!el) return;
+      const maxScroll = el.scrollWidth - el.clientWidth;
+      if (el.scrollLeft >= maxScroll - 2) {
+        el.scrollTo({ left: 0, behavior: 'smooth' });
+      } else {
+        el.scrollBy({ left: 320, behavior: 'smooth' });
+      }
+    }, 2500);
+  };
+
+  const stopAutoScroll = () => {
+    if (autoScrollRef.current) {
+      clearInterval(autoScrollRef.current);
+      autoScrollRef.current = null;
+    }
+  };
+
+  useEffect(() => {
+    startAutoScroll();
+    return () => stopAutoScroll();
+  }, []);
 
   const handleEnquireNow = () => setQuoteModalOpen(true);
   const handleReadMore = () => toast.info('Product details page coming soon!');
@@ -51,20 +78,19 @@ export const ModernHomePage = () => {
       <Toaster position="top-right" richColors />
       <Header onQuoteClick={() => setQuoteModalOpen(true)} />
 
-      {/* 1. VIDEO SECTION (first after header) */}
+      {/* 1. VIDEO SECTION */}
       <VideoSection />
 
-      {/* 2. TRUST STRIP (between video and hero) */}
+      {/* 2. TRUST STRIP */}
       <TrustStrip />
 
-      {/* 3. HERO SECTION - 50/50 split: Text Left, Image Right */}
+      {/* 3. HERO SECTION */}
       <section ref={heroRef} className="relative py-8 lg:py-12 overflow-hidden bg-gradient-to-br from-slate-50 via-white to-blue-50">
         <AnimatedBackground />
         <div className="absolute inset-0 grid-pattern opacity-20" />
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-            {/* LEFT - Text Content */}
             <motion.div
               initial={{ opacity: 0, x: -50 }}
               animate={heroInView ? { opacity: 1, x: 0 } : {}}
@@ -146,7 +172,6 @@ export const ModernHomePage = () => {
               </motion.div>
             </motion.div>
 
-            {/* RIGHT - HAVA Hero Image */}
             <motion.div
               initial={{ opacity: 0, x: 50, scale: 0.9 }}
               animate={heroInView ? { opacity: 1, x: 0, scale: 1 } : {}}
@@ -154,17 +179,11 @@ export const ModernHomePage = () => {
               className="relative"
             >
               <div className="relative">
-                {/* Decorative glow behind image */}
                 <motion.div
-                  animate={{
-                    scale: [1, 1.1, 1],
-                    opacity: [0.4, 0.6, 0.4]
-                  }}
+                  animate={{ scale: [1, 1.1, 1], opacity: [0.4, 0.6, 0.4] }}
                   transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
                   className="absolute inset-0 bg-gradient-to-br from-hava-red/30 to-accent-orange/30 rounded-3xl blur-3xl"
                 />
-
-                {/* Main image */}
                 <motion.img
                   whileHover={{ scale: 1.02 }}
                   transition={{ duration: 0.4 }}
@@ -173,8 +192,6 @@ export const ModernHomePage = () => {
                   className="relative w-full h-auto rounded-3xl shadow-2xl"
                   data-testid="hero-image"
                 />
-
-                {/* Floating tag - bottom left */}
                 <motion.div
                   animate={{ y: [0, -8, 0] }}
                   transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
@@ -246,7 +263,7 @@ export const ModernHomePage = () => {
               <ChevronRight className="w-6 h-6 text-trust-blue" />
             </motion.button>
 
-            {/* Cards Scroll Container */}
+            {/* Cards — pause auto-scroll on touch/hover */}
             <div
               ref={productScrollRef}
               className="flex gap-4 overflow-x-auto scrollbar-hide px-4 lg:px-12 pb-4"
@@ -255,6 +272,10 @@ export const ModernHomePage = () => {
                 msOverflowStyle: 'none',
                 WebkitOverflowScrolling: 'touch'
               }}
+              onMouseEnter={stopAutoScroll}
+              onMouseLeave={startAutoScroll}
+              onTouchStart={stopAutoScroll}
+              onTouchEnd={startAutoScroll}
             >
               {productCategories.map((product, index) => (
                 <motion.div
@@ -331,10 +352,10 @@ export const ModernHomePage = () => {
       {/* 10. Countries Served */}
       <CountriesSection />
 
-      {/* 11. Testimonials Carousel - 3 per slide */}
+      {/* 11. Testimonials */}
       <TestimonialsCarousel />
 
-      {/* 12. Contact Form (replaces final CTA) */}
+      {/* 12. Contact Form */}
       <ContactFormSection />
 
       <Footer />
