@@ -81,11 +81,6 @@ export const ModernHomePage = () => {
       {/* 1. VIDEO SECTION */}
       <VideoSection />
 
-      {/* Featured Products - Mobile only (above trust strip) */}
-      <div className="block md:hidden">
-        <FeaturedProductsCarousel onEnquireClick={handleEnquireNow} />
-      </div>
-
       {/* 2. TRUST STRIP */}
       <TrustStrip />
 
@@ -348,10 +343,8 @@ export const ModernHomePage = () => {
       {/* 8. Stats with Tabs */}
       <StatsTabsSection />
 
-      {/* 9. Featured Products Carousel - Desktop only (original position) */}
-      <div className="hidden md:block">
-        <FeaturedProductsCarousel onEnquireClick={handleEnquireNow} />
-      </div>
+      {/* 9. Featured Products Carousel */}
+      <FeaturedProductsCarousel onEnquireClick={handleEnquireNow} />
 
       {/* 10. Countries Served */}
       <CountriesSection />
