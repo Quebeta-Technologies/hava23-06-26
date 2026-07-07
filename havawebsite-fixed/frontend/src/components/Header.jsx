@@ -27,9 +27,9 @@ export const Header = ({ onQuoteClick }) => {
     item.submenu && item.submenu.some((s) => location.pathname === s.path);
 
   return (
-    <header className="sticky top-0 z-50 bg-white shadow-md">
-      {/* Top Bar */}
-      <div className="bg-trust-blue text-white py-2">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-white shadow-md">
+      {/* Top Bar - hidden on mobile */}
+      <div className="hidden lg:block bg-trust-blue text-white py-2">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-wrap items-center justify-between text-xs sm:text-sm">
             <span className="font-medium">{headerData.topBar.certification}</span>
