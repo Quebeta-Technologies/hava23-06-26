@@ -146,10 +146,10 @@ export const Header = ({ onQuoteClick }) => {
         onClick={() => setMobileMenuOpen(false)}
       />
 
-      {/* Right-side Drawer */}
+      {/* Left-side Drawer */}
       <div
-        className={`fixed top-0 right-0 h-full w-[280px] bg-white z-50 shadow-2xl flex flex-col transform transition-transform duration-300 ease-in-out lg:hidden ${
-          mobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
+        className={`fixed top-0 left-0 h-full w-[280px] bg-white z-50 shadow-2xl flex flex-col transform transition-transform duration-300 ease-in-out lg:hidden ${
+          mobileMenuOpen ? 'translate-x-0' : '-translate-x-full'
         }`}
       >
         {/* Drawer Header */}
