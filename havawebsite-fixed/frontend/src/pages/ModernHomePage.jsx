@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect, useCallback } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+import { useNavigate } from 'react-router-dom';
 import { ChevronLeft, ChevronRight, Download, ArrowRight, Sparkles, Award } from 'lucide-react';
 import { Button } from '../components/ui/button';
 import { CardContent } from '../components/ui/card';
@@ -25,11 +26,17 @@ import {
   productCategories,
 } from '../data/mock';
 
+const categoryCodeMap = {
+  1: 'A', 2: 'B', 3: 'C', 4: 'D',
+  5: 'E', 6: 'F', 7: 'G', 8: 'H'
+};
+
 export const ModernHomePage = () => {
   const [quoteModalOpen, setQuoteModalOpen] = useState(false);
   const [brochureModalOpen, setBrochureModalOpen] = useState(false);
   const productScrollRef = useRef(null);
   const autoScrollRef = useRef(null);
+  const navigate = useNavigate();
 
   const scrollProducts = (direction) => {
     if (productScrollRef.current) {
@@ -68,7 +75,10 @@ export const ModernHomePage = () => {
   }, [startAutoScroll, stopAutoScroll]);
 
   const handleEnquireNow = () => setQuoteModalOpen(true);
-  const handleReadMore = () => toast.info('Product details page coming soon!');
+  const handleReadMore = (productId) => {
+    const code = categoryCodeMap[productId];
+    navigate(`/products?category=${code}`);
+  };
   const handleDownloadBrochure = () => setBrochureModalOpen(true);
 
   const [heroRef, heroInView] = useInView({ triggerOnce: true, threshold: 0.1 });
@@ -117,7 +127,7 @@ export const ModernHomePage = () => {
                         Enquire Now
                       </Button>
                       <div className="flex gap-2">
-                        <Button onClick={handleReadMore} variant="outline" className="flex-1 border-trust-blue text-trust-blue hover:bg-trust-blue hover:text-white">
+                        <Button onClick={() => handleReadMore(product.id)} variant="outline" className="flex-1 border-trust-blue text-trust-blue hover:bg-trust-blue hover:text-white">
                           Read More
                         </Button>
                         <Button onClick={handleDownloadBrochure} variant="outline" className="flex-1 border-steel-gray text-charcoal hover:bg-steel-gray">
@@ -358,7 +368,7 @@ export const ModernHomePage = () => {
                         </motion.div>
                         <div className="flex gap-2">
                           <Button
-                            onClick={handleReadMore}
+                            onClick={() => handleReadMore(product.id)}
                             variant="outline"
                             className="flex-1 border-trust-blue text-trust-blue hover:bg-trust-blue hover:text-white"
                           >

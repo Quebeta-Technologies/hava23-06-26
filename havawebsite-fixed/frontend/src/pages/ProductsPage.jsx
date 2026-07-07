@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useLocation } from 'react-router-dom';
 import {
   ArrowRight,
   Download,
@@ -290,8 +291,22 @@ export const ProductsPage = () => {
   const [quoteModalOpen, setQuoteModalOpen] = useState(false);
   const [activeCategory, setActiveCategory] = useState('A');
   const [mobileSidebarOpen, setMobileSidebarOpen] = useState(false);
+  const location = useLocation();
   const handleEnquire = () => setQuoteModalOpen(true);
   const activeCat = d.categories.find(c => c.code === activeCategory);
+
+  // Read ?category= query param and set active category
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    const cat = params.get('category');
+    if (cat && d.categories.find(c => c.code === cat)) {
+      setActiveCategory(cat);
+      // Scroll to product detail after a short delay
+      setTimeout(() => {
+        document.getElementById('product-detail')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 300);
+    }
+  }, [location.search]);
 
   const handleCategorySelect = (code) => {
     setActiveCategory(code);
