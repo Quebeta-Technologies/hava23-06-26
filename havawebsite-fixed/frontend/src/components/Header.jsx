@@ -123,7 +123,7 @@ export const Header = ({ onQuoteClick }) => {
                 href="/assets/Draft_Annual_Return.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
-              >
+              <a>
                 <Button className="bg-trust-blue hover:bg-trust-blue/90 text-white font-semibold px-6 py-2 shadow-lg">
                   Draft Annual Return
                 </Button>
@@ -235,7 +235,7 @@ export const Header = ({ onQuoteClick }) => {
             target="_blank"
             rel="noopener noreferrer"
             className="block"
-          >
+          <a>
             <Button className="w-full bg-trust-blue hover:bg-trust-blue/90 text-white font-semibold">
               Draft Annual Return
             </Button>
