@@ -114,10 +114,19 @@ export const Header = ({ onQuoteClick }) => {
               })}
             </div>
 
-            {/* CTA Button */}
+            {/* CTA Buttons - Desktop */}
             <div className="hidden lg:flex items-center gap-4">
               <a href="tel:+912027440025" className="text-trust-blue hover:text-hava-red transition-colors">
                 <Phone className="w-5 h-5" />
+              </a>
+              
+                href="/assets/Draft_Annual_Return.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Button className="bg-trust-blue hover:bg-trust-blue/90 text-white font-semibold px-6 py-2 shadow-lg">
+                  Draft Annual Return
+                </Button>
               </a>
               <Button
                 onClick={onQuoteClick}
@@ -220,7 +229,17 @@ export const Header = ({ onQuoteClick }) => {
         </div>
 
         {/* Drawer Footer */}
-        <div className="px-4 py-4 border-t border-steel-gray">
+        <div className="px-4 py-4 border-t border-steel-gray space-y-2">
+          
+            href="/assets/Draft_Annual_Return.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block"
+          >
+            <Button className="w-full bg-trust-blue hover:bg-trust-blue/90 text-white font-semibold">
+              Draft Annual Return
+            </Button>
+          </a>
           <Button
             onClick={() => {
               onQuoteClick();
