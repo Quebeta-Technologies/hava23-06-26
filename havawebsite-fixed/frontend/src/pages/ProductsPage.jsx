@@ -255,11 +255,13 @@ const CategoryContent = ({ cat, onEnquire }) => {
           </div>
         </div>
         <div className="flex items-center gap-2 flex-shrink-0">
-          <a href="/assets/Rock Drill Instruction Manual.pdf" target="_blank" rel="noopener noreferrer">
-            <Button variant="outline" className="border-2 border-steel-gray text-charcoal hover:border-hava-red hover:text-hava-red text-xs h-8 px-3">
-              <Download className="w-3 h-3 mr-1" /> Brochure
-            </Button>
-          </a>
+          {cat.brochureUrl ? (
+            <a href={cat.brochureUrl} target="_blank" rel="noopener noreferrer">
+              <Button variant="outline" className="border-2 border-steel-gray text-charcoal hover:border-hava-red hover:text-hava-red text-xs h-8 px-3">
+                <Download className="w-3 h-3 mr-1" /> Brochure
+              </Button>
+            </a>
+          ) : null}
           <Button onClick={onEnquire} className="bg-gradient-to-r from-hava-red to-accent-orange text-white text-xs font-bold h-8 px-3 group">
             Request a Quote <ArrowRight className="w-3 h-3 ml-1 group-hover:translate-x-1 transition-transform" />
           </Button>

@@ -402,6 +402,7 @@ export const productsPageData = {
     {
       code: "A",
       name: "Rock Drills",
+      brochureUrl: "/assets/Hava Rock Drill Catalog.pdf",
       productCount: "2 Products · 2 Pages",
       image: "/products/rock.png",
       description:
@@ -424,6 +425,7 @@ export const productsPageData = {
     {
       code: "B",
       name: "Drifters",
+      brochureUrl: "/assets/Hava Drifter Catalog.pdf",
       productCount: "3 Products · 4 Pages",
       image: "/products/drifter.jpg",
       description:
@@ -446,6 +448,7 @@ export const productsPageData = {
     {
       code: "C",
       name: "Pavement Breakers",
+      brochureUrl: "/assets/Hava Pavement Breaker Catalog.pdf",
       productCount: "2 Products · 3 Pages",
       image: "/products/pavement-breaker.jpg",
       description:
@@ -473,6 +476,7 @@ export const productsPageData = {
     {
       code: "D",
       name: "Pusher Leg",
+      brochureUrl: "/assets/Hava Pusher Catalog.pdf",
       productCount: "1 Product · 1 Page",
       image: "/products/pusher-leg.jpg",
       description:
@@ -497,6 +501,7 @@ export const productsPageData = {
     {
       code: "E",
       name: "Airline Accessories",
+      brochureUrl: "/assets/Hava Airline Catalog.pdf",
       productCount: "4 Products · 4 Pages",
       image: "/products/airline-accessories.jpg",
       description:
@@ -518,6 +523,7 @@ export const productsPageData = {
     {
       code: "F",
       name: "Extension Equipment",
+      brochureUrl: null,
       productCount: "6 Items · 6 Pages",
       image: "/products/extension-taper.jpg",
       description:
@@ -540,6 +546,7 @@ export const productsPageData = {
     {
       code: "G",
       name: "Button Bits",
+      brochureUrl: null,
       productCount: "2 Product Lines · 2 Pages",
       image: "/products/button-bits.jpg",
       description:
@@ -555,6 +562,7 @@ export const productsPageData = {
     {
       code: "H",
       name: "Spare Parts",
+      brochureUrl: null,
       productCount: "Genuine Parts",
       image: "/products/spare-parts.jpg",
       description:
