@@ -97,12 +97,68 @@ const CategoryContent = ({ cat, onEnquire }) => {
   const renderProducts = () => {
     if (cat.code === 'A') {
       const images = ['/products/wet.jpeg', '/products/wets.png'];
+      const videos = ["/products/Rock Drill Spade Handle (1).mp4", null]; // e.g. '/videos/rock-drill-1.mp4' — add when ready
       return (
         <div className="space-y-4">
-          {cat.table.rows.map((row, ri) => (
-            <ProductCard key={ri} catCode="A" image={images[ri] || cat.image} title={row[0]} subtitle={row[1]}
-              specs={cat.table.headers.slice(2).map((h, i) => ({ label: h, value: row[i + 2] }))} onEnquire={onEnquire} />
-          ))}
+          {cat.table.rows.map((row, ri) => {
+            const specs = cat.table.headers.slice(2).map((h, i) => ({ label: h, value: row[i + 2] }));
+            return (
+              <div key={ri} className="bg-white rounded-2xl border-2 border-steel-gray hover:border-hava-red/40 hover:shadow-xl transition-all overflow-hidden">
+                <div className="flex flex-col sm:flex-row">
+
+                  {/* LEFT: Product Image */}
+                  <div className="w-64 flex-shrink-0 bg-gradient-to-br from-slate-100 to-blue-50 flex items-center justify-center overflow-hidden" style={{ minHeight: '220px' }}>
+                    <img src={images[ri]} alt={row[0]} className="w-full h-full object-cover" style={{ minHeight: '220px' }} />
+                  </div>
+
+                  {/* MIDDLE: Name + Enquire + Specs grid */}
+                  <div className="flex-1 p-5 flex flex-col min-w-0">
+                    <div className="flex items-start justify-between gap-3 mb-3">
+                      <div>
+                        <p className="font-black text-charcoal text-lg leading-tight" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>{row[0]}</p>
+                        {row[1] && <p className="text-xs text-gray-500 mt-0.5">{row[1]}</p>}
+                      </div>
+                      <button onClick={onEnquire} className="text-xs font-bold bg-gradient-to-r from-hava-red to-accent-orange text-white px-3 py-1.5 rounded-lg whitespace-nowrap flex-shrink-0 hover:opacity-90 transition-opacity">
+                        Enquire Now
+                      </button>
+                    </div>
+
+                    {/* Specs in 2-column grid */}
+                    {specs.length > 0 && (
+                      <div className="grid grid-cols-2 gap-2">
+                        {specs.map((s, i) => (
+                          <div key={i} className="flex flex-col bg-slate-50 border border-steel-gray rounded-lg px-2.5 py-1.5">
+                            <span className="text-[9px] font-bold text-gray-400 uppercase tracking-wider">{s.label}</span>
+                            <span className="text-[11px] font-bold text-charcoal mt-0.5">{s.value}</span>
+                          </div>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+
+                  {/* RIGHT: Product Video */}
+                  <div className="w-full sm:w-48 lg:w-52 flex-shrink-0 bg-slate-900 flex items-center justify-center border-l-2 border-steel-gray overflow-hidden" style={{ minHeight: '220px' }}>
+                    {videos[ri] ? (
+                      <video
+                        src={videos[ri]}
+                        className="w-full h-full object-cover"
+                        controls
+                        style={{ minHeight: '220px' }}
+                      />
+                    ) : (
+                      <div className="flex flex-col items-center justify-center gap-2 text-white/40 p-4 text-center">
+                        <div className="w-12 h-12 rounded-full border-2 border-white/20 flex items-center justify-center">
+                          <svg viewBox="0 0 24 24" className="w-5 h-5 fill-white/30"><path d="M8 5v14l11-7z"/></svg>
+                        </div>
+                        <span className="text-[10px] font-bold uppercase tracking-wider">Product Video<br/>Coming Soon</span>
+                      </div>
+                    )}
+                  </div>
+
+                </div>
+              </div>
+            );
+          })}
         </div>
       );
     }
