@@ -255,9 +255,11 @@ const CategoryContent = ({ cat, onEnquire }) => {
           </div>
         </div>
         <div className="flex items-center gap-2 flex-shrink-0">
-          <Button variant="outline" className="border-2 border-steel-gray text-charcoal hover:border-hava-red hover:text-hava-red text-xs h-8 px-3">
-            <Download className="w-3 h-3 mr-1" /> Brochure
-          </Button>
+          <a href="/assets/Rock Drill Instruction Manual.pdf" target="_blank" rel="noopener noreferrer">
+            <Button variant="outline" className="border-2 border-steel-gray text-charcoal hover:border-hava-red hover:text-hava-red text-xs h-8 px-3">
+              <Download className="w-3 h-3 mr-1" /> Brochure
+            </Button>
+          </a>
           <Button onClick={onEnquire} className="bg-gradient-to-r from-hava-red to-accent-orange text-white text-xs font-bold h-8 px-3 group">
             Request a Quote <ArrowRight className="w-3 h-3 ml-1 group-hover:translate-x-1 transition-transform" />
           </Button>
@@ -295,13 +297,11 @@ export const ProductsPage = () => {
   const handleEnquire = () => setQuoteModalOpen(true);
   const activeCat = d.categories.find(c => c.code === activeCategory);
 
-  // Read ?category= query param and set active category
   useEffect(() => {
     const params = new URLSearchParams(location.search);
     const cat = params.get('category');
     if (cat && d.categories.find(c => c.code === cat)) {
       setActiveCategory(cat);
-      // Scroll to product detail after a short delay
       setTimeout(() => {
         document.getElementById('product-detail')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }, 300);
@@ -321,14 +321,12 @@ export const ProductsPage = () => {
       <Toaster position="top-right" richColors />
       <Header onQuoteClick={() => setQuoteModalOpen(true)} />
 
-      {/* ── HERO — left text, right buttons + trust boxes ── */}
+      {/* ── HERO ── */}
       <section className="relative py-10 lg:py-14 overflow-hidden bg-gradient-to-br from-slate-50 via-white to-blue-50">
         <div className="absolute top-0 right-0 w-96 h-96 bg-hava-red/5 rounded-full blur-3xl" />
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-trust-blue/5 rounded-full blur-3xl" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col lg:flex-row items-start lg:items-center gap-8 lg:gap-12">
-
-            {/* LEFT — eyebrow + title + body */}
             <div className="flex-1 min-w-0">
               <div className="inline-flex items-center gap-2 bg-white border border-steel-gray rounded-full px-4 py-2 mb-4 shadow-sm">
                 <span className="text-accent-orange text-sm">✦</span>
@@ -342,9 +340,7 @@ export const ProductsPage = () => {
               <p className="text-base text-gray-600 leading-relaxed max-w-xl">{d.hero.body}</p>
             </div>
 
-            {/* RIGHT — buttons + 4 trust boxes */}
             <div className="flex-shrink-0 w-full lg:w-80 flex flex-col gap-4">
-              {/* Buttons */}
               <div className="flex flex-col sm:flex-row lg:flex-col gap-3">
                 <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }} className="w-full">
                   <Button
@@ -364,7 +360,6 @@ export const ProductsPage = () => {
                 </motion.div>
               </div>
 
-              {/* 4 trust boxes */}
               <div className="grid grid-cols-2 gap-2">
                 {trustItems.map((item, i) => (
                   <div key={i} className="bg-white border-2 border-steel-gray rounded-xl px-3 py-2.5 flex items-center gap-2 shadow-sm">
@@ -374,7 +369,6 @@ export const ProductsPage = () => {
                 ))}
               </div>
             </div>
-
           </div>
         </div>
       </section>
