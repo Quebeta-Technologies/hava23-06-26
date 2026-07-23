@@ -107,8 +107,8 @@ const CategoryContent = ({ cat, onEnquire }) => {
                 <div className="flex flex-col sm:flex-row">
 
                   {/* LEFT: Product Image */}
-                  <div className="w-full sm:w-44 lg:w-52 flex-shrink-0 bg-gradient-to-br from-slate-100 to-blue-50 overflow-hidden" style={{ minHeight: '220px' }}>
-                    <img src={images[ri]} alt={row[0]} className="w-full h-full object-cover" style={{ minHeight: '220px' }} />
+                  <div className="w-full sm:w-44 lg:w-52 flex-shrink-0 bg-gradient-to-br from-slate-100 to-blue-50 overflow-hidden flex items-center justify-center" style={{ minHeight: '220px' }}>
+                    <img src={images[ri]} alt={row[0]} className="w-full h-full object-contain p-2" style={{ minHeight: '220px' }} />
                   </div>
 
                   {/* MIDDLE: Name + Enquire + Specs grid */}
