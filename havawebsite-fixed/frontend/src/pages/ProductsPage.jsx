@@ -104,10 +104,10 @@ const CategoryContent = ({ cat, onEnquire }) => {
             const specs = cat.table.headers.slice(2).map((h, i) => ({ label: h, value: row[i + 2] }));
             return (
               <div key={ri} className="bg-white rounded-2xl border-2 border-steel-gray hover:border-hava-red/40 hover:shadow-xl transition-all overflow-hidden">
-                <div className="flex flex-col sm:flex-row">
+                <div className="flex flex-col lg:flex-row">
 
                   {/* LEFT: Product Image */}
-                  <div className="w-full sm:w-44 lg:w-52 flex-shrink-0 bg-gradient-to-br from-slate-100 to-blue-50 overflow-hidden flex items-center justify-center" style={{ minHeight: '220px' }}>
+                  <div className="w-full lg:w-52 flex-shrink-0 bg-gradient-to-br from-slate-100 to-blue-50 overflow-hidden flex items-center justify-center" style={{ minHeight: '220px' }}>
                     <img src={images[ri]} alt={row[0]} className="w-full h-full object-contain p-2" style={{ minHeight: '220px' }} />
                   </div>
 
