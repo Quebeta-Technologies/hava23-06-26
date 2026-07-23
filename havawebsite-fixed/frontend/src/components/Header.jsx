@@ -38,7 +38,17 @@ export const Header = ({ onQuoteClick }) => {
                 <Mail className="w-3 h-3" />
                 {headerData.topBar.location}
               </span>
-              <span className="text-accent-orange font-semibold">{headerData.topBar.exportText}</span>
+              <button
+                onClick={onQuoteClick}
+                className="text-accent-orange font-semibold hover:underline cursor-pointer"
+              >
+                {headerData.topBar.exportText}
+              </button>
+              <a href="/assets/Draft_Annual_Return.pdf" target="_blank" rel="noopener noreferrer">
+                <Button className="bg-white text-trust-blue hover:bg-gray-100 font-semibold px-4 py-1 text-xs shadow h-auto">
+                  Draft Annual Return
+                </Button>
+              </a>
             </div>
           </div>
         </div>
@@ -118,11 +128,6 @@ export const Header = ({ onQuoteClick }) => {
             <div className="hidden lg:flex items-center gap-4">
               <a href="tel:+912027440025" className="text-trust-blue hover:text-hava-red transition-colors">
                 <Phone className="w-5 h-5" />
-              </a>
-              <a href="/assets/Draft_Annual_Return.pdf" target="_blank" rel="noopener noreferrer">
-                <Button className="bg-trust-blue hover:bg-trust-blue/90 text-white font-semibold px-6 py-2 shadow-lg">
-                  Draft Annual Return
-                </Button>
               </a>
               <Button
                 onClick={onQuoteClick}

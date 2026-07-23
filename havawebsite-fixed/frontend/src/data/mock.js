@@ -16,7 +16,7 @@ export const headerData = {
     { name: "Gallery", path: "/gallery" },
     { name: "Contact", path: "/contact" }
   ],
-  primaryCTA: "Get a Quote",
+  primaryCTA: "Enquire Now",
   havaLogo: "/assets/hava-logo.svg",
   haryrockLogo: "/assets/haryrock-logo.png"
 };
