@@ -37,7 +37,7 @@ export const Footer = () => {
                     {footerData.contact.address}
                   </p>
                 </div>
-                
+                <a
                   href={footerData.mapLink}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -152,7 +152,7 @@ export const Footer = () => {
                   <Heart className="w-4 h-4 text-hava-red fill-hava-red" />
                 </motion.span>
                 From{' '}
-                
+                <a
                   href="https://www.quebeta.in"
                   target="_blank"
                   rel="noopener noreferrer"
