@@ -211,9 +211,9 @@ const CategoryContent = ({ cat, onEnquire }) => {
     if (cat.code === 'C') {
       const models = [
         { title: 'CP-117 / HR-117', subtitle: 'Spring Retainer', badge: 'Spring Retainer', image: '/products/cp.jpeg',
-          specs: cat.table.rows.map(r => ({ label: r[0], value: r[1] })).filter(s => s.label !== 'Model'), video: null },
+          specs: cat.table.rows.map(r => ({ label: r[0], value: r[1] })).filter(s => s.label !== 'Model' && s.label !== 'Operating Pressure'), video: null },
         { title: 'CP-117', subtitle: 'Latch Retainer', badge: 'Latch Retainer', image: '/products/latch.png',
-          specs: cat.table.rows.map(r => ({ label: r[0], value: r[2] })).filter(s => s.label !== 'Model'), video: null },
+          specs: cat.table.rows.map(r => ({ label: r[0], value: r[2] })).filter(s => s.label !== 'Model' && s.label !== 'Operating Pressure'), video: null },
       ];
       return (
         <div className="space-y-4">
