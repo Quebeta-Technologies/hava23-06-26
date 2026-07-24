@@ -135,13 +135,20 @@ export const Footer = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-3 text-sm text-gray-500">
             <p>{footerData.copyright}</p>
-            <div className="flex flex-col items-end gap-1.5">
-              <Link to="/privacy" className="hover:text-hava-red transition-colors">
-                Privacy Policy
-              </Link>
-              <Link to="/sitemap" className="hover:text-hava-red transition-colors">
-                Sitemap
-              </Link>
+
+            {/* Desktop: row | Mobile: column */}
+            <div className="flex flex-col md:flex-row md:items-center gap-1.5 md:gap-6">
+
+              {/* Mobile: Privacy + Sitemap on same line | Desktop: separate items in row */}
+              <div className="flex items-center gap-4 md:contents">
+                <Link to="/privacy" className="hover:text-hava-red transition-colors">
+                  Privacy Policy
+                </Link>
+                <Link to="/sitemap" className="hover:text-hava-red transition-colors">
+                  Sitemap
+                </Link>
+              </div>
+
               <span className="flex items-center gap-1.5" data-testid="footer-quebeta-credit">
                 Made With
                 <motion.span
