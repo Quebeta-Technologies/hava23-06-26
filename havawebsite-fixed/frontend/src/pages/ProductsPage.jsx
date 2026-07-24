@@ -41,9 +41,9 @@ const ProductCard = ({ title, subtitle, image, specs, catCode, onEnquire, badge 
   const Icon = categoryIcons[catCode];
   return (
     <div className="bg-white rounded-2xl border-2 border-steel-gray hover:border-hava-red/40 hover:shadow-xl transition-all overflow-hidden flex flex-col sm:flex-row">
-      <div className="w-full sm:w-44 lg:w-52 flex-shrink-0 bg-gradient-to-br from-slate-100 to-blue-50 overflow-hidden" style={{ minHeight: '220px' }}>
+      <div className="w-full sm:w-44 lg:w-52 flex-shrink-0 bg-gradient-to-br from-slate-100 to-blue-50 overflow-hidden" style={{ minHeight: '220px', maxHeight: '280px' }}>
         {image ? (
-          <img src={image} alt={title} className="w-full h-full object-cover" style={{ minHeight: '220px' }} />
+          <img src={image} alt={title} className="w-full h-full object-cover" style={{ minHeight: '220px', maxHeight: '280px' }} />
         ) : (
           <div className="w-full h-full flex items-center justify-center" style={{ minHeight: '220px' }}>
             <Icon className="w-12 h-12 text-hava-red/40" />
@@ -91,13 +91,32 @@ const TwoColBlock = ({ items }) => (
   </div>
 );
 
+// ─── Reusable Video Panel ────────────────────────────────────────────────────
+const VideoPanel = ({ src, mobile = false }) => (
+  <div
+    className={`${mobile ? 'w-full border-t-2 lg:hidden' : 'hidden lg:flex w-52 border-l-2'} flex-shrink-0 bg-slate-900 flex items-center justify-center border-steel-gray overflow-hidden`}
+    style={{ minHeight: '220px' }}
+  >
+    {src ? (
+      <video src={src} className="w-full h-full object-cover" controls style={{ minHeight: '220px' }} />
+    ) : (
+      <div className="flex flex-col items-center justify-center gap-2 text-white/40 p-4 text-center">
+        <div className="w-12 h-12 rounded-full border-2 border-white/20 flex items-center justify-center">
+          <svg viewBox="0 0 24 24" className="w-5 h-5 fill-white/30"><path d="M8 5v14l11-7z" /></svg>
+        </div>
+        <span className="text-[10px] font-bold uppercase tracking-wider">Product Video<br />Coming Soon</span>
+      </div>
+    )}
+  </div>
+);
+
 const CategoryContent = ({ cat, onEnquire }) => {
   const Icon = categoryIcons[cat.code];
 
   const renderProducts = () => {
     if (cat.code === 'A') {
       const images = ['/products/wet.jpeg', '/products/wets.png'];
-      const videos = ["/products/Rock Drill Spade Handle (1).mp", null]; // e.g. '/videos/rock-drill-1.mp4' — add when ready
+      const videos = [null, null]; // e.g. '/videos/rock-drill-1.mp4' — add when ready
       return (
         <div className="space-y-4">
           {cat.table.rows.map((row, ri) => {
@@ -122,8 +141,6 @@ const CategoryContent = ({ cat, onEnquire }) => {
                         Enquire Now
                       </button>
                     </div>
-
-                    {/* Specs in 2-column grid */}
                     {specs.length > 0 && (
                       <div className="grid grid-cols-2 gap-2">
                         {specs.map((s, i) => (
@@ -136,26 +153,12 @@ const CategoryContent = ({ cat, onEnquire }) => {
                     )}
                   </div>
 
-                  {/* RIGHT: Product Video */}
-                  <div className="w-full sm:w-48 lg:w-52 flex-shrink-0 bg-slate-900 flex items-center justify-center border-l-2 border-steel-gray overflow-hidden" style={{ minHeight: '220px' }}>
-                    {videos[ri] ? (
-                      <video
-                        src={videos[ri]}
-                        className="w-full h-full object-cover"
-                        controls
-                        style={{ minHeight: '220px' }}
-                      />
-                    ) : (
-                      <div className="flex flex-col items-center justify-center gap-2 text-white/40 p-4 text-center">
-                        <div className="w-12 h-12 rounded-full border-2 border-white/20 flex items-center justify-center">
-                          <svg viewBox="0 0 24 24" className="w-5 h-5 fill-white/30"><path d="M8 5v14l11-7z"/></svg>
-                        </div>
-                        <span className="text-[10px] font-bold uppercase tracking-wider">Product Video<br/>Coming Soon</span>
-                      </div>
-                    )}
-                  </div>
+                  {/* RIGHT: Video — desktop only */}
+                  <VideoPanel src={videos[ri]} />
 
                 </div>
+                {/* Video — mobile only, below content */}
+                <VideoPanel src={videos[ri]} mobile />
               </div>
             );
           })}
@@ -164,74 +167,61 @@ const CategoryContent = ({ cat, onEnquire }) => {
     }
 
     if (cat.code === 'B') {
-  const images = ['/products/bbc.jpeg', '/products/shank.png', '/products/couple.png'];
-  const videos = [null]; // e.g. '/videos/bbc-120f.mp4' — add when ready
-  return (
-    <div className="space-y-4">
-      {cat.table.rows.map((row, ri) => {
-        // Only BBC-120F Drifter (first product) gets the video layout
-        if (ri === 0) {
-          return (
-            <div key={ri} className="bg-white rounded-2xl border-2 border-steel-gray hover:border-hava-red/40 hover:shadow-xl transition-all overflow-hidden">
-              <div className="flex flex-col sm:flex-row">
+      const images = ['/products/bbc.jpeg', '/products/shank.png', '/products/couple.png'];
+      const videos = [null]; // e.g. '/videos/bbc-120f.mp4' — add when ready
+      return (
+        <div className="space-y-4">
+          {cat.table.rows.map((row, ri) => {
+            if (ri === 0) {
+              return (
+                <div key={ri} className="bg-white rounded-2xl border-2 border-steel-gray hover:border-hava-red/40 hover:shadow-xl transition-all overflow-hidden">
+                  <div className="flex flex-col sm:flex-row">
 
-                {/* LEFT: Product Image */}
-                <div className="w-full lg:w-64 flex-shrink-0 bg-gradient-to-br from-slate-100 to-blue-50 flex items-center justify-center overflow-hidden h-[340px] lg:h-auto" style={{ minHeight: '220px' }}>
-                  <img src={images[ri]} alt={row[0]} className="w-full h-full object-cover object-left" style={{ minHeight: '220px' }} />
-                </div>
-
-                {/* MIDDLE: Name + Enquire + subtitle */}
-                <div className="flex-1 p-5 flex flex-col min-w-0">
-                  <div className="flex items-start justify-between gap-3 mb-3">
-                    <div>
-                      <p className="font-black text-charcoal text-lg leading-tight" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>{row[0]}</p>
-                      {row[1] && (
-                                    <div className="grid grid-cols-2 gap-2 mt-3">
-                                      {row[1].split(' | ').map((spec, i) => {
-                                        const [label, value] = spec.split(': ');
-                                        return (
-                                          <div key={i} className="flex flex-col bg-slate-50 border border-steel-gray rounded-lg px-2.5 py-1.5">
-                                            <span className="text-[9px] font-bold text-gray-400 uppercase tracking-wider">{label}</span>
-                                            <span className="text-[11px] font-bold text-charcoal mt-0.5">{value}</span>
-                                          </div>
-                                        );
-                                      })}
-                                    </div>
-                                  )}
-                                                      </div>
-                    <button onClick={onEnquire} className="text-xs font-bold bg-gradient-to-r from-hava-red to-accent-orange text-white px-3 py-1.5 rounded-lg whitespace-nowrap flex-shrink-0 hover:opacity-90 transition-opacity">
-                      Enquire Now
-                    </button>
-                  </div>
-                </div>
-
-                {/* RIGHT: Product Video */}
-                <div className="hidden lg:flex w-52 flex-shrink-0 bg-slate-900 items-center justify-center border-l-2 border-steel-gray overflow-hidden" style={{ minHeight: '220px' }}>
-                  {videos[0] ? (
-                    <video src={videos[0]} className="w-full h-full object-cover" controls style={{ minHeight: '220px' }} />
-                  ) : (
-                    <div className="flex flex-col items-center justify-center gap-2 text-white/40 p-4 text-center">
-                      <div className="w-12 h-12 rounded-full border-2 border-white/20 flex items-center justify-center">
-                        <svg viewBox="0 0 24 24" className="w-5 h-5 fill-white/30"><path d="M8 5v14l11-7z"/></svg>
-                      </div>
-                      <span className="text-[10px] font-bold uppercase tracking-wider">Product Video<br/>Coming Soon</span>
+                    {/* LEFT: Product Image */}
+                    <div className="w-full lg:w-64 flex-shrink-0 bg-gradient-to-br from-slate-100 to-blue-50 flex items-center justify-center overflow-hidden h-[340px] lg:h-auto" style={{ minHeight: '220px' }}>
+                      <img src={images[ri]} alt={row[0]} className="w-full h-full object-cover object-left" style={{ minHeight: '220px' }} />
                     </div>
-                  )}
+
+                    {/* MIDDLE: Name + Enquire + Pills */}
+                    <div className="flex-1 p-5 flex flex-col min-w-0">
+                      <div className="flex items-start justify-between gap-3 mb-3">
+                        <p className="font-black text-charcoal text-lg leading-tight" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>{row[0]}</p>
+                        <button onClick={onEnquire} className="text-xs font-bold bg-gradient-to-r from-hava-red to-accent-orange text-white px-3 py-1.5 rounded-lg whitespace-nowrap flex-shrink-0 hover:opacity-90 transition-opacity">
+                          Enquire Now
+                        </button>
+                      </div>
+                      {row[1] && (
+                        <div className="grid grid-cols-3 lg:grid-cols-2 gap-2">
+                          {row[1].split(' | ').map((spec, i) => {
+                            const [label, value] = spec.split(': ');
+                            return (
+                              <div key={i} className="flex flex-col bg-slate-50 border border-steel-gray rounded-lg px-2.5 py-1.5">
+                                <span className="text-[9px] font-bold text-gray-400 uppercase tracking-wider">{label}</span>
+                                <span className="text-[11px] font-bold text-charcoal mt-0.5">{value}</span>
+                              </div>
+                            );
+                          })}
+                        </div>
+                      )}
+                    </div>
+
+                    {/* RIGHT: Video — desktop only */}
+                    <VideoPanel src={videos[0]} />
+
+                  </div>
+                  {/* Video — mobile only */}
+                  <VideoPanel src={videos[0]} mobile />
                 </div>
+              );
+            }
 
-              </div>
-            </div>
-          );
-        }
-
-        // Remaining products use standard ProductCard
-        return (
-          <ProductCard key={ri} catCode="B" image={images[ri] || cat.image} title={row[0]} subtitle={row[1]} specs={[]} onEnquire={onEnquire} />
-        );
-      })}
-    </div>
-  );
-}
+            return (
+              <ProductCard key={ri} catCode="B" image={images[ri] || cat.image} title={row[0]} subtitle={row[1]} specs={[]} onEnquire={onEnquire} />
+            );
+          })}
+        </div>
+      );
+    }
 
     if (cat.code === 'C') {
       const models = [
@@ -358,7 +348,6 @@ const CategoryContent = ({ cat, onEnquire }) => {
       transition={{ duration: 0.3 }}
       className="bg-white rounded-3xl shadow-xl border-2 border-steel-gray p-5 sm:p-6"
     >
-      {/* Category header */}
       <div className="flex items-center justify-between gap-4 mb-2 flex-wrap">
         <div className="flex items-center gap-3">
           <div className="w-11 h-11 bg-gradient-to-br from-hava-red to-accent-orange rounded-2xl flex items-center justify-center shadow-lg flex-shrink-0">
