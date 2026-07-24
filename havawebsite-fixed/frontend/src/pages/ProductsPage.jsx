@@ -97,7 +97,7 @@ const CategoryContent = ({ cat, onEnquire }) => {
   const renderProducts = () => {
     if (cat.code === 'A') {
       const images = ['/products/wet.jpeg', '/products/wets.png'];
-      const videos = ["/products/Rock Drill Spade Handle (1).mp4", null]; // e.g. '/videos/rock-drill-1.mp4' — add when ready
+      const videos = ["/products/Rock Drill Spade Handle (1).mp", null]; // e.g. '/videos/rock-drill-1.mp4' — add when ready
       return (
         <div className="space-y-4">
           {cat.table.rows.map((row, ri) => {
