@@ -20,7 +20,7 @@ const ScrollToTop = () => {
 };
 
 const WhatsAppButton = () => {
-  const phone = "919XXXXXXXXX";
+  const phone = "919XXXXXXXX";
   const message = encodeURIComponent("Hello! I'm interested in HAVA rock drilling equipment. Please share more details.");
   return (
     
