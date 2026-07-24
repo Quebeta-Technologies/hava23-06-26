@@ -148,16 +148,19 @@ export const Footer = () => {
           <div>
             <h4 className="text-base font-bold mb-3 text-charcoal" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>Products</h4>
             <ul className="space-y-1.5">
-              {footerData.productCategories.map((category) => (
-                <li key={category}>
-                  <Link
-                    to="/products"
-                    className="text-gray-600 hover:text-hava-red text-sm transition-colors"
-                  >
-                    {category}
-                  </Link>
-                </li>
-              ))}
+              {footerData.productCategories.map((category, i) => {
+                const codes = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'];
+                return (
+                  <li key={category}>
+                    <Link
+                      to={`/products?category=${codes[i]}`}
+                      className="text-gray-600 hover:text-hava-red text-sm transition-colors"
+                    >
+                      {category}
+                    </Link>
+                  </li>
+                );
+              })}
             </ul>
           </div>
         </div>
