@@ -111,7 +111,7 @@ const VideoPanel = ({ src, mobile = false }) => (
 );
 
 // ─── Reusable 3-col Product Row ──────────────────────────────────────────────
-const VideoProductCard = ({ image, imageClass = 'object-cover object-left', title, subtitle, badge, specs, video, onEnquire }) => (
+const VideoProductCard = ({ image, imageClass = 'object-cover object-left', title, subtitle, badge, specs, video, onEnquire, specsColumns = 2 }) => (
   <div className="bg-white rounded-2xl border-2 border-steel-gray hover:border-hava-red/40 hover:shadow-xl transition-all overflow-hidden">
     <div className="flex flex-col sm:flex-row">
       <div className="w-full lg:w-64 flex-shrink-0 bg-gradient-to-br from-slate-100 to-blue-50 flex items-center justify-center overflow-hidden h-[340px] lg:h-auto" style={{ minHeight: '220px' }}>
@@ -133,7 +133,7 @@ const VideoProductCard = ({ image, imageClass = 'object-cover object-left', titl
           </button>
         </div>
         {specs && specs.length > 0 && (
-          <div className="grid grid-cols-2 gap-2">
+          <div className={`grid gap-2 ${specsColumns === 3 ? 'grid-cols-3' : 'grid-cols-2'}`}>
             {specs.map((s, i) => (
               <div key={i} className="flex flex-col bg-slate-50 border border-steel-gray rounded-lg px-2.5 py-1.5">
                 <span className="text-[9px] font-bold text-gray-400 uppercase tracking-wider">{s.label}</span>
@@ -226,6 +226,7 @@ const CategoryContent = ({ cat, onEnquire }) => {
               badge={m.badge}
               specs={m.specs}
               video={m.video}
+              specsColumns={3}
               onEnquire={onEnquire}
             />
           ))}
