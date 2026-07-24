@@ -185,8 +185,20 @@ const CategoryContent = ({ cat, onEnquire }) => {
                   <div className="flex items-start justify-between gap-3 mb-3">
                     <div>
                       <p className="font-black text-charcoal text-lg leading-tight" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>{row[0]}</p>
-                      {row[1] && <p className="text-sm text-gray-600 mt-1 leading-relaxed">{row[1]}</p>}
-                    </div>
+                      {row[1] && (
+                                    <div className="grid grid-cols-2 gap-2 mt-3">
+                                      {row[1].split(' | ').map((spec, i) => {
+                                        const [label, value] = spec.split(': ');
+                                        return (
+                                          <div key={i} className="flex flex-col bg-slate-50 border border-steel-gray rounded-lg px-2.5 py-1.5">
+                                            <span className="text-[9px] font-bold text-gray-400 uppercase tracking-wider">{label}</span>
+                                            <span className="text-[11px] font-bold text-charcoal mt-0.5">{value}</span>
+                                          </div>
+                                        );
+                                      })}
+                                    </div>
+                                  )}
+                                                      </div>
                     <button onClick={onEnquire} className="text-xs font-bold bg-gradient-to-r from-hava-red to-accent-orange text-white px-3 py-1.5 rounded-lg whitespace-nowrap flex-shrink-0 hover:opacity-90 transition-opacity">
                       Enquire Now
                     </button>
