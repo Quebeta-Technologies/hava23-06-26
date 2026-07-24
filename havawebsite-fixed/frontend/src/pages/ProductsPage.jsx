@@ -110,56 +110,66 @@ const VideoPanel = ({ src, mobile = false }) => (
   </div>
 );
 
+// ─── Reusable 3-col Product Row ──────────────────────────────────────────────
+const VideoProductCard = ({ image, imageClass = 'object-cover object-left', title, subtitle, badge, specs, video, onEnquire }) => (
+  <div className="bg-white rounded-2xl border-2 border-steel-gray hover:border-hava-red/40 hover:shadow-xl transition-all overflow-hidden">
+    <div className="flex flex-col sm:flex-row">
+      <div className="w-full lg:w-64 flex-shrink-0 bg-gradient-to-br from-slate-100 to-blue-50 flex items-center justify-center overflow-hidden h-[340px] lg:h-auto" style={{ minHeight: '220px' }}>
+        <img src={image} alt={title} className={`w-full h-full ${imageClass}`} style={{ minHeight: '220px' }} />
+      </div>
+      <div className="flex-1 p-5 flex flex-col min-w-0">
+        <div className="flex items-start justify-between gap-3 mb-3">
+          <div>
+            {badge && (
+              <span className="text-[10px] font-bold bg-trust-blue/10 text-trust-blue border border-trust-blue/20 px-2.5 py-1 rounded-full uppercase tracking-wider mb-1.5 inline-block">
+                {badge}
+              </span>
+            )}
+            <p className="font-black text-charcoal text-lg leading-tight" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>{title}</p>
+            {subtitle && <p className="text-xs text-gray-500 mt-0.5">{subtitle}</p>}
+          </div>
+          <button onClick={onEnquire} className="text-xs font-bold bg-gradient-to-r from-hava-red to-accent-orange text-white px-3 py-1.5 rounded-lg whitespace-nowrap flex-shrink-0 hover:opacity-90 transition-opacity">
+            Enquire Now
+          </button>
+        </div>
+        {specs && specs.length > 0 && (
+          <div className="grid grid-cols-2 gap-2">
+            {specs.map((s, i) => (
+              <div key={i} className="flex flex-col bg-slate-50 border border-steel-gray rounded-lg px-2.5 py-1.5">
+                <span className="text-[9px] font-bold text-gray-400 uppercase tracking-wider">{s.label}</span>
+                <span className="text-[11px] font-bold text-charcoal mt-0.5">{s.value}</span>
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
+      <VideoPanel src={video} />
+    </div>
+    <VideoPanel src={video} mobile />
+  </div>
+);
+
 const CategoryContent = ({ cat, onEnquire }) => {
   const Icon = categoryIcons[cat.code];
 
   const renderProducts = () => {
     if (cat.code === 'A') {
       const images = ['/products/wet.jpeg', '/products/wets.png'];
-      const videos = [null, null]; // e.g. '/videos/rock-drill-1.mp4' — add when ready
+      const videos = [null, null];
       return (
         <div className="space-y-4">
           {cat.table.rows.map((row, ri) => {
             const specs = cat.table.headers.slice(2).map((h, i) => ({ label: h, value: row[i + 2] }));
             return (
-              <div key={ri} className="bg-white rounded-2xl border-2 border-steel-gray hover:border-hava-red/40 hover:shadow-xl transition-all overflow-hidden">
-                <div className="flex flex-col sm:flex-row">
-
-                  {/* LEFT: Product Image */}
-                  <div className="w-full lg:w-64 flex-shrink-0 bg-gradient-to-br from-slate-100 to-blue-50 flex items-center justify-center overflow-hidden h-[340px] lg:h-auto" style={{ minHeight: '220px' }}>
-                    <img src={images[ri]} alt={row[0]} className="w-full h-full object-cover object-left" style={{ minHeight: '220px' }} />
-                  </div>
-
-                  {/* MIDDLE: Name + Enquire + Specs grid */}
-                  <div className="flex-1 p-5 flex flex-col min-w-0">
-                    <div className="flex items-start justify-between gap-3 mb-3">
-                      <div>
-                        <p className="font-black text-charcoal text-lg leading-tight" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>{row[0]}</p>
-                        {row[1] && <p className="text-xs text-gray-500 mt-0.5">{row[1]}</p>}
-                      </div>
-                      <button onClick={onEnquire} className="text-xs font-bold bg-gradient-to-r from-hava-red to-accent-orange text-white px-3 py-1.5 rounded-lg whitespace-nowrap flex-shrink-0 hover:opacity-90 transition-opacity">
-                        Enquire Now
-                      </button>
-                    </div>
-                    {specs.length > 0 && (
-                      <div className="grid grid-cols-2 gap-2">
-                        {specs.map((s, i) => (
-                          <div key={i} className="flex flex-col bg-slate-50 border border-steel-gray rounded-lg px-2.5 py-1.5">
-                            <span className="text-[9px] font-bold text-gray-400 uppercase tracking-wider">{s.label}</span>
-                            <span className="text-[11px] font-bold text-charcoal mt-0.5">{s.value}</span>
-                          </div>
-                        ))}
-                      </div>
-                    )}
-                  </div>
-
-                  {/* RIGHT: Video — desktop only */}
-                  <VideoPanel src={videos[ri]} />
-
-                </div>
-                {/* Video — mobile only, below content */}
-                <VideoPanel src={videos[ri]} mobile />
-              </div>
+              <VideoProductCard
+                key={ri}
+                image={images[ri]}
+                title={row[0]}
+                subtitle={row[1]}
+                specs={specs}
+                video={videos[ri]}
+                onEnquire={onEnquire}
+              />
             );
           })}
         </div>
@@ -168,53 +178,28 @@ const CategoryContent = ({ cat, onEnquire }) => {
 
     if (cat.code === 'B') {
       const images = ['/products/bbc.jpeg', '/products/shank.png', '/products/couple.png'];
-      const videos = [null]; // e.g. '/videos/bbc-120f.mp4' — add when ready
+      const videos = [null];
       return (
         <div className="space-y-4">
           {cat.table.rows.map((row, ri) => {
             if (ri === 0) {
+              const specs = row[1]
+                ? row[1].split(' | ').map((spec) => {
+                    const [label, value] = spec.split(': ');
+                    return { label, value };
+                  })
+                : [];
               return (
-                <div key={ri} className="bg-white rounded-2xl border-2 border-steel-gray hover:border-hava-red/40 hover:shadow-xl transition-all overflow-hidden">
-                  <div className="flex flex-col sm:flex-row">
-
-                    {/* LEFT: Product Image */}
-                    <div className="w-full lg:w-64 flex-shrink-0 bg-gradient-to-br from-slate-100 to-blue-50 flex items-center justify-center overflow-hidden h-[340px] lg:h-auto" style={{ minHeight: '220px' }}>
-                      <img src={images[ri]} alt={row[0]} className="w-full h-full object-cover object-left" style={{ minHeight: '220px' }} />
-                    </div>
-
-                    {/* MIDDLE: Name + Enquire + Pills */}
-                    <div className="flex-1 p-5 flex flex-col min-w-0">
-                      <div className="flex items-start justify-between gap-3 mb-3">
-                        <p className="font-black text-charcoal text-lg leading-tight" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>{row[0]}</p>
-                        <button onClick={onEnquire} className="text-xs font-bold bg-gradient-to-r from-hava-red to-accent-orange text-white px-3 py-1.5 rounded-lg whitespace-nowrap flex-shrink-0 hover:opacity-90 transition-opacity">
-                          Enquire Now
-                        </button>
-                      </div>
-                      {row[1] && (
-                        <div className="grid grid-cols-3 lg:grid-cols-2 gap-2">
-                          {row[1].split(' | ').map((spec, i) => {
-                            const [label, value] = spec.split(': ');
-                            return (
-                              <div key={i} className="flex flex-col bg-slate-50 border border-steel-gray rounded-lg px-2.5 py-1.5">
-                                <span className="text-[9px] font-bold text-gray-400 uppercase tracking-wider">{label}</span>
-                                <span className="text-[11px] font-bold text-charcoal mt-0.5">{value}</span>
-                              </div>
-                            );
-                          })}
-                        </div>
-                      )}
-                    </div>
-
-                    {/* RIGHT: Video — desktop only */}
-                    <VideoPanel src={videos[0]} />
-
-                  </div>
-                  {/* Video — mobile only */}
-                  <VideoPanel src={videos[0]} mobile />
-                </div>
+                <VideoProductCard
+                  key={ri}
+                  image={images[ri]}
+                  title={row[0]}
+                  specs={specs}
+                  video={videos[0]}
+                  onEnquire={onEnquire}
+                />
               );
             }
-
             return (
               <ProductCard key={ri} catCode="B" image={images[ri] || cat.image} title={row[0]} subtitle={row[1]} specs={[]} onEnquire={onEnquire} />
             );
@@ -226,24 +211,47 @@ const CategoryContent = ({ cat, onEnquire }) => {
     if (cat.code === 'C') {
       const models = [
         { title: 'CP-117 / HR-117', subtitle: 'Spring Retainer', badge: 'Spring Retainer', image: '/products/cp.jpeg',
-          specs: cat.table.rows.map(r => ({ label: r[0], value: r[1] })).filter(s => s.label !== 'Model') },
+          specs: cat.table.rows.map(r => ({ label: r[0], value: r[1] })).filter(s => s.label !== 'Model'), video: null },
         { title: 'CP-117', subtitle: 'Latch Retainer', badge: 'Latch Retainer', image: '/products/latch.png',
-          specs: cat.table.rows.map(r => ({ label: r[0], value: r[2] })).filter(s => s.label !== 'Model') },
+          specs: cat.table.rows.map(r => ({ label: r[0], value: r[2] })).filter(s => s.label !== 'Model'), video: null },
       ];
       return (
         <div className="space-y-4">
-          {models.map((m, i) => <ProductCard key={i} catCode="C" image={m.image} title={m.title} subtitle={m.subtitle} badge={m.badge} specs={m.specs} onEnquire={onEnquire} />)}
+          {models.map((m, i) => (
+            <VideoProductCard
+              key={i}
+              image={m.image}
+              title={m.title}
+              subtitle={m.subtitle}
+              badge={m.badge}
+              specs={m.specs}
+              video={m.video}
+              onEnquire={onEnquire}
+            />
+          ))}
         </div>
       );
     }
 
     if (cat.code === 'D') {
-      const metricSpecs = cat.table.rows.map(r => ({ label: r[0], value: r[1] }));
-      const imperialSpecs = cat.table.rows.map(r => ({ label: r[0], value: r[2] }));
+      const models = [
+        { badge: 'Metric', specs: cat.table.rows.map(r => ({ label: r[0], value: r[1] })), video: null },
+        { badge: 'Imperial', specs: cat.table.rows.map(r => ({ label: r[0], value: r[2] })), video: null },
+      ];
       return (
         <div className="space-y-4">
-          <ProductCard catCode="D" image="/products/bmk.jpeg" title="BMK62S Air Leg" badge="Metric" subtitle="Used with RH-656/4W Wet Rock Drill" specs={metricSpecs} onEnquire={onEnquire} />
-          <ProductCard catCode="D" image="/products/bmk.jpeg" title="BMK62S Air Leg" badge="Imperial" subtitle="Used with RH-656/4W Wet Rock Drill" specs={imperialSpecs} onEnquire={onEnquire} />
+          {models.map((m, i) => (
+            <VideoProductCard
+              key={i}
+              image="/products/bmk.jpeg"
+              title="BMK62S Air Leg"
+              subtitle="Used with RH-656/4W Wet Rock Drill"
+              badge={m.badge}
+              specs={m.specs}
+              video={m.video}
+              onEnquire={onEnquire}
+            />
+          ))}
         </div>
       );
     }
