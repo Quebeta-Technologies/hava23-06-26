@@ -7,11 +7,9 @@ import { footerData, headerData } from '../data/mock';
 export const Footer = () => {
   return (
     <footer className="bg-white text-charcoal relative overflow-hidden border-t-2 border-steel-gray">
-      {/* Top decorative gradient */}
       <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-hava-red via-accent-orange to-trust-blue" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-4">
-        {/* Google Maps Section */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -20,7 +18,6 @@ export const Footer = () => {
           className="mb-10"
         >
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 items-stretch">
-            {/* Address Card */}
             <div className="lg:col-span-1 bg-gradient-to-br from-hava-red/10 to-accent-orange/10 border border-steel-gray rounded-3xl p-7">
               <div className="flex items-center gap-3 mb-5">
                 <div className="w-11 h-11 bg-gradient-to-br from-hava-red to-accent-orange rounded-2xl flex items-center justify-center shadow-lg">
@@ -40,8 +37,7 @@ export const Footer = () => {
                     {footerData.contact.address}
                   </p>
                 </div>
-
-                <a
+                
                   href={footerData.mapLink}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -53,7 +49,6 @@ export const Footer = () => {
                 </a>
               </div>
 
-              {/* Quick contact */}
               <div className="mt-6 pt-5 border-t border-steel-gray space-y-2.5">
                 <a href={`tel:${footerData.contact.mobile}`} className="flex items-center gap-3 text-gray-600 hover:text-hava-red transition-colors">
                   <Phone className="w-4 h-4" />
@@ -70,7 +65,6 @@ export const Footer = () => {
               </div>
             </div>
 
-            {/* Map */}
             <div className="lg:col-span-2 relative rounded-3xl overflow-hidden shadow-2xl border border-steel-gray min-h-[380px]">
               <iframe
                 src={footerData.mapEmbedUrl}
@@ -87,56 +81,30 @@ export const Footer = () => {
           </div>
         </motion.div>
 
-        {/* Main Footer Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 pb-8 border-b border-steel-gray">
-          {/* Brand Summary with logos */}
           <div className="lg:col-span-2">
             <div className="flex flex-wrap items-center gap-3 mb-5">
               <div className="bg-white border border-steel-gray rounded-2xl p-3 shadow-md inline-flex items-center justify-center" data-testid="footer-hava-logo-wrap">
-                <img
-                  src={headerData.havaLogo}
-                  alt="HAVA"
-                  className="h-12 w-auto object-contain"
-                  data-testid="footer-hava-logo"
-                />
+                <img src={headerData.havaLogo} alt="HAVA" className="h-12 w-auto object-contain" data-testid="footer-hava-logo" />
               </div>
               <div className="bg-white border border-steel-gray rounded-2xl p-3 shadow-md inline-flex items-center justify-center" data-testid="footer-haryrock-logo-wrap">
-                <img
-                  src={headerData.haryrockLogo}
-                  alt="Haryrock Engineering"
-                  className="h-12 w-auto object-contain"
-                  data-testid="footer-haryrock-logo"
-                />
+                <img src={headerData.haryrockLogo} alt="Haryrock Engineering" className="h-12 w-auto object-contain" data-testid="footer-haryrock-logo" />
               </div>
             </div>
-            <p className="text-gray-600 text-sm leading-relaxed mb-5">
-              {footerData.brandSummary}
-            </p>
-
-            {/* Trust badges */}
+            <p className="text-gray-600 text-sm leading-relaxed mb-5">{footerData.brandSummary}</p>
             <div className="flex flex-wrap gap-2">
-              <span className="bg-hava-red/10 text-hava-red px-3 py-1.5 rounded-full text-xs font-semibold border border-hava-red/20">
-                ISO 9001:2015
-              </span>
-              <span className="bg-trust-blue/10 text-trust-blue px-3 py-1.5 rounded-full text-xs font-semibold border border-trust-blue/20">
-                Export Ready
-              </span>
-              <span className="bg-accent-orange/10 text-accent-orange px-3 py-1.5 rounded-full text-xs font-semibold border border-accent-orange/20">
-                15+ Countries
-              </span>
+              <span className="bg-hava-red/10 text-hava-red px-3 py-1.5 rounded-full text-xs font-semibold border border-hava-red/20">ISO 9001:2015</span>
+              <span className="bg-trust-blue/10 text-trust-blue px-3 py-1.5 rounded-full text-xs font-semibold border border-trust-blue/20">Export Ready</span>
+              <span className="bg-accent-orange/10 text-accent-orange px-3 py-1.5 rounded-full text-xs font-semibold border border-accent-orange/20">15+ Countries</span>
             </div>
           </div>
 
-          {/* Quick Links */}
           <div>
             <h4 className="text-base font-bold mb-3 text-charcoal" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>Quick Links</h4>
             <ul className="space-y-1.5">
               {footerData.quickLinks.map((link) => (
                 <li key={link.name}>
-                  <Link
-                    to={link.path}
-                    className="text-gray-600 hover:text-hava-red text-sm transition-colors"
-                  >
+                  <Link to={link.path} className="text-gray-600 hover:text-hava-red text-sm transition-colors">
                     {link.name}
                   </Link>
                 </li>
@@ -144,7 +112,6 @@ export const Footer = () => {
             </ul>
           </div>
 
-          {/* Product Categories */}
           <div>
             <h4 className="text-base font-bold mb-3 text-charcoal" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>Products</h4>
             <ul className="space-y-1.5">
@@ -152,10 +119,7 @@ export const Footer = () => {
                 const codes = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'];
                 return (
                   <li key={category}>
-                    <Link
-                      to={`/products?category=${codes[i]}`}
-                      className="text-gray-600 hover:text-hava-red text-sm transition-colors"
-                    >
+                    <Link to={`/products?category=${codes[i]}`} className="text-gray-600 hover:text-hava-red text-sm transition-colors">
                       {category}
                     </Link>
                   </li>
@@ -171,7 +135,7 @@ export const Footer = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <div className="flex flex-col md:flex-row justify-between items-center gap-3 text-sm text-gray-500">
             <p>{footerData.copyright}</p>
-            <div className="flex items-center gap-6">
+            <div className="flex flex-col items-center md:items-end gap-1.5">
               <Link to="/privacy" className="hover:text-hava-red transition-colors">
                 Privacy Policy
               </Link>
@@ -188,7 +152,7 @@ export const Footer = () => {
                   <Heart className="w-4 h-4 text-hava-red fill-hava-red" />
                 </motion.span>
                 From{' '}
-                <a
+                
                   href="https://www.quebeta.in"
                   target="_blank"
                   rel="noopener noreferrer"
