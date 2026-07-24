@@ -23,7 +23,7 @@ const WhatsAppButton = () => {
   const phone = "919XXXXXXXXX"; // replace with actual number e.g. 919876543210
   const message = encodeURIComponent("Hello! I'm interested in HAVA rock drilling equipment. Please share more details.");
   return (
-    
+    <a
       href={`https://wa.me/${phone}?text=${message}`}
       target="_blank"
       rel="noopener noreferrer"
