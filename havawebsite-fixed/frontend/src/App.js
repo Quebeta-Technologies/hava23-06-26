@@ -1,5 +1,6 @@
 import "@/App.css";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import { useEffect } from "react";
 import { ModernHomePage } from "./pages/ModernHomePage";
 import { WhyHavaPage } from "./pages/WhyHavaPage";
 import { AboutPage } from "./pages/AboutPage";
@@ -10,11 +11,19 @@ import { DealersPage } from "./pages/DealersPage";
 import { GalleryPage } from "./pages/GalleryPage";
 import { ContactPage } from "./pages/ContactPage";
 
+const ScrollToTop = () => {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+  return null;
+};
+
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        {/* pt-20 for mobile (nav only), lg:pt-[88px] for desktop (top bar + nav) */}
+        <ScrollToTop />
         <div className="pt-20 lg:pt-[88px]">
           <Routes>
             <Route path="/" element={<ModernHomePage />} />
