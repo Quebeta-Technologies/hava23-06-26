@@ -229,7 +229,7 @@ const CategoryContent = ({ cat, onEnquire }) => {
 
     if (cat.code === 'B') {
       const images = ['/products/bbc.jpeg', '/products/shank.png', '/products/couple.png'];
-      const videos = [null];
+      const videos = ["/products/Drifter.mp4"];
       return (
         <div className="space-y-4">
           {cat.table.rows.map((row, ri) => {
