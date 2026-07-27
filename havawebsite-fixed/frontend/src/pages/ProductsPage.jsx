@@ -112,11 +112,14 @@ const VideoPanel = ({ src, mobile = false }) => (
 // ─── Reusable 3-col Product Row ──────────────────────────────────────────────
 const VideoProductCard = ({ image, imageClass = 'object-cover object-left', title, subtitle, badge, specs, video, onEnquire, specsColumns = 2 }) => (
   <div className="bg-white rounded-2xl border-2 border-steel-gray hover:border-hava-red/40 hover:shadow-xl transition-all overflow-hidden">
-    <div className="flex flex-col sm:flex-row items-stretch">
-      <div className="w-full lg:w-64 flex-shrink-0 bg-gradient-to-br from-slate-100 to-blue-50 flex items-center justify-center overflow-hidden" style={{ minHeight: '220px' }}>
+    {/* Desktop: fixed height 3-col row */}
+    <div className="hidden sm:flex h-[280px]">
+      {/* Image */}
+      <div className="w-64 flex-shrink-0 bg-gradient-to-br from-slate-100 to-blue-50 overflow-hidden">
         <img src={image} alt={title} className={`w-full h-full ${imageClass}`} />
       </div>
-      <div className="flex-1 p-5 flex flex-col min-w-0">
+      {/* Specs */}
+      <div className="flex-1 p-5 flex flex-col min-w-0 overflow-hidden">
         <div className="flex items-start justify-between gap-3 mb-3">
           <div>
             {badge && (
@@ -142,9 +145,58 @@ const VideoProductCard = ({ image, imageClass = 'object-cover object-left', titl
           </div>
         )}
       </div>
-      <VideoPanel src={video} />
+      {/* Video */}
+      <div className="w-52 flex-shrink-0 bg-slate-900 border-l-2 border-steel-gray overflow-hidden">
+        {video ? (
+          <video src={video} className="w-full h-full object-cover" controls />
+        ) : (
+          <div className="w-full h-full flex flex-col items-center justify-center gap-2 text-white/40 p-4 text-center">
+            <div className="w-12 h-12 rounded-full border-2 border-white/20 flex items-center justify-center">
+              <svg viewBox="0 0 24 24" className="w-5 h-5 fill-white/30"><path d="M8 5v14l11-7z" /></svg>
+            </div>
+            <span className="text-[10px] font-bold uppercase tracking-wider">Product Video<br />Coming Soon</span>
+          </div>
+        )}
+      </div>
     </div>
-    <VideoPanel src={video} mobile />
+
+    {/* Mobile: stacked */}
+    <div className="flex flex-col sm:hidden">
+      <div className="w-full bg-gradient-to-br from-slate-100 to-blue-50 overflow-hidden" style={{ height: '220px' }}>
+        <img src={image} alt={title} className={`w-full h-full ${imageClass}`} />
+      </div>
+      <div className="flex-1 p-5 flex flex-col">
+        <div className="flex items-start justify-between gap-3 mb-3">
+          <div>
+            {badge && (
+              <span className="text-[10px] font-bold bg-trust-blue/10 text-trust-blue border border-trust-blue/20 px-2.5 py-1 rounded-full uppercase tracking-wider mb-1.5 inline-block">
+                {badge}
+              </span>
+            )}
+            <p className="font-black text-charcoal text-lg leading-tight" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>{title}</p>
+            {subtitle && <p className="text-xs text-gray-500 mt-0.5">{subtitle}</p>}
+          </div>
+          <button onClick={onEnquire} className="text-xs font-bold bg-gradient-to-r from-hava-red to-accent-orange text-white px-3 py-1.5 rounded-lg whitespace-nowrap flex-shrink-0 hover:opacity-90 transition-opacity">
+            Enquire Now
+          </button>
+        </div>
+        {specs && specs.length > 0 && (
+          <div className={`grid gap-2 ${specsColumns === 3 ? 'grid-cols-3' : 'grid-cols-2'}`}>
+            {specs.map((s, i) => (
+              <div key={i} className="flex flex-col bg-slate-50 border border-steel-gray rounded-lg px-2.5 py-1.5">
+                <span className="text-[9px] font-bold text-gray-400 uppercase tracking-wider">{s.label}</span>
+                <span className="text-[11px] font-bold text-charcoal mt-0.5">{s.value}</span>
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
+      {video && (
+        <div className="w-full border-t-2 border-steel-gray bg-slate-900" style={{ height: '200px' }}>
+          <video src={video} className="w-full h-full object-cover" controls />
+        </div>
+      )}
+    </div>
   </div>
 );
 
