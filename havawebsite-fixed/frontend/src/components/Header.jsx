@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Phone, Mail, ChevronDown } from 'lucide-react';
+import { Menu, X, Mail, ChevronDown } from 'lucide-react';
 import { headerData } from '../data/mock';
 import { Button } from './ui/button';
 
@@ -126,9 +126,6 @@ export const Header = ({ onQuoteClick }) => {
 
             {/* CTA Buttons - Desktop */}
             <div className="hidden lg:flex items-center gap-4">
-              <a href="tel:+912027440025" className="text-trust-blue hover:text-hava-red transition-colors">
-                <Phone className="w-5 h-5" />
-              </a>
               <Button
                 onClick={onQuoteClick}
                 className="bg-hava-red hover:bg-hava-red/90 text-white font-semibold px-6 py-2 shadow-lg"
