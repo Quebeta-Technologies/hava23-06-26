@@ -32,7 +32,7 @@ const galleryData = {
     titleGradient: "Designed for Performance.",
     body: "Our 25,000 sq. ft. manufacturing facility in Pimpri, Pune is equipped with advanced CNC machining centres, precision tooling systems, dedicated assembly areas, and rigorous quality inspection stations.",
     photos: [
-      { num: "Photo 1", title: "Production Floor Overview", image: "/gallery/manufacturing-1.jpg" },
+      { num: "Photo 1", title: "Production Floor Overview", image: "/products/air.png" },
       { num: "Photo 2", title: "Precision CNC Operations", image: "/gallery/manufacturing-2.jpg" },
       { num: "Photo 3", title: "Rock Drill Assembly Line", image: "/gallery/manufacturing-3.jpg" },
       { num: "Photo 4", title: "Finished Goods Inventory", image: "/gallery/manufacturing-4.jpg" },
