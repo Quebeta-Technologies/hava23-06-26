@@ -275,7 +275,7 @@ const CategoryContent = ({ cat, onEnquire }) => {
       const items = ['Chisel & Moil Points', 'Integrated Drill Rods', 'Taper Drill Rods', 'R32 / R38 Shank Adapter', 'R32 & R38 Coupling Sleeve', 'R32 Extension Rods'];
       return (
         <div className="bg-white rounded-2xl border-2 border-steel-gray hover:border-hava-red/40 hover:shadow-xl transition-all overflow-hidden flex flex-col sm:flex-row">
-          <div className="w-full sm:w-44 lg:w-52 flex-shrink-0 bg-gradient-to-br from-slate-100 to-blue-50 overflow-hidden" style={{ minHeight: '220px' }}>
+          <div className="w-full sm:w-56 lg:w-80 flex-shrink-0 bg-gradient-to-br from-slate-100 to-blue-50 overflow-hidden" style={{ minHeight: '220px' }}>
             <img src="/products/ex.jpeg" alt="Extension Equipment" className="w-full h-full object-cover" style={{ minHeight: '220px' }} />
           </div>
           <div className="flex-1 p-5 flex flex-col">

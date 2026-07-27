@@ -34,9 +34,9 @@ const galleryData = {
     photos: [
       { num: "Photo 1", title: "Production Floor Overview", image: "/products/air.png" },
       { num: "Photo 2", title: "Precision CNC Operations", image: "/products/wet.png" },
-      { num: "Photo 3", title: "Rock Drill Assembly Line", image: "/products/leg.png" },
+      { num: "Photo 3", title: "Rock Drill Assembly Line", image: "/products/spare.png" },
       { num: "Photo 4", title: "Finished Goods Inventory", image: "/products/drifter.png" },
-      { num: "Photo 5", title: "Export-Ready Packaging", image: "/products/breaker.png" },
+      { num: "Photo 5", title: "Export-Ready Packaging", image: "/products/button.png" },
       { num: "Photo 6", title: "Precision Parts Manufacturing", image: "/products/extension.png" },
     ],
     filters: ["CNC Machining", "Production Floor", "Assembly", "Inventory Management", "Dispatch & Packaging"],
