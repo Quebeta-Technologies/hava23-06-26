@@ -61,9 +61,6 @@ const galleryData = {
     body: "Watch our manufacturing processes, quality systems, and products operating in real-world environments.",
     items: [
       { num: "Video 1", title: "Factory Tour" },
-      { num: "Video 2", title: "Manufacturing Process" },
-      { num: "Video 3", title: "Quality Testing" },
-      { num: "Video 4", title: "Product Demonstrations" },
     ],
     note: "All video slots: Replace placeholders with actual YouTube embed URLs or MP4 links.",
   },
@@ -237,7 +234,7 @@ export const GalleryPage = () => {
         <div className="absolute bottom-20 right-0 w-72 h-72 bg-trust-blue/5 rounded-full blur-3xl" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader badge={galleryData.videos.label} badgeColor="accent-orange" badgeIcon={PlayCircle} title={galleryData.videos.title} titleGradient={galleryData.videos.titleGradient} intro={galleryData.videos.body} />
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mt-10">
+          <div className="grid grid-cols-1 md:grid-cols-1 gap-5 mt-10 max-w-2xl mx-auto">
             {galleryData.videos.items.map((video, i) => (
               <motion.div key={i} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4, delay: i * 0.05 }}>
                 <VideoPlaceholder num={video.num} title={video.title} />
