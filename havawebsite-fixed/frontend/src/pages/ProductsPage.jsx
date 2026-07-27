@@ -94,13 +94,12 @@ const TwoColBlock = ({ items }) => (
 // ─── Reusable Video Panel ────────────────────────────────────────────────────
 const VideoPanel = ({ src, mobile = false }) => (
   <div
-    className={`${mobile ? 'w-full border-t-2 lg:hidden' : 'hidden lg:flex w-52 border-l-2'} flex-shrink-0 bg-slate-900 flex items-center justify-center border-steel-gray overflow-hidden`}
-    style={{ minHeight: '220px' }}
+    className={`${mobile ? 'w-full border-t-2 lg:hidden' : 'hidden lg:flex w-52 border-l-2'} flex-shrink-0 bg-slate-900 border-steel-gray overflow-hidden self-stretch`}
   >
     {src ? (
-      <video src={src} className="w-full h-full object-cover" controls style={{ minHeight: '220px' }} />
+      <video src={src} className="w-full h-full object-cover" controls />
     ) : (
-      <div className="flex flex-col items-center justify-center gap-2 text-white/40 p-4 text-center">
+      <div className="flex flex-col items-center justify-center gap-2 text-white/40 p-4 text-center h-full">
         <div className="w-12 h-12 rounded-full border-2 border-white/20 flex items-center justify-center">
           <svg viewBox="0 0 24 24" className="w-5 h-5 fill-white/30"><path d="M8 5v14l11-7z" /></svg>
         </div>
@@ -113,9 +112,9 @@ const VideoPanel = ({ src, mobile = false }) => (
 // ─── Reusable 3-col Product Row ──────────────────────────────────────────────
 const VideoProductCard = ({ image, imageClass = 'object-cover object-left', title, subtitle, badge, specs, video, onEnquire, specsColumns = 2 }) => (
   <div className="bg-white rounded-2xl border-2 border-steel-gray hover:border-hava-red/40 hover:shadow-xl transition-all overflow-hidden">
-    <div className="flex flex-col sm:flex-row">
-      <div className="w-full lg:w-64 flex-shrink-0 bg-gradient-to-br from-slate-100 to-blue-50 flex items-center justify-center overflow-hidden h-[340px] lg:h-auto" style={{ minHeight: '220px' }}>
-        <img src={image} alt={title} className={`w-full h-full ${imageClass}`} style={{ minHeight: '220px' }} />
+    <div className="flex flex-col sm:flex-row items-stretch">
+      <div className="w-full lg:w-64 flex-shrink-0 bg-gradient-to-br from-slate-100 to-blue-50 flex items-center justify-center overflow-hidden" style={{ minHeight: '220px' }}>
+        <img src={image} alt={title} className={`w-full h-full ${imageClass}`} />
       </div>
       <div className="flex-1 p-5 flex flex-col min-w-0">
         <div className="flex items-start justify-between gap-3 mb-3">
