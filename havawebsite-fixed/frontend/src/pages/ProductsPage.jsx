@@ -287,8 +287,8 @@ const CategoryContent = ({ cat, onEnquire }) => {
 
     if (cat.code === 'D') {
       const models = [
-        { badge: 'Metric', specs: cat.table.rows.map(r => ({ label: r[0], value: r[1] })), video: null },
-        { badge: 'Imperial', specs: cat.table.rows.map(r => ({ label: r[0], value: r[2] })), video: null },
+        { badge: 'Metric', specs: cat.table.rows.map(r => ({ label: r[0], value: r[1] })), video: "/products/Pusher Leg.mp4" },
+        { badge: 'Imperial', specs: cat.table.rows.map(r => ({ label: r[0], value: r[2] })), video: "/products/Pusher Leg.mp4" },
       ];
       return (
         <div className="space-y-4">
