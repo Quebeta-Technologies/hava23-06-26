@@ -8,14 +8,13 @@ import {
   PlayCircle,
   Users,
   Award,
-  Sparkles,
   Filter,
 } from 'lucide-react';
 import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
 import { QuoteModal } from '../components/QuoteModal';
 import { AnimatedBackground } from '../components/AnimatedBackground';
-import { SectionHeader, SectionBadge } from '../components/SectionBadge';
+import { SectionHeader } from '../components/SectionBadge';
 import { Button } from '../components/ui/button';
 import { Toaster } from 'sonner';
 
@@ -33,12 +32,12 @@ const galleryData = {
     titleGradient: "Designed for Performance.",
     body: "Our 25,000 sq. ft. manufacturing facility in Pimpri, Pune is equipped with advanced CNC machining centres, precision tooling systems, dedicated assembly areas, and rigorous quality inspection stations.",
     photos: [
-      { num: "Photo 1", title: "Production Floor Overview" },
-      { num: "Photo 2", title: "Precision CNC Operations" },
-      { num: "Photo 3", title: "Rock Drill Assembly Line" },
-      { num: "Photo 4", title: "Finished Goods Inventory" },
-      { num: "Photo 5", title: "Export-Ready Packaging" },
-      { num: "Photo 6", title: "Precision Parts Manufacturing" },
+      { num: "Photo 1", title: "Production Floor Overview", image: "/gallery/manufacturing-1.jpg" },
+      { num: "Photo 2", title: "Precision CNC Operations", image: "/gallery/manufacturing-2.jpg" },
+      { num: "Photo 3", title: "Rock Drill Assembly Line", image: "/gallery/manufacturing-3.jpg" },
+      { num: "Photo 4", title: "Finished Goods Inventory", image: "/gallery/manufacturing-4.jpg" },
+      { num: "Photo 5", title: "Export-Ready Packaging", image: "/gallery/manufacturing-5.jpg" },
+      { num: "Photo 6", title: "Precision Parts Manufacturing", image: "/gallery/manufacturing-6.jpg" },
     ],
     filters: ["CNC Machining", "Production Floor", "Assembly", "Inventory Management", "Dispatch & Packaging"],
   },
@@ -48,10 +47,10 @@ const galleryData = {
     titleGradient: "You Can See",
     body: "Every product is tested before dispatch. Our in-house quality procedures ensure dimensional accuracy, functional reliability, and consistent product performance.",
     photos: [
-      { num: "Photo 1", title: "Functional Testing" },
-      { num: "Photo 2", title: "Dimensional Inspection" },
-      { num: "Photo 3", title: "Precision Measurement" },
-      { num: "Photo 4", title: "Final Pre-Dispatch Verification" },
+      { num: "Photo 1", title: "Functional Testing", image: "/gallery/quality-1.jpg" },
+      { num: "Photo 2", title: "Dimensional Inspection", image: "/gallery/quality-2.jpg" },
+      { num: "Photo 3", title: "Precision Measurement", image: "/gallery/quality-3.jpg" },
+      { num: "Photo 4", title: "Final Pre-Dispatch Verification", image: "/gallery/quality-4.jpg" },
     ],
   },
   videos: {
@@ -59,10 +58,10 @@ const galleryData = {
     title: "See HAVA",
     titleGradient: "in Action",
     body: "Watch our manufacturing processes, quality systems, and products operating in real-world environments.",
+
     items: [
-      { num: "Video 1", title: "Factory Tour" },
+      { num: "Video 1", title: "Factory Tour", type: "mp4", src: "/assets/factory-tour.mp4" },
     ],
-    note: "All video slots: Replace placeholders with actual YouTube embed URLs or MP4 links.",
   },
   team: {
     label: "Our People",
@@ -88,30 +87,69 @@ const trustItems = [
   { icon: '🌍', text: '20+ Export Countries' },
 ];
 
-// Placeholder image component
-const PhotoPlaceholder = ({ num, title, large = false }) => (
-  <div className={`relative ${large ? 'aspect-[16/10]' : 'aspect-[4/3]'} rounded-2xl overflow-hidden bg-gradient-to-br from-slate-200 via-slate-100 to-blue-50 border-2 border-steel-gray group cursor-pointer hover:shadow-2xl hover:border-hava-red/40 transition-all`}>
-    <div className="absolute inset-0 flex flex-col items-center justify-center p-4">
-      <Camera className="w-10 h-10 text-trust-blue/30 mb-3 group-hover:scale-110 group-hover:text-hava-red/60 transition-all" />
-      <span className="text-[10px] font-bold uppercase tracking-[2px] text-trust-blue/40 mb-1">{num}</span>
-      <p className="text-sm font-bold text-charcoal/70 text-center">{title}</p>
-    </div>
-    <div className="absolute top-3 right-3 w-8 h-8 border-t-2 border-r-2 border-hava-red/30 rounded-tr-lg" />
-    <div className="absolute bottom-3 left-3 w-8 h-8 border-b-2 border-l-2 border-accent-orange/30 rounded-bl-lg" />
+const PhotoCard = ({ num, title, image, large = false }) => (
+  <div className={`relative ${large ? 'aspect-[16/10]' : 'aspect-[4/3]'} rounded-2xl overflow-hidden border-2 border-steel-gray group cursor-pointer hover:shadow-2xl hover:border-hava-red/40 transition-all bg-gradient-to-br from-slate-200 via-slate-100 to-blue-50`}>
+    {image ? (
+      <>
+        <img
+          src={image}
+          alt={title}
+          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+        />
+        {/* hover overlay with title */}
+        <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent px-4 py-3 opacity-0 group-hover:opacity-100 transition-opacity">
+          <p className="text-sm font-bold text-white">{title}</p>
+        </div>
+      </>
+    ) : (
+      <div className="absolute inset-0 flex flex-col items-center justify-center p-4">
+        <Camera className="w-10 h-10 text-trust-blue/30 mb-3 group-hover:scale-110 group-hover:text-hava-red/60 transition-all" />
+        <span className="text-[10px] font-bold uppercase tracking-[2px] text-trust-blue/40 mb-1">{num}</span>
+        <p className="text-sm font-bold text-charcoal/70 text-center">{title}</p>
+      </div>
+    )}
+    <div className="absolute top-3 right-3 w-8 h-8 border-t-2 border-r-2 border-hava-red/30 rounded-tr-lg pointer-events-none" />
+    <div className="absolute bottom-3 left-3 w-8 h-8 border-b-2 border-l-2 border-accent-orange/30 rounded-bl-lg pointer-events-none" />
   </div>
 );
 
-const VideoPlaceholder = ({ num, title }) => (
-  <div className="relative aspect-video rounded-2xl overflow-hidden bg-gradient-to-br from-charcoal via-trust-blue/80 to-charcoal border-2 border-steel-gray group cursor-pointer hover:shadow-2xl transition-all">
-    <div className="absolute inset-0 flex flex-col items-center justify-center p-4">
-      <div className="w-16 h-16 bg-gradient-to-br from-hava-red to-accent-orange rounded-full flex items-center justify-center mb-3 group-hover:scale-110 transition-transform shadow-2xl">
-        <PlayCircle className="w-8 h-8 text-white" />
+const VideoCard = ({ num, title, type, src }) => {
+  if (src && src !== "https://www.youtube.com/embed/YOUR_VIDEO_ID") {
+    if (type === "youtube") {
+      return (
+        <div className="relative aspect-video rounded-2xl overflow-hidden border-2 border-steel-gray shadow-xl">
+          <iframe
+            src={src}
+            title={title}
+            className="w-full h-full"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          />
+        </div>
+      );
+    }
+    if (type === "mp4") {
+      return (
+        <div className="relative aspect-video rounded-2xl overflow-hidden border-2 border-steel-gray shadow-xl">
+          <video src={src} controls className="w-full h-full rounded-2xl" />
+        </div>
+      );
+    }
+  }
+
+  // Placeholder
+  return (
+    <div className="relative aspect-video rounded-2xl overflow-hidden bg-gradient-to-br from-charcoal via-trust-blue/80 to-charcoal border-2 border-steel-gray group cursor-pointer hover:shadow-2xl transition-all">
+      <div className="absolute inset-0 flex flex-col items-center justify-center p-4">
+        <div className="w-16 h-16 bg-gradient-to-br from-hava-red to-accent-orange rounded-full flex items-center justify-center mb-3 group-hover:scale-110 transition-transform shadow-2xl">
+          <PlayCircle className="w-8 h-8 text-white" />
+        </div>
+        <span className="text-[10px] font-bold uppercase tracking-[2px] text-accent-orange mb-1">{num}</span>
+        <p className="text-sm font-bold text-white text-center">{title}</p>
       </div>
-      <span className="text-[10px] font-bold uppercase tracking-[2px] text-accent-orange mb-1">{num}</span>
-      <p className="text-sm font-bold text-white text-center">{title}</p>
     </div>
-  </div>
-);
+  );
+};
 
 export const GalleryPage = () => {
   const [quoteModalOpen, setQuoteModalOpen] = useState(false);
@@ -121,14 +159,12 @@ export const GalleryPage = () => {
       <Toaster position="top-right" richColors />
       <Header onQuoteClick={() => setQuoteModalOpen(true)} />
 
-      {/* ── HERO — left text, right buttons + trust boxes ── */}
+      {/* HERO */}
       <section className="relative py-10 lg:py-14 overflow-hidden bg-gradient-to-br from-slate-50 via-white to-blue-50">
         <div className="absolute top-0 right-0 w-96 h-96 bg-hava-red/5 rounded-full blur-3xl" />
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-trust-blue/5 rounded-full blur-3xl" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col lg:flex-row items-start lg:items-center gap-8 lg:gap-12">
-
-            {/* LEFT — eyebrow + title + body + ISO note */}
             <div className="flex-1 min-w-0">
               <div className="inline-flex items-center gap-2 bg-white border border-steel-gray rounded-full px-4 py-2 mb-4 shadow-sm">
                 <span className="text-accent-orange text-sm">✦</span>
@@ -140,7 +176,6 @@ export const GalleryPage = () => {
                 <span className="gradient-text">{galleryData.hero.titleGradient}</span>
               </h1>
               <p className="text-base text-gray-600 leading-relaxed max-w-xl mb-4">{galleryData.hero.body}</p>
-              {/* ISO note inline under body */}
               <div className="flex items-center gap-2 bg-hava-red/5 border-l-4 border-hava-red rounded-r-xl px-4 py-2.5 max-w-xl">
                 <Award className="w-4 h-4 text-hava-red flex-shrink-0" />
                 <p className="text-xs text-gray-700 leading-relaxed">
@@ -149,28 +184,19 @@ export const GalleryPage = () => {
               </div>
             </div>
 
-            {/* RIGHT — buttons + 4 trust boxes */}
             <div className="flex-shrink-0 w-full lg:w-80 flex flex-col gap-4">
               <div className="flex flex-col sm:flex-row lg:flex-col gap-3">
                 <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }} className="w-full">
-                  <Button
-                    onClick={() => (window.location.href = '/products')}
-                    className="w-full bg-gradient-to-r from-hava-red to-hava-red/90 text-white font-bold px-6 py-5 text-sm shadow-xl rounded-xl group"
-                  >
+                  <Button onClick={() => (window.location.href = '/products')} className="w-full bg-gradient-to-r from-hava-red to-hava-red/90 text-white font-bold px-6 py-5 text-sm shadow-xl rounded-xl group">
                     Explore Products <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </Button>
                 </motion.div>
                 <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }} className="w-full">
-                  <Button
-                    onClick={() => setQuoteModalOpen(true)}
-                    className="w-full glass-morphism border-2 border-trust-blue/50 text-trust-blue hover:bg-trust-blue hover:text-white font-bold px-6 py-5 text-sm rounded-xl shadow-lg backdrop-blur-xl"
-                  >
+                  <Button onClick={() => setQuoteModalOpen(true)} className="w-full glass-morphism border-2 border-trust-blue/50 text-trust-blue hover:bg-trust-blue hover:text-white font-bold px-6 py-5 text-sm rounded-xl shadow-lg backdrop-blur-xl">
                     Contact Us
                   </Button>
                 </motion.div>
               </div>
-
-              {/* 4 trust boxes */}
               <div className="grid grid-cols-2 gap-2">
                 {trustItems.map((item, i) => (
                   <div key={i} className="bg-white border-2 border-steel-gray rounded-xl px-3 py-2.5 flex items-center gap-2 shadow-sm">
@@ -180,7 +206,6 @@ export const GalleryPage = () => {
                 ))}
               </div>
             </div>
-
           </div>
         </div>
       </section>
@@ -191,7 +216,6 @@ export const GalleryPage = () => {
         <div className="absolute bottom-20 left-0 w-96 h-96 bg-trust-blue/5 rounded-full blur-3xl" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader badge={galleryData.manufacturing.label} badgeColor="hava-red" badgeIcon={Factory} title={galleryData.manufacturing.title} titleGradient={galleryData.manufacturing.titleGradient} intro={galleryData.manufacturing.body} />
-
           <div className="flex flex-wrap items-center justify-center gap-2 mt-8 mb-8">
             <span className="flex items-center gap-1 text-xs font-bold text-charcoal uppercase tracking-wider mr-2">
               <Filter className="w-3 h-3" /> Filter:
@@ -202,11 +226,10 @@ export const GalleryPage = () => {
               </button>
             ))}
           </div>
-
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
             {galleryData.manufacturing.photos.map((photo, i) => (
               <motion.div key={i} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4, delay: i * 0.05 }}>
-                <PhotoPlaceholder num={photo.num} title={photo.title} />
+                <PhotoCard num={photo.num} title={photo.title} image={photo.image} />
               </motion.div>
             ))}
           </div>
@@ -221,7 +244,7 @@ export const GalleryPage = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 mt-10">
             {galleryData.quality.photos.map((photo, i) => (
               <motion.div key={i} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4, delay: i * 0.05 }}>
-                <PhotoPlaceholder num={photo.num} title={photo.title} />
+                <PhotoCard num={photo.num} title={photo.title} image={photo.image} />
               </motion.div>
             ))}
           </div>
@@ -234,17 +257,13 @@ export const GalleryPage = () => {
         <div className="absolute bottom-20 right-0 w-72 h-72 bg-trust-blue/5 rounded-full blur-3xl" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader badge={galleryData.videos.label} badgeColor="accent-orange" badgeIcon={PlayCircle} title={galleryData.videos.title} titleGradient={galleryData.videos.titleGradient} intro={galleryData.videos.body} />
-          <div className="grid grid-cols-1 md:grid-cols-1 gap-5 mt-10 max-w-2xl mx-auto">
+          <div className="mt-10 max-w-3xl mx-auto">
             {galleryData.videos.items.map((video, i) => (
               <motion.div key={i} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4, delay: i * 0.05 }}>
-                <VideoPlaceholder num={video.num} title={video.title} />
+                <VideoCard num={video.num} title={video.title} type={video.type} src={video.src} />
               </motion.div>
             ))}
           </div>
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mt-6 max-w-3xl mx-auto bg-accent-orange/10 border-l-4 border-accent-orange rounded-r-xl p-4 flex items-start gap-3">
-            <Sparkles className="w-4 h-4 text-accent-orange flex-shrink-0 mt-0.5" />
-            <p className="text-sm text-gray-700"><strong className="text-accent-orange uppercase tracking-wider">Note:</strong> {galleryData.videos.note}</p>
-          </motion.div>
         </div>
       </section>
 
