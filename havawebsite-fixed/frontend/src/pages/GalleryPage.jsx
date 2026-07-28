@@ -8,7 +8,6 @@ import {
   PlayCircle,
   Users,
   Award,
-  Filter,
 } from 'lucide-react';
 import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
@@ -39,7 +38,6 @@ const galleryData = {
       { num: "Photo 5", title: "Export-Ready Packaging", image: "/products/button.png" },
       { num: "Photo 6", title: "Precision Parts Manufacturing", image: "/products/extension.png" },
     ],
-    filters: ["CNC Machining", "Production Floor", "Assembly", "Inventory Management", "Dispatch & Packaging"],
   },
   quality: {
     label: "Quality & Testing",
@@ -58,7 +56,6 @@ const galleryData = {
     title: "See HAVA",
     titleGradient: "in Action",
     body: "Watch our manufacturing processes, quality systems, and products operating in real-world environments.",
-
     items: [
       { num: "Video 1", title: "Factory Tour", type: "mp4", src: "/assets/factory-tour.mp4" },
     ],
@@ -87,7 +84,7 @@ const trustItems = [
   { icon: '🌍', text: '20+ Export Countries' },
 ];
 
-const PhotoCard = ({ num, title, image, large = false }) => (
+const PhotoCard = ({ num, title, image, large = false, noHoverTitle = false }) => (
   <div className={`relative ${large ? 'aspect-[16/10]' : 'aspect-[4/3]'} rounded-2xl overflow-hidden border-2 border-steel-gray group cursor-pointer hover:shadow-2xl hover:border-hava-red/40 transition-all bg-gradient-to-br from-slate-200 via-slate-100 to-blue-50`}>
     {image ? (
       <>
@@ -96,10 +93,11 @@ const PhotoCard = ({ num, title, image, large = false }) => (
           alt={title}
           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
         />
-        {/* hover overlay with title */}
-        <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent px-4 py-3 opacity-0 group-hover:opacity-100 transition-opacity">
-          <p className="text-sm font-bold text-white">{title}</p>
-        </div>
+        {!noHoverTitle && (
+          <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent px-4 py-3 opacity-0 group-hover:opacity-100 transition-opacity">
+            <p className="text-sm font-bold text-white">{title}</p>
+          </div>
+        )}
       </>
     ) : (
       <div className="absolute inset-0 flex flex-col items-center justify-center p-4">
@@ -216,20 +214,10 @@ export const GalleryPage = () => {
         <div className="absolute bottom-20 left-0 w-96 h-96 bg-trust-blue/5 rounded-full blur-3xl" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader badge={galleryData.manufacturing.label} badgeColor="hava-red" badgeIcon={Factory} title={galleryData.manufacturing.title} titleGradient={galleryData.manufacturing.titleGradient} intro={galleryData.manufacturing.body} />
-          <div className="flex flex-wrap items-center justify-center gap-2 mt-8 mb-8">
-            <span className="flex items-center gap-1 text-xs font-bold text-charcoal uppercase tracking-wider mr-2">
-              <Filter className="w-3 h-3" /> Filter:
-            </span>
-            {galleryData.manufacturing.filters.map((filter, i) => (
-              <button key={i} className="text-xs font-bold uppercase tracking-wider bg-white border-2 border-steel-gray text-charcoal px-3 py-1.5 rounded-full hover:border-hava-red hover:bg-hava-red hover:text-white transition-colors">
-                {filter}
-              </button>
-            ))}
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-10">
             {galleryData.manufacturing.photos.map((photo, i) => (
               <motion.div key={i} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4, delay: i * 0.05 }}>
-                <PhotoCard num={photo.num} title={photo.title} image={photo.image} />
+                <PhotoCard num={photo.num} title={photo.title} image={photo.image} noHoverTitle={i === 5} />
               </motion.div>
             ))}
           </div>
