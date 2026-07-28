@@ -237,7 +237,7 @@ export const GalleryPage = () => {
       </section>
 
       {/* QUALITY & TESTING */}
-      <section className="relative py-10 lg:py-14 overflow-hidden bg-gradient-to-br from-slate-50 via-white to-blue-50">
+      {/* <section className="relative py-10 lg:py-14 overflow-hidden bg-gradient-to-br from-slate-50 via-white to-blue-50">
         <AnimatedBackground />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader badge={galleryData.quality.label} badgeColor="trust-blue" badgeIcon={ShieldCheck} title={galleryData.quality.title} titleGradient={galleryData.quality.titleGradient} intro={galleryData.quality.body} />
@@ -249,7 +249,7 @@ export const GalleryPage = () => {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* VIDEOS */}
       <section className="relative py-10 lg:py-14 overflow-hidden bg-white">
