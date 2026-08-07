@@ -19,7 +19,7 @@ export const VideoSection = () => {
   };
 
   return (
-    <section className="relative w-full h-[70vh] overflow-hidden bg-charcoal">
+    <section className="relative w-full h-[90vh] overflow-hidden bg-charcoal">
       {/* Video Background */}
       <video
         ref={videoRef}
