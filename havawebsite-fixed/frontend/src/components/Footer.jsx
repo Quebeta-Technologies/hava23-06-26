@@ -160,7 +160,7 @@ export const Footer = () => {
                   rel="noopener noreferrer"
                   className="font-bold text-accent-orange hover:text-hava-red transition-colors"
                   data-testid="footer-quebeta-link"
-                >
+                <a>
                   Quebeta
                 </a>
               </span>
