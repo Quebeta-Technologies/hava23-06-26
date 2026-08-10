@@ -1,4 +1,3 @@
-```jsx
 import React from 'react';
 import { Link } from 'react-router-dom';
 import {
@@ -14,10 +13,9 @@ import { footerData } from '../data/mock';
 
 export const Footer = () => {
   return (
-    <footer>
-      {/* Main Footer */}
+    <footer className="bg-white">
+      {/* Location & Map Section */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-4">
-        {/* Location + Map */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -29,7 +27,7 @@ export const Footer = () => {
 
             {/* Facility Information */}
             <div className="lg:col-span-1 bg-gradient-to-br from-hava-red/10 to-accent-orange/10 border border-steel-gray rounded-3xl p-7">
-
+              
               <div className="flex items-center gap-3 mb-5">
                 <div className="w-11 h-11 bg-gradient-to-br from-hava-red to-accent-orange rounded-2xl flex items-center justify-center shadow-lg">
                   <MapPin className="w-5 h-5 text-white" />
@@ -37,7 +35,9 @@ export const Footer = () => {
 
                 <h3
                   className="text-lg font-bold text-charcoal"
-                  style={{ fontFamily: 'Space Grotesk, sans-serif' }}
+                  style={{
+                    fontFamily: 'Space Grotesk, sans-serif',
+                  }}
                 >
                   Visit Our Facility
                 </h3>
@@ -63,7 +63,6 @@ export const Footer = () => {
                   data-testid="footer-get-directions-link"
                 >
                   Get Directions
-
                   <ExternalLink className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </a>
               </div>
@@ -76,8 +75,7 @@ export const Footer = () => {
                   href={`tel:${footerData.contact.mobile}`}
                   className="flex items-center gap-3 text-gray-600 hover:text-hava-red transition-colors"
                 >
-                  <Phone className="w-4 h-4" />
-
+                  <Phone className="w-4 h-4 shrink-0" />
                   <span className="text-sm">
                     {footerData.contact.mobile}
                   </span>
@@ -88,17 +86,15 @@ export const Footer = () => {
                   href={`mailto:${footerData.contact.email}`}
                   className="flex items-center gap-3 text-gray-600 hover:text-hava-red transition-colors"
                 >
-                  <Mail className="w-4 h-4" />
-
-                  <span className="text-sm">
+                  <Mail className="w-4 h-4 shrink-0" />
+                  <span className="text-sm break-all">
                     {footerData.contact.email}
                   </span>
                 </a>
 
                 {/* Working Hours */}
                 <div className="flex items-center gap-3 text-gray-600">
-                  <Clock className="w-4 h-4" />
-
+                  <Clock className="w-4 h-4 shrink-0" />
                   <span className="text-sm">
                     {footerData.contact.hours}
                   </span>
@@ -110,6 +106,7 @@ export const Footer = () => {
             <div className="lg:col-span-2 relative rounded-3xl overflow-hidden shadow-2xl border border-steel-gray min-h-[380px]">
               <iframe
                 src={footerData.mapEmbedUrl}
+                title="Haryrock Engineering Location"
                 width="100%"
                 height="100%"
                 style={{
@@ -121,24 +118,23 @@ export const Footer = () => {
                 allowFullScreen
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                title="Haryrock Engineering Location"
                 data-testid="footer-google-map"
               />
             </div>
+
           </div>
         </motion.div>
 
-        {/* Footer Navigation */}
+        {/* Footer Content */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 pb-8 border-b border-steel-gray">
 
-          {/* Brand */}
+          {/* HAVA Brand */}
           <div className="lg:col-span-2">
-
             <div className="mb-5">
               <img
                 src="/assets/hava-logo.svg"
-                alt="HAVA"
-                className="h-12 w-auto object-contain"
+                alt="HAVA - Haryrock Engineering Pvt. Ltd."
+                className="h-12 w-auto max-w-[220px] object-contain object-left"
               />
             </div>
 
@@ -146,9 +142,8 @@ export const Footer = () => {
               {footerData.brandSummary}
             </p>
 
-            {/* Certifications / Highlights */}
+            {/* Badges */}
             <div className="flex flex-wrap gap-2">
-
               <span className="bg-hava-red/10 text-hava-red px-3 py-1.5 rounded-full text-xs font-semibold border border-hava-red/20">
                 ISO 9001:2015
               </span>
@@ -160,7 +155,6 @@ export const Footer = () => {
               <span className="bg-accent-orange/10 text-accent-orange px-3 py-1.5 rounded-full text-xs font-semibold border border-accent-orange/20">
                 15+ Countries
               </span>
-
             </div>
           </div>
 
@@ -168,7 +162,9 @@ export const Footer = () => {
           <div>
             <h4
               className="text-base font-bold mb-3 text-charcoal"
-              style={{ fontFamily: 'Space Grotesk, sans-serif' }}
+              style={{
+                fontFamily: 'Space Grotesk, sans-serif',
+              }}
             >
               Quick Links
             </h4>
@@ -191,19 +187,21 @@ export const Footer = () => {
           <div>
             <h4
               className="text-base font-bold mb-3 text-charcoal"
-              style={{ fontFamily: 'Space Grotesk, sans-serif' }}
+              style={{
+                fontFamily: 'Space Grotesk, sans-serif',
+              }}
             >
               Products
             </h4>
 
             <ul className="space-y-1.5">
-              {footerData.productCategories.map((category, i) => {
+              {footerData.productCategories.map((category, index) => {
                 const codes = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'];
 
                 return (
                   <li key={category}>
                     <Link
-                      to={`/products?category=${codes[i]}`}
+                      to={`/products?category=${codes[index] || ''}`}
                       className="text-gray-600 hover:text-hava-red text-sm transition-colors"
                     >
                       {category}
@@ -227,11 +225,11 @@ export const Footer = () => {
               {footerData.copyright}
             </p>
 
-            {/* Legal + Quebeta */}
-            <div className="flex flex-col md:flex-row md:items-center gap-1.5 md:gap-6">
+            {/* Right Side */}
+            <div className="flex flex-col md:flex-row md:items-center gap-3 md:gap-6">
 
-              <div className="flex items-center gap-4 md:contents">
-
+              {/* Legal Links */}
+              <div className="flex items-center gap-4">
                 <Link
                   to="/privacy"
                   className="hover:text-hava-red transition-colors"
@@ -245,7 +243,6 @@ export const Footer = () => {
                 >
                   Sitemap
                 </Link>
-
               </div>
 
               {/* Quebeta Credit */}
@@ -256,7 +253,9 @@ export const Footer = () => {
                 Made With
 
                 <motion.span
-                  animate={{ scale: [1, 1.2, 1] }}
+                  animate={{
+                    scale: [1, 1.2, 1],
+                  }}
                   transition={{
                     duration: 1.2,
                     repeat: Infinity,
@@ -267,7 +266,7 @@ export const Footer = () => {
                   <Heart className="w-4 h-4 text-hava-red fill-hava-red" />
                 </motion.span>
 
-                From{' '}
+                <span>From</span>
 
                 <a
                   href="https://www.quebeta.in"
@@ -279,6 +278,7 @@ export const Footer = () => {
                   Quebeta
                 </a>
               </span>
+
             </div>
           </div>
         </div>
@@ -286,4 +286,3 @@ export const Footer = () => {
     </footer>
   );
 };
-```
