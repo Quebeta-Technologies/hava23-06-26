@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Mail, Phone, MapPin, Clock, ExternalLink, Heart } from 'lucide-react';
 import { motion } from 'framer-motion';
-import { footerData } from '../data/mock';
+import { footerData, headerData } from '../data/mock';
 
 export const Footer = () => {
   return (
