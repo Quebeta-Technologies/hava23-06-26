@@ -174,7 +174,7 @@ export const aboutPageData = {
     intro:
       "A story built one decade at a time — from a spare-parts workshop in 1970 to a 25,000 sq. ft. ISO-certified manufacturing facility exporting to 20+ countries.",
     timeline: [
-      { year: "1970", title: "Foundation", text: "Mr. Manohar Sajnani starts manufacturing pneumatic spare parts for rock drills in Pune.", highlighted: true },
+      { year: "1970", title: "Foundation", text: "Mr. Manohar Sajnani starts manufacturing pneumatic spare parts for rock drills", highlighted: true },
       { year: "1990", title: "Expansion", text: "Next generation joins. Product range expands into the mining and infrastructure sector." },
       { year: "1999", title: "HAVA Brand", text: "HAVA brand formally established — rock drill machines, accessories, consumables, spare parts.", highlighted: true },
       { year: "2011", title: "Incorporation", text: "Haryrock Engineering Pvt. Ltd. formally incorporated — stronger foundation for global growth." },
