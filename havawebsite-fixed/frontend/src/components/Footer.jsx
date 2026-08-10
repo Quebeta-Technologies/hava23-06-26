@@ -37,7 +37,7 @@ export const Footer = () => {
                     {footerData.contact.address}
                   </p>
                 </div>
-                <a
+                
                   href={footerData.mapLink}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -83,13 +83,11 @@ export const Footer = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 pb-8 border-b border-steel-gray">
           <div className="lg:col-span-2">
-            <div className="flex flex-wrap items-center gap-3 mb-5">
-              <div className="bg-white border border-steel-gray rounded-2xl p-3 shadow-md inline-flex items-center justify-center" data-testid="footer-hava-logo-wrap">
-                <img src={headerData.havaLogo} alt="HAVA" className="h-12 w-auto object-contain" data-testid="footer-hava-logo" />
-              </div>
-              <div className="bg-white border border-steel-gray rounded-2xl p-3 shadow-md inline-flex items-center justify-center" data-testid="footer-haryrock-logo-wrap">
-                <img src={headerData.haryrockLogo} alt="Haryrock Engineering" className="h-12 w-auto object-contain" data-testid="footer-haryrock-logo" />
-              </div>
+            <div className="mb-5">
+              <p className="text-2xl font-black text-charcoal" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
+                <span className="text-hava-red">HAVA</span>
+              </p>
+              <p className="text-xs text-gray-500 mt-1">Haryrock Engineering Pvt. Ltd.</p>
             </div>
             <p className="text-gray-600 text-sm leading-relaxed mb-5">{footerData.brandSummary}</p>
             <div className="flex flex-wrap gap-2">
@@ -136,10 +134,7 @@ export const Footer = () => {
           <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-3 text-sm text-gray-500">
             <p>{footerData.copyright}</p>
 
-            {/* Desktop: row | Mobile: column */}
             <div className="flex flex-col md:flex-row md:items-center gap-1.5 md:gap-6">
-
-              {/* Mobile: Privacy + Sitemap on same line | Desktop: separate items in row */}
               <div className="flex items-center gap-4 md:contents">
                 <Link to="/privacy" className="hover:text-hava-red transition-colors">
                   Privacy Policy
@@ -159,7 +154,7 @@ export const Footer = () => {
                   <Heart className="w-4 h-4 text-hava-red fill-hava-red" />
                 </motion.span>
                 From{' '}
-                <a
+                
                   href="https://www.quebeta.in"
                   target="_blank"
                   rel="noopener noreferrer"
