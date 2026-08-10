@@ -1,3 +1,4 @@
+```jsx
 import React from 'react';
 import { Link } from 'react-router-dom';
 import {
@@ -14,7 +15,9 @@ import { footerData } from '../data/mock';
 export const Footer = () => {
   return (
     <footer>
+      {/* Main Footer */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-4">
+        {/* Location + Map */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -23,8 +26,10 @@ export const Footer = () => {
           className="mb-10"
         >
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 items-stretch">
-            {/* Location / Contact Card */}
+
+            {/* Facility Information */}
             <div className="lg:col-span-1 bg-gradient-to-br from-hava-red/10 to-accent-orange/10 border border-steel-gray rounded-3xl p-7">
+
               <div className="flex items-center gap-3 mb-5">
                 <div className="w-11 h-11 bg-gradient-to-br from-hava-red to-accent-orange rounded-2xl flex items-center justify-center shadow-lg">
                   <MapPin className="w-5 h-5 text-white" />
@@ -58,34 +63,42 @@ export const Footer = () => {
                   data-testid="footer-get-directions-link"
                 >
                   Get Directions
+
                   <ExternalLink className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </a>
               </div>
 
               {/* Contact Details */}
               <div className="mt-6 pt-5 border-t border-steel-gray space-y-2.5">
+
+                {/* Phone */}
                 <a
                   href={`tel:${footerData.contact.mobile}`}
                   className="flex items-center gap-3 text-gray-600 hover:text-hava-red transition-colors"
                 >
                   <Phone className="w-4 h-4" />
+
                   <span className="text-sm">
                     {footerData.contact.mobile}
                   </span>
                 </a>
 
+                {/* Email */}
                 <a
                   href={`mailto:${footerData.contact.email}`}
                   className="flex items-center gap-3 text-gray-600 hover:text-hava-red transition-colors"
                 >
                   <Mail className="w-4 h-4" />
+
                   <span className="text-sm">
                     {footerData.contact.email}
                   </span>
                 </a>
 
+                {/* Working Hours */}
                 <div className="flex items-center gap-3 text-gray-600">
                   <Clock className="w-4 h-4" />
+
                   <span className="text-sm">
                     {footerData.contact.hours}
                   </span>
@@ -115,28 +128,27 @@ export const Footer = () => {
           </div>
         </motion.div>
 
-        {/* Main Footer Links */}
+        {/* Footer Navigation */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 pb-8 border-b border-steel-gray">
+
           {/* Brand */}
           <div className="lg:col-span-2">
-            <div className="mb-5">
-              <p
-                className="text-2xl font-black text-charcoal"
-                style={{ fontFamily: 'Space Grotesk, sans-serif' }}
-              >
-                <span className="text-hava-red">HAVA</span>
-              </p>
 
-              <p className="text-xs text-gray-500 mt-1">
-                Haryrock Engineering Pvt. Ltd.
-              </p>
+            <div className="mb-5">
+              <img
+                src="/assets/hava-logo.svg"
+                alt="HAVA"
+                className="h-12 w-auto object-contain"
+              />
             </div>
 
             <p className="text-gray-600 text-sm leading-relaxed mb-5">
               {footerData.brandSummary}
             </p>
 
+            {/* Certifications / Highlights */}
             <div className="flex flex-wrap gap-2">
+
               <span className="bg-hava-red/10 text-hava-red px-3 py-1.5 rounded-full text-xs font-semibold border border-hava-red/20">
                 ISO 9001:2015
               </span>
@@ -148,6 +160,7 @@ export const Footer = () => {
               <span className="bg-accent-orange/10 text-accent-orange px-3 py-1.5 rounded-full text-xs font-semibold border border-accent-orange/20">
                 15+ Countries
               </span>
+
             </div>
           </div>
 
@@ -206,13 +219,19 @@ export const Footer = () => {
       {/* Bottom Bar */}
       <div className="border-t border-steel-gray bg-slate-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-          <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-3 text-sm text-gray-500">
-            {/* Copyright */}
-            <p>{footerData.copyright}</p>
 
-            {/* Legal + Credit */}
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-3 text-sm text-gray-500">
+
+            {/* Copyright */}
+            <p>
+              {footerData.copyright}
+            </p>
+
+            {/* Legal + Quebeta */}
             <div className="flex flex-col md:flex-row md:items-center gap-1.5 md:gap-6">
+
               <div className="flex items-center gap-4 md:contents">
+
                 <Link
                   to="/privacy"
                   className="hover:text-hava-red transition-colors"
@@ -226,6 +245,7 @@ export const Footer = () => {
                 >
                   Sitemap
                 </Link>
+
               </div>
 
               {/* Quebeta Credit */}
@@ -266,3 +286,4 @@ export const Footer = () => {
     </footer>
   );
 };
+```
