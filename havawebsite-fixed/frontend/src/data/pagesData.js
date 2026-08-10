@@ -459,7 +459,7 @@ export const productsPageData = {
         headers: ["Spec", "Spring Retainer", "Latch Retainer"],
         rows: [
           ["Model", "CP-117 / HR-117", "CP-117"],
-          ["Weight", "36 kg", "36 kg"],
+          ["Weight", "36 kg", "41 kg"],
           ["Air Consumption", "2.5 m³/min at 6 bar (88 cfm)", "2.5 m³/min at 6 bar (88 cfm)"],
           ["Piston Diameter", "57mm", "57mm"],
           ["Overall Length", "710mm (28 inch)", "710mm (28 inch)"],
