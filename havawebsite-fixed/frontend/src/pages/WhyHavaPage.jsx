@@ -159,7 +159,7 @@ const QualityProcess = () => {
 
   useEffect(() => {
     if (!autoPlay) return;
-    const timer = setInterval(() => setActive(prev => (prev + 1) % qualitySteps.length), 3000);
+    const timer = setInterval(() => setActive(prev => (prev + 1) % qualitySteps.length), 5000);
     return () => clearInterval(timer);
   }, [autoPlay]);
 
