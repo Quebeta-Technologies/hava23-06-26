@@ -359,8 +359,36 @@ const CategoryContent = ({ cat, onEnquire }) => {
     }
 
     if (cat.code === 'H') {
+      const spareCategories = [
+        { label: 'Rock Drill Spare Parts', image: '/products/spare-rockdrill.jpeg' },
+        { label: 'Pusher Leg Spare Parts', image: '/products/spare-pusher.jpeg' },
+        { label: 'Drifter Spare Parts',    image: '/products/spare-drifter.jpeg' },
+      ];
       return (
         <>
+          {/* Spare Part Photo Boxes */}
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
+            {spareCategories.map((item, i) => (
+              <div key={i} className="bg-white rounded-2xl border-2 border-steel-gray hover:border-hava-red/40 hover:shadow-xl transition-all overflow-hidden">
+                <div className="w-full bg-gradient-to-br from-slate-100 to-blue-50 overflow-hidden" style={{ height: '200px' }}>
+                  {item.image ? (
+                    <img src={item.image} alt={item.label} className="w-full h-full object-cover" />
+                  ) : (
+                    <div className="w-full h-full flex items-center justify-center">
+                      <Package className="w-12 h-12 text-hava-red/30" />
+                    </div>
+                  )}
+                </div>
+                <div className="p-4 flex items-center justify-between gap-2">
+                  <p className="font-black text-charcoal text-sm leading-tight" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>{item.label}</p>
+                  <button onClick={onEnquire} className="text-xs font-bold bg-gradient-to-r from-hava-red to-accent-orange text-white px-3 py-1.5 rounded-lg whitespace-nowrap hover:opacity-90 transition-opacity flex-shrink-0">
+                    Enquire
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
+
           <div className="bg-gradient-to-br from-hava-red/5 to-accent-orange/5 border-l-4 border-hava-red rounded-r-2xl p-5">
             <p className="font-bold text-hava-red text-sm uppercase tracking-wider mb-2">Why Genuine Spares Matter</p>
             <p className="text-sm text-gray-700 leading-relaxed">{cat.whyGenuine}</p>
