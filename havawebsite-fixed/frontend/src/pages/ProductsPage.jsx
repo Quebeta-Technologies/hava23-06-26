@@ -91,24 +91,6 @@ const TwoColBlock = ({ items }) => (
   </div>
 );
 
-// ─── Reusable Video Panel ────────────────────────────────────────────────────
-const VideoPanel = ({ src, mobile = false }) => (
-  <div
-    className={`${mobile ? 'w-full border-t-2 lg:hidden' : 'hidden lg:flex w-52 border-l-2'} flex-shrink-0 bg-slate-900 border-steel-gray overflow-hidden self-stretch`}
-  >
-    {src ? (
-      <video src={src} className="w-full h-full object-cover" controls />
-    ) : (
-      <div className="flex flex-col items-center justify-center gap-2 text-white/40 p-4 text-center h-full">
-        <div className="w-12 h-12 rounded-full border-2 border-white/20 flex items-center justify-center">
-          <svg viewBox="0 0 24 24" className="w-5 h-5 fill-white/30"><path d="M8 5v14l11-7z" /></svg>
-        </div>
-        <span className="text-[10px] font-bold uppercase tracking-wider">Product Video<br />Coming Soon</span>
-      </div>
-    )}
-  </div>
-);
-
 // ─── Reusable 3-col Product Row ──────────────────────────────────────────────
 const VideoProductCard = ({ image, imageClass = 'object-cover object-left', title, subtitle, badge, specs, video, onEnquire, specsColumns = 2 }) => (
   <div className="bg-white rounded-2xl border-2 border-steel-gray hover:border-hava-red/40 hover:shadow-xl transition-all overflow-hidden">
@@ -205,8 +187,8 @@ const CategoryContent = ({ cat, onEnquire }) => {
 
   const renderProducts = () => {
     if (cat.code === 'A') {
-      const images = ['/products/wet.jpeg', '/products/wets.png'];
-      const videos = ["/products/Rock Drill T Handle.mp4", "/products/Rock Drill Spade Handle.mp4"];
+      const images = ['/products/dry.jpeg', '/products/wet.jpeg', '/products/wets.png'];
+      const videos = [null, "/products/Rock Drill T Handle.mp4", "/products/Rock Drill Spade Handle.mp4"];
       return (
         <div className="space-y-4">
           {cat.table.rows.map((row, ri) => {
@@ -383,7 +365,7 @@ const CategoryContent = ({ cat, onEnquire }) => {
             <p className="font-bold text-hava-red text-sm uppercase tracking-wider mb-2">Why Genuine Spares Matter</p>
             <p className="text-sm text-gray-700 leading-relaxed">{cat.whyGenuine}</p>
           </div>
-          <p className="font-bold text-accent-orange text-xs uppercase tracking-[2px] mt-6 mb-4">Why Use Genuine Spare Parts</p>
+          <p className="font-bold text-accent-orange text-xs uppercase tracking-[2px] mt-6 mb-4">Why Use Genuine HAVA Spare Parts</p>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
             {cat.whyCards.map((c, i) => (
               <div key={i} className="bg-slate-50 border-l-2 border-hava-red rounded-r-xl p-4">

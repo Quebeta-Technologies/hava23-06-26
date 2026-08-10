@@ -399,28 +399,30 @@ export const productsPageData = {
   },
   categories: [
     // CAT A — ROCK DRILLS
-    {
-      code: "A",
-      name: "Rock Drills",
-      brochureUrl: "/assets/Hava Rock Drill Catalog.pdf",
-      productCount: "2 Products · 2 Pages",
-      image: "/products/rock.png",
-      description:
-        "Air-flushed and water-flushed pneumatic drills capable of drilling 27–48mm diameter holes using H22 integral steel, up to 6 metres depth. Available in dry and wet variants with T-Handle or Spade Handle to suit surface and underground drilling environments.",
-      table: {
-        headers: ["Model", "Type", "Weight", "Impact Rate", "Drilling Rate", "Air Hose", "Water Hose"],
-        rows: [
-          ["RH-656/4W (T-Handle)", "Wet — Water Flushed", "26 kg", "2050 bpm", "410 mm/min", "19mm", "12.7mm"],
-          ["RH-656/4W (Spade Handle)", "Wet — Water Flushed", "26 kg", "2050 bpm", "410 mm/min", "19mm", "12.7mm"],
-        ],
-      },
-      twoCol: [
-        { heading: "Applications", text: "Quarry Drilling · Bench Mining · Marble & Granite · Construction · Underground Mines & Tunnels" },
-        { heading: "Product Features (Wet)", text: "Rifle Bar Rotation · Kick Latch Retainer · Valve for Air Flushing" },
-      ],
-      note: "Each product page includes: Applications · Technical Data table · Spare parts CTA · Atlas Copco Compatibility Note · Enquiry CTA · Brochure Download.",
-      summaryLine: "RH-656/4W Wet T-Handle · RH-656/4W Wet Spade Handle",
-    },
+{
+  code: "A",
+  name: "Rock Drills",
+  brochureUrl: "/assets/Hava Rock Drill Catalog.pdf",
+  productCount: "3 Products · 3 Pages",
+  image: "/products/rock.png",
+  description:
+    "Air-flushed (dry) and water-flushed (wet) pneumatic drills capable of drilling 27–48mm diameter holes using H22 integral steel, up to 6 metres depth. Dry variant for quarry and surface drilling; wet variant for horizontal and inclined dustless drilling in underground mines and tunnels with a pusher leg.",
+  table: {
+    headers: ["Model", "Type", "Weight", "Impact Rate", "Drilling Rate", "Air Hose", "Water Hose"],
+    rows: [
+      ["RH-658/5L", "Dry — Air Flushed", "25 kg", "2000 bpm", "425 mm/min", "19mm", "—"],
+      ["RH-656/4W (T-Handle)", "Wet — Water Flushed", "26 kg", "2050 bpm", "410 mm/min", "19mm", "12.7mm"],
+      ["RH-656/4W (Spade Handle)", "Wet — Water Flushed", "26 kg", "2050 bpm", "410 mm/min", "19mm", "12.7mm"],
+    ],
+  },
+  twoCol: [
+    { heading: "Applications (Dry — RH-658/5L)", text: "Quarry Drilling · Bench Mining · General Excavation · Marble & Granite Industries · Construction & Surface Mining" },
+    { heading: "Applications (Wet — RH-656/4W)", text: "Underground Mines & Tunnels · Horizontal / Inclined Drilling" },
+    { heading: "Product Features (Wet)", text: "Rifle Bar Rotation · Kick Latch Retainer · Valve for Air Flushing" },
+  ],
+  note: "Each product page includes: Applications · Technical Data table · Spare parts CTA · Atlas Copco Compatibility Note · Enquiry CTA · Brochure Download.",
+  summaryLine: "RH-658/5L Dry · RH-656/4W Wet T-Handle · RH-656/4W Wet Spade Handle",
+},
     // CAT B — DRIFTERS
     {
       code: "B",
