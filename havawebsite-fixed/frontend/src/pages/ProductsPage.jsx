@@ -267,28 +267,20 @@ const CategoryContent = ({ cat, onEnquire }) => {
       );
     }
 
-    if (cat.code === 'D') {
-      const models = [
-        { badge: 'Metric', specs: cat.table.rows.map(r => ({ label: r[0], value: r[1] })), video: "/products/Pusher Leg.mp4" },
-        { badge: 'Imperial', specs: cat.table.rows.map(r => ({ label: r[0], value: r[2] })), video: "/products/Pusher Leg.mp4" },
-      ];
-      return (
-        <div className="space-y-4">
-          {models.map((m, i) => (
-            <VideoProductCard
-              key={i}
-              image="/products/bmk.jpeg"
-              title="BMK62S Air Leg"
-              subtitle="Used with RH-656/4W Wet Rock Drill"
-              badge={m.badge}
-              specs={m.specs}
-              video={m.video}
-              onEnquire={onEnquire}
-            />
-          ))}
-        </div>
-      );
-    }
+if (cat.code === 'D') {
+  return (
+    <div className="space-y-4">
+      <VideoProductCard
+        image="/products/bmk.jpeg"
+        title="BMK62S Air Leg"
+        subtitle="Used with RH-656/4W Wet Rock Drill"
+        specs={cat.table.rows.map(r => ({ label: r[0], value: r[1] }))}
+        video="/products/Pusher Leg.mp4"
+        onEnquire={onEnquire}
+      />
+    </div>
+  );
+}
 
     if (cat.code === 'E') {
       const products = [
