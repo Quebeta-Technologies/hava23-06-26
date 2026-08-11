@@ -31,12 +31,12 @@ const galleryData = {
     titleGradient: "Designed for Performance.",
     body: "Our 25,000 sq. ft. manufacturing facility in Pimpri, Pune is equipped with advanced CNC machining centres, precision tooling systems, dedicated assembly areas, and rigorous quality inspection stations.",
     photos: [
-      { num: "Photo 1", title: "Production Floor Overview", image: "/products/air.png" },
-      { num: "Photo 2", title: "Precision CNC Operations", image: "/products/wet.png" },
-      { num: "Photo 3", title: "Rock Drill Assembly Line", image: "/products/spare.png" },
-      { num: "Photo 4", title: "Finished Goods Inventory", image: "/products/drifter.png" },
-      { num: "Photo 5", title: "Export-Ready Packaging", image: "/products/button.png" },
-      { num: "Photo 6", title: "Precision Parts Manufacturing", image: "/products/extension.png" },
+      { num: "Photo 1", title: "Airline Lubricator BLG-30", image: "/products/air.png" },
+      { num: "Photo 2", title: "Rock Drill", image: "/products/wet.png" },
+      { num: "Photo 3", title: "Rock Drill Spare Parts", image: "/products/spare.png" },
+      { num: "Photo 4", title: "Drifter", image: "/products/drifter.png" },
+      { num: "Photo 5", title: "Button Bits", image: "/products/button.png" },
+      { num: "Photo 6", title: "Extension Equipment", image: "/products/extension.png" },
     ],
   },
   quality: {
