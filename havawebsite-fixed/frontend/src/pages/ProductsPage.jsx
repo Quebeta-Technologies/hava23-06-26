@@ -450,9 +450,9 @@ const CategoryContent = ({ cat, onEnquire }) => {
 
     if (cat.code === 'H') {
       const spareCategories = [
-        { label: 'Rock Drill Spare Parts', image: '/products/spare-rockdrill.jpeg' },
-        { label: 'Pusher Leg Spare Parts', image: '/products/spare-pusher.jpeg' },
-        { label: 'Drifter Spare Parts',    image: '/products/spare-drifter.jpeg' },
+        { label: 'Rock Drill Spare Parts', image: '/products/rockd.jpg' },
+        { label: 'Pusher Leg Spare Parts', image: '/products/leg.jpg' },
+        { label: 'Drifter Spare Parts',    image: '/products/drift.jpg' },
       ];
       return (
         <>
