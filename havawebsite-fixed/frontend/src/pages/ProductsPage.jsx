@@ -257,7 +257,7 @@ const CategoryContent = ({ cat, onEnquire }) => {
           subtitle: 'Latch Retainer',
           badge: 'Latch Retainer',
           image: '/products/latch.png',
-          brochureUrl: '/assets/Hava Latch Retainer Catalog.pdf',
+          brochureUrl: '/assets/Hava Pavement Breaker Catalog.pdf',
           specs: cat.table.rows.map(r => ({ label: r[0], value: r[2] })).filter(s => s.label !== 'Model' && s.label !== 'Operating Pressure'),
           video: null,
         },
