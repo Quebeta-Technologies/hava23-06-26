@@ -248,7 +248,7 @@ const CategoryContent = ({ cat, onEnquire }) => {
           subtitle: 'Spring Retainer',
           badge: 'Spring Retainer',
           image: '/products/cp.jpeg',
-          brochureUrl: '/assets/Hava Spring Retainer Catalog.pdf',
+          brochureUrl: '/assets/Hava Breaker s.pdf',
           specs: cat.table.rows.map(r => ({ label: r[0], value: r[1] })).filter(s => s.label !== 'Model' && s.label !== 'Operating Pressure'),
           video: null,
         },
