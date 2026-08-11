@@ -518,7 +518,7 @@ const CategoryContent = ({ cat, onEnquire }) => {
           </div>
         </div>
         <div className="flex items-center gap-2 flex-shrink-0">
-          {cat.brochureUrl ? (
+          {cat.brochureUrl && cat.code !== 'C' ? (
             <a href={cat.brochureUrl} target="_blank" rel="noopener noreferrer">
               <Button variant="outline" className="border-2 border-steel-gray text-charcoal hover:border-hava-red hover:text-hava-red text-xs h-8 px-3">
                 <Download className="w-3 h-3 mr-1" /> Brochure
