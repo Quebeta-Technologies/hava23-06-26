@@ -293,8 +293,8 @@ const CategoryContent = ({ cat, onEnquire }) => {
     if (cat.code === 'E') {
       const products = [
         { title: 'Airline Lubricator BLG-30', image: '/products/blg.jpeg', specs: [{ label: 'Weight', value: '3 kg (6.6 lb)' }, { label: 'Volume', value: '1.3 ltr (44 oz)' }, { label: 'Air Flow', value: '25–134 l/S (53–284 cfm)' }, { label: 'Placement', value: '3M from drill' }] },
-        { title: 'Clamps', image: '/products/clamp.png', specs: [{ label: 'Type', value: 'Air line clamp accessories' }] },
-        { title: 'Hose Jointers', image: '/products/hose.png', specs: [{ label: 'Type', value: 'Joiner fittings for airline hose connections' }] },
+        { title: 'Clamps', image: '/products/CAMP.jpeg', specs: [{ label: 'Type', value: 'Air line clamp accessories' }] },
+        { title: 'Hose Jointers', image: '/products/HORSE.jpeg', specs: [{ label: 'Type', value: 'Joiner fittings for airline hose connections' }] },
         { title: 'Hose Pipe', image: '/products/hpipe.png', specs: [{ label: 'Type', value: 'High-pressure airline hose' }] },
       ];
       return (
