@@ -243,44 +243,142 @@ const CategoryContent = ({ cat, onEnquire }) => {
 
     if (cat.code === 'C') {
       const models = [
-        { title: 'CP-117 / HR-117', subtitle: 'Spring Retainer', badge: 'Spring Retainer', image: '/products/cp.jpeg',
-          specs: cat.table.rows.map(r => ({ label: r[0], value: r[1] })).filter(s => s.label !== 'Model' && s.label !== 'Operating Pressure'), video: null },
-        { title: 'CP-117', subtitle: 'Latch Retainer', badge: 'Latch Retainer', image: '/products/latch.png',
-          specs: cat.table.rows.map(r => ({ label: r[0], value: r[2] })).filter(s => s.label !== 'Model' && s.label !== 'Operating Pressure'), video: null },
+        {
+          title: 'CP-117 / HR-117',
+          subtitle: 'Spring Retainer',
+          badge: 'Spring Retainer',
+          image: '/products/cp.jpeg',
+          brochureUrl: '/assets/Hava Spring Retainer Catalog.pdf',
+          specs: cat.table.rows.map(r => ({ label: r[0], value: r[1] })).filter(s => s.label !== 'Model' && s.label !== 'Operating Pressure'),
+          video: null,
+        },
+        {
+          title: 'CP-117',
+          subtitle: 'Latch Retainer',
+          badge: 'Latch Retainer',
+          image: '/products/latch.png',
+          brochureUrl: '/assets/Hava Latch Retainer Catalog.pdf',
+          specs: cat.table.rows.map(r => ({ label: r[0], value: r[2] })).filter(s => s.label !== 'Model' && s.label !== 'Operating Pressure'),
+          video: null,
+        },
       ];
       return (
         <div className="space-y-4">
           {models.map((m, i) => (
-            <VideoProductCard
-              key={i}
-              image={m.image}
-              title={m.title}
-              subtitle={m.subtitle}
-              badge={m.badge}
-              specs={m.specs}
-              video={m.video}
-              specsColumns={3}
-              onEnquire={onEnquire}
-            />
+            <div key={i} className="bg-white rounded-2xl border-2 border-steel-gray hover:border-hava-red/40 hover:shadow-xl transition-all overflow-hidden">
+              {/* Desktop */}
+              <div className="hidden sm:flex h-[280px]">
+                <div className="w-64 flex-shrink-0 bg-gradient-to-br from-slate-100 to-blue-50 overflow-hidden">
+                  <img src={m.image} alt={m.title} className="w-full h-full object-cover object-left" />
+                </div>
+                <div className="flex-1 p-5 flex flex-col min-w-0 overflow-hidden">
+                  <div className="flex items-start justify-between gap-3 mb-3">
+                    <div>
+                      {m.badge && (
+                        <span className="text-[10px] font-bold bg-trust-blue/10 text-trust-blue border border-trust-blue/20 px-2.5 py-1 rounded-full uppercase tracking-wider mb-1.5 inline-block">
+                          {m.badge}
+                        </span>
+                      )}
+                      <p className="font-black text-charcoal text-lg leading-tight" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>{m.title}</p>
+                      <p className="text-xs text-gray-500 mt-0.5">{m.subtitle}</p>
+                    </div>
+                    <div className="flex flex-col gap-2 flex-shrink-0">
+                      <button onClick={onEnquire} className="text-xs font-bold bg-gradient-to-r from-hava-red to-accent-orange text-white px-3 py-1.5 rounded-lg whitespace-nowrap hover:opacity-90 transition-opacity">
+                        Enquire Now
+                      </button>
+                      <a
+                        href={m.brochureUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-xs font-bold border-2 border-steel-gray text-charcoal hover:border-hava-red hover:text-hava-red px-3 py-1.5 rounded-lg whitespace-nowrap flex items-center justify-center gap-1 transition-colors"
+                      >
+                        <Download className="w-3 h-3" /> Brochure
+                      </a>
+                    </div>
+                  </div>
+                  <div className="grid grid-cols-3 gap-2">
+                    {m.specs.map((s, si) => (
+                      <div key={si} className="flex flex-col bg-slate-50 border border-steel-gray rounded-lg px-2.5 py-1.5">
+                        <span className="text-[9px] font-bold text-gray-400 uppercase tracking-wider">{s.label}</span>
+                        <span className="text-[11px] font-bold text-charcoal mt-0.5">{s.value}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+                <div className="w-52 flex-shrink-0 bg-slate-900 border-l-2 border-steel-gray overflow-hidden">
+                  {m.video ? (
+                    <video src={m.video} className="w-full h-full object-cover" controls />
+                  ) : (
+                    <div className="w-full h-full flex flex-col items-center justify-center gap-2 text-white/40 p-4 text-center">
+                      <div className="w-12 h-12 rounded-full border-2 border-white/20 flex items-center justify-center">
+                        <svg viewBox="0 0 24 24" className="w-5 h-5 fill-white/30"><path d="M8 5v14l11-7z" /></svg>
+                      </div>
+                      <span className="text-[10px] font-bold uppercase tracking-wider">Product Video<br />Coming Soon</span>
+                    </div>
+                  )}
+                </div>
+              </div>
+
+              {/* Mobile */}
+              <div className="flex flex-col sm:hidden">
+                <div className="w-full bg-gradient-to-br from-slate-100 to-blue-50 overflow-hidden" style={{ height: '220px' }}>
+                  <img src={m.image} alt={m.title} className="w-full h-full object-cover object-left" />
+                </div>
+                <div className="p-5 flex flex-col gap-3">
+                  <div className="flex items-start justify-between gap-3">
+                    <div>
+                      {m.badge && (
+                        <span className="text-[10px] font-bold bg-trust-blue/10 text-trust-blue border border-trust-blue/20 px-2.5 py-1 rounded-full uppercase tracking-wider mb-1.5 inline-block">
+                          {m.badge}
+                        </span>
+                      )}
+                      <p className="font-black text-charcoal text-lg leading-tight" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>{m.title}</p>
+                      <p className="text-xs text-gray-500 mt-0.5">{m.subtitle}</p>
+                    </div>
+                    <div className="flex flex-col gap-2 flex-shrink-0">
+                      <button onClick={onEnquire} className="text-xs font-bold bg-gradient-to-r from-hava-red to-accent-orange text-white px-3 py-1.5 rounded-lg whitespace-nowrap hover:opacity-90 transition-opacity">
+                        Enquire Now
+                      </button>
+                      <a
+                        href={m.brochureUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-xs font-bold border-2 border-steel-gray text-charcoal hover:border-hava-red hover:text-hava-red px-3 py-1.5 rounded-lg whitespace-nowrap flex items-center justify-center gap-1 transition-colors"
+                      >
+                        <Download className="w-3 h-3" /> Brochure
+                      </a>
+                    </div>
+                  </div>
+                  <div className="grid grid-cols-3 gap-2">
+                    {m.specs.map((s, si) => (
+                      <div key={si} className="flex flex-col bg-slate-50 border border-steel-gray rounded-lg px-2.5 py-1.5">
+                        <span className="text-[9px] font-bold text-gray-400 uppercase tracking-wider">{s.label}</span>
+                        <span className="text-[11px] font-bold text-charcoal mt-0.5">{s.value}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
           ))}
         </div>
       );
     }
 
-if (cat.code === 'D') {
-  return (
-    <div className="space-y-4">
-      <VideoProductCard
-        image="/products/bmk.jpeg"
-        title="BMK62S Air Leg"
-        subtitle="Used with RH-656/4W Wet Rock Drill"
-        specs={cat.table.rows.map(r => ({ label: r[0], value: r[1] }))}
-        video="/products/Pusher Leg.mp4"
-        onEnquire={onEnquire}
-      />
-    </div>
-  );
-}
+    if (cat.code === 'D') {
+      return (
+        <div className="space-y-4">
+          <VideoProductCard
+            image="/products/bmk.jpeg"
+            title="BMK62S Air Leg"
+            subtitle="Used with RH-656/4W Wet Rock Drill"
+            specs={cat.table.rows.map(r => ({ label: r[0], value: r[1] }))}
+            video="/products/Pusher Leg.mp4"
+            onEnquire={onEnquire}
+          />
+        </div>
+      );
+    }
 
     if (cat.code === 'E') {
       const products = [
@@ -358,7 +456,6 @@ if (cat.code === 'D') {
       ];
       return (
         <>
-          {/* Spare Part Photo Boxes */}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
             {spareCategories.map((item, i) => (
               <div key={i} className="bg-white rounded-2xl border-2 border-steel-gray hover:border-hava-red/40 hover:shadow-xl transition-all overflow-hidden">
