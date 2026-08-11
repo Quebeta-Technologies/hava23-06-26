@@ -373,7 +373,7 @@ const CategoryContent = ({ cat, onEnquire }) => {
             title="BMK62S Air Leg"
             subtitle="Used with RH-656/4W Wet Rock Drill"
             specs={cat.table.rows.map(r => ({ label: r[0], value: r[1] }))}
-            video="/products/Pusher Leg.mp4"
+            video="/products/pusher.mp4"
             onEnquire={onEnquire}
           />
         </div>
