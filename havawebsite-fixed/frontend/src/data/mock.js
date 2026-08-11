@@ -66,7 +66,8 @@ export const countriesData = {
     { name: "Nepal", code: "NP", flag: "🇳🇵" },
     { name: "Oman", code: "OM", flag: "🇴🇲" },
     { name: "Qatar", code: "QA", flag: "🇶🇦" },
-    { name: "Egypt", code: "EG", flag: "🇪🇬" }
+    { name: "Egypt", code: "EG", flag: "🇪🇬" },
+    { name: "Norway", code: "NO", flag: "NO" },
   ]
 };
 
