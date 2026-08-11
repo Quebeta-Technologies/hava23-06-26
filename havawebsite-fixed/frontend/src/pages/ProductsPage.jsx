@@ -187,7 +187,7 @@ const CategoryContent = ({ cat, onEnquire }) => {
 
   const renderProducts = () => {
     if (cat.code === 'A') {
-      const images = ['/products/dry.jpeg', '/products/wet.jpeg', '/products/wets.png'];
+      const images = ['/products/R2DRY.jpeg', '/products/wet.jpeg', '/products/wets.png'];
       const videos = [null, "/products/Rock Drill T Handle.mp4", "/products/Rock Drill Spade Handle.mp4"];
       return (
         <div className="space-y-4">
