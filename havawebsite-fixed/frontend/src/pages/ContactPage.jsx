@@ -34,9 +34,8 @@ const contactData = {
     body: "Whether you're looking for rock drilling equipment, spare parts, dealership opportunities, or export partnerships, our team is ready to assist.",
   },
   quickContact: [
-    { icon: Phone, label: "Call Us", value: "+91 20 2744 0025", href: "tel:+912027440025", color: "hava-red" },
-    { icon: Phone, label: "Call Us", value: "+91 20 2744 0026", href: "tel:+912027440026", color: "hava-red" },
-    { icon: MessageCircle, label: "WhatsApp", value: "Message Us", href: "https://wa.me/912027440025", color: "accent-orange" },
+    { icon: Phone, label: "Call Us", value: "+91 93077 06849", href: "tel:+919307706849", color: "hava-red" },
+    { icon: MessageCircle, label: "WhatsApp", value: "Message Us", href: "https://wa.me/919307706849", color: "accent-orange" },
     { icon: Mail, label: "Email", value: "sales.haryrock@gmail.com", href: "mailto:sales.haryrock@gmail.com", color: "trust-blue" },
     { icon: MapPin, label: "Directions", value: "Get Directions on Google Maps", href: "https://share.google/eJDTDWB6XWYJowsS3", color: "hava-red", external: true },
     { icon: Clock, label: "Hours", value: "Mon–Sat: 9:00 AM – 6:00 PM | Sunday: Closed", color: "trust-blue" },
@@ -45,7 +44,7 @@ const contactData = {
     company: "Haryrock Engineering Pvt. Ltd.",
     line1: "A-55, H Block, MIDC Pimpri,",
     line2: "Pune – 411018, Maharashtra, India",
-    phone: "+91 20 2744 0025  |  +91 20 2744 0026",
+    phone: "+91 93077 06849",
     email: "sales.haryrock@gmail.com",
     hours: "Monday–Saturday: 9:00 AM – 6:00 PM  |  Sunday: Closed",
     mapLink: "https://share.google/eJDTDWB6XWYJowsS3",
@@ -69,7 +68,7 @@ const contactData = {
 };
 
 const trustItems = [
-  { icon: '📞', text: '+91 20 2744 0025 / 26' },
+  { icon: '📞', text: '+91 93077 06849' },
   { icon: '📧', text: 'sales.haryrock@gmail.com' },
   { icon: '🕐', text: 'Mon–Sat 9AM–6PM' },
   { icon: '🌍', text: '20+ Countries Served' },
@@ -112,7 +111,7 @@ export const ContactPage = () => {
                   </Button>
                 </motion.div>
                 <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }} className="w-full">
-                  <a href="tel:+912027440025" className="block w-full">
+                  <a href="tel:+919307706849" className="block w-full">
                     <Button className="w-full glass-morphism border-2 border-trust-blue/50 text-trust-blue hover:bg-trust-blue hover:text-white font-bold px-6 py-5 text-sm rounded-xl shadow-lg backdrop-blur-xl">
                       <Phone className="w-4 h-4 mr-2" /> Call Us Now
                     </Button>
