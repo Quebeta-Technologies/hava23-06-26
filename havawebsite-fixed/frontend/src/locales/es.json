@@ -1,1 +1,312 @@
-{}
+{
+  "header": {
+    "topBar": {
+      "certification": "Fabricante Certificado ISO 9001:2015",
+      "location": "Pune, India",
+      "exportText": "Consultas de Exportación Bienvenidas"
+    },
+    "nav": {
+      "home": "Inicio",
+      "whyHava": "Por Qué HAVA",
+      "aboutUs": "Sobre Nosotros",
+      "products": "Productos",
+      "services": "Servicios",
+      "dealers": "Distribuidores y Concesionarios",
+      "gallery": "Galería",
+      "contact": "Contacto"
+    },
+    "primaryCTA": "Consultar Ahora"
+  },
+  "hero": {
+    "headline": "Su Socio Progresivo en Minería y Perforación de Rocas",
+    "subheadline": "HAVA, de Haryrock Engineering Pvt. Ltd., fabrica equipos neumáticos de perforación de rocas, martillos, rompedoras, accesorios y repuestos para aplicaciones de minería, excavación de túneles, canteras, mármol y granito, y construcción.",
+    "supportCopy": "Basado en experiencia en ingeniería, reconocido por su rendimiento confiable, y diseñado para soportar condiciones exigentes con productos fiables y valor a largo plazo.",
+    "primaryCTA": "Solicitar Cotización",
+    "secondaryCTA": "Explorar Productos"
+  },
+  "video": {
+    "title": "Conozca Nuestra Planta de Fabricación",
+    "subtitle": "Donde la excelencia en ingeniería se encuentra con la precisión industrial",
+    "badges": {
+      "iso": { "label": "ISO 9001:2015", "sublabel": "Fabricante Certificado" },
+      "facility": { "label": "25,000+", "sublabel": "Pies² de Instalaciones" },
+      "countries": { "label": "15+", "sublabel": "Países Atendidos" }
+    }
+  },
+  "countries": {
+    "heading": "Confianza en Todo el Mundo",
+    "subheading": "Atendiendo clientes en más de 15 países con suministro directo del fabricante",
+    "list": {
+      "india": "India",
+      "uae": "EAU",
+      "saudiArabia": "Arabia Saudita",
+      "southAfrica": "Sudáfrica",
+      "nigeria": "Nigeria",
+      "kenya": "Kenia",
+      "tanzania": "Tanzania",
+      "zambia": "Zambia",
+      "indonesia": "Indonesia",
+      "vietnam": "Vietnam",
+      "sriLanka": "Sri Lanka",
+      "bangladesh": "Bangladés",
+      "nepal": "Nepal",
+      "oman": "Omán",
+      "qatar": "Catar",
+      "egypt": "Egipto",
+      "norway": "Noruega"
+    }
+  },
+  "trustStrip": {
+    "iso": "Certificado ISO 9001:2015",
+    "facility": "Instalaciones de 25,000 Pies²",
+    "countries": "Más de 15 Países Atendidos",
+    "atlasCopco": "Compatible con Atlas Copco",
+    "manufacturerDirect": "Suministro Directo del Fabricante"
+  },
+  "about": {
+    "badge": "Sobre HAVA",
+    "heading": "Excelencia en Ingeniería Desde el Inicio",
+    "intro": "HAVA, de Haryrock Engineering Pvt. Ltd., es un fabricante líder de equipos neumáticos de perforación de rocas, nacido de décadas de experiencia en ingeniería y un compromiso inquebrantable con la calidad industrial.",
+    "description": "Nuestra trayectoria se define por la fabricación de precisión, la innovación técnica y un profundo conocimiento de las industrias de minería, excavación de túneles y construcción. No solo vendemos equipos: diseñamos soluciones que funcionan de manera confiable en los entornos más exigentes del mundo.",
+    "highlights": {
+      "heritage": { "value": "Décadas", "label": "de Legado en Ingeniería" },
+      "direct": { "value": "100%", "label": "Directo del Fabricante" },
+      "industries": { "value": "5+", "label": "Industrias Principales" },
+      "quality": { "value": "Premium", "label": "Estándares de Calidad" }
+    },
+    "cta": "Descubra Nuestra Historia"
+  },
+  "productCategories": {
+    "rockDrills": {
+      "name": "Perforadoras de Roca",
+      "description": "Perforadoras de roca neumáticas de alto rendimiento para operaciones de perforación en minería, canteras y construcción. Construidas para durabilidad, precisión y consumo eficiente de aire."
+    },
+    "drifter": {
+      "name": "Martillo Perforador",
+      "description": "Martillos perforadores de servicio pesado para excavación de túneles y aplicaciones de perforación subterránea. Diseñados para funcionamiento continuo con tasas de penetración óptimas y rotura de roca."
+    },
+    "pavementBreakers": {
+      "name": "Rompedoras de Pavimento",
+      "description": "Potentes rompedoras neumáticas para demolición, rotura de pavimento y remoción de concreto. Diseñadas para máxima energía de impacto con manejo ergonómico."
+    },
+    "pusherLeg": {
+      "name": "Pata de Empuje",
+      "description": "Patas de empuje neumáticas para soporte de perforadoras de roca y control de avance. Proporciona posicionamiento estable de perforación con presión de avance ajustable para diversas aplicaciones."
+    },
+    "airlineAccessories": {
+      "name": "Accesorios de Línea de Aire",
+      "description": "Gama completa de equipos de línea de aire, incluyendo lubricadores, filtros, reguladores y mangueras. Esenciales para mantener el rendimiento óptimo de las herramientas neumáticas."
+    },
+    "extensionEquipment": {
+      "name": "Equipo de Extensión",
+      "description": "Barras de acero, varillas y equipo de extensión para diversas profundidades de perforación. Fabricados con acero de alto grado para una larga vida útil y rendimiento confiable."
+    },
+    "buttonBits": {
+      "name": "Brocas de Botones",
+      "description": "Brocas de botones de calidad premium para todas las aplicaciones de perforación de roca. Disponibles en varios tamaños y configuraciones de botones para diferentes formaciones rocosas."
+    },
+    "spareParts": {
+      "name": "Repuestos",
+      "description": "Inventario integral de repuestos originales para perforadoras de roca, martillos y rompedoras. Garantiza un tiempo de inactividad mínimo con disponibilidad inmediata y garantía de calidad."
+    }
+  },
+  "whyHava": {
+    "heading": "Por Qué los Compradores Eligen HAVA",
+    "intro": "Cuando el rendimiento, la durabilidad y el soporte confiable importan, los compradores eligen fabricantes en quienes pueden confiar.",
+    "floatingTags": {
+      "iso": "ISO 9001:2015",
+      "directManufacturer": "Fabricante Directo",
+      "exportReady": "Listo para Exportar",
+      "countries": "Más de 15 Países"
+    },
+    "points": {
+      "manufacturer": {
+        "title": "Fabricante, No Comerciante",
+        "description": "Control directo sobre el diseño del producto, la garantía de calidad y el soporte postventa a través de nuestra propia instalación de ingeniería y fabricación. Sin intermediarios, sin compromisos: solo relaciones directas con el fabricante."
+      },
+      "engineering": {
+        "title": "Experiencia Liderada por Ingeniería",
+        "description": "Décadas de experiencia técnica en equipos de perforación neumática, respaldadas por desarrollo continuo de productos y mejoras probadas en campo. Nuestros ingenieros entienden la perforación porque la viven."
+      },
+      "durability": {
+        "title": "Construido para Condiciones Exigentes",
+        "description": "Productos diseñados para soportar entornos de trabajo difíciles, temperaturas extremas y funcionamiento continuo con requisitos mínimos de mantenimiento. Probados en los sitios de trabajo más duros del mundo."
+      },
+      "ecosystem": {
+        "title": "Ecosistema Completo de Productos",
+        "description": "Desde equipos de perforación principales hasta accesorios y repuestos: una solución integral de un único fabricante confiable. Un proveedor, cobertura total."
+      },
+      "value": {
+        "title": "Valor Comercial Competitivo",
+        "description": "Precios directos del fabricante sin márgenes de intermediarios, combinados con calidad y confiabilidad del producto que ofrecen valor a largo plazo. Menor costo total de propiedad."
+      },
+      "export": {
+        "title": "Capacidad Lista para Exportación",
+        "description": "Estándares internacionales de calidad, soporte de documentación de exportación y experiencia comprobada atendiendo clientes en más de 15 países. Listo para el despliegue global."
+      }
+    }
+  },
+  "industries": {
+    "heading": "Diseñado para Aplicaciones Industriales Fundamentales",
+    "intro": "Los productos HAVA se utilizan en industrias donde el rendimiento de perforación, la durabilidad y el soporte confiable del equipo son esenciales.",
+    "mining": {
+      "name": "Minería",
+      "description": "Operaciones de minería superficial y subterránea que requieren equipos de perforación confiables para exploración, desarrollo y voladura de producción.",
+      "statLabel": "de los clientes"
+    },
+    "tunnelling": {
+      "name": "Excavación de Túneles",
+      "description": "Proyectos de construcción de túneles y excavación subterránea que exigen perforación de precisión y rendimiento continuo del equipo.",
+      "statLabel": "listo para operar"
+    },
+    "construction": {
+      "name": "Construcción",
+      "description": "Cimientos de edificios, construcción de carreteras y proyectos de infraestructura que requieren equipos eficientes de perforación de roca y demolición.",
+      "statLabel": "proyectos activos"
+    },
+    "quarrying": {
+      "name": "Canteras",
+      "description": "Operaciones de extracción de piedra y producción de áridos que necesitan equipos de perforación duraderos para una rotura de roca constante.",
+      "statLabel": "países"
+    },
+    "marbleGranite": {
+      "name": "Mármol y Granito",
+      "description": "Extracción de piedra dimensional que requiere perforación controlada para la separación de bloques y daño material minimizado.",
+      "stat": "Premium",
+      "statLabel": "cortes de calidad"
+    }
+  },
+  "featuredProducts": {
+    "rockDrillDry": {
+      "name": "Perforadora de Roca en Seco RH-658/5L",
+      "description": "Perforadora de roca en seco de alto rendimiento con consumo de aire de 5L, ideal para aplicaciones de minería y canteras con tasas de penetración superiores."
+    },
+    "rockDrillWet": {
+      "name": "Perforadora de Roca Húmeda RH-656/4W",
+      "description": "Perforadora de roca con sistema integrado de lavado con agua para supresión de polvo y mayor eficiencia de perforación en operaciones subterráneas."
+    },
+    "drifter": {
+      "name": "Martillo Perforador BBC-120F",
+      "description": "Martillo perforador hidráulico de servicio pesado para aplicaciones de excavación de túneles, ofreciendo potencia y fiabilidad excepcionales en operaciones continuas de perforación."
+    },
+    "breaker": {
+      "name": "Rompedora de Pavimento HR-117",
+      "description": "Potente rompedora neumática con alta energía de impacto para una rotura eficiente de pavimento, demolición y remoción de concreto."
+    },
+    "pusherLeg": {
+      "name": "Pata de Empuje BMK62S",
+      "description": "Pata de empuje neumática con control de avance ajustable y posicionamiento estable para un soporte óptimo de la perforadora de roca y comodidad del operador."
+    },
+    "lubricator": {
+      "name": "Lubricador de Línea de Aire BLG-30",
+      "description": "Lubricador automático de línea de aire que garantiza una lubricación adecuada de la herramienta para prolongar la vida útil del equipo y un rendimiento óptimo de las herramientas neumáticas."
+    }
+  },
+  "manufacturing": {
+    "heading": "Fabricación que Genera Confianza",
+    "body": "Haryrock Engineering Pvt. Ltd. ha construido su reputación sobre una fabricación enfocada en la calidad, ingeniería práctica y suministro confiable de productos. Nuestra planta de fabricación de 25,000 pies² en Pune, India, está equipada con maquinaria moderna y sistemas de control de calidad que respaldan estándares de producción consistentes.",
+    "cta": "Ver Nuestra Infraestructura"
+  },
+  "stats": {
+    "heading": "Diseñado para el Rendimiento. Posicionado para el Crecimiento.",
+    "tabs": {
+      "reach": {
+        "label": "Alcance Global",
+        "countriesServed": "Países Atendidos",
+        "internationalClients": "Clientes Internacionales",
+        "exportDocumentation": "Documentación de Exportación",
+        "exportReady": "% Listo para Exportar"
+      },
+      "manufacturing": {
+        "label": "Fabricación",
+        "facility": "Pies² de Instalaciones",
+        "qualityPassRate": "Tasa de Aprobación de Calidad",
+        "productCategories": "Categorías de Productos",
+        "inHouseProduction": "Producción Interna"
+      },
+      "expertise": {
+        "label": "Experiencia",
+        "yearsExperience": "Años de Experiencia",
+        "coreIndustries": "Industrias Principales",
+        "activeBuyers": "Compradores Activos",
+        "customerRetention": "Retención de Clientes"
+      }
+    },
+    "supportCopy": "Desde compradores industriales nacionales hasta consultas internacionales, HAVA está construyendo una presencia más fuerte con una identidad liderada por el fabricante, una gama de productos confiable y una mentalidad lista para la exportación."
+  },
+  "testimonials": {
+    "praharsh": {
+      "name": "Praharsh Verma",
+      "role": "Gerente de Sitio",
+      "product": "Perforadora de Roca en Seco",
+      "company": "Rajputana Mining Co.",
+      "location": "Rajastán, India",
+      "text": "Rendimiento consistente en todas nuestras operaciones mineras. Fácil de manejar, altamente eficiente y con mantenimiento mínimo."
+    },
+    "yash": {
+      "name": "Yash Sharma",
+      "role": "Supervisor de Cantera",
+      "product": "Cincel y Puntas Moil",
+      "company": "Sharma Stone Works",
+      "location": "Madhya Pradesh, India",
+      "text": "Penetración precisa, larga vida útil y calidad confiable. Rentable y fiable para nuestras operaciones de cantera."
+    },
+    "ahmed": {
+      "name": "Ahmed Al-Mansoori",
+      "role": "Jefe de Operaciones",
+      "product": "Martillo Perforador BBC-120F",
+      "company": "Gulf Tunneling Corp.",
+      "location": "Dubái, EAU",
+      "text": "Potencia y fiabilidad excepcionales en operaciones continuas de excavación de túneles. HAVA se ha convertido en nuestro fabricante preferido."
+    },
+    "rajesh": {
+      "name": "Rajesh Patel",
+      "role": "Gerente de Planta",
+      "product": "Rompedora de Pavimento HR-117",
+      "company": "Patel Infrastructure",
+      "location": "Guyarat, India",
+      "text": "Excelente calidad de construcción y energía de impacto superior. La rompedora ha reducido significativamente los plazos de nuestros proyectos."
+    },
+    "daniel": {
+      "name": "Daniel Okafor",
+      "role": "Director",
+      "product": "Accesorios de Línea de Aire",
+      "company": "Lagos Mining Ltd.",
+      "location": "Lagos, Nigeria",
+      "text": "El soporte y la calidad directos del fabricante han sido excepcionales. HAVA cumple con cada compromiso, cada vez."
+    },
+    "priya": {
+      "name": "Priya Nair",
+      "role": "Líder de Adquisiciones",
+      "product": "Brocas de Botones y Varillas de Perforación",
+      "company": "Southern Quarries",
+      "location": "Karnataka, India",
+      "text": "Cadena de suministro confiable, productos de calidad premium y precios competitivos. Una verdadera asociación en todos los sentidos."
+    }
+  },
+  "quoteCTA": {
+    "heading": "¿Necesita el Equipo de Perforación Adecuado para Su Aplicación?",
+    "body": "Ya sea que necesite recomendaciones de productos, detalles técnicos, repuestos, oportunidades de concesionario o información de suministro de exportación, nuestro equipo está listo para ayudar.",
+    "primaryCTA": "Solicitar Cotización",
+    "secondaryCTA": "Hablar con Ventas"
+  },
+  "footer": {
+    "brandSummary": "HAVA, una marca de Haryrock Engineering Pvt. Ltd., fabrica equipos neumáticos de perforación de rocas, martillos, rompedoras, accesorios y repuestos para las industrias de minería, canteras, excavación de túneles, construcción y mármol y granito.",
+    "productCategories": {
+      "rockDrills": "Perforadoras de Roca",
+      "drifter": "Martillo Perforador",
+      "pavementBreakers": "Rompedoras de Pavimento",
+      "pusherLeg": "Pata de Empuje",
+      "airlineAccessories": "Accesorios de Línea de Aire",
+      "extensionEquipment": "Equipo de Extensión",
+      "buttonBits": "Brocas de Botones",
+      "spareParts": "Repuestos"
+    },
+    "contact": {
+      "company": "Haryrock Engineering Pvt. Ltd.",
+      "address": "A-55, H Block, MIDC Pimpri, Pune – 411018, Maharashtra, India",
+      "hours": "Lun-Sáb: 9:00 AM - 6:00 PM"
+    },
+    "copyright": "© 2025 HAVA / Haryrock Engineering Pvt. Ltd. Todos los Derechos Reservados."
+  }
+}

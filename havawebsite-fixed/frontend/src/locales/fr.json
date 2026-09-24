@@ -1,1 +1,312 @@
-{}
+{
+  "header": {
+    "topBar": {
+      "certification": "Fabricant Certifié ISO 9001:2015",
+      "location": "Pune, Inde",
+      "exportText": "Demandes d'Exportation Bienvenues"
+    },
+    "nav": {
+      "home": "Accueil",
+      "whyHava": "Pourquoi HAVA",
+      "aboutUs": "À Propos",
+      "products": "Produits",
+      "services": "Services",
+      "dealers": "Distributeurs et Revendeurs",
+      "gallery": "Galerie",
+      "contact": "Contact"
+    },
+    "primaryCTA": "Demander un Devis"
+  },
+  "hero": {
+    "headline": "Votre Partenaire Progressiste en Exploitation Minière et Forage de Roche",
+    "subheadline": "HAVA, par Haryrock Engineering Pvt. Ltd., fabrique des équipements de forage de roche pneumatiques, des marteaux-perforateurs, des brise-roches, des accessoires et des pièces détachées pour les applications minières, de tunnellisation, de carrière, de marbre et granit, et de construction.",
+    "supportCopy": "Fondé sur l'expertise en ingénierie, reconnu pour sa performance fiable, et conçu pour supporter des conditions de chantier exigeantes avec des produits fiables et une valeur à long terme.",
+    "primaryCTA": "Demander un Devis",
+    "secondaryCTA": "Découvrir les Produits"
+  },
+  "video": {
+    "title": "Découvrez Notre Site de Fabrication",
+    "subtitle": "Où l'excellence en ingénierie rencontre la précision industrielle",
+    "badges": {
+      "iso": { "label": "ISO 9001:2015", "sublabel": "Fabricant Certifié" },
+      "facility": { "label": "25 000+", "sublabel": "Pieds² d'Installations" },
+      "countries": { "label": "15+", "sublabel": "Pays Desservis" }
+    }
+  },
+  "countries": {
+    "heading": "Une Confiance Mondiale",
+    "subheading": "Au service de clients dans plus de 15 pays avec un approvisionnement direct du fabricant",
+    "list": {
+      "india": "Inde",
+      "uae": "EAU",
+      "saudiArabia": "Arabie Saoudite",
+      "southAfrica": "Afrique du Sud",
+      "nigeria": "Nigéria",
+      "kenya": "Kenya",
+      "tanzania": "Tanzanie",
+      "zambia": "Zambie",
+      "indonesia": "Indonésie",
+      "vietnam": "Vietnam",
+      "sriLanka": "Sri Lanka",
+      "bangladesh": "Bangladesh",
+      "nepal": "Népal",
+      "oman": "Oman",
+      "qatar": "Qatar",
+      "egypt": "Égypte",
+      "norway": "Norvège"
+    }
+  },
+  "trustStrip": {
+    "iso": "Certifié ISO 9001:2015",
+    "facility": "Installations de 25 000 Pieds²",
+    "countries": "Plus de 15 Pays Desservis",
+    "atlasCopco": "Compatible Atlas Copco",
+    "manufacturerDirect": "Approvisionnement Direct du Fabricant"
+  },
+  "about": {
+    "badge": "À Propos de HAVA",
+    "heading": "L'Excellence en Ingénierie Depuis les Origines",
+    "intro": "HAVA, par Haryrock Engineering Pvt. Ltd., est un fabricant leader d'équipements de forage de roche pneumatiques, né de décennies d'expertise en ingénierie et d'un engagement indéfectible envers la qualité industrielle.",
+    "description": "Notre parcours se définit par une fabrication de précision, une innovation technique et une compréhension approfondie des industries minières, de tunnellisation et de construction. Nous ne vendons pas seulement des équipements — nous concevons des solutions qui fonctionnent de manière fiable dans les environnements les plus exigeants au monde.",
+    "highlights": {
+      "heritage": { "value": "Décennies", "label": "d'Héritage en Ingénierie" },
+      "direct": { "value": "100%", "label": "Direct du Fabricant" },
+      "industries": { "value": "5+", "label": "Industries Principales" },
+      "quality": { "value": "Premium", "label": "Normes de Qualité" }
+    },
+    "cta": "Découvrir Notre Histoire"
+  },
+  "productCategories": {
+    "rockDrills": {
+      "name": "Perforatrices de Roche",
+      "description": "Perforatrices de roche pneumatiques hautes performances pour les opérations de forage dans les mines, carrières et la construction. Conçues pour la durabilité, la précision et une consommation d'air efficace."
+    },
+    "drifter": {
+      "name": "Marteau-Perforateur",
+      "description": "Marteaux-perforateurs robustes pour les applications de tunnellisation et de forage souterrain. Conçus pour un fonctionnement continu avec des taux de pénétration optimaux et une fragmentation de roche efficace."
+    },
+    "pavementBreakers": {
+      "name": "Brise-Roches de Chaussée",
+      "description": "Puissants brise-roches pneumatiques pour la démolition, le brisage de chaussée et l'enlèvement de béton. Conçus pour une énergie d'impact maximale avec une manipulation ergonomique."
+    },
+    "pusherLeg": {
+      "name": "Béquille de Poussée",
+      "description": "Béquilles de poussée pneumatiques pour le support des perforatrices de roche et le contrôle d'avance. Offre un positionnement de forage stable avec une pression d'avance réglable pour diverses applications."
+    },
+    "airlineAccessories": {
+      "name": "Accessoires de Ligne d'Air",
+      "description": "Gamme complète d'équipements de ligne d'air, comprenant lubrificateurs, filtres, régulateurs et tuyaux. Essentiels au maintien d'une performance optimale des outils pneumatiques."
+    },
+    "extensionEquipment": {
+      "name": "Équipement d'Extension",
+      "description": "Aciers de forage, tiges et équipement d'extension pour diverses profondeurs de forage. Fabriqués en acier de haute qualité pour une longue durée de vie et une performance fiable."
+    },
+    "buttonBits": {
+      "name": "Taillants à Boutons",
+      "description": "Taillants à boutons de qualité premium pour toutes les applications de forage de roche. Disponibles en diverses tailles et configurations de boutons pour différentes formations rocheuses."
+    },
+    "spareParts": {
+      "name": "Pièces Détachées",
+      "description": "Inventaire complet de pièces détachées authentiques pour perforatrices de roche, marteaux-perforateurs et brise-roches. Garantit un temps d'arrêt minimal avec une disponibilité immédiate et une assurance qualité."
+    }
+  },
+  "whyHava": {
+    "heading": "Pourquoi les Acheteurs Choisissent HAVA",
+    "intro": "Lorsque la performance, la durabilité et un support fiable comptent, les acheteurs choisissent des fabricants en qui ils peuvent avoir confiance.",
+    "floatingTags": {
+      "iso": "ISO 9001:2015",
+      "directManufacturer": "Fabricant Direct",
+      "exportReady": "Prêt à l'Exportation",
+      "countries": "Plus de 15 Pays"
+    },
+    "points": {
+      "manufacturer": {
+        "title": "Fabricant, Pas Négociant",
+        "description": "Contrôle direct sur la conception des produits, l'assurance qualité et le support après-vente via notre propre installation d'ingénierie et de fabrication. Pas d'intermédiaires, pas de compromis — juste des relations directes avec le fabricant."
+      },
+      "engineering": {
+        "title": "Expérience Guidée par l'Ingénierie",
+        "description": "Des décennies d'expertise technique en équipement de forage pneumatique, soutenues par un développement continu de produits et des améliorations testées sur le terrain. Nos ingénieurs comprennent le forage car ils le vivent."
+      },
+      "durability": {
+        "title": "Conçu pour des Conditions Exigeantes",
+        "description": "Produits conçus pour résister à des environnements de chantier difficiles, des températures extrêmes et un fonctionnement continu avec des exigences d'entretien minimales. Testés sur les chantiers les plus rudes au monde."
+      },
+      "ecosystem": {
+        "title": "Écosystème de Produits Complet",
+        "description": "De l'équipement de forage principal aux accessoires et pièces détachées — une solution complète auprès d'un fabricant unique et fiable. Un fournisseur, une couverture totale."
+      },
+      "value": {
+        "title": "Valeur Commerciale Compétitive",
+        "description": "Tarification directe du fabricant sans marges intermédiaires, combinée à une qualité et une fiabilité de produit offrant une valeur à long terme. Coût total de possession réduit."
+      },
+      "export": {
+        "title": "Capacité Prête pour l'Exportation",
+        "description": "Normes de qualité internationales, support de documentation d'exportation et expérience prouvée au service de clients dans plus de 15 pays. Prêt pour un déploiement mondial."
+      }
+    }
+  },
+  "industries": {
+    "heading": "Conçu pour les Applications Industrielles Essentielles",
+    "intro": "Les produits HAVA sont utilisés dans des industries où la performance de forage, la durabilité et un support d'équipement fiable sont essentiels.",
+    "mining": {
+      "name": "Exploitation Minière",
+      "description": "Opérations minières de surface et souterraines nécessitant un équipement de forage fiable pour l'exploration, le développement et le minage de production.",
+      "statLabel": "des clients"
+    },
+    "tunnelling": {
+      "name": "Tunnellisation",
+      "description": "Projets de construction de tunnels et d'excavation souterraine exigeant un forage de précision et une performance d'équipement continue.",
+      "statLabel": "prêt à opérer"
+    },
+    "construction": {
+      "name": "Construction",
+      "description": "Fondations de bâtiments, construction de routes et projets d'infrastructure nécessitant un équipement de forage de roche et de démolition efficace.",
+      "statLabel": "projets actifs"
+    },
+    "quarrying": {
+      "name": "Carrières",
+      "description": "Opérations d'extraction de pierre et de production de granulats nécessitant un équipement de forage durable pour une fragmentation de roche constante.",
+      "statLabel": "pays"
+    },
+    "marbleGranite": {
+      "name": "Marbre et Granit",
+      "description": "Extraction de pierre dimensionnelle nécessitant un forage contrôlé pour la séparation des blocs et une réduction des dommages matériels.",
+      "stat": "Premium",
+      "statLabel": "coupes de qualité"
+    }
+  },
+  "featuredProducts": {
+    "rockDrillDry": {
+      "name": "Perforatrice de Roche à Sec RH-658/5L",
+      "description": "Perforatrice de roche à sec haute performance avec une consommation d'air de 5L, idéale pour les applications minières et de carrière avec des taux de pénétration supérieurs."
+    },
+    "rockDrillWet": {
+      "name": "Perforatrice de Roche Humide RH-656/4W",
+      "description": "Perforatrice de roche avec système intégré de rinçage à l'eau pour la suppression de la poussière et une efficacité de forage améliorée dans les opérations souterraines."
+    },
+    "drifter": {
+      "name": "Marteau-Perforateur BBC-120F",
+      "description": "Marteau-perforateur hydraulique robuste pour les applications de tunnellisation, offrant une puissance et une fiabilité exceptionnelles dans les opérations de forage continu."
+    },
+    "breaker": {
+      "name": "Brise-Roche de Chaussée HR-117",
+      "description": "Puissant brise-roche pneumatique à haute énergie d'impact pour un brisage de chaussée, une démolition et un enlèvement de béton efficaces."
+    },
+    "pusherLeg": {
+      "name": "Béquille de Poussée BMK62S",
+      "description": "Béquille de poussée pneumatique avec contrôle d'avance réglable et positionnement stable pour un support optimal de la perforatrice de roche et le confort de l'opérateur."
+    },
+    "lubricator": {
+      "name": "Lubrificateur de Ligne d'Air BLG-30",
+      "description": "Lubrificateur automatique de ligne d'air assurant une lubrification adéquate de l'outil pour une durée de vie prolongée de l'équipement et une performance optimale des outils pneumatiques."
+    }
+  },
+  "manufacturing": {
+    "heading": "Une Fabrication qui Inspire Confiance",
+    "body": "Haryrock Engineering Pvt. Ltd. a bâti sa réputation sur une fabrication axée sur la qualité, une ingénierie pratique et un approvisionnement fiable en produits. Notre site de fabrication de 25 000 pieds² à Pune, en Inde, est équipé de machines modernes et de systèmes de contrôle qualité qui soutiennent des normes de production constantes.",
+    "cta": "Voir Notre Infrastructure"
+  },
+  "stats": {
+    "heading": "Conçu pour la Performance. Positionné pour la Croissance.",
+    "tabs": {
+      "reach": {
+        "label": "Portée Mondiale",
+        "countriesServed": "Pays Desservis",
+        "internationalClients": "Clients Internationaux",
+        "exportDocumentation": "Documentation d'Exportation",
+        "exportReady": "% Prêt à l'Exportation"
+      },
+      "manufacturing": {
+        "label": "Fabrication",
+        "facility": "Pieds² d'Installations",
+        "qualityPassRate": "Taux de Réussite Qualité",
+        "productCategories": "Catégories de Produits",
+        "inHouseProduction": "Production Interne"
+      },
+      "expertise": {
+        "label": "Expertise",
+        "yearsExperience": "Années d'Expérience",
+        "coreIndustries": "Industries Principales",
+        "activeBuyers": "Acheteurs Actifs",
+        "customerRetention": "Fidélisation des Clients"
+      }
+    },
+    "supportCopy": "Des acheteurs industriels nationaux aux demandes internationales, HAVA bâtit une présence plus forte avec une identité menée par le fabricant, une gamme de produits fiable et un état d'esprit prêt pour l'exportation."
+  },
+  "testimonials": {
+    "praharsh": {
+      "name": "Praharsh Verma",
+      "role": "Chef de Chantier",
+      "product": "Perforatrice de Roche à Sec",
+      "company": "Rajputana Mining Co.",
+      "location": "Rajasthan, Inde",
+      "text": "Performance constante tout au long de nos opérations minières. Facile à manier, très efficace et entretien minimal."
+    },
+    "yash": {
+      "name": "Yash Sharma",
+      "role": "Superviseur de Carrière",
+      "product": "Ciseaux et Pointes Moil",
+      "company": "Sharma Stone Works",
+      "location": "Madhya Pradesh, Inde",
+      "text": "Pénétration précise, longue durée de vie et qualité fiable. Rentable et fiable pour nos opérations de carrière."
+    },
+    "ahmed": {
+      "name": "Ahmed Al-Mansoori",
+      "role": "Chef des Opérations",
+      "product": "Marteau-Perforateur BBC-120F",
+      "company": "Gulf Tunneling Corp.",
+      "location": "Dubaï, EAU",
+      "text": "Puissance et fiabilité exceptionnelles dans les opérations continues de tunnellisation. HAVA est devenu notre fabricant préféré."
+    },
+    "rajesh": {
+      "name": "Rajesh Patel",
+      "role": "Directeur d'Usine",
+      "product": "Brise-Roche de Chaussée HR-117",
+      "company": "Patel Infrastructure",
+      "location": "Gujarat, Inde",
+      "text": "Excellente qualité de fabrication et énergie d'impact supérieure. Le brise-roche a considérablement réduit les délais de nos projets."
+    },
+    "daniel": {
+      "name": "Daniel Okafor",
+      "role": "Directeur",
+      "product": "Accessoires de Ligne d'Air",
+      "company": "Lagos Mining Ltd.",
+      "location": "Lagos, Nigéria",
+      "text": "Le support et la qualité directs du fabricant ont été exceptionnels. HAVA tient chaque engagement, à chaque fois."
+    },
+    "priya": {
+      "name": "Priya Nair",
+      "role": "Responsable des Achats",
+      "product": "Taillants à Boutons et Tiges de Forage",
+      "company": "Southern Quarries",
+      "location": "Karnataka, Inde",
+      "text": "Chaîne d'approvisionnement fiable, produits de qualité premium et prix compétitifs. Un véritable partenariat à tous les égards."
+    }
+  },
+  "quoteCTA": {
+    "heading": "Besoin du Bon Équipement de Forage pour Votre Application ?",
+    "body": "Que vous ayez besoin de recommandations de produits, de détails techniques, de pièces détachées, d'opportunités de concession ou d'informations sur l'approvisionnement à l'exportation, notre équipe est prête à vous aider.",
+    "primaryCTA": "Demander un Devis",
+    "secondaryCTA": "Parler aux Ventes"
+  },
+  "footer": {
+    "brandSummary": "HAVA, une marque de Haryrock Engineering Pvt. Ltd., fabrique des équipements de forage de roche pneumatiques, des marteaux-perforateurs, des brise-roches, des accessoires et des pièces détachées pour les industries minières, de carrière, de tunnellisation, de construction et de marbre et granit.",
+    "productCategories": {
+      "rockDrills": "Perforatrices de Roche",
+      "drifter": "Marteau-Perforateur",
+      "pavementBreakers": "Brise-Roches de Chaussée",
+      "pusherLeg": "Béquille de Poussée",
+      "airlineAccessories": "Accessoires de Ligne d'Air",
+      "extensionEquipment": "Équipement d'Extension",
+      "buttonBits": "Taillants à Boutons",
+      "spareParts": "Pièces Détachées"
+    },
+    "contact": {
+      "company": "Haryrock Engineering Pvt. Ltd.",
+      "address": "A-55, H Block, MIDC Pimpri, Pune – 411018, Maharashtra, Inde",
+      "hours": "Lun-Sam : 9h00 - 18h00"
+    },
+    "copyright": "© 2025 HAVA / Haryrock Engineering Pvt. Ltd. Tous Droits Réservés."
+  }
+}

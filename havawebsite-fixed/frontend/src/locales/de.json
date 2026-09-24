@@ -1,1 +1,312 @@
-{}
+{
+  "header": {
+    "topBar": {
+      "certification": "ISO 9001:2015 Zertifizierter Hersteller",
+      "location": "Pune, Indien",
+      "exportText": "Exportanfragen Willkommen"
+    },
+    "nav": {
+      "home": "Startseite",
+      "whyHava": "Warum HAVA",
+      "aboutUs": "Über Uns",
+      "products": "Produkte",
+      "services": "Dienstleistungen",
+      "dealers": "Vertriebshändler",
+      "gallery": "Galerie",
+      "contact": "Kontakt"
+    },
+    "primaryCTA": "Jetzt Anfragen"
+  },
+  "hero": {
+    "headline": "Ihr Fortschrittlicher Partner für Bergbau und Gesteinsbohrung",
+    "subheadline": "HAVA von Haryrock Engineering Pvt. Ltd. fertigt pneumatische Gesteinsbohrgeräte, Bohrhämmer, Brecher, Zubehör und Ersatzteile für Bergbau, Tunnelbau, Steinbruch, Marmor & Granit sowie Bauanwendungen.",
+    "supportCopy": "Aufgebaut auf technischem Fachwissen, bekannt für zuverlässige Leistung und entwickelt, um anspruchsvolle Einsatzbedingungen mit zuverlässigen Produkten und langfristigem Wert zu unterstützen.",
+    "primaryCTA": "Angebot Anfordern",
+    "secondaryCTA": "Produkte Entdecken"
+  },
+  "video": {
+    "title": "Besuchen Sie Unsere Produktionsstätte",
+    "subtitle": "Wo technische Exzellenz auf industrielle Präzision trifft",
+    "badges": {
+      "iso": { "label": "ISO 9001:2015", "sublabel": "Zertifizierter Hersteller" },
+      "facility": { "label": "25.000+", "sublabel": "m² Betriebsfläche" },
+      "countries": { "label": "15+", "sublabel": "Belieferte Länder" }
+    }
+  },
+  "countries": {
+    "heading": "Weltweit Vertrauenswürdig",
+    "subheading": "Bedienung von Kunden in über 15 Ländern mit direktem Herstellervertrieb",
+    "list": {
+      "india": "Indien",
+      "uae": "VAE",
+      "saudiArabia": "Saudi-Arabien",
+      "southAfrica": "Südafrika",
+      "nigeria": "Nigeria",
+      "kenya": "Kenia",
+      "tanzania": "Tansania",
+      "zambia": "Sambia",
+      "indonesia": "Indonesien",
+      "vietnam": "Vietnam",
+      "sriLanka": "Sri Lanka",
+      "bangladesh": "Bangladesch",
+      "nepal": "Nepal",
+      "oman": "Oman",
+      "qatar": "Katar",
+      "egypt": "Ägypten",
+      "norway": "Norwegen"
+    }
+  },
+  "trustStrip": {
+    "iso": "ISO 9001:2015 Zertifiziert",
+    "facility": "25.000 m² Betriebsfläche",
+    "countries": "Über 15 Belieferte Länder",
+    "atlasCopco": "Kompatibel mit Atlas Copco",
+    "manufacturerDirect": "Direkter Herstellervertrieb"
+  },
+  "about": {
+    "badge": "Über HAVA",
+    "heading": "Technische Exzellenz von Anfang An",
+    "intro": "HAVA von Haryrock Engineering Pvt. Ltd. ist ein führender Hersteller pneumatischer Gesteinsbohrgeräte, entstanden aus jahrzehntelangem technischem Fachwissen und einem unerschütterlichen Engagement für industrielle Qualität.",
+    "description": "Unser Werdegang zeichnet sich durch Präzisionsfertigung, technische Innovation und ein tiefes Verständnis der Bergbau-, Tunnelbau- und Baubranche aus. Wir verkaufen nicht nur Geräte — wir entwickeln Lösungen, die in den anspruchsvollsten Umgebungen der Welt zuverlässig funktionieren.",
+    "highlights": {
+      "heritage": { "value": "Jahrzehnte", "label": "an Ingenieurserbe" },
+      "direct": { "value": "100%", "label": "Direkt vom Hersteller" },
+      "industries": { "value": "5+", "label": "Kernbranchen" },
+      "quality": { "value": "Premium", "label": "Qualitätsstandards" }
+    },
+    "cta": "Entdecken Sie Unsere Geschichte"
+  },
+  "productCategories": {
+    "rockDrills": {
+      "name": "Gesteinsbohrer",
+      "description": "Leistungsstarke pneumatische Gesteinsbohrer für Bohrarbeiten im Bergbau, Steinbruch und Bauwesen. Gebaut für Langlebigkeit, Präzision und effizienten Luftverbrauch."
+    },
+    "drifter": {
+      "name": "Bohrhammer",
+      "description": "Schwerlast-Bohrhämmer für Tunnelbau und unterirdische Bohranwendungen. Entwickelt für den Dauerbetrieb mit optimalen Eindringraten und Gesteinsbrechung."
+    },
+    "pavementBreakers": {
+      "name": "Straßenbrecher",
+      "description": "Leistungsstarke pneumatische Brecher für Abbruch, Straßenaufbruch und Betonentfernung. Für maximale Schlagenergie mit ergonomischer Handhabung entwickelt."
+    },
+    "pusherLeg": {
+      "name": "Schubstütze",
+      "description": "Pneumatische Schubstützen zur Unterstützung von Gesteinsbohrern und zur Vorschubsteuerung. Bietet stabile Bohrpositionierung mit einstellbarem Vorschubdruck für verschiedene Anwendungen."
+    },
+    "airlineAccessories": {
+      "name": "Druckluftzubehör",
+      "description": "Komplettes Sortiment an Druckluftgeräten, einschließlich Schmiergeräte, Filter, Regler und Schläuche. Unerlässlich für die optimale Leistung pneumatischer Werkzeuge."
+    },
+    "extensionEquipment": {
+      "name": "Verlängerungsausrüstung",
+      "description": "Bohrstähle, Stangen und Verlängerungsausrüstung für verschiedene Bohrtiefen. Aus hochwertigem Stahl gefertigt für lange Lebensdauer und zuverlässige Leistung."
+    },
+    "buttonBits": {
+      "name": "Knopfbohrkronen",
+      "description": "Premium-Knopfbohrkronen für alle Gesteinsbohranwendungen. Erhältlich in verschiedenen Größen und Knopfkonfigurationen für unterschiedliche Gesteinsformationen."
+    },
+    "spareParts": {
+      "name": "Ersatzteile",
+      "description": "Umfassendes Sortiment an Originalersatzteilen für Gesteinsbohrer, Bohrhämmer und Brecher. Sorgt für minimale Ausfallzeiten durch sofortige Verfügbarkeit und Qualitätssicherung."
+    }
+  },
+  "whyHava": {
+    "heading": "Warum Käufer sich für HAVA Entscheiden",
+    "intro": "Wenn Leistung, Langlebigkeit und zuverlässiger Support wichtig sind, wählen Käufer Hersteller, denen sie vertrauen können.",
+    "floatingTags": {
+      "iso": "ISO 9001:2015",
+      "directManufacturer": "Direkter Hersteller",
+      "exportReady": "Exportbereit",
+      "countries": "Über 15 Länder"
+    },
+    "points": {
+      "manufacturer": {
+        "title": "Hersteller, Kein Händler",
+        "description": "Direkte Kontrolle über Produktdesign, Qualitätssicherung und Kundendienst durch unsere eigene Ingenieurs- und Fertigungsanlage. Keine Zwischenhändler, keine Kompromisse — nur direkte Herstellerbeziehungen."
+      },
+      "engineering": {
+        "title": "Von Ingenieurskunst Geleitete Erfahrung",
+        "description": "Jahrzehntelanges technisches Fachwissen bei pneumatischen Bohrgeräten, unterstützt durch kontinuierliche Produktentwicklung und feldgetestete Verbesserungen. Unsere Ingenieure verstehen das Bohren, weil sie es leben."
+      },
+      "durability": {
+        "title": "Gebaut für Anspruchsvolle Bedingungen",
+        "description": "Produkte, die dafür entwickelt wurden, rauen Einsatzumgebungen, extremen Temperaturen und Dauerbetrieb mit minimalem Wartungsaufwand standzuhalten. Getestet auf den härtesten Baustellen der Welt."
+      },
+      "ecosystem": {
+        "title": "Vollständiges Produktökosystem",
+        "description": "Von der primären Bohrausrüstung bis hin zu Zubehör und Ersatzteilen — eine umfassende Lösung von einem einzigen, zuverlässigen Hersteller. Ein Lieferant, vollständige Abdeckung."
+      },
+      "value": {
+        "title": "Wettbewerbsfähiger Kommerzieller Wert",
+        "description": "Direkte Herstellerpreise ohne Zwischenhändleraufschläge, kombiniert mit Produktqualität und Zuverlässigkeit, die langfristigen Wert liefern. Geringere Gesamtbetriebskosten."
+      },
+      "export": {
+        "title": "Exportbereite Kapazität",
+        "description": "Internationale Qualitätsstandards, Unterstützung bei der Exportdokumentation und nachgewiesene Erfahrung in der Betreuung von Kunden in über 15 Ländern. Bereit für den globalen Einsatz."
+      }
+    }
+  },
+  "industries": {
+    "heading": "Entwickelt für Zentrale Industrieanwendungen",
+    "intro": "HAVA-Produkte werden branchenübergreifend eingesetzt, wo Bohrleistung, Langlebigkeit und zuverlässiger Gerätesupport unerlässlich sind.",
+    "mining": {
+      "name": "Bergbau",
+      "description": "Über- und untertägige Bergbaubetriebe, die zuverlässige Bohrgeräte für Exploration, Entwicklung und Produktionssprengungen benötigen.",
+      "statLabel": "der Kunden"
+    },
+    "tunnelling": {
+      "name": "Tunnelbau",
+      "description": "Tunnelbau- und unterirdische Ausgrabungsprojekte, die Präzisionsbohrungen und kontinuierliche Geräteleistung erfordern.",
+      "statLabel": "einsatzbereit"
+    },
+    "construction": {
+      "name": "Bauwesen",
+      "description": "Gebäudefundamente, Straßenbau und Infrastrukturprojekte, die effiziente Gesteinsbohr- und Abbruchgeräte erfordern.",
+      "statLabel": "aktive Projekte"
+    },
+    "quarrying": {
+      "name": "Steinbruch",
+      "description": "Steinbruch- und Zuschlagstoffproduktion, die langlebige Bohrgeräte für gleichmäßige Gesteinsbrechung benötigt.",
+      "statLabel": "Länder"
+    },
+    "marbleGranite": {
+      "name": "Marmor & Granit",
+      "description": "Gewinnung von Naturwerkstein, die kontrollierte Bohrungen für die Blocktrennung und minimierte Materialschäden erfordert.",
+      "stat": "Premium",
+      "statLabel": "Qualitätsschnitte"
+    }
+  },
+  "featuredProducts": {
+    "rockDrillDry": {
+      "name": "RH-658/5L Trocken-Gesteinsbohrer",
+      "description": "Leistungsstarker Trocken-Gesteinsbohrer mit 5L Luftverbrauch, ideal für Bergbau- und Steinbruchanwendungen mit überlegenen Eindringraten."
+    },
+    "rockDrillWet": {
+      "name": "RH-656/4W Nass-Gesteinsbohrer",
+      "description": "Nassbohr-Gesteinsbohrer mit integriertem Wasserspülsystem zur Staubunterdrückung und verbesserter Bohreffizienz bei Untertagearbeiten."
+    },
+    "drifter": {
+      "name": "BBC-120F Bohrhammer",
+      "description": "Schwerlast-Hydraulikbohrhammer für Tunnelbauanwendungen, der außergewöhnliche Leistung und Zuverlässigkeit im kontinuierlichen Bohrbetrieb bietet."
+    },
+    "breaker": {
+      "name": "HR-117 Straßenbrecher",
+      "description": "Leistungsstarker pneumatischer Brecher mit hoher Schlagenergie für effizienten Straßenaufbruch, Abbruch und Betonentfernung."
+    },
+    "pusherLeg": {
+      "name": "BMK62S Schubstütze",
+      "description": "Pneumatische Schubstütze mit einstellbarer Vorschubsteuerung und stabiler Positionierung für optimale Unterstützung des Gesteinsbohrers und Bedienerkomfort."
+    },
+    "lubricator": {
+      "name": "BLG-30 Druckluft-Schmiergerät",
+      "description": "Automatisches Druckluft-Schmiergerät, das eine ordnungsgemäße Werkzeugschmierung für eine verlängerte Gerätelebensdauer und optimale Leistung pneumatischer Werkzeuge gewährleistet."
+    }
+  },
+  "manufacturing": {
+    "heading": "Fertigung, die Vertrauen Schafft",
+    "body": "Haryrock Engineering Pvt. Ltd. hat sich einen Ruf für qualitätsorientierte Fertigung, praxisnahe Ingenieurskunst und zuverlässige Produktversorgung aufgebaut. Unsere 25.000 m² große Produktionsstätte in Pune, Indien, ist mit moderner Maschinerie und Qualitätskontrollsystemen ausgestattet, die konsistente Produktionsstandards unterstützen.",
+    "cta": "Unsere Infrastruktur Ansehen"
+  },
+  "stats": {
+    "heading": "Für Leistung Gebaut. Für Wachstum Positioniert.",
+    "tabs": {
+      "reach": {
+        "label": "Globale Reichweite",
+        "countriesServed": "Belieferte Länder",
+        "internationalClients": "Internationale Kunden",
+        "exportDocumentation": "Exportdokumentation",
+        "exportReady": "% Exportbereit"
+      },
+      "manufacturing": {
+        "label": "Fertigung",
+        "facility": "m² Betriebsfläche",
+        "qualityPassRate": "Qualitätsbestehensquote",
+        "productCategories": "Produktkategorien",
+        "inHouseProduction": "Eigenproduktion"
+      },
+      "expertise": {
+        "label": "Fachwissen",
+        "yearsExperience": "Jahre Erfahrung",
+        "coreIndustries": "Kernbranchen",
+        "activeBuyers": "Aktive Käufer",
+        "customerRetention": "Kundenbindung"
+      }
+    },
+    "supportCopy": "Von inländischen Industriekäufern bis hin zu internationalen Anfragen baut HAVA eine stärkere Präsenz mit einer herstellergeführten Identität, einer zuverlässigen Produktpalette und einer exportbereiten Denkweise auf."
+  },
+  "testimonials": {
+    "praharsh": {
+      "name": "Praharsh Verma",
+      "role": "Standortleiter",
+      "product": "Trocken-Gesteinsbohrer",
+      "company": "Rajputana Mining Co.",
+      "location": "Rajasthan, Indien",
+      "text": "Konstante Leistung während unserer gesamten Bergbaubetriebe. Einfach zu handhaben, hocheffizient und minimaler Wartungsaufwand."
+    },
+    "yash": {
+      "name": "Yash Sharma",
+      "role": "Steinbruchaufseher",
+      "product": "Meißel und Moil-Spitzen",
+      "company": "Sharma Stone Works",
+      "location": "Madhya Pradesh, Indien",
+      "text": "Scharfe Durchdringung, lange Lebensdauer und zuverlässige Qualität. Kosteneffizient und zuverlässig für unsere Steinbruchbetriebe."
+    },
+    "ahmed": {
+      "name": "Ahmed Al-Mansoori",
+      "role": "Betriebsleiter",
+      "product": "BBC-120F Bohrhammer",
+      "company": "Gulf Tunneling Corp.",
+      "location": "Dubai, VAE",
+      "text": "Herausragende Leistung und Zuverlässigkeit im kontinuierlichen Tunnelbaubetrieb. HAVA ist zu unserem bevorzugten Hersteller geworden."
+    },
+    "rajesh": {
+      "name": "Rajesh Patel",
+      "role": "Werksleiter",
+      "product": "HR-117 Straßenbrecher",
+      "company": "Patel Infrastructure",
+      "location": "Gujarat, Indien",
+      "text": "Hervorragende Bauqualität und überlegene Schlagenergie. Der Brecher hat unsere Projektlaufzeiten deutlich verkürzt."
+    },
+    "daniel": {
+      "name": "Daniel Okafor",
+      "role": "Direktor",
+      "product": "Druckluftzubehör",
+      "company": "Lagos Mining Ltd.",
+      "location": "Lagos, Nigeria",
+      "text": "Der direkte Herstellersupport und die Qualität waren außergewöhnlich. HAVA hält jede Zusage ein, jedes Mal."
+    },
+    "priya": {
+      "name": "Priya Nair",
+      "role": "Einkaufsleiterin",
+      "product": "Knopfbohrkronen und Bohrstangen",
+      "company": "Southern Quarries",
+      "location": "Karnataka, Indien",
+      "text": "Zuverlässige Lieferkette, Premium-Qualitätsprodukte und wettbewerbsfähige Preise. Eine echte Partnerschaft in jeder Hinsicht."
+    }
+  },
+  "quoteCTA": {
+    "heading": "Benötigen Sie die Richtige Bohrausrüstung für Ihre Anwendung?",
+    "body": "Ob Sie Produktempfehlungen, technische Details, Ersatzteile, Händlermöglichkeiten oder Exportlieferinformationen benötigen — unser Team steht bereit, um zu helfen.",
+    "primaryCTA": "Angebot Anfordern",
+    "secondaryCTA": "Mit Vertrieb Sprechen"
+  },
+  "footer": {
+    "brandSummary": "HAVA, eine Marke von Haryrock Engineering Pvt. Ltd., fertigt pneumatische Gesteinsbohrgeräte, Bohrhämmer, Brecher, Zubehör und Ersatzteile für die Bergbau-, Steinbruch-, Tunnelbau-, Bau- sowie Marmor- und Granitindustrie.",
+    "productCategories": {
+      "rockDrills": "Gesteinsbohrer",
+      "drifter": "Bohrhammer",
+      "pavementBreakers": "Straßenbrecher",
+      "pusherLeg": "Schubstütze",
+      "airlineAccessories": "Druckluftzubehör",
+      "extensionEquipment": "Verlängerungsausrüstung",
+      "buttonBits": "Knopfbohrkronen",
+      "spareParts": "Ersatzteile"
+    },
+    "contact": {
+      "company": "Haryrock Engineering Pvt. Ltd.",
+      "address": "A-55, H Block, MIDC Pimpri, Pune – 411018, Maharashtra, Indien",
+      "hours": "Mo-Sa: 9:00 - 18:00 Uhr"
+    },
+    "copyright": "© 2025 HAVA / Haryrock Engineering Pvt. Ltd. Alle Rechte Vorbehalten."
+  }
+}
