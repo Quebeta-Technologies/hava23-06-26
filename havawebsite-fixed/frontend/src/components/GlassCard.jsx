@@ -20,7 +20,7 @@ export const GlassCard = ({ children, className = '', delay = 0 }) => {
         scale: 1.02,
         boxShadow: '0 30px 60px -12px rgba(0, 0, 0, 0.25)'
       }}
-      transition={{ type: "spring", stiffness: 300 }}
+      transitions={{ type: "spring", stiffness: 300 }}
     >
       {children}
     </motion.div>

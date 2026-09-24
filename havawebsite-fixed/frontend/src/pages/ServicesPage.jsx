@@ -18,7 +18,6 @@ import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
 import { QuoteModal } from '../components/QuoteModal';
 import { AnimatedBackground } from '../components/AnimatedBackground';
-import { PageHero } from '../components/PageHero';
 import { SectionHeader, SectionBadge } from '../components/SectionBadge';
 import { Button } from '../components/ui/button';
 import { Toaster } from 'sonner';
@@ -32,60 +31,45 @@ const servicesData = {
   },
   services: [
     {
-      num: "S 01",
-      label: "Service 1",
-      title: "Product Selection & Application Guidance",
+      num: "S 01", label: "Service 1", title: "Product Selection & Application Guidance",
       body: "Choosing the right equipment is critical. Our team helps you identify the most suitable product based on your application, working conditions, drilling method, and project objectives.",
       tags: ["Product Selection", "Application Matching", "Drilling Requirements", "Equipment Recommendations", "Operational Guidance"],
       icon: Target,
     },
     {
-      num: "S 02",
-      label: "Service 2",
-      title: "Technical Support",
+      num: "S 02", label: "Service 2", title: "Technical Support",
       body: "Our technical team provides guidance to help you get the best performance from HAVA equipment — installation recommendations, operating guidance, compatibility information, and maintenance advice.",
       tags: ["Equipment Operation Guidance", "Technical Documentation", "Compatibility Assistance", "Maintenance Recommendations", "Troubleshooting Support"],
       icon: HeadphonesIcon,
     },
     {
-      num: "S 03",
-      label: "Service 3",
-      title: "Spare Parts Support",
+      num: "S 03", label: "Service 3", title: "Spare Parts Support",
       body: "Reliable spare parts reduce downtime and maintain productivity. HAVA manufactures and supplies genuine spare parts designed to maintain original equipment performance.",
       tags: ["Rock Drills", "Drifters", "Pavement Breakers", "Pusher Legs", "Atlas Copco Compatible"],
       icon: Wrench,
       highlight: "Benefits: Faster Maintenance · Reduced Downtime · Reliable Performance · Longer Equipment Life",
     },
     {
-      num: "S 04",
-      label: "Service 4",
-      title: "Dealer & Distributor Support",
+      num: "S 04", label: "Service 4", title: "Dealer & Distributor Support",
       body: "We work closely with dealers and distribution partners to ensure they have access to quality products, technical knowledge, and ongoing support — helping them build long-term customer relationships.",
       tags: ["Product Training", "Technical Assistance", "Sales Support", "Product Information", "Marketing Materials"],
-      icon: Users,
-      cta: "Become a Dealer",
+      icon: Users, cta: "Become a Dealer",
     },
     {
-      num: "S 05",
-      label: "Service 5",
-      title: "Export Assistance",
+      num: "S 05", label: "Service 5", title: "Export Assistance",
       body: "With experience across multiple international markets, HAVA supports export buyers with documentation, product specifications, and communication required for smooth international transactions.",
       tags: ["Export Documentation", "Quotation Support", "Product Specifications", "Shipping Coordination", "International Buyer Support"],
       icon: Globe,
       highlight: "Export Regions: Africa · Middle East · Europe (Scandinavia) · South Asia",
     },
     {
-      num: "S 06",
-      label: "Service 6",
-      title: "Product Customization Support",
+      num: "S 06", label: "Service 6", title: "Product Customization Support",
       body: "Certain projects require equipment tailored to specific operating conditions. Our team works with you to understand your requirements and recommend suitable configurations wherever possible.",
       tags: ["Mining", "Quarrying", "Infrastructure", "Tunnelling", "Specialized Industrial"],
       icon: Settings,
     },
     {
-      num: "S 07",
-      label: "Service 7",
-      title: "Maintenance Guidance",
+      num: "S 07", label: "Service 7", title: "Maintenance Guidance",
       body: "Regular maintenance maximizes equipment performance and lifespan. We help customers understand best practices for lubrication, inspection, spare parts replacement, and preventive care.",
       tags: ["Lubrication Practices", "Inspection Procedures", "Spare Parts Replacement", "Preventive Maintenance", "Operational Best Practices"],
       icon: ClipboardCheck,
@@ -97,6 +81,13 @@ const servicesData = {
   },
 };
 
+const trustItems = [
+  { icon: '🔧', text: 'Technical Support' },
+  { icon: '⚙️', text: 'Spare Parts Supply' },
+  { icon: '🌍', text: 'Export Assistance' },
+  { icon: '🤝', text: 'Dealer Support' },
+];
+
 export const ServicesPage = () => {
   const [quoteModalOpen, setQuoteModalOpen] = useState(false);
 
@@ -105,37 +96,65 @@ export const ServicesPage = () => {
       <Toaster position="top-right" richColors />
       <Header onQuoteClick={() => setQuoteModalOpen(true)} />
 
-      <PageHero
-        eyebrow={servicesData.hero.eyebrow}
-        title={servicesData.hero.title}
-        titleGradient={servicesData.hero.titleGradient}
-        body={servicesData.hero.body}
-      >
-        <div className="flex flex-col sm:flex-row gap-3 justify-center items-center">
-          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-            <Button
-              onClick={() => setQuoteModalOpen(true)}
-              className="bg-gradient-to-r from-hava-red to-hava-red/90 hover:from-hava-red/90 hover:to-hava-red text-white font-bold px-8 py-6 text-base shadow-2xl rounded-xl group w-full sm:w-auto"
-            >
-              <span className="flex items-center justify-center gap-2">
-                Request Support
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </span>
-            </Button>
-          </motion.div>
-          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-            <Button
-              onClick={() => setQuoteModalOpen(true)}
-              className="glass-morphism border-2 border-trust-blue/50 text-trust-blue hover:bg-trust-blue hover:text-white font-bold px-8 py-6 text-base rounded-xl shadow-lg backdrop-blur-xl w-full sm:w-auto"
-            >
-              Contact Our Team
-            </Button>
-          </motion.div>
+      {/* ── HERO — left text, right buttons + trust boxes ── */}
+      <section className="relative py-10 lg:py-14 overflow-hidden bg-gradient-to-br from-slate-50 via-white to-blue-50">
+        <div className="absolute top-0 right-0 w-96 h-96 bg-hava-red/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 left-0 w-96 h-96 bg-trust-blue/5 rounded-full blur-3xl" />
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col lg:flex-row items-start lg:items-center gap-8 lg:gap-12">
+
+            {/* LEFT — eyebrow + title + body */}
+            <div className="flex-1 min-w-0">
+              <div className="inline-flex items-center gap-2 bg-white border border-steel-gray rounded-full px-4 py-2 mb-4 shadow-sm">
+                <span className="text-accent-orange text-sm">✦</span>
+                <span className="text-xs font-bold uppercase tracking-[2px] text-charcoal">{servicesData.hero.eyebrow}</span>
+                <span className="w-2 h-2 bg-accent-orange rounded-full" />
+              </div>
+              <h1 className="text-3xl lg:text-5xl font-black text-charcoal leading-tight mb-4" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
+                {servicesData.hero.title}{' '}
+                <span className="gradient-text">{servicesData.hero.titleGradient}</span>
+              </h1>
+              <p className="text-base text-gray-600 leading-relaxed max-w-xl">{servicesData.hero.body}</p>
+            </div>
+
+            {/* RIGHT — buttons + 4 trust boxes */}
+            <div className="flex-shrink-0 w-full lg:w-80 flex flex-col gap-4">
+              <div className="flex flex-col sm:flex-row lg:flex-col gap-3">
+                <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }} className="w-full">
+                  <Button
+                    onClick={() => setQuoteModalOpen(true)}
+                    className="w-full bg-gradient-to-r from-hava-red to-hava-red/90 text-white font-bold px-6 py-5 text-sm shadow-xl rounded-xl group"
+                  >
+                    Request Support <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  </Button>
+                </motion.div>
+                <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }} className="w-full">
+                  <Button
+                    onClick={() => setQuoteModalOpen(true)}
+                    className="w-full glass-morphism border-2 border-trust-blue/50 text-trust-blue hover:bg-trust-blue hover:text-white font-bold px-6 py-5 text-sm rounded-xl shadow-lg backdrop-blur-xl"
+                  >
+                    Contact Our Team
+                  </Button>
+                </motion.div>
+              </div>
+
+              {/* 4 trust boxes */}
+              <div className="grid grid-cols-2 gap-2">
+                {trustItems.map((item, i) => (
+                  <div key={i} className="bg-white border-2 border-steel-gray rounded-xl px-3 py-2.5 flex items-center gap-2 shadow-sm">
+                    <span className="text-base flex-shrink-0">{item.icon}</span>
+                    <span className="text-[11px] font-bold text-charcoal leading-tight">{item.text}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+          </div>
         </div>
-      </PageHero>
+      </section>
 
       {/* SERVICES GRID */}
-      <section className="relative py-12 lg:py-16 overflow-hidden bg-gradient-to-br from-slate-50 via-white to-blue-50">
+      <section className="relative py-10 lg:py-14 overflow-hidden bg-gradient-to-br from-slate-50 via-white to-blue-50">
         <AnimatedBackground />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader
@@ -176,28 +195,19 @@ export const ServicesPage = () => {
                       </div>
                     </div>
                     <p className="text-sm text-gray-700 leading-relaxed mb-4">{service.body}</p>
-
                     <div className="flex flex-wrap gap-2 mb-4">
                       {service.tags.map((tag, ti) => (
-                        <span key={ti} className="text-xs font-medium bg-slate-100 text-charcoal px-3 py-1 rounded-full border border-steel-gray">
-                          {tag}
-                        </span>
+                        <span key={ti} className="text-xs font-medium bg-slate-100 text-charcoal px-3 py-1 rounded-full border border-steel-gray">{tag}</span>
                       ))}
                     </div>
-
                     {service.highlight && (
                       <div className="bg-gradient-to-r from-accent-orange/10 to-hava-red/5 border-l-4 border-accent-orange rounded-r-xl p-3 mb-3">
                         <p className="text-xs text-charcoal"><strong className="text-accent-orange uppercase tracking-wider">Key:</strong> {service.highlight}</p>
                       </div>
                     )}
-
                     {service.cta && (
-                      <Button
-                        onClick={() => setQuoteModalOpen(true)}
-                        className="bg-gradient-to-r from-hava-red to-accent-orange text-white text-xs font-bold rounded-lg group/btn"
-                      >
-                        {service.cta}
-                        <ArrowRight className="w-3 h-3 ml-1 group-hover/btn:translate-x-1 transition-transform" />
+                      <Button onClick={() => setQuoteModalOpen(true)} className="bg-gradient-to-r from-hava-red to-accent-orange text-white text-xs font-bold rounded-lg group/btn">
+                        {service.cta} <ArrowRight className="w-3 h-3 ml-1 group-hover/btn:translate-x-1 transition-transform" />
                       </Button>
                     )}
                   </div>
@@ -209,20 +219,18 @@ export const ServicesPage = () => {
       </section>
 
       {/* FINAL CTA */}
-      <section className="relative py-12 lg:py-16 overflow-hidden bg-charcoal">
+      <section className="relative py-10 lg:py-14 overflow-hidden bg-charcoal">
         <div className="absolute top-0 right-0 w-96 h-96 bg-hava-red/10 rounded-full blur-3xl" />
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-trust-blue/10 rounded-full blur-3xl" />
-
         <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }}>
-            <h2 className="text-3xl lg:text-5xl font-black text-white mb-4">
+            <h2 className="text-3xl lg:text-4xl font-black text-white mb-4">
               Need Technical Assistance or <span className="gradient-text">Product Support?</span>
             </h2>
-            <p className="text-base lg:text-lg text-white/70 mb-8 max-w-2xl mx-auto">{servicesData.finalCta.body}</p>
+            <p className="text-base text-white/70 mb-8 max-w-2xl mx-auto">{servicesData.finalCta.body}</p>
             <div className="flex flex-wrap gap-3 justify-center">
               <Button onClick={() => setQuoteModalOpen(true)} className="bg-gradient-to-r from-hava-red to-hava-red/90 hover:from-hava-red/90 hover:to-hava-red text-white font-bold px-6 py-3 rounded-xl group">
-                Contact Support
-                <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                Contact Support <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </Button>
               <Button onClick={() => setQuoteModalOpen(true)} variant="outline" className="border-2 border-white/30 text-white hover:bg-white/10 font-bold px-6 py-3 rounded-xl">
                 Request a Quote

@@ -5,6 +5,7 @@ import { Card, CardContent } from '../components/ui/card';
 import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
 import { QuoteModal } from '../components/QuoteModal';
+import { FeaturedProductsCarousel } from '../components/FeaturedProductsCarousel';
 import { toast, Toaster } from 'sonner';
 import {
   heroData,
@@ -42,17 +43,9 @@ export const HomePage = () => {
     }
   };
 
-  const handleInquireNow = () => {
-    setQuoteModalOpen(true);
-  };
-
-  const handleReadMore = () => {
-    toast.info('Product details page coming soon!');
-  };
-
-  const handleDownloadBrochure = () => {
-    setBrochureModalOpen(true);
-  };
+  const handleInquireNow = () => setQuoteModalOpen(true);
+  const handleReadMore = () => toast.info('Product details page coming soon!');
+  const handleDownloadBrochure = () => setBrochureModalOpen(true);
 
   return (
     <div className="min-h-screen bg-white">
@@ -91,6 +84,11 @@ export const HomePage = () => {
           </div>
         </div>
       </section>
+
+      {/* Featured Products - Mobile only (above trust strip) */}
+      <div className="block md:hidden">
+        <FeaturedProductsCarousel onEnquireClick={() => setQuoteModalOpen(true)} />
+      </div>
 
       {/* Trust Strip */}
       <section className="bg-trust-blue text-white py-6">
@@ -235,41 +233,10 @@ export const HomePage = () => {
         </div>
       </section>
 
-      {/* Featured Products */}
-      <section className="py-20 bg-steel-gray/30">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12 animate-fade-in-up">
-            <h2 className="text-3xl sm:text-4xl font-bold text-charcoal mb-4">Featured Products</h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Explore some of our key products developed to support real drilling, demolition, and mining applications with dependable field performance.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {featuredProducts.map((product) => (
-              <Card key={product.id} className="border-steel-gray bg-white card-hover overflow-hidden">
-                <div className="h-52 overflow-hidden bg-steel-gray">
-                  <img
-                    src={product.image}
-                    alt={product.name}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <CardContent className="p-6">
-                  <h3 className="text-lg font-bold text-charcoal mb-3">{product.name}</h3>
-                  <p className="text-sm text-gray-600 mb-4">{product.description}</p>
-                  <Button
-                    onClick={handleInquireNow}
-                    className="w-full bg-hava-red hover:bg-hava-red/90 text-white font-semibold"
-                  >
-                    Request Details
-                  </Button>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* Featured Products - Desktop only (original position) */}
+      <div className="hidden md:block">
+        <FeaturedProductsCarousel onEnquireClick={() => setQuoteModalOpen(true)} />
+      </div>
 
       {/* Manufacturing Strength */}
       <section className="py-20 bg-white">
@@ -301,7 +268,7 @@ export const HomePage = () => {
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
-            {statsData.stats.map((stat, index) => (
+            {statsData.stats && statsData.stats.map((stat, index) => (
               <div key={index} className="text-center">
                 <div className="text-4xl sm:text-5xl font-bold text-accent-orange mb-2">{stat.value}</div>
                 <div className="text-sm sm:text-base text-white/90">{stat.label}</div>
@@ -328,7 +295,7 @@ export const HomePage = () => {
               <Card key={testimonial.id} className="border-steel-gray bg-white">
                 <CardContent className="p-8">
                   <div className="mb-4">
-                    <div className="text-4xl text-hava-red mb-2">“</div>
+                    <div className="text-4xl text-hava-red mb-2">"</div>
                     <p className="text-gray-700 leading-relaxed italic">{testimonial.text}</p>
                   </div>
                   <div className="mt-6 pt-6 border-t border-steel-gray">
@@ -370,7 +337,6 @@ export const HomePage = () => {
 
       <Footer />
 
-      {/* Modals */}
       <QuoteModal
         isOpen={quoteModalOpen}
         onClose={() => setQuoteModalOpen(false)}

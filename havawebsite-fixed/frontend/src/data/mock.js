@@ -16,8 +16,8 @@ export const headerData = {
     { name: "Gallery", path: "/gallery" },
     { name: "Contact", path: "/contact" }
   ],
-  primaryCTA: "Get a Quote",
-  havaLogo: "/assets/hava-logo.png",
+  primaryCTA: "Enquire Now",
+  havaLogo: "/assets/hava-logo.svg",
   haryrockLogo: "/assets/haryrock-logo.png"
 };
 
@@ -66,7 +66,8 @@ export const countriesData = {
     { name: "Nepal", code: "NP", flag: "🇳🇵" },
     { name: "Oman", code: "OM", flag: "🇴🇲" },
     { name: "Qatar", code: "QA", flag: "🇶🇦" },
-    { name: "Egypt", code: "EG", flag: "🇪🇬" }
+    { name: "Egypt", code: "EG", flag: "🇪🇬" },
+    { name: "Norway", code: "NO", flag: "NO" },
   ]
 };
 
@@ -98,49 +99,49 @@ export const productCategories = [
     id: 1,
     name: "Rock Drills",
     description: "High-performance pneumatic rock drills for drilling operations in mining, quarrying, and construction. Built for durability, precision, and efficient air consumption.",
-    image: "/products/rock-drill-dry.jpg"
+    image: "/products/rock.png"
   },
   {
     id: 2,
     name: "Drifter",
     description: "Heavy-duty drifters for tunnelling and underground drilling applications. Designed for continuous operation with optimal penetration rates and rock breakage.",
-    image: "/products/drifter.jpg"
+    image: "/products/drifter.png"
   },
   {
     id: 3,
     name: "Pavement Breakers",
     description: "Powerful pneumatic breakers for demolition, pavement breaking, and concrete removal. Engineered for maximum impact energy with ergonomic handling.",
-    image: "/products/pavement-breaker.jpg"
+    image: "/products/breaker.png"
   },
   {
     id: 4,
     name: "Pusher Leg",
     description: "Pneumatic pusher legs for rock drill support and feed control. Provides stable drilling positioning with adjustable feed pressure for various applications.",
-    image: "/products/pusher-leg.jpg"
+    image: "/products/leg.png"
   },
   {
     id: 5,
     name: "Airline Accessories",
     description: "Complete range of airline equipment including lubricators, filters, regulators, and hoses. Essential for maintaining optimal pneumatic tool performance.",
-    image: "/products/airline-accessories.jpg"
+    image: "/products/air.png"
   },
   {
     id: 6,
     name: "Extension Equipment",
     description: "Drill steels, rods, and extension equipment for various drilling depths. Manufactured with high-grade steel for long service life and reliable performance.",
-    image: "/products/extension-taper.jpg"
+    image: "/products/extension.png"
   },
   {
     id: 7,
     name: "Button Bits",
     description: "Premium quality button bits for all rock drilling applications. Available in various sizes and button configurations for different rock formations.",
-    image: "/products/button-bits.jpg"
+    image: "/products/button.png"
   },
   {
     id: 8,
     name: "Spare Parts",
     description: "Comprehensive inventory of genuine spare parts for rock drills, drifters, and breakers. Ensures minimal downtime with ready availability and quality assurance.",
-    image: "/products/spare-parts.jpg"
+    image: "/products/spare.png"
   }
 ];
 
@@ -229,37 +230,37 @@ export const featuredProducts = [
     id: 1,
     name: "RH-658/5L Dry Rock Drill",
     description: "High-performance dry rock drill with 5L air consumption, ideal for mining and quarrying applications with superior penetration rates.",
-    image: "/products/rock-drill-dry.jpg"
+    image: "/products/rock.png"
   },
   {
     id: 2,
     name: "RH-656/4W Wet Rock Drill",
     description: "Wet drilling rock drill with integrated water flushing system for dust suppression and improved drilling efficiency in underground operations.",
-    image: "/products/rock-drill-wet.jpg"
+    image: "/products/wet.png"
   },
   {
     id: 3,
     name: "BBC-120F Drifter",
     description: "Heavy-duty hydraulic drifter for tunnelling applications, delivering exceptional power and reliability in continuous drilling operations.",
-    image: "/products/drifter.jpg"
+    image: "/products/drifter.png"
   },
   {
     id: 4,
     name: "HR-117 Pavement Breaker",
     description: "Powerful pneumatic breaker with high impact energy for efficient pavement breaking, demolition, and concrete removal work.",
-    image: "/products/pavement-breaker.jpg"
+    image: "/products/breaker.png"
   },
   {
     id: 5,
     name: "BMK62S Pusher Leg",
     description: "Pneumatic pusher leg with adjustable feed control and stable positioning for optimal rock drill support and operator comfort.",
-    image: "/products/pusher-leg.jpg"
+    image: "/products/leg.png"
   },
   {
     id: 6,
     name: "BLG-30 Airline Lubricator",
     description: "Automatic airline lubricator ensuring proper tool lubrication for extended equipment life and optimal pneumatic tool performance.",
-    image: "/products/airline-accessories.jpg"
+    image: "/products/air.png"
   }
 ];
 
@@ -406,10 +407,10 @@ export const footerData = {
   ],
   contact: {
     company: "Haryrock Engineering Pvt. Ltd.",
-    address: "Plot No. 123, Industrial Area, Pune - 411019, Maharashtra, India",
+    address: "A-55, H Block, MIDC Pimpri,Pune – 411018, Maharashtra, India",
     customerCare: "+91-20-1234-5678",
-    mobile: "+91-98765-43210",
-    email: "sales@havarock.in",
+    mobile: "+91 20 2744 0025 | +91 20 2744 0026",
+    email: "sales.haryrock@gmail.com",
     hours: "Mon-Sat: 9:00 AM - 6:00 PM"
   },
   mapEmbedUrl: "https://maps.google.com/maps?q=Haryrock+Engineering+Pvt+Ltd&output=embed",

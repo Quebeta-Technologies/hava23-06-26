@@ -8,7 +8,6 @@ export const FeaturedProductsCarousel = ({ onEnquireClick }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [direction, setDirection] = useState(0);
 
-  // Auto-play
   useEffect(() => {
     const timer = setInterval(() => {
       setDirection(1);
@@ -31,7 +30,6 @@ export const FeaturedProductsCarousel = ({ onEnquireClick }) => {
 
   return (
     <section className="relative py-12 lg:py-16 overflow-hidden bg-gradient-to-br from-slate-50 via-white to-blue-50">
-      {/* Decorative gradient orbs */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-hava-red/5 rounded-full blur-3xl" />
       <div className="absolute bottom-0 left-0 w-96 h-96 bg-trust-blue/5 rounded-full blur-3xl" />
 
@@ -64,7 +62,6 @@ export const FeaturedProductsCarousel = ({ onEnquireClick }) => {
             whileTap={{ scale: 0.9 }}
             onClick={handlePrev}
             className="absolute -left-4 lg:-left-12 top-1/2 -translate-y-1/2 z-20 bg-white shadow-2xl rounded-full p-3 hover:bg-hava-red hover:text-white transition-all border border-steel-gray"
-            data-testid="featured-prev-btn"
           >
             <ChevronLeft className="w-5 h-5 text-trust-blue group-hover:text-white" />
           </motion.button>
@@ -74,13 +71,12 @@ export const FeaturedProductsCarousel = ({ onEnquireClick }) => {
             whileTap={{ scale: 0.9 }}
             onClick={handleNext}
             className="absolute -right-4 lg:-right-12 top-1/2 -translate-y-1/2 z-20 bg-white shadow-2xl rounded-full p-3 hover:bg-hava-red hover:text-white transition-all border border-steel-gray"
-            data-testid="featured-next-btn"
           >
             <ChevronRight className="w-5 h-5 text-trust-blue" />
           </motion.button>
 
           {/* Carousel Card */}
-          <div className="relative h-[420px] lg:h-[380px] overflow-hidden rounded-3xl">
+          <div className="relative h-[580px] md:h-[420px] lg:h-[380px] overflow-hidden rounded-3xl">
             <AnimatePresence mode="wait" custom={direction}>
               <motion.div
                 key={currentIndex}
@@ -93,7 +89,7 @@ export const FeaturedProductsCarousel = ({ onEnquireClick }) => {
               >
                 <div className="grid grid-cols-1 md:grid-cols-2 h-full bg-white border border-steel-gray rounded-3xl overflow-hidden shadow-2xl">
                   {/* Image */}
-                  <div className="relative bg-gradient-to-br from-slate-100 via-blue-50 to-slate-100 flex items-center justify-center p-8 overflow-hidden">
+                  <div className="relative bg-gradient-to-br from-slate-100 via-blue-50 to-slate-100 flex items-center justify-center p-4 md:p-8 overflow-hidden min-h-[260px] md:min-h-0">
                     <motion.div
                       initial={{ scale: 0.8, opacity: 0 }}
                       animate={{ scale: 1, opacity: 1 }}
@@ -103,10 +99,9 @@ export const FeaturedProductsCarousel = ({ onEnquireClick }) => {
                       <img
                         src={product.image}
                         alt={product.name}
-                        className="max-h-72 w-auto object-contain drop-shadow-2xl"
+                        className="max-h-52 md:max-h-72 w-auto object-contain drop-shadow-2xl"
                       />
                     </motion.div>
-                    {/* Decorative ring */}
                     <motion.div
                       animate={{ rotate: 360 }}
                       transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
@@ -115,7 +110,7 @@ export const FeaturedProductsCarousel = ({ onEnquireClick }) => {
                   </div>
 
                   {/* Content */}
-                  <div className="p-8 lg:p-10 flex flex-col justify-center">
+                  <div className="p-6 md:p-8 lg:p-10 flex flex-col justify-center">
                     <motion.div
                       initial={{ x: 30, opacity: 0 }}
                       animate={{ x: 0, opacity: 1 }}
@@ -124,10 +119,10 @@ export const FeaturedProductsCarousel = ({ onEnquireClick }) => {
                       <div className="text-xs font-bold text-hava-red uppercase tracking-wider mb-2">
                         Product {String(currentIndex + 1).padStart(2, '0')} / {String(featuredProducts.length).padStart(2, '0')}
                       </div>
-                      <h3 className="text-2xl lg:text-3xl font-black text-charcoal mb-4">
+                      <h3 className="text-xl md:text-2xl lg:text-3xl font-black text-charcoal mb-3">
                         {product.name}
                       </h3>
-                      <p className="text-gray-600 leading-relaxed mb-6">
+                      <p className="text-gray-600 leading-relaxed mb-5 text-sm md:text-base">
                         {product.description}
                       </p>
                       <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="inline-block">

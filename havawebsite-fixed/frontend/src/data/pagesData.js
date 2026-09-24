@@ -57,14 +57,16 @@ export const whyHavaPageData = {
     label: "Quality Process",
     title: "Every Product Is Tested Before It Reaches You",
     body:
-      "Quality is non-negotiable in industrial equipment. Our six-stage manufacturing process ensures every unit leaves our facility performing exactly as it should.",
+      "Quality is non-negotiable in industrial equipment. Our eight-stage manufacturing process ensures every unit leaves our facility performing exactly as it should.",
     stages: [
       "Raw Material Verification",
       "CNC Precision Machining",
-      "Dimensional Inspection",
-      "Assembly Verification",
-      "Functional Testing",
-      "Final Dispatch Approval",
+      "Heat Treatment",
+      "Grinding",
+      "QC & Functional Testing",
+      "Accept & Testing",
+      "Painting & Packing",
+      "Dispatch",
     ],
     iso:
       "ISO 9001:2015 | Certificate No. V3QC/QMS/D26/0031 | Issued by V3 Quality Certification | Valid Until April 2029",
@@ -75,7 +77,7 @@ export const whyHavaPageData = {
     body:
       "HAVA equipment is engineered for environments where reliability isn't optional — it's the only standard. From open-pit mines to deep underground tunnels.",
     cards: [
-      { title: "Mining Operations", text: "Quarry drilling, bench mining, surface excavation — RH-658/5L and RH-656/4W rock drills." },
+      { title: "Mining Operations", text: "Quarry drilling, bench mining, surface excavation — RH-656/4W rock drills." },
       { title: "Underground Tunnelling", text: "BBC-120F Drifter and BMK62S Pusher Leg for horizontal and inclined drilling." },
       { title: "Construction & Infrastructure", text: "CP-117 Pavement Breakers for concrete demolition, frozen ground, boulders." },
       { title: "Marble & Granite", text: "Precision drilling in natural stone for the marble and granite processing industry." },
@@ -152,7 +154,7 @@ export const aboutPageData = {
     vision:
       "To be the Market Leader in the Rock Drilling Industry and manufacture innovative products, providing ease-of-use to our users.",
     manufacturingCapability:
-      "Our 25,000 sq. ft. manufacturing facility at MIDC Pimpri, Pune is equipped with advanced CNC machining centres, heat treatment systems, precision assembly areas, and rigorous quality inspection stations — a complete six-stage manufacturing process from raw material to dispatch.",
+      "Our 25,000 sq. ft. manufacturing facility at MIDC Pimpri, Pune is equipped with advanced CNC machining centres, heat treatment systems, precision assembly areas, and rigorous quality inspection stations — a complete eight-stage manufacturing process from raw material to dispatch.",
     capabilityCards: [
       { title: "CNC Precision", text: "Multi-axis machining for tight tolerances and repeatable quality." },
       { title: "Heat Treatment", text: "In-house thermal processes for hardness and wear resistance." },
@@ -172,7 +174,7 @@ export const aboutPageData = {
     intro:
       "A story built one decade at a time — from a spare-parts workshop in 1970 to a 25,000 sq. ft. ISO-certified manufacturing facility exporting to 20+ countries.",
     timeline: [
-      { year: "1970", title: "Foundation", text: "Mr. Manohar Sajnani starts manufacturing pneumatic spare parts for rock drills in Pune.", highlighted: true },
+      { year: "1970", title: "Foundation", text: "Mr. Manohar Sajnani starts manufacturing pneumatic spare parts for rock drills", highlighted: true },
       { year: "1990", title: "Expansion", text: "Next generation joins. Product range expands into the mining and infrastructure sector." },
       { year: "1999", title: "HAVA Brand", text: "HAVA brand formally established — rock drill machines, accessories, consumables, spare parts.", highlighted: true },
       { year: "2011", title: "Incorporation", text: "Haryrock Engineering Pvt. Ltd. formally incorporated — stronger foundation for global growth." },
@@ -248,12 +250,12 @@ export const infraQualityPageData = {
     eyebrow: "Built to Manufacture. Equipped to Deliver.",
     heading: "Inside the HAVA 25,000 Sq. Ft. Manufacturing Facility",
     body:
-      "Our facility at MIDC Pimpri, Pune is a full manufacturing plant — not a warehouse or assembly point. Raw material arrives and finished, tested, dispatch-ready equipment leaves. Six controlled stages. Zero compromise. Every unit.",
+      "Our facility at MIDC Pimpri, Pune is a full manufacturing plant — not a warehouse or assembly point. Raw material arrives and finished, tested, dispatch-ready equipment leaves. Eight controlled stages. Zero compromise. Every unit.",
   },
   factoryOverview: {
     title: "MIDC Pimpri Manufacturing Plant",
     body:
-      "The HAVA manufacturing facility has been continuously upgraded since 1970. Today it operates as a fully self-sufficient plant covering raw material intake, CNC precision machining, heat treatment, assembly, quality inspection, functional testing, and export packaging — all under one roof.",
+      "The HAVA manufacturing facility has been continuously upgraded since 1970. Today it operates as a fully self-sufficient plant covering raw material intake, CNC precision machining, heat treatment, grinding, assembly, quality inspection, functional testing, painting, packing, and export packaging — all under one roof.",
     cards: [
       { title: "Total Area", text: "25,000 sq. ft. manufacturing premises" },
       { title: "Location", text: "A-55, H Block, MIDC Pimpri, Pune – 411018" },
@@ -273,16 +275,18 @@ export const infraQualityPageData = {
     },
   },
   processChart: {
-    title: "Six Stages. Zero Compromise.",
+    title: "Eight Stages. Zero Compromise.",
     body:
-      "Every HAVA product — without exception — passes through all six manufacturing stages. Each stage is documented, quality-checked, and signed off before the next begins. This is what ISO 9001:2015 process discipline looks like in practice.",
+      "Every HAVA product — without exception — passes through all eight manufacturing stages. Each stage is documented, quality-checked, and signed off before the next begins. This is what ISO 9001:2015 process discipline looks like in practice.",
     flow: [
       { num: "01", name: "Raw Material", sub: "Intake & Verify" },
       { num: "02", name: "CNC Machining", sub: "Precision Parts" },
       { num: "03", name: "Heat Treatment", sub: "Harden & Temper" },
-      { num: "04", name: "Assembly", sub: "Standard Build" },
+      { num: "04", name: "Grinding", sub: "Surface Finish" },
       { num: "05", name: "QC & Testing", sub: "Inspect & Function Test" },
-      { num: "06", name: "Dispatch", sub: "Export Ready" },
+      { num: "06", name: "Accept & Testing", sub: "Final Acceptance" },
+      { num: "07", name: "Painting & Packing", sub: "Finish & Protect" },
+      { num: "08", name: "Dispatch", sub: "Export Ready" },
     ],
     note: "Every unit · Every time · No exceptions — ISO 9001:2015 Certified",
     stages: [
@@ -314,11 +318,11 @@ export const infraQualityPageData = {
       },
       {
         num: "Stage 04",
-        label: "Assembly",
-        title: "Standardised Build Procedures",
+        label: "Grinding",
+        title: "Surface Finishing & Tight Tolerances",
         body:
-          "Each product category has its own dedicated assembly workstation with documented build procedures, torque specifications, and component sequences. Every unit assembled by skilled technicians following standardised procedures — correct fits, correct torques, correct clearances.",
-        activities: "Component assembly · Torque verification · Clearance checks · Assembly documentation",
+          "Precision grinding ensures all mating surfaces, bores, and shafts meet the tight tolerances required for smooth assembly and long service life. Surface finish is verified to specification before components proceed to assembly.",
+        activities: "Cylindrical grinding · Surface grinding · Internal grinding · Finish verification",
       },
       {
         num: "Stage 05",
@@ -331,11 +335,27 @@ export const infraQualityPageData = {
       },
       {
         num: "Stage 06",
+        label: "Accept & Testing",
+        title: "Final Acceptance Check",
+        body:
+          "Units that pass QC are formally accepted into finished goods. A final verification pass confirms all specifications are met — performance, dimensional, and visual. Rejected units are returned for rework; no exceptions to acceptance criteria.",
+        activities: "Acceptance sign-off · Performance validation · Visual inspection · Rework loop if needed",
+      },
+      {
+        num: "Stage 07",
+        label: "Painting & Packing",
+        title: "Finish & Protection",
+        body:
+          "Accepted units are cleaned, primed, and painted to HAVA's standard finish. Components are individually packed with protective wrapping and placed in export-grade packaging to prevent damage in transit.",
+        activities: "Surface cleaning · Painting & drying · Component wrapping · Export-grade packing",
+      },
+      {
+        num: "Stage 08",
         label: "Dispatch",
         title: "Export-Ready Packaging & Documentation",
         body:
-          "Cleared units are cleaned, protected, and packed in export-ready packaging. All documentation — packing lists, commercial invoices, certificates of origin, technical papers — prepared and verified before dispatch. Every shipment tracked to the customer.",
-        activities: "Product cleaning · Export packaging · Documentation · Shipment verification",
+          "Cleared units are dispatched with full documentation — packing lists, commercial invoices, certificates of origin — prepared and verified before release. Every shipment tracked to the customer. No unit leaves without complete paperwork.",
+        activities: "Documentation prep · Invoice & cert of origin · Shipment release · Tracking to customer",
         highlighted: true,
       },
     ],
@@ -348,11 +368,13 @@ export const infraQualityPageData = {
       { type: "Material Verification", check: "Raw material grade, composition, certification", stage: "Stage 01 — Intake", method: "Supplier cert + incoming inspection" },
       { type: "Dimensional Accuracy", check: "All critical dimensions against drawing specification", stage: "Stage 02 — Post-CNC", method: "CNC machine verification + manual gauging" },
       { type: "Surface Hardness", check: "Hardness of heat-treated components", stage: "Stage 03 — Post Heat Treatment", method: "Hardness tester per component specification" },
-      { type: "Assembly Torque", check: "All fasteners torqued to specification", stage: "Stage 04 — Assembly", method: "Torque wrench — documented" },
-      { type: "Clearance & Fit", check: "Piston-cylinder clearance, chuck fit, rotation", stage: "Stage 04 — Assembly", method: "Feeler gauge / go-no-go gauging" },
+      { type: "Grinding Finish", check: "Surface finish and dimensional tolerance post-grinding", stage: "Stage 04 — Post Grinding", method: "Surface roughness tester + go-no-go gauging" },
+      { type: "Assembly Torque", check: "All fasteners torqued to specification", stage: "Stage 05 — Assembly", method: "Torque wrench — documented" },
+      { type: "Clearance & Fit", check: "Piston-cylinder clearance, chuck fit, rotation", stage: "Stage 05 — Assembly", method: "Feeler gauge / go-no-go gauging" },
       { type: "Air Pressure Test", check: "No leakage at 6 bar operating pressure", stage: "Stage 05 — Testing", method: "Pressure test to 6 bar / 87 PSI" },
       { type: "Functional Test", check: "Impact rate, rotation, flushing, all controls", stage: "Stage 05 — Testing", method: "Run test under load — results documented" },
-      { type: "Visual & Final", check: "Surface finish, marking, completeness, packaging", stage: "Stage 06 — Pre-Dispatch", method: "Visual inspection checklist" },
+      { type: "Final Acceptance", check: "Performance, dimensional, and visual confirmation", stage: "Stage 06 — Accept & Testing", method: "Acceptance checklist sign-off" },
+      { type: "Visual & Final", check: "Surface finish, marking, completeness, packaging", stage: "Stage 08 — Pre-Dispatch", method: "Visual inspection checklist" },
     ],
     isoNote:
       "ISO 9001:2015 — Cert No. V3QC/QMS/D26/0031: Issued 29th April 2026 · Valid until 28th April 2029 · Accredited by UAF (CB-MS-10165) · Issued by V3 Quality Certification Pvt. Ltd., Delhi.",
@@ -377,32 +399,35 @@ export const productsPageData = {
   },
   categories: [
     // CAT A — ROCK DRILLS
-    {
-      code: "A",
-      name: "Rock Drills",
-      productCount: "3 Products · 3 Pages",
-      image: "/products/rock-drill-dry.jpg",
-      description:
-        "Air-flushed and water-flushed pneumatic drills capable of drilling 27–48mm diameter holes using H22 integral steel, up to 6 metres depth. Available in dry and wet variants with T-Handle or Spade Handle to suit surface and underground drilling environments.",
-      table: {
-        headers: ["Model", "Type", "Weight", "Impact Rate", "Drilling Rate", "Air Hose", "Water Hose"],
-        rows: [
-          ["RH-658/5L", "Dry — Air Flushed", "25 kg", "2000 bpm", "425 mm/min", "19mm", "—"],
-          ["RH-656/4W (T-Handle)", "Wet — Water Flushed", "26 kg", "2050 bpm", "410 mm/min", "19mm", "12.7mm"],
-          ["RH-656/4W (Spade Handle)", "Wet — Water Flushed", "26 kg", "2050 bpm", "410 mm/min", "19mm", "12.7mm"],
-        ],
-      },
-      twoCol: [
-        { heading: "Applications", text: "Quarry Drilling · Bench Mining · Marble & Granite · Construction · Underground Mines & Tunnels" },
-        { heading: "Product Features (Wet)", text: "Rifle Bar Rotation · Kick Latch Retainer · Valve for Air Flushing" },
-      ],
-      note: "Each product page includes: Applications · Technical Data table · Spare parts CTA · Atlas Copco Compatibility Note · Enquiry CTA · Brochure Download.",
-      summaryLine: "RH-658/5L Dry · RH-656/4W Wet T-Handle · RH-656/4W Wet Spade Handle",
-    },
+{
+  code: "A",
+  name: "Rock Drills",
+  brochureUrl: "/assets/Hava Rock Drill Catalog.pdf",
+  productCount: "3 Products · 3 Pages",
+  image: "/products/rock.png",
+  description:
+    "Air-flushed (dry) and water-flushed (wet) pneumatic drills capable of drilling 27–48mm diameter holes using H22 integral steel, up to 6 metres depth. Dry variant for quarry and surface drilling; wet variant for horizontal and inclined dustless drilling in underground mines and tunnels with a pusher leg.",
+  table: {
+    headers: ["Model", "Type", "Weight", "Impact Rate", "Drilling Rate", "Air Hose", "Water Hose"],
+    rows: [
+      ["RH-658/5L", "Dry — Air Flushed", "25 kg", "2000 bpm", "425 mm/min", "19mm", "—"],
+      ["RH-656/4W (T-Handle)", "Wet — Water Flushed", "26 kg", "2050 bpm", "410 mm/min", "19mm", "12.7mm"],
+      ["RH-656/4W (Spade Handle)", "Wet — Water Flushed", "26 kg", "2050 bpm", "410 mm/min", "19mm", "12.7mm"],
+    ],
+  },
+  twoCol: [
+    { heading: "Applications (Dry — RH-658/5L)", text: "Quarry Drilling · Bench Mining · General Excavation · Marble & Granite Industries · Construction & Surface Mining" },
+    { heading: "Applications (Wet — RH-656/4W)", text: "Underground Mines & Tunnels · Horizontal / Inclined Drilling" },
+    { heading: "Product Features (Wet)", text: "Rifle Bar Rotation · Kick Latch Retainer · Valve for Air Flushing" },
+  ],
+  note: "Each product page includes: Applications · Technical Data table · Spare parts CTA · Atlas Copco Compatibility Note · Enquiry CTA · Brochure Download.",
+  summaryLine: "RH-658/5L Dry · RH-656/4W Wet T-Handle · RH-656/4W Wet Spade Handle",
+},
     // CAT B — DRIFTERS
     {
       code: "B",
       name: "Drifters",
+      brochureUrl: "/assets/Hava Drifter Catalog.pdf",
       productCount: "3 Products · 4 Pages",
       image: "/products/drifter.jpg",
       description:
@@ -425,21 +450,22 @@ export const productsPageData = {
     {
       code: "C",
       name: "Pavement Breakers",
+      brochureUrl: "/assets/Hava Pavement Breaker Catalog.pdf",
       productCount: "2 Products · 3 Pages",
       image: "/products/pavement-breaker.jpg",
       description:
         "Medium-duty pneumatic pavement breaker designed to operate at 80–90 PSI. High hitting power, balanced power-to-weight ratio, oil-chamber lubrication. Available in Spring Retainer and Latch Retainer variants.",
       table: {
-        headers: ["Spec", "Value"],
+        headers: ["Spec", "Spring Retainer", "Latch Retainer"],
         rows: [
-          ["Models", "CP-117 / HR-117 — Spring Retainer | CP-117 — Latch Retainer variant"],
-          ["Weight", "36 kg"],
-          ["Air Consumption", "2.5 m³/min at 6 bar (88 cfm)"],
-          ["Piston Diameter", "57mm"],
-          ["Overall Length", "710mm (28 inch)"],
-          ["Frequency", "1200 bpm"],
-          ["Air Hose Connection", "19mm (3/4 inch)"],
-          ["Operating Pressure", "80–90 PSI (6 bar)"],
+          ["Model", "CP-117 / HR-117", "CP-117"],
+          ["Weight", "36 kg", "41 kg"],
+          ["Air Consumption", "2.5 m³/min at 6 bar (88 cfm)", "2.5 m³/min at 6 bar (88 cfm)"],
+          ["Piston Diameter", "57mm", "57mm"],
+          ["Overall Length", "710mm (28 inch)", "710mm (28 inch)"],
+          ["Frequency", "1200 bpm", "1200 bpm"],
+          ["Air Hose Connection", "19mm (3/4 inch)", "19mm (3/4 inch)"],
+          ["Operating Pressure", "80–90 PSI (6 bar)", "80–90 PSI (6 bar)"],
         ],
       },
       twoCol: [
@@ -452,6 +478,7 @@ export const productsPageData = {
     {
       code: "D",
       name: "Pusher Leg",
+      brochureUrl: "/assets/Hava Pusher Catalog.pdf",
       productCount: "1 Product · 1 Page",
       image: "/products/pusher-leg.jpg",
       description:
@@ -476,7 +503,8 @@ export const productsPageData = {
     {
       code: "E",
       name: "Airline Accessories",
-      productCount: "6 Products · 6 Pages",
+      brochureUrl: "/assets/Hava Airline Catalog.pdf",
+      productCount: "4 Products · 4 Pages",
       image: "/products/airline-accessories.jpg",
       description:
         "Complete airline accessories range ensuring pneumatic equipment runs efficiently, safely, and with minimum wear. Never drill without the lubricator — placed at exactly 3 metres from the drill.",
@@ -484,21 +512,20 @@ export const productsPageData = {
         headers: ["#", "Product", "Detail"],
         rows: [
           ["E1", "Airline Lubricator BLG-30", "Weight: 3 kg (6.6 lb) | Volume: 1.3 ltr (44 oz) | Air Flow: 25–134 l/S (53–284 cfm) | Place at 3M from drill"],
-          ["E2", "HAVA Lubri Plus Oil", "High-performance rock drill lubrication oil. Extreme pressure formula. Increased wear protection. Rust & corrosion protection. Reduces maintenance cost."],
           ["E3", "Clamps", "Air line clamp accessories for drill connections"],
           ["E4", "Hose Jointers", "Joiner fittings for airline hose connections"],
           ["E5", "Hose Pipe", "High-pressure airline hose for pneumatic equipment"],
-          ["E6", "Duster Bib", "Rubber/leather skirt fitted around drill steel to deflect dust and chips away from the operator"],
         ],
       },
       criticalNote:
         "Insufficient lubrication causes frictional wear. The piston in the average Rock Drill reciprocates about 1800 to 2000 times per min. Always use Rock Drill Oil — never engine oil.",
-      summaryLine: "BLG-30 Lubricator · Lubri Plus Oil · Clamps · Hose Jointers · Hose Pipe · Duster Bib",
+      summaryLine: "BLG-30 Lubricator · Clamps · Hose Jointers · Hose Pipe",
     },
     // CAT F — EXTENSION EQUIPMENT
     {
       code: "F",
       name: "Extension Equipment",
+      brochureUrl: null,
       productCount: "6 Items · 6 Pages",
       image: "/products/extension-taper.jpg",
       description:
@@ -521,6 +548,7 @@ export const productsPageData = {
     {
       code: "G",
       name: "Button Bits",
+      brochureUrl: null,
       productCount: "2 Product Lines · 2 Pages",
       image: "/products/button-bits.jpg",
       description:
@@ -536,7 +564,8 @@ export const productsPageData = {
     {
       code: "H",
       name: "Spare Parts",
-      productCount: "4 Kits · 4 Pages",
+      brochureUrl: null,
+      productCount: "Genuine Parts",
       image: "/products/spare-parts.jpg",
       description:
         "Genuine HAVA spare parts manufactured in-house to the exact same tolerances, materials, and specifications as original equipment. Because HAVA makes every product, HAVA makes every part — no third-party sourcing, no compromise on fit or function.",
@@ -550,90 +579,22 @@ export const productsPageData = {
         { title: "Extended Equipment Life", text: "Genuine parts maintain original clearances and mechanical integrity." },
         { title: "Atlas Copco Compatible", text: "All kits compatible with HAVA equipment and Atlas Copco reference equivalents." },
       ],
-      kits: [
-        {
-          name: "H1 — Rock Drill Spare Parts",
-          forText: "For: RH-658/5L & RH-656/4W",
-          intro: "Complete spare kit for HAVA Dry and Wet Rock Drills. Rock drills reciprocate 2000 bpm — components must meet exact specifications to maintain impact energy and operational reliability.",
-          parts: [
-            { title: "Piston", text: "High-strength alloy steel, heat-treated. Replace when cylindrical wear or dimensional loss detected." },
-            { title: "Cylinder", text: "Precision-bored for exact piston clearance. Ensures air efficiency and impact consistency." },
-            { title: "Chuck & Chuck Body", text: "Holds drill steel. Replace when worn to prevent energy loss and drill steel damage." },
-            { title: "Rotation Gear / Pawl Set", text: "Drives rifle bar rotation. Regular replacement maintains drilling accuracy and bit life." },
-            { title: "Latch & Latch Spring", text: "Retains drill steel during operation. Critical safety item — replace when worn." },
-            { title: "Valve & Valve Chest", text: "Controls air for each power stroke. Worn valve reduces impact rate and efficiency." },
-            { title: "Bushings", text: "Front and back head bushings maintain alignment. Replace when clearances exceed tolerance." },
-            { title: "Water Tube (Wet Model)", text: "Directs flushing water through drill steel. Replace when corroded or damaged." },
-          ],
-        },
-        {
-          name: "H2 — Drifter BBC-120F Spare Parts",
-          forText: "For: BBC-120F",
-          intro: "Spare kit for the BBC-120F delivering 7.2 kW at 2100 bpm. Worn components directly reduce impact energy and drilling speed — replace at correct intervals to maintain performance.",
-          parts: [
-            { title: "Piston (120mm Dia.)", text: "Large-diameter heat-treated alloy steel piston. Replace when surface wear or dimensional loss detected." },
-            { title: "Cylinder", text: "Precision-bored to 120mm for complete impact transfer." },
-            { title: "Front Head", text: "Houses chuck, absorbs impact forces. Inspect for cracks regularly." },
-            { title: "Back Head", text: "Houses valve mechanism and air inlet. Replace when damaged or air-leakage detected." },
-            { title: "Rifle Bar", text: "Drives piston rotation each stroke. Replace when rifling worn — affects rotation control." },
-            { title: "Rotation Pawl Set (×8)", text: "4 pawls per direction. Replace complete set at each major service." },
-            { title: "Rifle Nut", text: "Locks rifle bar mechanism. Replace if thread-worn." },
-            { title: "Bushings", text: "Front, middle, and back head bushings maintain alignment and reduce wear." },
-          ],
-        },
-        {
-          name: "H3 — Pavement Breaker Spare Parts",
-          forText: "For: CP-117 / HR-117",
-          intro: "Spare kit for Spring and Latch Retainer Breakers operating at 1200 bpm. High-stress components must be replaced proactively to maintain safety and performance.",
-          parts: [
-            { title: "Piston (57mm Dia.)", text: "Delivers 1200 bpm. Replace when cylindrical wear exceeds specification." },
-            { title: "Spring Retainer", text: "Holds breaking tool. Worn retainer creates tool-loss risk — inspect regularly." },
-            { title: "Latch Retainer", text: "Latch Retainer variant. Replace when latch spring or body is worn." },
-            { title: "Buffer Spring", text: "Absorbs recoil shock. Replace when spring set (loss of free length) is detected." },
-            { title: "Front Head Bolts", text: "High-tension fasteners. Replace if thread-worn." },
-            { title: "Cylinder & Bushings", text: "Worn bore reduces air efficiency and impact rate." },
-          ],
-        },
-        {
-          name: "H4 — Pusher Leg Spare Parts",
-          forText: "For: BMK62S",
-          intro: "Spare kit for the BMK62S Pusher Leg. Operating in dusty underground environments — seals, valves, and the feed cylinder are primary wear items requiring regular inspection.",
-          parts: [
-            { title: "Feed Cylinder", text: "Drives leg extension. Inspect for bore wear when feed force becomes inconsistent." },
-            { title: "Piston Seals", text: "Seals feed cylinder. Replace when air leakage or reduced force is detected." },
-            { title: "Throttle Control Valve", text: "Regulates air flow. Worn valve causes uncontrolled feed." },
-            { title: "Relief Valve (Bottom)", text: "Unloads feed pressure safely. Must function correctly to protect operator." },
-            { title: "Control Valve Body", text: "Main air control. Replace if compromised, stuck, or leaking." },
-            { title: "O-Rings & Seal Kit", text: "Replace complete seal set at every major service to prevent recurring leakage." },
-          ],
-        },
-      ],
-      sparesSummary: {
-        headers: ["Kit", "Equipment", "Key Components", "Recommended Inspection"],
-        rows: [
-          ["H1 — Rock Drill", "RH-658/5L & RH-656/4W", "Piston, cylinder, chuck, rotation gear, latch, valve, bushings", "Every 250 hours or on reduced impact rate"],
-          ["H2 — Drifter", "BBC-120F", "Piston, cylinder, front/back head, rifle bar, pawl set, rifle nut, bushings", "Every 500 hours; rifle bar & pawls at each major service"],
-          ["H3 — Breaker", "CP-117 / HR-117", "Piston, retainer, buffer spring, front head bolts", "Every 3 months or on tool retention issues"],
-          ["H4 — Pusher Leg", "BMK62S", "Feed cylinder, seals, throttle valve, relief valve, O-ring kit", "All seals at major overhaul; valves every 6 months"],
-        ],
-      },
-      summaryLine: "Rock Drill · Drifter BBC-120F · Pavement Breaker · Pusher Leg",
     },
   ],
   summary: {
     title: "Product Category Summary",
     headers: ["Cat.", "Category", "Products", "Web Pages"],
     rows: [
-      ["A", "Rock Drills", "3 products (Dry + Wet T-Handle + Wet Spade)", "3 pages"],
+      ["A", "Rock Drills", "2 products (Wet T-Handle + Wet Spade)", "2 pages"],
       ["B", "Drifter", "3 products (BBC-120F + Shank Adapter + Coupling Sleeve)", "4 pages"],
       ["C", "Pavement Breakers", "2 products (Spring + Latch Retainer)", "3 pages"],
       ["D", "Pusher Leg", "1 product (BMK62S)", "1 page"],
-      ["E", "Airline Accessories", "6 products (BLG-30, Oil, Clamps, Hose Jointers, Hose Pipe, Duster Bib)", "6 pages"],
+      ["E", "Airline Accessories", "4 products (BLG-30, Clamps, Hose Jointers, Hose Pipe)", "4 pages"],
       ["F", "Extension Equipment", "6 items (Chisel/Moil, Integrated, Taper, Shank, Coupling, Extension Rods)", "6 pages"],
       ["G", "Button Bits", "2 product lines (Carbide 30–34mm | R32 45–76mm)", "2 pages"],
-      ["H", "Spare Parts", "4 kits (Rock Drill, Drifter, Breaker, Pusher Leg)", "4 pages"],
+      ["H", "Spare Parts", "Genuine spare parts — enquire for details", "1 page"],
     ],
-    total: { label: "Total Product Zone Pages", value: "29 pages" },
+    total: { label: "Total Product Zone Pages", value: "24 pages" },
   },
   finalCta: {
     title: "Not Sure Which Product Suits Your Application?",

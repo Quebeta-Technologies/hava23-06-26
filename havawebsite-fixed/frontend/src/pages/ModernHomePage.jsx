@@ -1,6 +1,7 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect, useCallback } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+import { useNavigate } from 'react-router-dom';
 import { ChevronLeft, ChevronRight, Download, ArrowRight, Sparkles, Award } from 'lucide-react';
 import { Button } from '../components/ui/button';
 import { CardContent } from '../components/ui/card';
@@ -25,10 +26,17 @@ import {
   productCategories,
 } from '../data/mock';
 
+const categoryCodeMap = {
+  1: 'A', 2: 'B', 3: 'C', 4: 'D',
+  5: 'E', 6: 'F', 7: 'G', 8: 'H'
+};
+
 export const ModernHomePage = () => {
   const [quoteModalOpen, setQuoteModalOpen] = useState(false);
   const [brochureModalOpen, setBrochureModalOpen] = useState(false);
   const productScrollRef = useRef(null);
+  const autoScrollRef = useRef(null);
+  const navigate = useNavigate();
 
   const scrollProducts = (direction) => {
     if (productScrollRef.current) {
@@ -40,8 +48,37 @@ export const ModernHomePage = () => {
     }
   };
 
+  const stopAutoScroll = useCallback(() => {
+    if (autoScrollRef.current) {
+      clearInterval(autoScrollRef.current);
+      autoScrollRef.current = null;
+    }
+  }, []);
+
+  const startAutoScroll = useCallback(() => {
+    stopAutoScroll();
+    autoScrollRef.current = setInterval(() => {
+      const el = productScrollRef.current;
+      if (!el) return;
+      const maxScroll = el.scrollWidth - el.clientWidth;
+      if (el.scrollLeft >= maxScroll - 2) {
+        el.scrollTo({ left: 0, behavior: 'smooth' });
+      } else {
+        el.scrollBy({ left: 320, behavior: 'smooth' });
+      }
+    }, 2500);
+  }, [stopAutoScroll]);
+
+  useEffect(() => {
+    startAutoScroll();
+    return () => stopAutoScroll();
+  }, [startAutoScroll, stopAutoScroll]);
+
   const handleEnquireNow = () => setQuoteModalOpen(true);
-  const handleReadMore = () => toast.info('Product details page coming soon!');
+  const handleReadMore = (productId) => {
+    const code = categoryCodeMap[productId];
+    navigate(`/products?category=${code}`);
+  };
   const handleDownloadBrochure = () => setBrochureModalOpen(true);
 
   const [heroRef, heroInView] = useInView({ triggerOnce: true, threshold: 0.1 });
@@ -51,20 +88,68 @@ export const ModernHomePage = () => {
       <Toaster position="top-right" richColors />
       <Header onQuoteClick={() => setQuoteModalOpen(true)} />
 
-      {/* 1. VIDEO SECTION (first after header) */}
+      {/* 1. VIDEO SECTION */}
       <VideoSection />
 
-      {/* 2. TRUST STRIP (between video and hero) */}
+      {/* 2. TRUST STRIP */}
       <TrustStrip />
 
-      {/* 3. HERO SECTION - 50/50 split: Text Left, Image Right */}
+      {/* Product Categories - Mobile only (above hero section) */}
+      <div className="block md:hidden py-10 bg-gradient-to-br from-slate-50 via-white to-blue-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="text-center mb-8">
+            <div className="inline-flex items-center gap-2 bg-hava-red/10 text-hava-red px-4 py-2 rounded-full mb-3 font-bold text-xs uppercase tracking-wider">
+              <div className="w-2 h-2 bg-hava-red rounded-full animate-pulse" />
+              Product Range
+            </div>
+            <h2 className="text-3xl font-black text-charcoal mb-2">
+              Complete <span className="gradient-text">Product Range</span>
+            </h2>
+            <p className="text-base text-gray-600">
+              HAVA offers a complete range of pneumatic rock drilling equipment, demolition tools, accessories, and spare parts.
+            </p>
+          </div>
+          <div
+            className="flex gap-4 overflow-x-auto scrollbar-hide pb-4"
+            style={{ scrollbarWidth: 'none', msOverflowStyle: 'none', WebkitOverflowScrolling: 'touch' }}
+          >
+            {productCategories.map((product) => (
+              <div key={product.id} className="flex-shrink-0 w-[85vw]">
+                <div className="bg-white border border-steel-gray rounded-3xl overflow-hidden shadow-md h-full">
+                  <div className="h-56 overflow-hidden relative bg-gradient-to-br from-slate-100 to-blue-50">
+                    <img src={product.image} alt={product.name} className="w-full h-full object-contain p-4" />
+                  </div>
+                  <CardContent className="p-6">
+                    <h3 className="text-xl font-bold text-charcoal mb-3">{product.name}</h3>
+                    <p className="text-sm text-gray-600 mb-6 line-clamp-3">{product.description}</p>
+                    <div className="flex flex-col gap-3">
+                      <Button onClick={handleEnquireNow} className="w-full bg-gradient-to-r from-hava-red to-hava-red/90 text-white font-semibold shadow-lg">
+                        Enquire Now
+                      </Button>
+                      <div className="flex gap-2">
+                        <Button onClick={() => handleReadMore(product.id)} variant="outline" className="flex-1 border-trust-blue text-trust-blue hover:bg-trust-blue hover:text-white">
+                          Read More
+                        </Button>
+                        <Button onClick={handleDownloadBrochure} variant="outline" className="flex-1 border-steel-gray text-charcoal hover:bg-steel-gray">
+                          <Download className="w-4 h-4 mr-2" />PDF
+                        </Button>
+                      </div>
+                    </div>
+                  </CardContent>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* 3. HERO SECTION */}
       <section ref={heroRef} className="relative py-8 lg:py-12 overflow-hidden bg-gradient-to-br from-slate-50 via-white to-blue-50">
         <AnimatedBackground />
         <div className="absolute inset-0 grid-pattern opacity-20" />
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-            {/* LEFT - Text Content */}
             <motion.div
               initial={{ opacity: 0, x: -50 }}
               animate={heroInView ? { opacity: 1, x: 0 } : {}}
@@ -146,7 +231,6 @@ export const ModernHomePage = () => {
               </motion.div>
             </motion.div>
 
-            {/* RIGHT - HAVA Hero Image */}
             <motion.div
               initial={{ opacity: 0, x: 50, scale: 0.9 }}
               animate={heroInView ? { opacity: 1, x: 0, scale: 1 } : {}}
@@ -154,17 +238,11 @@ export const ModernHomePage = () => {
               className="relative"
             >
               <div className="relative">
-                {/* Decorative glow behind image */}
                 <motion.div
-                  animate={{
-                    scale: [1, 1.1, 1],
-                    opacity: [0.4, 0.6, 0.4]
-                  }}
+                  animate={{ scale: [1, 1.1, 1], opacity: [0.4, 0.6, 0.4] }}
                   transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
                   className="absolute inset-0 bg-gradient-to-br from-hava-red/30 to-accent-orange/30 rounded-3xl blur-3xl"
                 />
-
-                {/* Main image */}
                 <motion.img
                   whileHover={{ scale: 1.02 }}
                   transition={{ duration: 0.4 }}
@@ -173,8 +251,6 @@ export const ModernHomePage = () => {
                   className="relative w-full h-auto rounded-3xl shadow-2xl"
                   data-testid="hero-image"
                 />
-
-                {/* Floating tag - bottom left */}
                 <motion.div
                   animate={{ y: [0, -8, 0] }}
                   transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
@@ -199,8 +275,8 @@ export const ModernHomePage = () => {
       {/* 4. About Us */}
       <AboutSection onCtaClick={() => setQuoteModalOpen(true)} />
 
-      {/* 5. Product Categories */}
-      <section id="products" className="py-10 lg:py-14 relative overflow-hidden bg-gradient-to-br from-slate-50 via-white to-blue-50">
+      {/* 5. Product Categories - Desktop only */}
+      <section id="products" className="hidden md:block py-10 lg:py-14 relative overflow-hidden bg-gradient-to-br from-slate-50 via-white to-blue-50">
         <AnimatedBackground />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -228,7 +304,7 @@ export const ModernHomePage = () => {
               whileHover={{ scale: 1.1, x: -5 }}
               whileTap={{ scale: 0.9 }}
               onClick={() => scrollProducts('left')}
-              className="absolute left-0 top-1/2 -translate-y-1/2 z-20 glass-morphism shadow-2xl rounded-full p-4 hover:bg-white transition-all"
+              className="hidden lg:flex absolute left-0 top-1/2 -translate-y-1/2 z-20 glass-morphism shadow-2xl rounded-full p-4 hover:bg-white transition-all"
               data-testid="products-scroll-left-btn"
             >
               <ChevronLeft className="w-6 h-6 text-trust-blue" />
@@ -238,7 +314,7 @@ export const ModernHomePage = () => {
               whileHover={{ scale: 1.1, x: 5 }}
               whileTap={{ scale: 0.9 }}
               onClick={() => scrollProducts('right')}
-              className="absolute right-0 top-1/2 -translate-y-1/2 z-20 glass-morphism shadow-2xl rounded-full p-4 hover:bg-white transition-all"
+              className="hidden lg:flex absolute right-0 top-1/2 -translate-y-1/2 z-20 glass-morphism shadow-2xl rounded-full p-4 hover:bg-white transition-all"
               data-testid="products-scroll-right-btn"
             >
               <ChevronRight className="w-6 h-6 text-trust-blue" />
@@ -246,8 +322,16 @@ export const ModernHomePage = () => {
 
             <div
               ref={productScrollRef}
-              className="flex gap-6 overflow-x-auto scrollbar-hide px-12 pb-4 snap-x snap-mandatory"
-              style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+              className="flex gap-4 overflow-x-auto scrollbar-hide px-4 lg:px-12 pb-4"
+              style={{
+                scrollbarWidth: 'none',
+                msOverflowStyle: 'none',
+                WebkitOverflowScrolling: 'touch'
+              }}
+              onMouseEnter={stopAutoScroll}
+              onMouseLeave={startAutoScroll}
+              onTouchStart={stopAutoScroll}
+              onTouchEnd={startAutoScroll}
             >
               {productCategories.map((product, index) => (
                 <motion.div
@@ -256,7 +340,7 @@ export const ModernHomePage = () => {
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: index * 0.05 }}
-                  className="flex-shrink-0 w-80 snap-center"
+                  className="flex-shrink-0 w-[85vw] sm:w-80"
                   data-testid={`product-card-${index}`}
                 >
                   <div className="bg-white border border-steel-gray rounded-3xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-500 group h-full">
@@ -284,7 +368,7 @@ export const ModernHomePage = () => {
                         </motion.div>
                         <div className="flex gap-2">
                           <Button
-                            onClick={handleReadMore}
+                            onClick={() => handleReadMore(product.id)}
                             variant="outline"
                             className="flex-1 border-trust-blue text-trust-blue hover:bg-trust-blue hover:text-white"
                           >
@@ -324,10 +408,10 @@ export const ModernHomePage = () => {
       {/* 10. Countries Served */}
       <CountriesSection />
 
-      {/* 11. Testimonials Carousel - 3 per slide */}
+      {/* 11. Testimonials */}
       <TestimonialsCarousel />
 
-      {/* 12. Contact Form (replaces final CTA) */}
+      {/* 12. Contact Form */}
       <ContactFormSection />
 
       <Footer />
