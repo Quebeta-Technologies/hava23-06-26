@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLocation } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import {
   ArrowRight,
   Download,
@@ -18,26 +19,11 @@ import { Button } from '../components/ui/button';
 import { Toaster } from 'sonner';
 import { productsPageData as d } from '../data/pagesData';
 
-const categoryIcons = {
-  A: Drill,
-  B: Zap,
-  C: Wrench,
-  D: Wind,
-  E: Link,
-  F: Layers,
-  G: CircleDot,
-  H: Package,
-};
-
-const trustItems = [
-  { icon: '✅', text: 'ISO 9001:2015 Certified' },
-  { icon: '🇮🇳', text: 'Made in India' },
-  { icon: '🔧', text: 'Atlas Copco Compatible' },
-  { icon: '🌍', text: 'Exported to 20+ Countries' },
-];
+const categoryIcons = { A: Drill, B: Zap, C: Wrench, D: Wind, E: Link, F: Layers, G: CircleDot, H: Package };
+const categoryTransKey = { A: 'categoryA', B: 'categoryB', C: 'categoryC', D: 'categoryD', E: 'categoryE', F: 'categoryF', G: 'categoryG', H: 'categoryH' };
 
 // ─── Generic Product Card ────────────────────────────────────────────────────
-const ProductCard = ({ title, subtitle, image, specs, catCode, onEnquire, badge }) => {
+const ProductCard = ({ title, subtitle, image, specs, catCode, onEnquire, badge, t }) => {
   const Icon = categoryIcons[catCode];
   return (
     <div className="bg-white rounded-2xl border-2 border-steel-gray hover:border-hava-red/40 hover:shadow-xl transition-all overflow-hidden flex flex-col sm:flex-row">
@@ -62,7 +48,7 @@ const ProductCard = ({ title, subtitle, image, specs, catCode, onEnquire, badge 
             {subtitle && <p className="text-xs text-gray-500 mt-0.5">{subtitle}</p>}
           </div>
           <button onClick={onEnquire} className="text-xs font-bold bg-gradient-to-r from-hava-red to-accent-orange text-white px-3 py-1.5 rounded-lg whitespace-nowrap flex-shrink-0 mt-1 hover:opacity-90 transition-opacity">
-            Enquire Now
+            {t('header.primaryCTA')}
           </button>
         </div>
         {specs && specs.length > 0 && (
@@ -92,15 +78,13 @@ const TwoColBlock = ({ items }) => (
 );
 
 // ─── Reusable 3-col Product Row ──────────────────────────────────────────────
-const VideoProductCard = ({ image, imageClass = 'object-cover object-left', title, subtitle, badge, specs, video, onEnquire, specsColumns = 2 }) => (
+const VideoProductCard = ({ image, imageClass = 'object-cover object-left', title, subtitle, badge, specs, video, onEnquire, specsColumns = 2, t }) => (
   <div className="bg-white rounded-2xl border-2 border-steel-gray hover:border-hava-red/40 hover:shadow-xl transition-all overflow-hidden">
     {/* Desktop: fixed height 3-col row */}
     <div className="hidden sm:flex h-[280px]">
-      {/* Image */}
       <div className="w-64 flex-shrink-0 bg-gradient-to-br from-slate-100 to-blue-50 overflow-hidden">
         <img src={image} alt={title} className={`w-full h-full ${imageClass}`} />
       </div>
-      {/* Specs */}
       <div className="flex-1 p-5 flex flex-col min-w-0 overflow-hidden">
         <div className="flex items-start justify-between gap-3 mb-3">
           <div>
@@ -113,7 +97,7 @@ const VideoProductCard = ({ image, imageClass = 'object-cover object-left', titl
             {subtitle && <p className="text-xs text-gray-500 mt-0.5">{subtitle}</p>}
           </div>
           <button onClick={onEnquire} className="text-xs font-bold bg-gradient-to-r from-hava-red to-accent-orange text-white px-3 py-1.5 rounded-lg whitespace-nowrap flex-shrink-0 hover:opacity-90 transition-opacity">
-            Enquire Now
+            {t('header.primaryCTA')}
           </button>
         </div>
         {specs && specs.length > 0 && (
@@ -127,7 +111,6 @@ const VideoProductCard = ({ image, imageClass = 'object-cover object-left', titl
           </div>
         )}
       </div>
-      {/* Video */}
       <div className="w-52 flex-shrink-0 bg-slate-900 border-l-2 border-steel-gray overflow-hidden">
         {video ? (
           <video src={video} className="w-full h-full object-cover" controls />
@@ -159,7 +142,7 @@ const VideoProductCard = ({ image, imageClass = 'object-cover object-left', titl
             {subtitle && <p className="text-xs text-gray-500 mt-0.5">{subtitle}</p>}
           </div>
           <button onClick={onEnquire} className="text-xs font-bold bg-gradient-to-r from-hava-red to-accent-orange text-white px-3 py-1.5 rounded-lg whitespace-nowrap flex-shrink-0 hover:opacity-90 transition-opacity">
-            Enquire Now
+            {t('header.primaryCTA')}
           </button>
         </div>
         {specs && specs.length > 0 && (
@@ -182,26 +165,33 @@ const VideoProductCard = ({ image, imageClass = 'object-cover object-left', titl
   </div>
 );
 
-const CategoryContent = ({ cat, onEnquire }) => {
+const CategoryContent = ({ cat, onEnquire, t }) => {
   const Icon = categoryIcons[cat.code];
+  const tKey = categoryTransKey[cat.code];
 
   const renderProducts = () => {
     if (cat.code === 'A') {
       const images = ['/products/R2DRY.jpeg', '/products/wet.jpeg', '/products/wets.png'];
       const videos = ["/products/Rock Drill T Handle.mp4", "/products/tdrilleditt.mp4", "/products/Rock Drill Spade Handle.mp4"];
+      const headers = ['model', 'type', 'weight', 'impactRate', 'drillingRate', 'airHose', 'waterHose'];
+      const rowTypeKeys = ['dryFlushed', 'wetFlushed', 'wetFlushed'];
       return (
         <div className="space-y-4">
           {cat.table.rows.map((row, ri) => {
-            const specs = cat.table.headers.slice(2).map((h, i) => ({ label: h, value: row[i + 2] }));
+            const specs = headers.slice(2).map((hk) => ({
+              label: t(`productsPage.categoryA.table.headers.${hk}`),
+              value: row[headers.indexOf(hk)],
+            }));
             return (
               <VideoProductCard
                 key={ri}
                 image={images[ri]}
                 title={row[0]}
-                subtitle={row[1]}
+                subtitle={t(`productsPage.categoryA.table.rowLabels.${rowTypeKeys[ri]}`)}
                 specs={specs}
                 video={videos[ri]}
                 onEnquire={onEnquire}
+                t={t}
               />
             );
           })}
@@ -212,29 +202,33 @@ const CategoryContent = ({ cat, onEnquire }) => {
     if (cat.code === 'B') {
       const images = ['/products/bbc.jpeg', '/products/shank.png', '/products/couple.png'];
       const videos = ["/products/Drifter.mp4"];
+      const rowKeys = ['r1', 'r2', 'r3'];
       return (
         <div className="space-y-4">
-          {cat.table.rows.map((row, ri) => {
+          {rowKeys.map((rk, ri) => {
+            const item = t(`productsPage.categoryB.table.rows.${rk}.item`);
+            const detail = t(`productsPage.categoryB.table.rows.${rk}.detail`);
             if (ri === 0) {
-              const specs = row[1]
-                ? row[1].split(' | ').map((spec) => {
+              const specs = detail
+                ? detail.split(' | ').map((spec) => {
                     const [label, value] = spec.split(': ');
                     return { label, value };
                   })
                 : [];
               return (
                 <VideoProductCard
-                  key={ri}
+                  key={rk}
                   image={images[ri]}
-                  title={row[0]}
+                  title={item}
                   specs={specs}
                   video={videos[0]}
                   onEnquire={onEnquire}
+                  t={t}
                 />
               );
             }
             return (
-              <ProductCard key={ri} catCode="B" image={images[ri] || cat.image} title={row[0]} subtitle={row[1]} specs={[]} onEnquire={onEnquire} />
+              <ProductCard key={rk} catCode="B" image={images[ri] || cat.image} title={item} subtitle={detail} specs={[]} onEnquire={onEnquire} t={t} />
             );
           })}
         </div>
@@ -242,160 +236,166 @@ const CategoryContent = ({ cat, onEnquire }) => {
     }
 
     if (cat.code === 'C') {
+      const rowLabelKeys = ['model', 'weight', 'airConsumption', 'pistonDiameter', 'overallLength', 'frequency', 'airHose', 'pressure'];
       const models = [
         {
           title: 'CP-117 / HR-117',
-          subtitle: 'Spring Retainer',
-          badge: 'Spring Retainer',
+          subtitleKey: 'springRetainer',
+          badgeKey: 'springRetainer',
           image: '/products/cp.jpeg',
           brochureUrl: '/assets/Hava Breaker s.pdf',
-          specs: cat.table.rows.map(r => ({ label: r[0], value: r[1] })).filter(s => s.label !== 'Model' && s.label !== 'Operating Pressure'),
-          video: null,
+          col: 'springRetainer',
         },
         {
           title: 'CP-117',
-          subtitle: 'Latch Retainer',
-          badge: 'Latch Retainer',
+          subtitleKey: 'latchRetainer',
+          badgeKey: 'latchRetainer',
           image: '/products/latch.png',
           brochureUrl: '/assets/Hava Pavement Breaker Catalog.pdf',
-          specs: cat.table.rows.map(r => ({ label: r[0], value: r[2] })).filter(s => s.label !== 'Model' && s.label !== 'Operating Pressure'),
-          video: null,
+          col: 'latchRetainer',
         },
       ];
       return (
         <div className="space-y-4">
-          {models.map((m, i) => (
-            <div key={i} className="bg-white rounded-2xl border-2 border-steel-gray hover:border-hava-red/40 hover:shadow-xl transition-all overflow-hidden">
-              {/* Desktop */}
-              <div className="hidden sm:flex h-[280px]">
-                <div className="w-64 flex-shrink-0 bg-gradient-to-br from-slate-100 to-blue-50 overflow-hidden">
-                  <img src={m.image} alt={m.title} className="w-full h-full object-cover object-left" />
-                </div>
-                <div className="flex-1 p-5 flex flex-col min-w-0 overflow-hidden">
-                  <div className="flex items-start justify-between gap-3 mb-3">
-                    <div>
-                      {m.badge && (
+          {models.map((m, i) => {
+            const badge = t(`productsPage.categoryC.table.headers.${m.badgeKey}`);
+            // Spec labels are translated; values come from the raw data rows (matched by position, since row[0] in the
+            // source data is the English label used only as a lookup key, not displayed directly here).
+            const rowLabelKeyByEnglish = {
+              'Weight': 'weight', 'Air Consumption': 'airConsumption', 'Piston Diameter': 'pistonDiameter',
+              'Overall Length': 'overallLength', 'Frequency': 'frequency', 'Air Hose Connection': 'airHose',
+            };
+            const rawSpecs = cat.table.rows
+              .filter((r) => r[0] !== 'Model' && r[0] !== 'Operating Pressure')
+              .map((r) => ({
+                label: t(`productsPage.categoryC.table.rows.${rowLabelKeyByEnglish[r[0]] || 'weight'}`),
+                value: m.col === 'springRetainer' ? r[1] : r[2],
+              }));
+            return (
+              <div key={i} className="bg-white rounded-2xl border-2 border-steel-gray hover:border-hava-red/40 hover:shadow-xl transition-all overflow-hidden">
+                <div className="hidden sm:flex h-[280px]">
+                  <div className="w-64 flex-shrink-0 bg-gradient-to-br from-slate-100 to-blue-50 overflow-hidden">
+                    <img src={m.image} alt={m.title} className="w-full h-full object-cover object-left" />
+                  </div>
+                  <div className="flex-1 p-5 flex flex-col min-w-0 overflow-hidden">
+                    <div className="flex items-start justify-between gap-3 mb-3">
+                      <div>
                         <span className="text-[10px] font-bold bg-trust-blue/10 text-trust-blue border border-trust-blue/20 px-2.5 py-1 rounded-full uppercase tracking-wider mb-1.5 inline-block">
-                          {m.badge}
+                          {badge}
                         </span>
-                      )}
-                      <p className="font-black text-charcoal text-lg leading-tight" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>{m.title}</p>
-                      <p className="text-xs text-gray-500 mt-0.5">{m.subtitle}</p>
-                    </div>
-                    <div className="flex flex-col gap-2 flex-shrink-0">
-                      <button onClick={onEnquire} className="text-xs font-bold bg-gradient-to-r from-hava-red to-accent-orange text-white px-3 py-1.5 rounded-lg whitespace-nowrap hover:opacity-90 transition-opacity">
-                        Enquire Now
-                      </button>
-                      <a
-                        href={m.brochureUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-xs font-bold border-2 border-steel-gray text-charcoal hover:border-hava-red hover:text-hava-red px-3 py-1.5 rounded-lg whitespace-nowrap flex items-center justify-center gap-1 transition-colors"
-                      >
-                        <Download className="w-3 h-3" /> Brochure
-                      </a>
-                    </div>
-                  </div>
-                  <div className="grid grid-cols-3 gap-2">
-                    {m.specs.map((s, si) => (
-                      <div key={si} className="flex flex-col bg-slate-50 border border-steel-gray rounded-lg px-2.5 py-1.5">
-                        <span className="text-[9px] font-bold text-gray-400 uppercase tracking-wider">{s.label}</span>
-                        <span className="text-[11px] font-bold text-charcoal mt-0.5">{s.value}</span>
+                        <p className="font-black text-charcoal text-lg leading-tight" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>{m.title}</p>
+                        <p className="text-xs text-gray-500 mt-0.5">{badge}</p>
                       </div>
-                    ))}
+                      <div className="flex flex-col gap-2 flex-shrink-0">
+                        <button onClick={onEnquire} className="text-xs font-bold bg-gradient-to-r from-hava-red to-accent-orange text-white px-3 py-1.5 rounded-lg whitespace-nowrap hover:opacity-90 transition-opacity">
+                          {t('header.primaryCTA')}
+                        </button>
+                        <a href={m.brochureUrl} target="_blank" rel="noopener noreferrer" className="text-xs font-bold border-2 border-steel-gray text-charcoal hover:border-hava-red hover:text-hava-red px-3 py-1.5 rounded-lg whitespace-nowrap flex items-center justify-center gap-1 transition-colors">
+                          <Download className="w-3 h-3" /> Brochure
+                        </a>
+                      </div>
+                    </div>
+                    <div className="grid grid-cols-3 gap-2">
+                      {rawSpecs.map((s, si) => (
+                        <div key={si} className="flex flex-col bg-slate-50 border border-steel-gray rounded-lg px-2.5 py-1.5">
+                          <span className="text-[9px] font-bold text-gray-400 uppercase tracking-wider">{s.label}</span>
+                          <span className="text-[11px] font-bold text-charcoal mt-0.5">{s.value}</span>
+                        </div>
+                      ))}
+                    </div>
                   </div>
-                </div>
-                <div className="w-52 flex-shrink-0 bg-slate-900 border-l-2 border-steel-gray overflow-hidden">
-                  {m.video ? (
-                    <video src={m.video} className="w-full h-full object-cover" controls />
-                  ) : (
+                  <div className="w-52 flex-shrink-0 bg-slate-900 border-l-2 border-steel-gray overflow-hidden">
                     <div className="w-full h-full flex flex-col items-center justify-center gap-2 text-white/40 p-4 text-center">
                       <div className="w-12 h-12 rounded-full border-2 border-white/20 flex items-center justify-center">
                         <svg viewBox="0 0 24 24" className="w-5 h-5 fill-white/30"><path d="M8 5v14l11-7z" /></svg>
                       </div>
                       <span className="text-[10px] font-bold uppercase tracking-wider">Product Video<br />Coming Soon</span>
                     </div>
-                  )}
+                  </div>
                 </div>
-              </div>
-
-              {/* Mobile */}
-              <div className="flex flex-col sm:hidden">
-                <div className="w-full bg-gradient-to-br from-slate-100 to-blue-50 overflow-hidden" style={{ height: '220px' }}>
-                  <img src={m.image} alt={m.title} className="w-full h-full object-cover object-left" />
-                </div>
-                <div className="p-5 flex flex-col gap-3">
-                  <div className="flex items-start justify-between gap-3">
-                    <div>
-                      {m.badge && (
+                <div className="flex flex-col sm:hidden">
+                  <div className="w-full bg-gradient-to-br from-slate-100 to-blue-50 overflow-hidden" style={{ height: '220px' }}>
+                    <img src={m.image} alt={m.title} className="w-full h-full object-cover object-left" />
+                  </div>
+                  <div className="p-5 flex flex-col gap-3">
+                    <div className="flex items-start justify-between gap-3">
+                      <div>
                         <span className="text-[10px] font-bold bg-trust-blue/10 text-trust-blue border border-trust-blue/20 px-2.5 py-1 rounded-full uppercase tracking-wider mb-1.5 inline-block">
-                          {m.badge}
+                          {badge}
                         </span>
-                      )}
-                      <p className="font-black text-charcoal text-lg leading-tight" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>{m.title}</p>
-                      <p className="text-xs text-gray-500 mt-0.5">{m.subtitle}</p>
-                    </div>
-                    <div className="flex flex-col gap-2 flex-shrink-0">
-                      <button onClick={onEnquire} className="text-xs font-bold bg-gradient-to-r from-hava-red to-accent-orange text-white px-3 py-1.5 rounded-lg whitespace-nowrap hover:opacity-90 transition-opacity">
-                        Enquire Now
-                      </button>
-                      <a
-                        href={m.brochureUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-xs font-bold border-2 border-steel-gray text-charcoal hover:border-hava-red hover:text-hava-red px-3 py-1.5 rounded-lg whitespace-nowrap flex items-center justify-center gap-1 transition-colors"
-                      >
-                        <Download className="w-3 h-3" /> Brochure
-                      </a>
-                    </div>
-                  </div>
-                  <div className="grid grid-cols-3 gap-2">
-                    {m.specs.map((s, si) => (
-                      <div key={si} className="flex flex-col bg-slate-50 border border-steel-gray rounded-lg px-2.5 py-1.5">
-                        <span className="text-[9px] font-bold text-gray-400 uppercase tracking-wider">{s.label}</span>
-                        <span className="text-[11px] font-bold text-charcoal mt-0.5">{s.value}</span>
+                        <p className="font-black text-charcoal text-lg leading-tight" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>{m.title}</p>
+                        <p className="text-xs text-gray-500 mt-0.5">{badge}</p>
                       </div>
-                    ))}
+                      <div className="flex flex-col gap-2 flex-shrink-0">
+                        <button onClick={onEnquire} className="text-xs font-bold bg-gradient-to-r from-hava-red to-accent-orange text-white px-3 py-1.5 rounded-lg whitespace-nowrap hover:opacity-90 transition-opacity">
+                          {t('header.primaryCTA')}
+                        </button>
+                        <a href={m.brochureUrl} target="_blank" rel="noopener noreferrer" className="text-xs font-bold border-2 border-steel-gray text-charcoal hover:border-hava-red hover:text-hava-red px-3 py-1.5 rounded-lg whitespace-nowrap flex items-center justify-center gap-1 transition-colors">
+                          <Download className="w-3 h-3" /> Brochure
+                        </a>
+                      </div>
+                    </div>
+                    <div className="grid grid-cols-3 gap-2">
+                      {rawSpecs.map((s, si) => (
+                        <div key={si} className="flex flex-col bg-slate-50 border border-steel-gray rounded-lg px-2.5 py-1.5">
+                          <span className="text-[9px] font-bold text-gray-400 uppercase tracking-wider">{s.label}</span>
+                          <span className="text-[11px] font-bold text-charcoal mt-0.5">{s.value}</span>
+                        </div>
+                      ))}
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       );
     }
 
     if (cat.code === 'D') {
+      const rowKeys = ['netWeight', 'length', 'lengthExtended', 'extensionLength', 'pistonDiameter'];
+      const specs = rowKeys.map((rk, i) => ({
+        label: t(`productsPage.categoryD.table.rows.${rk}`),
+        value: cat.table.rows[i] ? cat.table.rows[i][1] : '',
+      }));
       return (
         <div className="space-y-4">
           <VideoProductCard
             image="/products/bmk.jpeg"
-            title="BMK62S Air Leg"
+            title={t('productsPage.categoryD.summaryLine')}
             subtitle="Used with RH-656/4W Wet Rock Drill"
-            specs={cat.table.rows.map(r => ({ label: r[0], value: r[1] }))}
+            specs={specs}
             video="/products/pusher.mp4"
             onEnquire={onEnquire}
+            t={t}
           />
         </div>
       );
     }
 
     if (cat.code === 'E') {
-      const products = [
-        { title: 'Airline Lubricator BLG-30', image: '/products/blg.jpeg', specs: [{ label: 'Weight', value: '3 kg (6.6 lb)' }, { label: 'Volume', value: '1.3 ltr (44 oz)' }, { label: 'Air Flow', value: '25–134 l/S (53–284 cfm)' }, { label: 'Placement', value: '3M from drill' }] },
-        { title: 'Clamps', image: '/products/CAMP.jpeg', specs: [{ label: 'Type', value: 'Air line clamp accessories' }] },
-        { title: 'Hose Jointers', image: '/products/HORSE.jpeg', specs: [{ label: 'Type', value: 'Joiner fittings for airline hose connections' }] },
-        { title: 'Hose Pipe', image: '/products/hpipe.png', specs: [{ label: 'Type', value: 'High-pressure airline hose' }] },
-      ];
+      const productKeys = ['e1', 'e3', 'e4', 'e5'];
+      const images = { e1: '/products/blg.jpeg', e3: '/products/CAMP.jpeg', e4: '/products/HORSE.jpeg', e5: '/products/hpipe.png' };
       return (
         <div className="space-y-4">
-          {products.map((p, i) => <ProductCard key={i} catCode="E" image={p.image} title={p.title} specs={p.specs} onEnquire={onEnquire} />)}
+          {productKeys.map((pk) => {
+            const product = t(`productsPage.categoryE.table.rows.${pk}.product`);
+            const detail = t(`productsPage.categoryE.table.rows.${pk}.detail`);
+            const specs = pk === 'e1'
+              ? detail.split(' | ').map((spec) => {
+                  const [label, value] = spec.split(': ');
+                  return { label, value };
+                })
+              : [{ label: 'Detail', value: detail }];
+            return <ProductCard key={pk} catCode="E" image={images[pk]} title={product} specs={specs} onEnquire={onEnquire} t={t} />;
+          })}
         </div>
       );
     }
 
     if (cat.code === 'F') {
-      const items = ['Chisel & Moil Points', 'Integrated Drill Rods', 'Taper Drill Rods', 'R32 / R38 Shank Adapter', 'R32 & R38 Coupling Sleeve', 'R32 Extension Rods'];
+      const itemKeys = ['f1', 'f2', 'f3', 'f4', 'f5', 'f6'];
+      const tagKeys = ['t1', 't2', 't3', 't4'];
       return (
         <div className="bg-white rounded-2xl border-2 border-steel-gray hover:border-hava-red/40 hover:shadow-xl transition-all overflow-hidden flex flex-col sm:flex-row">
           <div className="w-full sm:w-56 lg:w-80 flex-shrink-0 bg-gradient-to-br from-slate-100 to-blue-50 overflow-hidden" style={{ minHeight: '220px' }}>
@@ -403,20 +403,24 @@ const CategoryContent = ({ cat, onEnquire }) => {
           </div>
           <div className="flex-1 p-5 flex flex-col">
             <div className="flex items-start justify-between gap-3 mb-4">
-              <p className="font-black text-charcoal text-lg leading-tight" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>Extension Equipment — Full Range</p>
+              <p className="font-black text-charcoal text-lg leading-tight" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>{cat.name} — Full Range</p>
               <button onClick={onEnquire} className="text-xs font-bold bg-gradient-to-r from-hava-red to-accent-orange text-white px-3 py-1.5 rounded-lg whitespace-nowrap flex-shrink-0 hover:opacity-90 transition-opacity">
-                Enquire Now
+                {t('header.primaryCTA')}
               </button>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-              {items.map((item, i) => (
-                <div key={i} className="flex items-center gap-2 bg-slate-50 border border-steel-gray rounded-xl px-3 py-2.5">
+              {itemKeys.map((ik) => (
+                <div key={ik} className="flex items-center gap-2 bg-slate-50 border border-steel-gray rounded-xl px-3 py-2.5">
                   <div className="w-1.5 h-1.5 bg-hava-red rounded-full flex-shrink-0" />
-                  <span className="text-sm font-bold text-charcoal">{item}</span>
+                  <span className="text-sm font-bold text-charcoal">{t(`productsPage.categoryF.table.rows.${ik}.product`)}</span>
                 </div>
               ))}
             </div>
-            {cat.tags && <div className="flex flex-wrap gap-2 mt-4">{cat.tags.map((tag, i) => <span key={i} className="text-xs font-bold uppercase tracking-wider bg-slate-50 border border-steel-gray text-charcoal px-3 py-1.5 rounded-full">{tag}</span>)}</div>}
+            <div className="flex flex-wrap gap-2 mt-4">
+              {tagKeys.map((tk) => (
+                <span key={tk} className="text-xs font-bold uppercase tracking-wider bg-slate-50 border border-steel-gray text-charcoal px-3 py-1.5 rounded-full">{t(`productsPage.categoryF.tags.${tk}`)}</span>
+              ))}
+            </div>
           </div>
         </div>
       );
@@ -424,26 +428,31 @@ const CategoryContent = ({ cat, onEnquire }) => {
 
     if (cat.code === 'G') {
       const images = ['/products/caribe.jpeg', '/products/r32.png'];
+      const twoColKeys = ['rockDrills', 'drifter'];
       return (
         <div className="space-y-4">
-          {cat.twoCol.map((item, i) => (
-            <div key={i} className="bg-white rounded-2xl border-2 border-steel-gray hover:border-hava-red/40 hover:shadow-xl transition-all overflow-hidden flex flex-col sm:flex-row">
-              <div className="w-full sm:w-44 lg:w-52 flex-shrink-0 bg-gradient-to-br from-slate-100 to-blue-50 overflow-hidden" style={{ minHeight: '220px' }}>
-                <img src={images[i] || cat.image} alt={item.heading} className="w-full h-full object-cover" style={{ minHeight: '220px' }} />
-              </div>
-              <div className="flex-1 p-5 flex flex-col">
-                <div className="flex items-start justify-between gap-3 mb-3">
-                  <p className="font-black text-charcoal text-lg leading-tight" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>{item.heading}</p>
-                  <button onClick={onEnquire} className="text-xs font-bold bg-gradient-to-r from-hava-red to-accent-orange text-white px-3 py-1.5 rounded-lg whitespace-nowrap flex-shrink-0 hover:opacity-90 transition-opacity">
-                    Enquire Now
-                  </button>
+          {twoColKeys.map((tck, i) => {
+            const heading = t(`productsPage.categoryG.twoCol.${tck}.heading`);
+            const text = t(`productsPage.categoryG.twoCol.${tck}.text`);
+            return (
+              <div key={tck} className="bg-white rounded-2xl border-2 border-steel-gray hover:border-hava-red/40 hover:shadow-xl transition-all overflow-hidden flex flex-col sm:flex-row">
+                <div className="w-full sm:w-44 lg:w-52 flex-shrink-0 bg-gradient-to-br from-slate-100 to-blue-50 overflow-hidden" style={{ minHeight: '220px' }}>
+                  <img src={images[i] || cat.image} alt={heading} className="w-full h-full object-cover" style={{ minHeight: '220px' }} />
                 </div>
-                <div className="flex flex-wrap gap-2">
-                  {item.text.split(' / ').map((size, si) => <span key={si} className="text-sm font-bold bg-slate-50 border-2 border-steel-gray text-charcoal px-4 py-2 rounded-xl">{size}</span>)}
+                <div className="flex-1 p-5 flex flex-col">
+                  <div className="flex items-start justify-between gap-3 mb-3">
+                    <p className="font-black text-charcoal text-lg leading-tight" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>{heading}</p>
+                    <button onClick={onEnquire} className="text-xs font-bold bg-gradient-to-r from-hava-red to-accent-orange text-white px-3 py-1.5 rounded-lg whitespace-nowrap flex-shrink-0 hover:opacity-90 transition-opacity">
+                      {t('header.primaryCTA')}
+                    </button>
+                  </div>
+                  <div className="flex flex-wrap gap-2">
+                    {text.split(' / ').map((size, si) => <span key={si} className="text-sm font-bold bg-slate-50 border-2 border-steel-gray text-charcoal px-4 py-2 rounded-xl">{size}</span>)}
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       );
     }
@@ -452,26 +461,21 @@ const CategoryContent = ({ cat, onEnquire }) => {
       const spareCategories = [
         { label: 'Rock Drill Spare Parts', image: '/products/rockd.jpg' },
         { label: 'Pusher Leg Spare Parts', image: '/products/leg.jpg' },
-        { label: 'Drifter Spare Parts',    image: '/products/drift.jpg' },
+        { label: 'Drifter Spare Parts', image: '/products/drift.jpg' },
       ];
+      const whyCardKeys = ['tolerances', 'materials', 'stock', 'downtime', 'life', 'compat'];
       return (
         <>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
             {spareCategories.map((item, i) => (
               <div key={i} className="bg-white rounded-2xl border-2 border-steel-gray hover:border-hava-red/40 hover:shadow-xl transition-all overflow-hidden">
                 <div className="w-full bg-gradient-to-br from-slate-100 to-blue-50 overflow-hidden" style={{ height: '200px' }}>
-                  {item.image ? (
-                    <img src={item.image} alt={item.label} className="w-full h-full object-cover" />
-                  ) : (
-                    <div className="w-full h-full flex items-center justify-center">
-                      <Package className="w-12 h-12 text-hava-red/30" />
-                    </div>
-                  )}
+                  <img src={item.image} alt={item.label} className="w-full h-full object-cover" />
                 </div>
                 <div className="p-4 flex items-center justify-between gap-2">
                   <p className="font-black text-charcoal text-sm leading-tight" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>{item.label}</p>
                   <button onClick={onEnquire} className="text-xs font-bold bg-gradient-to-r from-hava-red to-accent-orange text-white px-3 py-1.5 rounded-lg whitespace-nowrap hover:opacity-90 transition-opacity flex-shrink-0">
-                    Enquire
+                    {t('header.primaryCTA')}
                   </button>
                 </div>
               </div>
@@ -480,14 +484,14 @@ const CategoryContent = ({ cat, onEnquire }) => {
 
           <div className="bg-gradient-to-br from-hava-red/5 to-accent-orange/5 border-l-4 border-hava-red rounded-r-2xl p-5">
             <p className="font-bold text-hava-red text-sm uppercase tracking-wider mb-2">Why Genuine Spares Matter</p>
-            <p className="text-sm text-gray-700 leading-relaxed">{cat.whyGenuine}</p>
+            <p className="text-sm text-gray-700 leading-relaxed">{t('productsPage.categoryH.whyGenuine')}</p>
           </div>
           <p className="font-bold text-accent-orange text-xs uppercase tracking-[2px] mt-6 mb-4">Why Use Genuine HAVA Spare Parts</p>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-            {cat.whyCards.map((c, i) => (
-              <div key={i} className="bg-slate-50 border-l-2 border-hava-red rounded-r-xl p-4">
-                <p className="font-bold text-charcoal text-sm mb-1 uppercase tracking-wide">{c.title}</p>
-                <p className="text-xs text-gray-600 leading-relaxed">{c.text}</p>
+            {whyCardKeys.map((wk) => (
+              <div key={wk} className="bg-slate-50 border-l-2 border-hava-red rounded-r-xl p-4">
+                <p className="font-bold text-charcoal text-sm mb-1 uppercase tracking-wide">{t(`productsPage.categoryH.whyCards.${wk}.title`)}</p>
+                <p className="text-xs text-gray-600 leading-relaxed">{t(`productsPage.categoryH.whyCards.${wk}.text`)}</p>
               </div>
             ))}
           </div>
@@ -497,6 +501,20 @@ const CategoryContent = ({ cat, onEnquire }) => {
 
     return null;
   };
+
+  // twoCol block translation (categories A, B, C, D use twoCol)
+  const twoColMap = {
+    A: ['appDry', 'appWet', 'features'],
+    B: ['applications', 'airSpecs'],
+    C: ['applications', 'features'],
+    D: ['applications', 'features'],
+  };
+  const translatedTwoCol = twoColMap[cat.code]
+    ? twoColMap[cat.code].map((key) => ({
+        heading: t(`productsPage.${tKey}.twoCol.${key}.heading`),
+        text: t(`productsPage.${tKey}.twoCol.${key}.text`),
+      }))
+    : null;
 
   return (
     <motion.div
@@ -513,7 +531,7 @@ const CategoryContent = ({ cat, onEnquire }) => {
             <Icon className="w-5 h-5 text-white" />
           </div>
           <div>
-            <p className="text-xl sm:text-2xl font-black text-charcoal" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>{cat.name}</p>
+            <p className="text-xl sm:text-2xl font-black text-charcoal" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>{t(`productsPage.${tKey}.name`)}</p>
             <div className="w-8 h-1 bg-gradient-to-r from-hava-red to-accent-orange rounded-full mt-1" />
           </div>
         </div>
@@ -531,22 +549,22 @@ const CategoryContent = ({ cat, onEnquire }) => {
         </div>
       </div>
 
-      <p className="text-sm text-gray-600 leading-relaxed mb-4">{cat.description}</p>
+      <p className="text-sm text-gray-600 leading-relaxed mb-4">{t(`productsPage.${tKey}.description`)}</p>
 
       {renderProducts()}
 
-      {cat.twoCol && !['G'].includes(cat.code) && <TwoColBlock items={cat.twoCol} />}
+      {translatedTwoCol && !['G'].includes(cat.code) && <TwoColBlock items={translatedTwoCol} />}
 
-      {cat.note && (
+      {cat.code === 'A' && (
         <div className="mt-4 bg-accent-orange/5 border-l-4 border-accent-orange rounded-r-xl p-4 flex items-start gap-3">
           <AlertCircle className="w-4 h-4 text-accent-orange flex-shrink-0 mt-0.5" />
-          <p className="text-sm text-gray-700"><strong className="text-charcoal">Note:</strong> {cat.note}</p>
+          <p className="text-sm text-gray-700"><strong className="text-charcoal">Note:</strong> {t('productsPage.categoryA.note')}</p>
         </div>
       )}
-      {cat.criticalNote && (
+      {cat.code === 'E' && (
         <div className="mt-4 bg-hava-red/5 border-l-4 border-hava-red rounded-r-xl p-4 flex items-start gap-3">
           <AlertCircle className="w-4 h-4 text-hava-red flex-shrink-0 mt-0.5" />
-          <p className="text-sm text-gray-700"><strong className="text-hava-red uppercase tracking-wider">Critical:</strong> {cat.criticalNote}</p>
+          <p className="text-sm text-gray-700"><strong className="text-hava-red uppercase tracking-wider">Critical:</strong> {t('productsPage.categoryE.criticalNote')}</p>
         </div>
       )}
     </motion.div>
@@ -555,12 +573,20 @@ const CategoryContent = ({ cat, onEnquire }) => {
 
 // ─── Main Page ───────────────────────────────────────────────────────────────
 export const ProductsPage = () => {
+  const { t } = useTranslation();
   const [quoteModalOpen, setQuoteModalOpen] = useState(false);
   const [activeCategory, setActiveCategory] = useState('A');
   const [mobileSidebarOpen, setMobileSidebarOpen] = useState(false);
   const location = useLocation();
   const handleEnquire = () => setQuoteModalOpen(true);
   const activeCat = d.categories.find(c => c.code === activeCategory);
+
+  const trustItems = [
+    { icon: '✅', text: t('header.topBar.certification') },
+    { icon: '🇮🇳', text: t('productsPage.categoryF.tags.t1', 'Made in India') },
+    { icon: '🔧', text: t('whyHava.floatingTags.directManufacturer') },
+    { icon: '🌍', text: t('whyHava.floatingTags.countries') },
+  ];
 
   useEffect(() => {
     const params = new URLSearchParams(location.search);
@@ -595,14 +621,13 @@ export const ProductsPage = () => {
             <div className="flex-1 min-w-0">
               <div className="inline-flex items-center gap-2 bg-white border border-steel-gray rounded-full px-4 py-2 mb-4 shadow-sm">
                 <span className="text-accent-orange text-sm">✦</span>
-                <span className="text-xs font-bold uppercase tracking-[2px] text-charcoal">{d.hero.label}</span>
+                <span className="text-xs font-bold uppercase tracking-[2px] text-charcoal">{t('productsPage.hero.label')}</span>
                 <span className="w-2 h-2 bg-accent-orange rounded-full" />
               </div>
               <h1 className="text-3xl lg:text-5xl font-black text-charcoal leading-tight mb-4" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
-                Complete Rock Drilling Solutions for{' '}
-                <span className="gradient-text">Mining, Quarrying & Construction</span>
+                {t('productsPage.hero.heading')}
               </h1>
-              <p className="text-base text-gray-600 leading-relaxed max-w-xl">{d.hero.body}</p>
+              <p className="text-base text-gray-600 leading-relaxed max-w-xl">{t('productsPage.hero.body')}</p>
             </div>
 
             <div className="flex-shrink-0 w-full lg:w-80 flex flex-col gap-4">
@@ -646,7 +671,7 @@ export const ProductsPage = () => {
         >
           <span className="flex items-center gap-3">
             {activeCat && (() => { const Icon = categoryIcons[activeCat.code]; return <Icon className="w-5 h-5 text-accent-orange" />; })()}
-            {activeCat?.name}
+            {activeCat && t(`productsPage.${categoryTransKey[activeCat.code]}.name`)}
           </span>
           {mobileSidebarOpen ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
         </button>
@@ -673,7 +698,7 @@ export const ProductsPage = () => {
                     }`}>
                       <Icon className="w-4 h-4 text-white" />
                     </div>
-                    <span className="text-sm font-bold">{cat.name}</span>
+                    <span className="text-sm font-bold">{t(`productsPage.${categoryTransKey[cat.code]}.name`)}</span>
                   </button>
                 );
               })}
@@ -711,14 +736,14 @@ export const ProductsPage = () => {
                         }`}>
                           <Icon className="w-4 h-4 text-white" />
                         </div>
-                        <span className={`text-sm font-bold transition-colors ${activeCategory === cat.code ? 'text-hava-red' : 'text-charcoal group-hover:text-hava-red'}`}>{cat.name}</span>
+                        <span className={`text-sm font-bold transition-colors ${activeCategory === cat.code ? 'text-hava-red' : 'text-charcoal group-hover:text-hava-red'}`}>{t(`productsPage.${categoryTransKey[cat.code]}.name`)}</span>
                       </button>
                     );
                   })}
                 </div>
                 <div className="p-3 border-t border-steel-gray bg-slate-50">
                   <Button onClick={handleEnquire} className="w-full bg-gradient-to-r from-hava-red to-accent-orange text-white text-xs font-bold rounded-xl group">
-                    Get a Quote <ArrowRight className="w-3 h-3 ml-1 group-hover:translate-x-1 transition-transform" />
+                    {t('hero.primaryCTA')} <ArrowRight className="w-3 h-3 ml-1 group-hover:translate-x-1 transition-transform" />
                   </Button>
                 </div>
               </div>
@@ -727,7 +752,7 @@ export const ProductsPage = () => {
             {/* RIGHT CONTENT */}
             <div id="product-detail" className="flex-1 min-w-0 scroll-mt-28">
               <AnimatePresence mode="wait">
-                {activeCat && <CategoryContent cat={activeCat} onEnquire={handleEnquire} />}
+                {activeCat && <CategoryContent cat={activeCat} onEnquire={handleEnquire} t={t} />}
               </AnimatePresence>
 
               {activeCat && (
@@ -755,9 +780,9 @@ export const ProductsPage = () => {
         <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }}>
             <p className="text-2xl lg:text-4xl font-black text-white mb-3">
-              Not Sure Which Product <span className="gradient-text">Suits Your Application?</span>
+              {t('productsPage.finalCta.title')}
             </p>
-            <p className="text-base text-white/70 mb-6 max-w-2xl mx-auto">{d.finalCta.body}</p>
+            <p className="text-base text-white/70 mb-6 max-w-2xl mx-auto">{t('productsPage.finalCta.body')}</p>
             <div className="flex flex-wrap gap-3 justify-center">
               <Button onClick={() => setQuoteModalOpen(true)} className="bg-gradient-to-r from-hava-red to-hava-red/90 text-white font-bold px-6 py-3 rounded-xl group">
                 Speak With Our Team <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
