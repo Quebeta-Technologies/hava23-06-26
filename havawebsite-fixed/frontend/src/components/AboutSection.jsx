@@ -1,10 +1,13 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Sparkles } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import { Button } from './ui/button';
 import { aboutData } from '../data/mock';
 
 export const AboutSection = ({ onCtaClick }) => {
+  const { t } = useTranslation();
+
   return (
     <section className="relative py-12 lg:py-16 overflow-hidden bg-white">
       {/* Decorative shapes */}
@@ -48,8 +51,8 @@ export const AboutSection = ({ onCtaClick }) => {
                     <Sparkles className="w-6 h-6 text-white" />
                   </div>
                   <div>
-                    <div className="text-2xl font-black text-charcoal">25,000+</div>
-                    <div className="text-xs text-gray-600 uppercase tracking-wider">Sq. Ft. Facility</div>
+                    <div className="text-2xl font-black text-charcoal">{t('video.badges.facility.label')}</div>
+                    <div className="text-xs text-gray-600 uppercase tracking-wider">{t('video.badges.facility.sublabel')}</div>
                   </div>
                 </div>
               </motion.div>
@@ -69,34 +72,34 @@ export const AboutSection = ({ onCtaClick }) => {
             {/* Badge */}
             <div className="inline-flex items-center gap-2 bg-hava-red/10 text-hava-red px-4 py-2 rounded-full mb-6 font-bold text-sm uppercase tracking-wider">
               <div className="w-2 h-2 bg-hava-red rounded-full animate-pulse" />
-              {aboutData.badge}
+              {t('about.badge')}
             </div>
 
             <h2 className="text-4xl lg:text-5xl font-black text-charcoal mb-6 leading-tight">
-              Engineering <span className="gradient-text">Excellence</span> Since Inception
+              {t('about.heading')}
             </h2>
 
             <p className="text-lg text-gray-700 leading-relaxed mb-6">
-              {aboutData.intro}
+              {t('about.intro')}
             </p>
 
             <p className="text-base text-gray-600 leading-relaxed mb-8">
-              {aboutData.description}
+              {t('about.description')}
             </p>
 
             {/* Highlights Grid */}
             <div className="grid grid-cols-2 gap-4 mb-8">
-              {aboutData.highlights.map((item, index) => (
+              {['heritage', 'direct', 'industries', 'quality'].map((key, index) => (
                 <motion.div
-                  key={index}
+                  key={key}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: index * 0.1 + 0.3 }}
                   className="border-l-4 border-hava-red pl-4 py-2"
                 >
-                  <div className="text-2xl font-black text-charcoal">{item.value}</div>
-                  <div className="text-sm text-gray-600">{item.label}</div>
+                  <div className="text-2xl font-black text-charcoal">{t(`about.highlights.${key}.value`)}</div>
+                  <div className="text-sm text-gray-600">{t(`about.highlights.${key}.label`)}</div>
                 </motion.div>
               ))}
             </div>
@@ -108,7 +111,7 @@ export const AboutSection = ({ onCtaClick }) => {
                 className="bg-gradient-to-r from-hava-red to-hava-red/90 hover:from-hava-red/90 hover:to-hava-red text-white font-bold px-8 py-6 text-base shadow-xl rounded-2xl group"
                 data-testid="about-cta-btn"
               >
-                {aboutData.cta}
+                {t('about.cta')}
                 <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </Button>
             </motion.div>
