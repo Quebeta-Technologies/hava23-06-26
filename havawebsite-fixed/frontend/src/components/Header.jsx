@@ -89,22 +89,29 @@ const LanguageSwitcher = ({ variant = 'desktop' }) => {
 };
 
 export const Header = ({ onQuoteClick }) => {
+  const { t } = useTranslation();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [mobileAboutOpen, setMobileAboutOpen] = useState(false);
   const location = useLocation();
 
-  const navigation = headerData.navigation.map((item) => {
-    if (item.path === '/about') {
-      return {
-        ...item,
-        submenu: [
-          { name: 'Company Overview', path: '/about' },
-          { name: 'Infra & Quality', path: '/infra-quality' },
-        ],
-      };
-    }
-    return item;
-  });
+  // Navigation built from translation keys, paths kept from mock.js
+  const navigation = [
+    { name: t('header.nav.home'), path: '/' },
+    { name: t('header.nav.whyHava'), path: '/why-hava' },
+    {
+      name: t('header.nav.aboutUs'),
+      path: '/about',
+      submenu: [
+        { name: t('header.nav.aboutUs'), path: '/about' },
+        { name: 'Infra & Quality', path: '/infra-quality' },
+      ],
+    },
+    { name: t('header.nav.products'), path: '/products' },
+    { name: t('header.nav.services'), path: '/services' },
+    { name: t('header.nav.dealers'), path: '/dealers' },
+    { name: t('header.nav.gallery'), path: '/gallery' },
+    { name: t('header.nav.contact'), path: '/contact' },
+  ];
 
   const isActive = (path) => location.pathname === path;
   const isAboutActive = (item) =>
@@ -116,17 +123,17 @@ export const Header = ({ onQuoteClick }) => {
       <div className="hidden lg:block bg-trust-blue text-white py-2">
         <div className="w-full px-4 sm:px-6 lg:px-8">
           <div className="flex flex-wrap items-center justify-between text-xs sm:text-sm">
-            <span className="font-medium">{headerData.topBar.certification}</span>
+            <span className="font-medium">{t('header.topBar.certification')}</span>
             <div className="flex items-center gap-4">
               <span className="flex items-center gap-1">
                 <Mail className="w-3 h-3" />
-                {headerData.topBar.location}
+                {t('header.topBar.location')}
               </span>
               <button
                 onClick={onQuoteClick}
                 className="text-accent-orange font-semibold hover:underline cursor-pointer"
               >
-                {headerData.topBar.exportText}
+                {t('header.topBar.exportText')}
               </button>
               <a href="/assets/Draft_Annual_Return.pdf" target="_blank" rel="noopener noreferrer">
                 <Button className="bg-white text-trust-blue hover:bg-gray-100 font-semibold px-4 py-1 text-xs shadow h-auto">
@@ -159,7 +166,7 @@ export const Header = ({ onQuoteClick }) => {
               {navigation.map((item) => {
                 if (item.submenu) {
                   return (
-                    <div key={item.name} className="relative group">
+                    <div key={item.path} className="relative group">
                       <button
                         type="button"
                         className={`flex items-center gap-1 px-3 py-2 text-sm font-medium transition-colors ${
@@ -191,7 +198,7 @@ export const Header = ({ onQuoteClick }) => {
                 }
                 return (
                   <Link
-                    key={item.name}
+                    key={item.path}
                     to={item.path}
                     className={`px-3 py-2 text-sm font-medium transition-colors ${
                       isActive(item.path) ? 'text-hava-red' : 'text-charcoal hover:text-trust-blue'
@@ -209,7 +216,7 @@ export const Header = ({ onQuoteClick }) => {
                 onClick={onQuoteClick}
                 className="bg-hava-red hover:bg-hava-red/90 text-white font-semibold px-6 py-2 shadow-lg"
               >
-                {headerData.primaryCTA}
+                {t('header.primaryCTA')}
               </Button>
             </div>
 
@@ -258,7 +265,7 @@ export const Header = ({ onQuoteClick }) => {
           {navigation.map((item) => {
             if (item.submenu) {
               return (
-                <div key={item.name}>
+                <div key={item.path}>
                   <button
                     type="button"
                     onClick={() => setMobileAboutOpen(!mobileAboutOpen)}
@@ -292,7 +299,7 @@ export const Header = ({ onQuoteClick }) => {
             }
             return (
               <Link
-                key={item.name}
+                key={item.path}
                 to={item.path}
                 className={`block px-3 py-2.5 text-base font-medium transition-colors rounded-lg ${
                   isActive(item.path) ? 'text-hava-red bg-hava-red/5' : 'text-charcoal hover:text-trust-blue hover:bg-gray-50'
@@ -322,7 +329,7 @@ export const Header = ({ onQuoteClick }) => {
             }}
             className="w-full bg-hava-red hover:bg-hava-red/90 text-white font-semibold"
           >
-            {headerData.primaryCTA}
+            {t('header.primaryCTA')}
           </Button>
         </div>
       </div>

@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect, useCallback } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { ChevronLeft, ChevronRight, Download, ArrowRight, Sparkles, Award } from 'lucide-react';
 import { Button } from '../components/ui/button';
 import { CardContent } from '../components/ui/card';
@@ -21,7 +22,6 @@ import { TestimonialsCarousel } from '../components/TestimonialsCarousel';
 import { ContactFormSection } from '../components/ContactFormSection';
 import { toast, Toaster } from 'sonner';
 import {
-  heroData,
   heroImage,
   productCategories,
 } from '../data/mock';
@@ -31,7 +31,20 @@ const categoryCodeMap = {
   5: 'E', 6: 'F', 7: 'G', 8: 'H'
 };
 
+// Maps mock.js product id -> translation key in productCategories.*
+const categoryKeyMap = {
+  1: 'rockDrills',
+  2: 'drifter',
+  3: 'pavementBreakers',
+  4: 'pusherLeg',
+  5: 'airlineAccessories',
+  6: 'extensionEquipment',
+  7: 'buttonBits',
+  8: 'spareParts',
+};
+
 export const ModernHomePage = () => {
+  const { t } = useTranslation();
   const [quoteModalOpen, setQuoteModalOpen] = useState(false);
   const [brochureModalOpen, setBrochureModalOpen] = useState(false);
   const productScrollRef = useRef(null);
@@ -100,45 +113,48 @@ export const ModernHomePage = () => {
           <div className="text-center mb-8">
             <div className="inline-flex items-center gap-2 bg-hava-red/10 text-hava-red px-4 py-2 rounded-full mb-3 font-bold text-xs uppercase tracking-wider">
               <div className="w-2 h-2 bg-hava-red rounded-full animate-pulse" />
-              Product Range
+              {t('home.productRange.badge', 'Product Range')}
             </div>
             <h2 className="text-3xl font-black text-charcoal mb-2">
-              Complete <span className="gradient-text">Product Range</span>
+              {t('home.productRange.headingPrefix', 'Complete')} <span className="gradient-text">{t('home.productRange.headingHighlight', 'Product Range')}</span>
             </h2>
             <p className="text-base text-gray-600">
-              HAVA offers a complete range of pneumatic rock drilling equipment, demolition tools, accessories, and spare parts.
+              {t('home.productRange.intro', 'HAVA offers a complete range of pneumatic rock drilling equipment, demolition tools, accessories, and spare parts.')}
             </p>
           </div>
           <div
             className="flex gap-4 overflow-x-auto scrollbar-hide pb-4"
             style={{ scrollbarWidth: 'none', msOverflowStyle: 'none', WebkitOverflowScrolling: 'touch' }}
           >
-            {productCategories.map((product) => (
-              <div key={product.id} className="flex-shrink-0 w-[85vw]">
-                <div className="bg-white border border-steel-gray rounded-3xl overflow-hidden shadow-md h-full">
-                  <div className="h-56 overflow-hidden relative bg-gradient-to-br from-slate-100 to-blue-50">
-                    <img src={product.image} alt={product.name} className="w-full h-full object-contain p-4" />
-                  </div>
-                  <CardContent className="p-6">
-                    <h3 className="text-xl font-bold text-charcoal mb-3">{product.name}</h3>
-                    <p className="text-sm text-gray-600 mb-6 line-clamp-3">{product.description}</p>
-                    <div className="flex flex-col gap-3">
-                      <Button onClick={handleEnquireNow} className="w-full bg-gradient-to-r from-hava-red to-hava-red/90 text-white font-semibold shadow-lg">
-                        Enquire Now
-                      </Button>
-                      <div className="flex gap-2">
-                        <Button onClick={() => handleReadMore(product.id)} variant="outline" className="flex-1 border-trust-blue text-trust-blue hover:bg-trust-blue hover:text-white">
-                          Read More
-                        </Button>
-                        <Button onClick={handleDownloadBrochure} variant="outline" className="flex-1 border-steel-gray text-charcoal hover:bg-steel-gray">
-                          <Download className="w-4 h-4 mr-2" />PDF
-                        </Button>
-                      </div>
+            {productCategories.map((product) => {
+              const key = categoryKeyMap[product.id];
+              return (
+                <div key={product.id} className="flex-shrink-0 w-[85vw]">
+                  <div className="bg-white border border-steel-gray rounded-3xl overflow-hidden shadow-md h-full">
+                    <div className="h-56 overflow-hidden relative bg-gradient-to-br from-slate-100 to-blue-50">
+                      <img src={product.image} alt={t(`productCategories.${key}.name`)} className="w-full h-full object-contain p-4" />
                     </div>
-                  </CardContent>
+                    <CardContent className="p-6">
+                      <h3 className="text-xl font-bold text-charcoal mb-3">{t(`productCategories.${key}.name`)}</h3>
+                      <p className="text-sm text-gray-600 mb-6 line-clamp-3">{t(`productCategories.${key}.description`)}</p>
+                      <div className="flex flex-col gap-3">
+                        <Button onClick={handleEnquireNow} className="w-full bg-gradient-to-r from-hava-red to-hava-red/90 text-white font-semibold shadow-lg">
+                          {t('header.primaryCTA')}
+                        </Button>
+                        <div className="flex gap-2">
+                          <Button onClick={() => handleReadMore(product.id)} variant="outline" className="flex-1 border-trust-blue text-trust-blue hover:bg-trust-blue hover:text-white">
+                            {t('home.readMore', 'Read More')}
+                          </Button>
+                          <Button onClick={handleDownloadBrochure} variant="outline" className="flex-1 border-steel-gray text-charcoal hover:bg-steel-gray">
+                            <Download className="w-4 h-4 mr-2" />PDF
+                          </Button>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </div>
@@ -163,7 +179,7 @@ export const ModernHomePage = () => {
               >
                 <div className="glass-morphism px-5 py-2.5 rounded-full inline-flex items-center gap-2 border-2 border-white/40 shadow-xl">
                   <Sparkles className="w-4 h-4 text-accent-orange" />
-                  <span className="text-xs font-bold text-trust-blue">ISO 9001:2015 Certified Manufacturer</span>
+                  <span className="text-xs font-bold text-trust-blue">{t('header.topBar.certification')}</span>
                   <div className="w-2 h-2 bg-accent-orange rounded-full animate-pulse" />
                 </div>
               </motion.div>
@@ -174,11 +190,11 @@ export const ModernHomePage = () => {
                 transition={{ duration: 0.8, delay: 0.2 }}
                 className="text-4xl sm:text-5xl lg:text-6xl font-black text-charcoal mb-5 leading-[1.05]"
               >
-                <span className="block">Your Progressive</span>
+                <span className="block">{t('home.hero.lineOne', 'Your Progressive')}</span>
                 <span className="gradient-text block animate-gradient bg-gradient-to-r from-hava-red via-accent-orange to-hava-red bg-[length:200%_auto]">
-                  Mining & Rock Drilling
+                  {t('home.hero.lineTwo', 'Mining & Rock Drilling')}
                 </span>
-                <span className="block">Partner</span>
+                <span className="block">{t('home.hero.lineThree', 'Partner')}</span>
               </motion.h1>
 
               <motion.p
@@ -187,7 +203,7 @@ export const ModernHomePage = () => {
                 transition={{ duration: 0.8, delay: 0.4 }}
                 className="text-base lg:text-lg text-gray-700 mb-4 leading-relaxed"
               >
-                {heroData.subheadline}
+                {t('hero.subheadline')}
               </motion.p>
 
               <motion.p
@@ -196,7 +212,7 @@ export const ModernHomePage = () => {
                 transition={{ duration: 0.8, delay: 0.5 }}
                 className="text-sm text-gray-600 mb-8"
               >
-                {heroData.supportCopy}
+                {t('hero.supportCopy')}
               </motion.p>
 
               <motion.div
@@ -212,7 +228,7 @@ export const ModernHomePage = () => {
                     data-testid="hero-get-quote-btn"
                   >
                     <span className="relative z-10 flex items-center justify-center gap-2">
-                      {heroData.primaryCTA}
+                      {t('hero.primaryCTA')}
                       <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                     </span>
                     <div className="absolute inset-0 shimmer" />
@@ -225,7 +241,7 @@ export const ModernHomePage = () => {
                     className="glass-morphism border-2 border-trust-blue/50 text-trust-blue hover:bg-trust-blue hover:text-white font-bold px-8 py-6 text-base rounded-xl shadow-lg backdrop-blur-xl w-full sm:w-auto"
                     data-testid="hero-explore-products-btn"
                   >
-                    {heroData.secondaryCTA}
+                    {t('hero.secondaryCTA')}
                   </Button>
                 </motion.div>
               </motion.div>
@@ -261,8 +277,8 @@ export const ModernHomePage = () => {
                       <Award className="w-5 h-5 text-white" />
                     </div>
                     <div>
-                      <div className="text-sm font-black text-charcoal">25,000+</div>
-                      <div className="text-[10px] text-gray-500 uppercase tracking-wider">Sq. Ft. Facility</div>
+                      <div className="text-sm font-black text-charcoal">{t('video.badges.facility.label')}</div>
+                      <div className="text-[10px] text-gray-500 uppercase tracking-wider">{t('video.badges.facility.sublabel')}</div>
                     </div>
                   </div>
                 </motion.div>
@@ -289,13 +305,13 @@ export const ModernHomePage = () => {
           >
             <div className="inline-flex items-center gap-2 bg-hava-red/10 text-hava-red px-4 py-2 rounded-full mb-3 font-bold text-xs uppercase tracking-wider">
               <div className="w-2 h-2 bg-hava-red rounded-full animate-pulse" />
-              Product Range
+              {t('home.productRange.badge', 'Product Range')}
             </div>
             <h2 className="text-3xl lg:text-4xl font-black text-charcoal mb-2">
-              Complete <span className="gradient-text">Product Range</span>
+              {t('home.productRange.headingPrefix', 'Complete')} <span className="gradient-text">{t('home.productRange.headingHighlight', 'Product Range')}</span>
             </h2>
             <p className="text-base text-gray-600 max-w-3xl mx-auto">
-              HAVA offers a complete range of pneumatic rock drilling equipment, demolition tools, accessories, and spare parts.
+              {t('home.productRange.intro', 'HAVA offers a complete range of pneumatic rock drilling equipment, demolition tools, accessories, and spare parts.')}
             </p>
           </motion.div>
 
@@ -333,61 +349,64 @@ export const ModernHomePage = () => {
               onTouchStart={stopAutoScroll}
               onTouchEnd={startAutoScroll}
             >
-              {productCategories.map((product, index) => (
-                <motion.div
-                  key={product.id}
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.05 }}
-                  className="flex-shrink-0 w-[85vw] sm:w-80"
-                  data-testid={`product-card-${index}`}
-                >
-                  <div className="bg-white border border-steel-gray rounded-3xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-500 group h-full">
-                    <div className="h-56 overflow-hidden relative bg-gradient-to-br from-slate-100 to-blue-50">
-                      <motion.img
-                        whileHover={{ scale: 1.1 }}
-                        transition={{ duration: 0.4 }}
-                        src={product.image}
-                        alt={product.name}
-                        className="w-full h-full object-contain p-4"
-                      />
-                    </div>
-                    <CardContent className="p-6">
-                      <h3 className="text-xl font-bold text-charcoal mb-3 group-hover:text-hava-red transition-colors">{product.name}</h3>
-                      <p className="text-sm text-gray-600 mb-6 line-clamp-3">{product.description}</p>
-                      <div className="flex flex-col gap-3">
-                        <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
-                          <Button
-                            onClick={handleEnquireNow}
-                            className="w-full bg-gradient-to-r from-hava-red to-hava-red/90 hover:from-hava-red/90 hover:to-hava-red text-white font-semibold shadow-lg"
-                            data-testid={`product-enquire-btn-${index}`}
-                          >
-                            Enquire Now
-                          </Button>
-                        </motion.div>
-                        <div className="flex gap-2">
-                          <Button
-                            onClick={() => handleReadMore(product.id)}
-                            variant="outline"
-                            className="flex-1 border-trust-blue text-trust-blue hover:bg-trust-blue hover:text-white"
-                          >
-                            Read More
-                          </Button>
-                          <Button
-                            onClick={handleDownloadBrochure}
-                            variant="outline"
-                            className="flex-1 border-steel-gray text-charcoal hover:bg-steel-gray"
-                          >
-                            <Download className="w-4 h-4 mr-2" />
-                            PDF
-                          </Button>
-                        </div>
+              {productCategories.map((product, index) => {
+                const key = categoryKeyMap[product.id];
+                return (
+                  <motion.div
+                    key={product.id}
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: index * 0.05 }}
+                    className="flex-shrink-0 w-[85vw] sm:w-80"
+                    data-testid={`product-card-${index}`}
+                  >
+                    <div className="bg-white border border-steel-gray rounded-3xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-500 group h-full">
+                      <div className="h-56 overflow-hidden relative bg-gradient-to-br from-slate-100 to-blue-50">
+                        <motion.img
+                          whileHover={{ scale: 1.1 }}
+                          transition={{ duration: 0.4 }}
+                          src={product.image}
+                          alt={t(`productCategories.${key}.name`)}
+                          className="w-full h-full object-contain p-4"
+                        />
                       </div>
-                    </CardContent>
-                  </div>
-                </motion.div>
-              ))}
+                      <CardContent className="p-6">
+                        <h3 className="text-xl font-bold text-charcoal mb-3 group-hover:text-hava-red transition-colors">{t(`productCategories.${key}.name`)}</h3>
+                        <p className="text-sm text-gray-600 mb-6 line-clamp-3">{t(`productCategories.${key}.description`)}</p>
+                        <div className="flex flex-col gap-3">
+                          <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+                            <Button
+                              onClick={handleEnquireNow}
+                              className="w-full bg-gradient-to-r from-hava-red to-hava-red/90 hover:from-hava-red/90 hover:to-hava-red text-white font-semibold shadow-lg"
+                              data-testid={`product-enquire-btn-${index}`}
+                            >
+                              {t('header.primaryCTA')}
+                            </Button>
+                          </motion.div>
+                          <div className="flex gap-2">
+                            <Button
+                              onClick={() => handleReadMore(product.id)}
+                              variant="outline"
+                              className="flex-1 border-trust-blue text-trust-blue hover:bg-trust-blue hover:text-white"
+                            >
+                              {t('home.readMore', 'Read More')}
+                            </Button>
+                            <Button
+                              onClick={handleDownloadBrochure}
+                              variant="outline"
+                              className="flex-1 border-steel-gray text-charcoal hover:bg-steel-gray"
+                            >
+                              <Download className="w-4 h-4 mr-2" />
+                              PDF
+                            </Button>
+                          </div>
+                        </div>
+                      </CardContent>
+                    </div>
+                  </motion.div>
+                );
+              })}
             </div>
           </div>
         </div>

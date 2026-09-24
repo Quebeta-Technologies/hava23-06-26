@@ -9,9 +9,34 @@ import {
   Heart,
 } from 'lucide-react';
 import { motion } from 'framer-motion';
-import { footerData } from '../data/mock';
+import { useTranslation } from 'react-i18next';
+import { footerData, headerData } from '../data/mock';
 
 export const Footer = () => {
+  const { t } = useTranslation();
+
+  const quickLinks = [
+    { name: t('header.nav.home'), path: '/' },
+    { name: t('header.nav.whyHava'), path: '/why-hava' },
+    { name: t('header.nav.aboutUs'), path: '/about' },
+    { name: t('header.nav.products'), path: '/products' },
+    { name: t('header.nav.services'), path: '/services' },
+    { name: t('header.nav.dealers'), path: '/DealersPage' },
+    { name: t('header.nav.gallery'), path: '/gallery' },
+    { name: t('header.nav.contact'), path: '/contact' },
+  ];
+
+  const productCategoryKeys = [
+    'rockDrills',
+    'drifter',
+    'pavementBreakers',
+    'pusherLeg',
+    'airlineAccessories',
+    'extensionEquipment',
+    'buttonBits',
+    'spareParts',
+  ];
+
   return (
     <footer className="bg-white">
       {/* Location & Map Section */}
@@ -39,18 +64,18 @@ export const Footer = () => {
                     fontFamily: 'Space Grotesk, sans-serif',
                   }}
                 >
-                  Visit Our Facility
+                  {t('footer.visitFacility', 'Visit Our Facility')}
                 </h3>
               </div>
 
               <div className="space-y-3">
                 <div>
                   <h4 className="text-accent-orange text-xs font-bold uppercase tracking-wider mb-2">
-                    {footerData.contact.company}
+                    {t('footer.contact.company')}
                   </h4>
 
                   <p className="text-gray-600 text-sm leading-relaxed">
-                    {footerData.contact.address}
+                    {t('footer.contact.address')}
                   </p>
                 </div>
 
@@ -62,7 +87,7 @@ export const Footer = () => {
                   className="inline-flex items-center gap-2 text-hava-red hover:text-accent-orange font-semibold text-sm group transition-colors"
                   data-testid="footer-get-directions-link"
                 >
-                  Get Directions
+                  {t('footer.getDirections', 'Get Directions')}
                   <ExternalLink className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </a>
               </div>
@@ -96,7 +121,7 @@ export const Footer = () => {
                 <div className="flex items-center gap-3 text-gray-600">
                   <Clock className="w-4 h-4 shrink-0" />
                   <span className="text-sm">
-                    {footerData.contact.hours}
+                    {t('footer.contact.hours')}
                   </span>
                 </div>
               </div>
@@ -139,7 +164,7 @@ export const Footer = () => {
             </div>
 
             <p className="text-gray-600 text-sm leading-relaxed mb-5">
-              {footerData.brandSummary}
+              {t('footer.brandSummary')}
             </p>
 
             {/* Badges */}
@@ -149,11 +174,11 @@ export const Footer = () => {
               </span>
 
               <span className="bg-trust-blue/10 text-trust-blue px-3 py-1.5 rounded-full text-xs font-semibold border border-trust-blue/20">
-                Export Ready
+                {t('whyHava.floatingTags.exportReady')}
               </span>
 
               <span className="bg-accent-orange/10 text-accent-orange px-3 py-1.5 rounded-full text-xs font-semibold border border-accent-orange/20">
-                15+ Countries
+                {t('whyHava.floatingTags.countries')}
               </span>
             </div>
           </div>
@@ -166,12 +191,12 @@ export const Footer = () => {
                 fontFamily: 'Space Grotesk, sans-serif',
               }}
             >
-              Quick Links
+              {t('footer.quickLinks', 'Quick Links')}
             </h4>
 
             <ul className="space-y-1.5">
-              {footerData.quickLinks.map((link) => (
-                <li key={link.name}>
+              {quickLinks.map((link) => (
+                <li key={link.path}>
                   <Link
                     to={link.path}
                     className="text-gray-600 hover:text-hava-red text-sm transition-colors"
@@ -191,20 +216,20 @@ export const Footer = () => {
                 fontFamily: 'Space Grotesk, sans-serif',
               }}
             >
-              Products
+              {t('header.nav.products')}
             </h4>
 
             <ul className="space-y-1.5">
-              {footerData.productCategories.map((category, index) => {
+              {productCategoryKeys.map((key, index) => {
                 const codes = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'];
 
                 return (
-                  <li key={category}>
+                  <li key={key}>
                     <Link
                       to={`/products?category=${codes[index] || ''}`}
                       className="text-gray-600 hover:text-hava-red text-sm transition-colors"
                     >
-                      {category}
+                      {t(`footer.productCategories.${key}`)}
                     </Link>
                   </li>
                 );
@@ -222,7 +247,7 @@ export const Footer = () => {
 
             {/* Copyright */}
             <p>
-              {footerData.copyright}
+              {t('footer.copyright')}
             </p>
 
             {/* Right Side */}
@@ -234,14 +259,14 @@ export const Footer = () => {
                   to="/privacy"
                   className="hover:text-hava-red transition-colors"
                 >
-                  Privacy Policy
+                  {t('footer.privacyPolicy', 'Privacy Policy')}
                 </Link>
 
                 <Link
                   to="/sitemap"
                   className="hover:text-hava-red transition-colors"
                 >
-                  Sitemap
+                  {t('footer.sitemap', 'Sitemap')}
                 </Link>
               </div>
 
@@ -250,7 +275,7 @@ export const Footer = () => {
                 className="flex items-center gap-1.5"
                 data-testid="footer-quebeta-credit"
               >
-                Made With
+                {t('footer.madeWith', 'Made With')}
 
                 <motion.span
                   animate={{
@@ -266,7 +291,7 @@ export const Footer = () => {
                   <Heart className="w-4 h-4 text-hava-red fill-hava-red" />
                 </motion.span>
 
-                <span>From</span>
+                <span>{t('footer.from', 'From')}</span>
 
                 <a
                   href="https://www.quebeta.in"
