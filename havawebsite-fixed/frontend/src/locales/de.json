@@ -28,9 +28,18 @@
     "title": "Besuchen Sie Unsere Produktionsstätte",
     "subtitle": "Wo technische Exzellenz auf industrielle Präzision trifft",
     "badges": {
-      "iso": { "label": "ISO 9001:2015", "sublabel": "Zertifizierter Hersteller" },
-      "facility": { "label": "25.000+", "sublabel": "m² Betriebsfläche" },
-      "countries": { "label": "15+", "sublabel": "Belieferte Länder" }
+      "iso": {
+        "label": "ISO 9001:2015",
+        "sublabel": "Zertifizierter Hersteller"
+      },
+      "facility": {
+        "label": "25.000+",
+        "sublabel": "m² Betriebsfläche"
+      },
+      "countries": {
+        "label": "15+",
+        "sublabel": "Belieferte Länder"
+      }
     }
   },
   "countries": {
@@ -69,10 +78,22 @@
     "intro": "HAVA von Haryrock Engineering Pvt. Ltd. ist ein führender Hersteller pneumatischer Gesteinsbohrgeräte, entstanden aus jahrzehntelangem technischem Fachwissen und einem unerschütterlichen Engagement für industrielle Qualität.",
     "description": "Unser Werdegang zeichnet sich durch Präzisionsfertigung, technische Innovation und ein tiefes Verständnis der Bergbau-, Tunnelbau- und Baubranche aus. Wir verkaufen nicht nur Geräte — wir entwickeln Lösungen, die in den anspruchsvollsten Umgebungen der Welt zuverlässig funktionieren.",
     "highlights": {
-      "heritage": { "value": "Jahrzehnte", "label": "an Ingenieurserbe" },
-      "direct": { "value": "100%", "label": "Direkt vom Hersteller" },
-      "industries": { "value": "5+", "label": "Kernbranchen" },
-      "quality": { "value": "Premium", "label": "Qualitätsstandards" }
+      "heritage": {
+        "value": "Jahrzehnte",
+        "label": "an Ingenieurserbe"
+      },
+      "direct": {
+        "value": "100%",
+        "label": "Direkt vom Hersteller"
+      },
+      "industries": {
+        "value": "5+",
+        "label": "Kernbranchen"
+      },
+      "quality": {
+        "value": "Premium",
+        "label": "Qualitätsstandards"
+      }
     },
     "cta": "Entdecken Sie Unsere Geschichte"
   },
@@ -308,5 +329,919 @@
       "hours": "Mo-Sa: 9:00 - 18:00 Uhr"
     },
     "copyright": "© 2025 HAVA / Haryrock Engineering Pvt. Ltd. Alle Rechte Vorbehalten."
+  },
+  "whyHavaPage": {
+    "hero": {
+      "eyebrow": "Der HAVA Unterschied",
+      "heading": "Präzisionsfertigung. Weltweit Vertrauenswürdig. Für Ihren Erfolg Gebaut.",
+      "subheading": "Seit über fünf Jahrzehnten unterstützt HAVA Bergbau-, Steinbruch-, Tunnelbau- und Bauunternehmen dabei, zuverlässige Leistung durch präzisionsgefertigte Gesteinsbohrgeräte und Originalersatzteile zu erzielen — hergestellt für die anspruchsvollsten Bedingungen der Welt.",
+      "primaryCTA": "Angebot Anfordern",
+      "secondaryCTA": "Produkte Entdecken"
+    },
+    "section1": {
+      "label": "Unser Unterschied",
+      "title": "Intern Entworfen, Bearbeitet und Getestet — Jedes Produkt, Jedes Mal.",
+      "body": "Jedes Produkt durchläuft kontrollierte Prozesse, Präzisionsbearbeitung und strenge interne Inspektion, bevor es zu Ihnen gelangt. Dies gibt uns die vollständige Kontrolle über das, was am wichtigsten ist: die Qualität, die an Ihrem Standort ankommt, die Beständigkeit, auf die Sie sich verlassen, und die Ersatzteile, die Sie noch lange nach dem Verkauf am Laufen halten.",
+      "points": {
+        "quality": {
+          "title": "Produktqualität",
+          "text": "Jede Komponente wird unter kontrollierten Bedingungen in unserer 25.000 m² großen Anlage in MIDC Pimpri gemäß Spezifikation bearbeitet."
+        },
+        "accuracy": {
+          "title": "Fertigungsgenauigkeit",
+          "text": "CNC-Präzisionsbearbeitung gewährleistet enge Toleranzen und wiederholbare Qualität bei jedem Produktionslauf."
+        },
+        "spareParts": {
+          "title": "Ersatzteilverfügbarkeit",
+          "text": "Da wir die Teile selbst herstellen, führen wir sie auf Lager. Langfristiger Support ohne Abhängigkeit von Drittanbietern."
+        },
+        "delivery": {
+          "title": "Lieferverpflichtungen",
+          "text": "Direkt ab Werk bedeutet keine Zwischenhändler, keine Verzögerungen und vollständige Transparenz über den Status Ihrer Bestellung."
+        }
+      }
+    },
+    "section2": {
+      "label": "Kompatibilität",
+      "title": "Mit Atlas Copco Kompatible Lösungen",
+      "body": "Unsere Produkte und Ersatzteile sind für die direkte Kompatibilität mit weit verbreiteten Atlas Copco-Systemen konzipiert — und bieten Ihnen die gewohnte Leistung zu einem direkten Herstellerpreis. Ob Sie Gesteinsbohrer, Bohrhämmer, Brecher, Zubehör oder Ersatzteile benötigen, HAVA liefert zuverlässige Alternativen, gestützt auf echte Fertigungsexpertise.",
+      "points": {
+        "p1": "Geringere Gesamtbetriebskosten im Vergleich zu importierten Originalen",
+        "p2": "Einfacher Direktaustausch — keine Modifikation erforderlich",
+        "p3": "Zuverlässige Feldleistung, gestützt auf über 50 Jahre Erfahrung",
+        "p4": "Ersatzteile leicht verfügbar — keine langen Lieferzeiten",
+        "p5": "Direkter technischer Support vom Hersteller"
+      },
+      "disclaimer": "Modellreferenzen dienen ausschließlich der Kompatibilitätskennzeichnung. HAVA-Produkte werden unabhängig nach ISO 9001:2015 gefertigt."
+    },
+    "section3": {
+      "label": "Qualitätsprozess",
+      "title": "Jedes Produkt Wird Getestet, Bevor Es Zu Ihnen Gelangt",
+      "body": "Qualität ist bei Industrieausrüstung nicht verhandelbar. Unser achtstufiger Fertigungsprozess stellt sicher, dass jede Einheit unsere Anlage genau so verlässt, wie sie funktionieren soll.",
+      "stages": {
+        "s1": "Rohstoffprüfung",
+        "s2": "CNC-Präzisionsbearbeitung",
+        "s3": "Wärmebehandlung",
+        "s4": "Schleifen",
+        "s5": "Qualitätskontrolle & Funktionstest",
+        "s6": "Abnahme und Prüfung",
+        "s7": "Lackierung & Verpackung",
+        "s8": "Versand"
+      },
+      "iso": "ISO 9001:2015 | Zertifikat-Nr. V3QC/QMS/D26/0031 | Ausgestellt von V3 Quality Certification | Gültig bis April 2029"
+    },
+    "section4": {
+      "label": "Wo Wir Arbeiten",
+      "title": "Gebaut für Raue Arbeitsbedingungen",
+      "body": "HAVA-Ausrüstung ist für Umgebungen konzipiert, in denen Zuverlässigkeit nicht optional ist — sie ist der einzige Standard. Von Tagebauminen bis zu tiefen unterirdischen Tunneln.",
+      "cards": {
+        "mining": {
+          "title": "Bergbaubetriebe",
+          "text": "Steinbruchbohrungen, Bankbergbau, Oberflächenausgrabung — RH-656/4W Gesteinsbohrer."
+        },
+        "tunnelling": {
+          "title": "Unterirdischer Tunnelbau",
+          "text": "BBC-120F Bohrhammer und BMK62S Schubstütze für horizontales und geneigtes Bohren."
+        },
+        "construction": {
+          "title": "Bau & Infrastruktur",
+          "text": "CP-117 Straßenbrecher für Betonabbruch, gefrorenen Boden, Felsbrocken."
+        },
+        "marble": {
+          "title": "Marmor & Granit",
+          "text": "Präzisionsbohrungen in Naturstein für die Marmor- und Granitverarbeitungsindustrie."
+        },
+        "quarrying": {
+          "title": "Steinbruchprojekte",
+          "text": "Schwerlast-Bankbohrungen und allgemeine Ausgrabungen für Steinbruchbetriebe."
+        },
+        "export": {
+          "title": "Export & Globale Versorgung",
+          "text": "Belieferung von Auftragnehmern und Vertriebshändlern in über 20 Ländern."
+        }
+      }
+    },
+    "section5": {
+      "label": "Der Echte Unterschied",
+      "title": "Was HAVA Auszeichnet",
+      "body": "Wenn Beschaffungsentscheidungen im Bergbau und Bauwesen wichtig sind, ist es entscheidend zu wissen, bei wem Sie genau kaufen — nicht nur finanziell, sondern auch operativ.",
+      "rows": {
+        "facility": {
+          "category": "Anlage",
+          "hava": "Eigene 25.000 m² große Produktionsstätte, Pimpri, Pune",
+          "reseller": "Ausgelagerte Produkte, keine eigene Fabrik"
+        },
+        "qc": {
+          "category": "Qualitätskontrolle",
+          "hava": "ISO 9001:2015 zertifizierte Prozesse",
+          "reseller": "Eingeschränkt, abhängig von Lieferanten"
+        },
+        "testing": {
+          "category": "Produkttests",
+          "hava": "Interne Tests vor jedem Versand",
+          "reseller": "Verlässt sich auf Lieferantenerklärungen"
+        },
+        "consistency": {
+          "category": "Beständigkeit",
+          "hava": "CNC-Präzision, wiederholbare Standards",
+          "reseller": "Variiert je nach Lieferant und Charge"
+        },
+        "spareParts": {
+          "category": "Ersatzteile",
+          "hava": "Originalteile, immer verfügbar",
+          "reseller": "Oft eingeschränkt oder nicht verfügbar"
+        },
+        "support": {
+          "category": "Technischer Support",
+          "hava": "Direkt von unserem Ingenieurteam",
+          "reseller": "Minimal, keine Produktkenntnisse"
+        },
+        "pricing": {
+          "category": "Preisgestaltung",
+          "hava": "Direkt vom Hersteller, ohne Aufschlag",
+          "reseller": "Margen durch Zwischenhändler gestapelt"
+        }
+      }
+    },
+    "section6": {
+      "label": "Unser Engagement",
+      "title": "Warum Käufer Immer Wieder zu HAVA Zurückkehren",
+      "cards": {
+        "performance": {
+          "title": "Zuverlässige Leistung",
+          "text": "Produkte, die für eine lange Lebensdauer unter den anspruchsvollsten Feldbedingungen konzipiert sind."
+        },
+        "value": {
+          "title": "Wettbewerbsfähiger Wert",
+          "text": "Direkte Herstellerpreise — Sie zahlen für das Produkt, nicht für eine Kette von Zwischenhändlern."
+        },
+        "expertise": {
+          "title": "Technisches Fachwissen",
+          "text": "Über fünf Jahrzehnte internes Ingenieurwissen, angewendet auf jedes Produkt."
+        },
+        "spareParts": {
+          "title": "Ersatzteil-Support",
+          "text": "Originalkomponenten langfristig verfügbar. Wir stellen die Teile her, wir haben sie immer."
+        },
+        "export": {
+          "title": "Exporterfahrung",
+          "text": "Tiefes Verständnis der Anforderungen internationaler Käufer in über 20 Ländern."
+        },
+        "partnership": {
+          "title": "Langfristige Partnerschaft",
+          "text": "Beziehungen, die auf Vertrauen, Qualität und Verantwortlichkeit basieren — nicht nur auf Transaktionen."
+        }
+      }
+    },
+    "finalCta": {
+      "title": "Bereit, mit HAVA Zusammenzuarbeiten?",
+      "body": "Ob Sie Produktinformationen, ein Angebot, Ersatzteilsupport oder technische Beratung benötigen — unser Team steht bereit, um zu helfen."
+    }
+  },
+  "aboutPage": {
+    "hero": {
+      "eyebrow": "Erbe in Bewegung",
+      "heading": "Exzellenz im Gesteinsbohrungsingenieurwesen Seit 1970",
+      "body": "Seit über fünf Jahrzehnten stellt HAVA pneumatische Gesteinsbohrgeräte her, die hart arbeiten und lange halten — vertraut von Bergbau-, Tunnelbau-, Steinbruch- und Bauteams in Indien und mehr als 20 Ländern weltweit.",
+      "stats": {
+        "years": {
+          "value": "50+",
+          "label": "Jahre Fertigung"
+        },
+        "countries": {
+          "value": "20+",
+          "label": "Länder, in die Wir Exportieren"
+        },
+        "facility": {
+          "value": "25.000 m²",
+          "label": "Anlage, Pune"
+        },
+        "iso": {
+          "value": "ISO 9001:2015",
+          "label": "Zertifiziert"
+        }
+      }
+    },
+    "companyOverview": {
+      "intro": "HAVA ist die Flaggschiffmarke von Haryrock Engineering Pvt. Ltd. mit Sitz in MIDC Pimpri, Pune. Wir entwerfen, bearbeiten, montieren, testen und versenden unsere eigenen pneumatischen Gesteinsbohrer, Bohrersatzteile und zugehörige Ausrüstung, die weltweit in Bergbau- und Infrastrukturprojekten eingesetzt werden. Wenn Sie bei HAVA kaufen, kaufen Sie direkt von den Herstellern — mit direktem Zugang zu unserem Fertigungsteam, originalen Ersatzteilen und voller Verantwortlichkeit.",
+      "brandStory": "HAVA steht für Präzision, Zuverlässigkeit und Fertigungsexzellenz. Entstanden aus jahrzehntelanger praktischer Erfahrung in der Belieferung von Bergbau- und Bauteams in einigen der härtesten Umgebungen der Welt, wurde die Marke HAVA 1999 offiziell gegründet. Heute werden HAVA-Produkte in über 20 Ländern vertraut — von tiefen Untertageminen in Skandinavien bis zu Tagebaustein­brüchen in Afrika, von Tunnelbauprojekten im Nahen Osten bis zu Baustellen in ganz Indien.",
+      "mission": "Wir sind bestrebt, Kundenzufriedenheit durch kontinuierliche Verbesserung und Innovation von Produkten mit exzellenter Qualität, vollständiger Zuverlässigkeit, prompter Lieferung und wettbewerbsfähigem Preis zu erreichen.",
+      "vision": "Marktführer in der Gesteinsbohrindustrie zu werden und innovative Produkte herzustellen, die unseren Nutzern Benutzerfreundlichkeit bieten.",
+      "manufacturingCapability": "Unsere 25.000 m² große Produktionsstätte in MIDC Pimpri, Pune, ist mit fortschrittlichen CNC-Bearbeitungszentren, Wärmebehandlungssystemen, Präzisionsmontagebereichen und strengen Qualitätsprüfstationen ausgestattet — ein vollständiger achtstufiger Fertigungsprozess von der Rohware bis zum Versand.",
+      "capabilityCards": {
+        "cnc": {
+          "title": "CNC-Präzision",
+          "text": "Mehrachsenbearbeitung für enge Toleranzen und wiederholbare Qualität."
+        },
+        "heat": {
+          "title": "Wärmebehandlung",
+          "text": "Interne thermische Prozesse für Härte und Verschleißfestigkeit."
+        },
+        "assembly": {
+          "title": "Montage",
+          "text": "Dedizierte Linien, besetzt mit qualifizierten Technikern."
+        },
+        "testing": {
+          "title": "Tests & Versand",
+          "text": "Funktionale Leistungstests an jeder Einheit vor dem Versand."
+        }
+      },
+      "exportPresence": "20–40 % des Jahresumsatzes stammen aus internationalen Märkten. Ausrüstung im Einsatz in Minen, Tunneln, Steinbrüchen und Baustellen auf mehreren Kontinenten.",
+      "exportRegions": {
+        "africa": {
+          "region": "Afrika",
+          "text": "Südafrika, Kenia, Tansania, Sambia, Botswana"
+        },
+        "scandinavia": {
+          "region": "Skandinavien",
+          "text": "Norwegen, Finnland, Schweden"
+        },
+        "middleEast": {
+          "region": "Naher Osten & GUS",
+          "text": "Saudi-Arabien, Russland"
+        },
+        "southAsia": {
+          "region": "Südasien",
+          "text": "Nepal, Sri Lanka, Bhutan"
+        }
+      }
+    },
+    "journey": {
+      "intro": "Eine Geschichte, die Jahrzehnt für Jahrzehnt aufgebaut wurde — von einer Ersatzteilwerkstatt im Jahr 1970 zu einer 25.000 m² großen ISO-zertifizierten Produktionsstätte, die in über 20 Länder exportiert.",
+      "timeline": {
+        "t1970": {
+          "year": "1970",
+          "title": "Gründung",
+          "text": "Herr Manohar Sajnani beginnt mit der Herstellung pneumatischer Ersatzteile für Gesteinsbohrer"
+        },
+        "t1990": {
+          "year": "1990",
+          "title": "Expansion",
+          "text": "Die nächste Generation tritt bei. Die Produktpalette erweitert sich in den Bergbau- und Infrastruktursektor."
+        },
+        "t1999": {
+          "year": "1999",
+          "title": "Marke HAVA",
+          "text": "Die Marke HAVA wird offiziell gegründet — Gesteinsbohrmaschinen, Zubehör, Verbrauchsmaterialien, Ersatzteile."
+        },
+        "t2011": {
+          "year": "2011",
+          "title": "Gründung der Gesellschaft",
+          "text": "Haryrock Engineering Pvt. Ltd. wird offiziell gegründet — eine stärkere Grundlage für globales Wachstum."
+        },
+        "today": {
+          "year": "Heute",
+          "title": "Globaler Marktführer",
+          "text": "ISO 9001:2015 zertifiziert. 25.000 m² Anlage. In über 20 Länder weltweit exportiert."
+        }
+      }
+    },
+    "leadership": {
+      "intro": "Unsere Führung vereint Jahrzehnte an technischem Fachwissen, Branchenkenntnis und einen unermüdlichen Antrieb für Qualitätsfertigung und Kundenzufriedenheit.",
+      "founder": {
+        "role": "Gründer & Direktor",
+        "name": "Herr Manohar Sajnani",
+        "bio": "Mit über 50 Jahren in der Gesteinsbohrindustrie gründete Herr Sajnani das Unternehmen 1970. Seine praktische Ingenieurserfahrung und tiefe Marktkenntnis leiten weiterhin die Produktentwicklung und Qualitätsstandards von HAVA.",
+        "tags": {
+          "t1": "Über 50 Jahre Erfahrung",
+          "t2": "Gründer",
+          "t3": "Ingenieurwesen"
+        }
+      },
+      "contactTitle": "Kontakt",
+      "quote": "Seit mehr als fünf Jahrzehnten ist unser Fokus unverändert geblieben — zuverlässige Gesteinsbohrlösungen zu liefern, die unseren Kunden helfen, effizient und profitabel zu arbeiten. Da Projekte anspruchsvoller werden, investieren wir weiterhin in bessere Fertigung, bessere Produkte und bessere Beziehungen. Darauf baut HAVA auf.",
+      "quoteCite": "— Herr Manohar Sajnani, Gründer & Direktor, Haryrock Engineering Pvt. Ltd."
+    },
+    "certifications": {
+      "intro": "Die ISO 9001:2015-Zertifizierung von HAVA ist die formelle Anerkennung unseres Engagements für Qualitätsmanagement, kontinuierliche Verbesserung und Kundenzufriedenheit — unabhängig geprüft und auditiert.",
+      "details": {
+        "d1": {
+          "label": "Norm",
+          "value": "ISO 9001:2015 — Qualitätsmanagementsystem"
+        },
+        "d2": {
+          "label": "Zertifikat-Nr.",
+          "value": "V3QC/QMS/D26/0031"
+        },
+        "d3": {
+          "label": "Ausgestellt Von",
+          "value": "V3 Quality Certification Pvt. Ltd., Rohini, Delhi 110083"
+        },
+        "d4": {
+          "label": "Akkreditierung",
+          "value": "UAF — United Accreditation Foundation (CB-MS-10165)"
+        },
+        "d5": {
+          "label": "Ausstellungsdatum",
+          "value": "29. April 2026"
+        },
+        "d6": {
+          "label": "1. Überwachungsaudit Fällig",
+          "value": "28. April 2027"
+        },
+        "d7": {
+          "label": "2. Überwachungsaudit Fällig",
+          "value": "28. April 2028"
+        },
+        "d8": {
+          "label": "Zertifikatsablauf",
+          "value": "28. April 2029"
+        },
+        "d9": {
+          "label": "Umfang",
+          "value": "Import, Export, Fertigung und Handel von pneumatischen Bergbaumaschinen zusammen mit zugehörigen Werkzeugen, Verlängerungsausrüstung und Druckluftzubehör unter der Marke „HAVA\"."
+        }
+      },
+      "compliance": {
+        "madeInIndia": {
+          "title": "Hergestellt in Indien",
+          "text": "Hergestellt in MIDC Pimpri, Pune, unter vollständiger interner Kontrolle. Berechtigt für die Made-in-India-Zertifizierung und staatliche Beschaffung."
+        },
+        "exportStandards": {
+          "title": "Exportnormen",
+          "text": "Produkte in über 20 Länder exportiert. Exportdokumentation, Handelsrechnungen, Packlisten und Ursprungszeugnisse für alle internationalen Sendungen bearbeitet."
+        },
+        "atlasCopco": {
+          "title": "Atlas Copco-Kompatibilität",
+          "text": "HAVA-Produkte werden unabhängig als ISO-zertifizierte Alternativen hergestellt. Modellreferenzen dienen nur der Identifikation."
+        },
+        "qms": {
+          "title": "Qualitätsmanagementsystem",
+          "text": "Das QMS umfasst Rohstoff, Bearbeitung, Wärmebehandlung, Montage, Inspektion, Prüfung und Versand — mit dokumentierten Verfahren und regelmäßigen Audits."
+        }
+      }
+    },
+    "promise": {
+      "label": "Das HAVA-Versprechen",
+      "title": "Zuverlässige Gesteinsbohrlösungen. Jedes Mal. Jedes Jahr.",
+      "body": "Wir setzen uns dafür ein, Kunden durch Qualitätsfertigung und kontinuierliche Verbesserung zu besserer Produktivität, reduzierten Ausfallzeiten und zuverlässiger Geräteleistung zu verhelfen. Dieses Engagement endet nicht mit dem Verkauf — es erstreckt sich auf jedes Ersatzteil, jede technische Anfrage und jede folgende Nachbestellung.",
+      "cards": {
+        "quality": {
+          "title": "Qualität Gewährleistet",
+          "text": "ISO 9001:2015 zertifiziert. Jede Einheit vor dem Versand getestet."
+        },
+        "support": {
+          "title": "Langfristiger Support",
+          "text": "Originalersatzteile, technische Beratung und Wartungsunterstützung während der gesamten Gerätelebensdauer."
+        },
+        "reliability": {
+          "title": "Globale Zuverlässigkeit",
+          "text": "Vertraut von Bergbau- und Bauunternehmen in über 20 Ländern."
+        },
+        "access": {
+          "title": "Direkter Zugang",
+          "text": "Kaufen Sie direkt vom Hersteller. Keine Zwischenhändler. Volle Verantwortlichkeit bei jedem Schritt."
+        }
+      }
+    },
+    "finalCta": {
+      "title": "Auf der Suche nach Zuverlässiger Bohrausrüstung?",
+      "body": "Ob Sie ein Bergbauunternehmer, Infrastrukturentwickler, Händler oder internationaler Käufer sind — unser Team hilft Ihnen, die richtige Lösung zu finden."
+    }
+  },
+  "infraQualityPage": {
+    "hero": {
+      "eyebrow": "Gebaut, um zu Fertigen. Ausgestattet, um zu Liefern.",
+      "heading": "Ein Blick in die 25.000 m² Große HAVA-Produktionsstätte",
+      "body": "Unsere Anlage in MIDC Pimpri, Pune, ist eine vollständige Produktionsstätte — kein Lager oder Montagepunkt. Rohmaterial kommt an, und fertige, getestete, versandbereite Ausrüstung verlässt sie. Acht kontrollierte Stufen. Null Kompromisse. Jede Einheit."
+    },
+    "factoryOverview": {
+      "title": "MIDC Pimpri Produktionsanlage",
+      "body": "Die HAVA-Produktionsstätte wurde seit 1970 kontinuierlich modernisiert. Heute arbeitet sie als vollständig eigenständige Anlage, die Rohstoffannahme, CNC-Präzisionsbearbeitung, Wärmebehandlung, Schleifen, Montage, Qualitätsprüfung, Funktionstests, Lackierung, Verpackung und Exportverpackung umfasst — alles unter einem Dach.",
+      "cards": {
+        "area": {
+          "title": "Gesamtfläche",
+          "text": "25.000 m² Produktionsfläche"
+        },
+        "location": {
+          "title": "Standort",
+          "text": "A-55, H Block, MIDC Pimpri, Pune – 411018"
+        },
+        "cnc": {
+          "title": "CNC-Bearbeitung",
+          "text": "Mehrere fortschrittliche mehrachsige CNC-Bearbeitungszentren"
+        },
+        "heat": {
+          "title": "Wärmebehandlung",
+          "text": "Interne Härtung, Anlassen & Oberflächenbehandlung"
+        },
+        "assembly": {
+          "title": "Montagelinien",
+          "text": "Dedizierte Montagebereiche pro Produktkategorie"
+        },
+        "qc": {
+          "title": "QK-Stationen",
+          "text": "Mehrpunktprüfung während des gesamten Produktionszyklus"
+        },
+        "testing": {
+          "title": "Testbereich",
+          "text": "Funktionale Leistungstests — Luftdruck, Schlag, Rotation"
+        },
+        "dispatch": {
+          "title": "Versandbereich",
+          "text": "Exportfertiger Verpackungs- und Dokumentationsbereich"
+        }
+      }
+    },
+    "processChart": {
+      "title": "Acht Stufen. Null Kompromisse.",
+      "body": "Jedes HAVA-Produkt — ohne Ausnahme — durchläuft alle acht Fertigungsstufen. Jede Stufe wird dokumentiert, qualitätsgeprüft und abgezeichnet, bevor die nächste beginnt. So sieht ISO 9001:2015-Prozessdisziplin in der Praxis aus.",
+      "flow": {
+        "f1": {
+          "name": "Rohmaterial",
+          "sub": "Annahme & Prüfung"
+        },
+        "f2": {
+          "name": "CNC-Bearbeitung",
+          "sub": "Präzisionsteile"
+        },
+        "f3": {
+          "name": "Wärmebehandlung",
+          "sub": "Härten & Anlassen"
+        },
+        "f4": {
+          "name": "Schleifen",
+          "sub": "Oberflächenveredelung"
+        },
+        "f5": {
+          "name": "QK & Tests",
+          "sub": "Prüfen & Funktionstest"
+        },
+        "f6": {
+          "name": "Abnahme & Prüfung",
+          "sub": "Endabnahme"
+        },
+        "f7": {
+          "name": "Lackierung & Verpackung",
+          "sub": "Veredeln & Schützen"
+        },
+        "f8": {
+          "name": "Versand",
+          "sub": "Exportbereit"
+        }
+      },
+      "note": "Jede Einheit · Jedes Mal · Keine Ausnahmen — ISO 9001:2015 Zertifiziert",
+      "stages": {
+        "s1": {
+          "num": "Stufe 01",
+          "label": "Rohstoffannahme & Prüfung",
+          "title": "Materialannahme & Qualitätsprüfung",
+          "body": "Alle Rohstoffe — Stahlblöcke, Legierungsstangen, Gussteile, Komponenten — werden vor Produktionsbeginn anhand von Materialspezifikationen geprüft. Minderwertiges Material wird bei der Annahme zurückgewiesen. Vollständige Rückverfolgbarkeit wird durchgehend gewährleistet.",
+          "activities": "Güteprüfung · Maßprüfung · Prüfung des Lieferantenzertifikats · Rückverfolgbarkeitskennzeichnung"
+        },
+        "s2": {
+          "num": "Stufe 02",
+          "label": "CNC-Präzisionsbearbeitung",
+          "title": "Mehrachsige Präzisionsfertigung",
+          "body": "Fortschrittliche mehrachsige CNC-Bearbeitungszentren fertigen alle Komponenten nach exakten Maßspezifikationen. Jede Abmessung wird maschinell geprüft — nicht manuell geschätzt. Dies ist die Grundlage für HAVAs konstante Qualität bei jedem Produktionslauf.",
+          "activities": "Drehen · Bohren · Fräsen · Gewindeschneiden · Oberflächenschleifen · CNC-Maßprüfung"
+        },
+        "s3": {
+          "num": "Stufe 03",
+          "label": "Wärmebehandlung",
+          "title": "Härten, Anlassen & Oberflächenbehandlung",
+          "body": "Die interne Wärmebehandlung erzielt die erforderliche Härte, Verschleißfestigkeit und Ermüdungsfestigkeit. Kolben, Zylinder, Vierkantstange und hochbeanspruchte Komponenten werden auf spezifische Härtespezifikationen wärmebehandelt, die für die Gesteinsbohrleistung entscheidend sind.",
+          "activities": "Einsatzhärten · Durchhärten · Anlassen · Härteprüfung"
+        },
+        "s4": {
+          "num": "Stufe 04",
+          "label": "Schleifen",
+          "title": "Oberflächenveredelung & Enge Toleranzen",
+          "body": "Präzisionsschleifen stellt sicher, dass alle Passflächen, Bohrungen und Wellen die engen Toleranzen erfüllen, die für eine reibungslose Montage und lange Lebensdauer erforderlich sind. Die Oberflächenveredelung wird vor der Weiterleitung der Komponenten zur Montage gemäß Spezifikation geprüft.",
+          "activities": "Rundschleifen · Oberflächenschleifen · Innenschleifen · Veredelungsprüfung"
+        },
+        "s5": {
+          "num": "Stufe 05",
+          "label": "Qualitätskontrolle & Prüfung",
+          "title": "Mehrpunktprüfung + Funktionaler Leistungstest",
+          "body": "Jede montierte Einheit durchläuft eine strukturierte Mehrpunkt-QK-Prüfung — Maßprüfung, Sichtprüfung, Bestätigung auf Komponentenebene — und dann den Testbereich. Luftdruck, Schlagrate, Rotation, Spülung und alle Steuerungen werden geprüft. Ergebnisse dokumentiert. Keine Einheit wird ohne bestandenen Test versendet.",
+          "activities": "Maßprüfung · Dichtheitsprüfung · Rotationsprüfung · Schlagrate · Luftverbrauchstest"
+        },
+        "s6": {
+          "num": "Stufe 06",
+          "label": "Abnahme & Prüfung",
+          "title": "Endabnahmeprüfung",
+          "body": "Einheiten, die die QK bestehen, werden formell als Fertigware akzeptiert. Eine abschließende Prüfung bestätigt, dass alle Spezifikationen erfüllt sind — Leistung, Maße und Optik. Abgelehnte Einheiten werden zur Nacharbeit zurückgeschickt; keine Ausnahmen von den Abnahmekriterien.",
+          "activities": "Abnahmefreigabe · Leistungsvalidierung · Sichtprüfung · Nacharbeitsschleife bei Bedarf"
+        },
+        "s7": {
+          "num": "Stufe 07",
+          "label": "Lackierung & Verpackung",
+          "title": "Veredelung & Schutz",
+          "body": "Akzeptierte Einheiten werden gereinigt, grundiert und nach HAVAs Standardfinish lackiert. Komponenten werden einzeln mit Schutzverpackung verpackt und in exportfähiger Verpackung platziert, um Transportschäden zu vermeiden.",
+          "activities": "Oberflächenreinigung · Lackierung & Trocknung · Komponentenverpackung · Exportfähige Verpackung"
+        },
+        "s8": {
+          "num": "Stufe 08",
+          "label": "Versand",
+          "title": "Exportfertige Verpackung & Dokumentation",
+          "body": "Freigegebene Einheiten werden mit vollständiger Dokumentation versendet — Packlisten, Handelsrechnungen, Ursprungszeugnisse — vor der Freigabe vorbereitet und geprüft. Jede Sendung wird bis zum Kunden verfolgt. Keine Einheit verlässt die Anlage ohne vollständige Unterlagen.",
+          "activities": "Dokumentationsvorbereitung · Rechnung & Ursprungszeugnis · Versandfreigabe · Sendungsverfolgung bis zum Kunden"
+        }
+      }
+    },
+    "qcStandards": {
+      "title": "Was Wir Prüfen — Und Wann",
+      "body": "Jeder Prozess folgt dokumentierten Verfahren gemäß ISO 9001:2015 — regelmäßig geprüft von V3 Quality Certification Pvt. Ltd.",
+      "rows": {
+        "r1": {
+          "type": "Materialprüfung",
+          "check": "Güte, Zusammensetzung und Zertifizierung des Rohmaterials",
+          "stage": "Stufe 01 — Annahme",
+          "method": "Lieferantenzertifikat + Wareneingangsprüfung"
+        },
+        "r2": {
+          "type": "Maßgenauigkeit",
+          "check": "Alle kritischen Abmessungen gemäß Zeichnungsspezifikation",
+          "stage": "Stufe 02 — Nach CNC",
+          "method": "CNC-Maschinenprüfung + manuelle Messung"
+        },
+        "r3": {
+          "type": "Oberflächenhärte",
+          "check": "Härte wärmebehandelter Komponenten",
+          "stage": "Stufe 03 — Nach Wärmebehandlung",
+          "method": "Härteprüfer gemäß Komponentenspezifikation"
+        },
+        "r4": {
+          "type": "Schleifveredelung",
+          "check": "Oberflächenveredelung und Maßtoleranz nach dem Schleifen",
+          "stage": "Stufe 04 — Nach Schleifen",
+          "method": "Rauheitsprüfer + Gut-Schlecht-Lehre"
+        },
+        "r5": {
+          "type": "Montagedrehmoment",
+          "check": "Alle Verbindungselemente gemäß Spezifikation angezogen",
+          "stage": "Stufe 05 — Montage",
+          "method": "Drehmomentschlüssel — dokumentiert"
+        },
+        "r6": {
+          "type": "Spiel & Passung",
+          "check": "Kolben-Zylinder-Spiel, Spannfutterpassung, Rotation",
+          "stage": "Stufe 05 — Montage",
+          "method": "Fühlerlehre / Gut-Schlecht-Lehre"
+        },
+        "r7": {
+          "type": "Luftdrucktest",
+          "check": "Keine Undichtigkeit bei 6 bar Betriebsdruck",
+          "stage": "Stufe 05 — Prüfung",
+          "method": "Drucktest bis 6 bar / 87 PSI"
+        },
+        "r8": {
+          "type": "Funktionstest",
+          "check": "Schlagrate, Rotation, Spülung, alle Steuerungen",
+          "stage": "Stufe 05 — Prüfung",
+          "method": "Testlauf unter Last — Ergebnisse dokumentiert"
+        },
+        "r9": {
+          "type": "Endabnahme",
+          "check": "Bestätigung von Leistung, Maßen und Optik",
+          "stage": "Stufe 06 — Abnahme & Prüfung",
+          "method": "Freigabe der Abnahmecheckliste"
+        },
+        "r10": {
+          "type": "Optisch & Final",
+          "check": "Oberflächenveredelung, Markierung, Vollständigkeit, Verpackung",
+          "stage": "Stufe 08 — Vor dem Versand",
+          "method": "Checkliste für Sichtprüfung"
+        }
+      },
+      "isoNote": "ISO 9001:2015 — Zertifikat-Nr. V3QC/QMS/D26/0031: Ausgestellt am 29. April 2026 · Gültig bis 28. April 2029 · Akkreditiert von UAF (CB-MS-10165) · Ausgestellt von V3 Quality Certification Pvt. Ltd., Delhi."
+    },
+    "finalCta": {
+      "title": "Möchten Sie Unsere Anlage Persönlich Besichtigen?",
+      "body": "Wir begrüßen Besuche von Käufern, Vertriebshändlern und Beschaffungsteams, die unsere Fertigungskapazitäten aus erster Hand überprüfen möchten."
+    }
+  },
+  "productsPage": {
+    "hero": {
+      "label": "Unsere Produkte",
+      "heading": "Komplette Gesteinsbohrlösungen für Bergbau, Steinbruch & Bauwesen",
+      "body": "Von pneumatischen Gesteinsbohrern und schwerlasttauglichen Bohrhämmern bis hin zu Bohrzubehör und Originalersatzteilen — HAVA fertigt eine komplette Palette, die für Leistung, Langlebigkeit und Zuverlässigkeit in den härtesten Arbeitsumgebungen konzipiert ist.",
+      "trustStrip": "✅ ISO 9001:2015 Zertifiziert  |  🇮🇳 Hergestellt in Indien  |  🔧 Kompatibel mit Atlas Copco  |  🌍 Exportiert in über 20 Länder"
+    },
+    "categoryA": {
+      "name": "Gesteinsbohrer",
+      "productCount": "3 Produkte · 3 Seiten",
+      "description": "Luftgespülte (trockene) und wassergespülte (nasse) pneumatische Bohrer, die mit H22-Integralstahl Löcher mit 27–48mm Durchmesser bis zu 6 Meter Tiefe bohren können. Trockene Variante für Steinbruch- und Oberflächenbohrungen; nasse Variante für horizontale und geneigte staubfreie Bohrungen in Untertageminen und Tunneln mit Schubstütze.",
+      "table": {
+        "headers": {
+          "model": "Modell",
+          "type": "Typ",
+          "weight": "Gewicht",
+          "impactRate": "Schlagrate",
+          "drillingRate": "Bohrrate",
+          "airHose": "Luftschlauch",
+          "waterHose": "Wasserschlauch"
+        },
+        "rowLabels": {
+          "dryFlushed": "Trocken — Luftgespült",
+          "wetFlushed": "Nass — Wassergespült"
+        }
+      },
+      "twoCol": {
+        "appDry": {
+          "heading": "Anwendungen (Trocken — RH-658/5L)",
+          "text": "Steinbruchbohrungen · Bankbergbau · Allgemeine Ausgrabung · Marmor- & Granitindustrie · Bau & Oberflächenbergbau"
+        },
+        "appWet": {
+          "heading": "Anwendungen (Nass — RH-656/4W)",
+          "text": "Untertageminen & Tunnel · Horizontale / Geneigte Bohrungen"
+        },
+        "features": {
+          "heading": "Produktmerkmale (Nass)",
+          "text": "Vierkantstangenrotation · Klinkenverriegelung · Ventil für Luftspülung"
+        }
+      },
+      "note": "Jede Produktseite enthält: Anwendungen · Technische Datentabelle · Ersatzteil-Aufruf · Atlas Copco-Kompatibilitätshinweis · Anfrage-Aufruf · Broschüren-Download.",
+      "summaryLine": "RH-658/5L Trocken · RH-656/4W Nass T-Griff · RH-656/4W Nass Spatengriff"
+    },
+    "categoryB": {
+      "name": "Bohrhämmer",
+      "productCount": "3 Produkte · 4 Seiten",
+      "description": "Schwerlast-Bohrhammer für Oberflächen- und Untertagebohrungen — 48mm–89mm Löcher mit R32- und R38-Verlängerungsausrüstung. Wird mit Bohranlagen und Wagenbohrern verwendet. Enthält Schaftadapter und Kupplungsmuffen.",
+      "table": {
+        "headers": {
+          "item": "Artikel",
+          "spec": "Spezifikation / Detail"
+        },
+        "rows": {
+          "r1": {
+            "item": "BBC-120F Bohrhammer",
+            "detail": "Gewicht: 70 kg | Länge: 780mm | Kolbendurchmesser: 120mm | Schlag: 33 Hz / 2100 bpm | Leistung: 7,2 kW | Rotation: 210–240 U/min | Spannfutter: 38mm Leyner-Schaft"
+          },
+          "r2": {
+            "item": "Schaftadapter R32 & R38",
+            "detail": "Verbindet den Bohrhammer mit der Verlängerungsausrüstung. Erhältlich in R32 (1¼\") und R38 (1½\") Gewinde."
+          },
+          "r3": {
+            "item": "R32 & R38 Kupplungsmuffe",
+            "detail": "Kupplungsmuffen zum Verbinden von Bohrstangenabschnitten bei Verlängerungsbohrungen."
+          }
+        }
+      },
+      "twoCol": {
+        "applications": {
+          "heading": "Anwendungen",
+          "text": "Bankbohrungen · Langlochbohrungen · Injektionsbohrungen · Tunnelbau · Ring- & Ortsbrustbohrungen · Vortrieb · Grabenbau"
+        },
+        "airSpecs": {
+          "heading": "Luftanschlussspezifikationen",
+          "text": "Schlagmechanismus: 38mm (1,50\") · Spülung: 19mm (0,75\") · Rotationsumkehr: 12mm (0,47\") · Luftbedarf: 6 Bar / 87 PSI / 600 kPa"
+        }
+      },
+      "summaryLine": "BBC-120F Schwerlast-Bohrhammer · Schaftadapter R32 & R38 · Kupplungsmuffe"
+    },
+    "categoryC": {
+      "name": "Straßenbrecher",
+      "productCount": "2 Produkte · 3 Seiten",
+      "description": "Mittelschwerer pneumatischer Straßenbrecher, ausgelegt für den Betrieb bei 80–90 PSI. Hohe Schlagkraft, ausgewogenes Leistungsgewichtsverhältnis, Ölkammerschmierung. Erhältlich in den Varianten Federverriegelung und Klinkenverriegelung.",
+      "table": {
+        "headers": {
+          "spec": "Spezifikation",
+          "springRetainer": "Federverriegelung",
+          "latchRetainer": "Klinkenverriegelung"
+        },
+        "rows": {
+          "model": "Modell",
+          "weight": "Gewicht",
+          "airConsumption": "Luftverbrauch",
+          "pistonDiameter": "Kolbendurchmesser",
+          "overallLength": "Gesamtlänge",
+          "frequency": "Frequenz",
+          "airHose": "Luftschlauchanschluss",
+          "pressure": "Betriebsdruck"
+        }
+      },
+      "twoCol": {
+        "applications": {
+          "heading": "Anwendungen",
+          "text": "Straßen- & Betonaufbruch · Abbruch · Gefrorener Boden · Felsbrocken · Allgemeine Oberflächenarbeiten"
+        },
+        "features": {
+          "heading": "Produktmerkmale",
+          "text": "Federtyp-Verriegelung · Pufferfeder zur Stoßdämpfung · Schmierung durch im Verschlussstück integrierte Ölkammern"
+        }
+      },
+      "summaryLine": "CP-117 / HR-117 Federverriegelung · CP-117 Klinkenverriegelung"
+    },
+    "categoryD": {
+      "name": "Schubstütze",
+      "productCount": "1 Produkt · 1 Seite",
+      "description": "HAVA BMK62S Schubstütze, verwendet mit dem Nass-Gesteinsbohrer RH-656/4W bei Vortrieb & Tunnelbau. Stahlvorschubzylinder mit Drosselsteuerung und unten betätigtem Überdruckventil für präzise Vorschubdrucksteuerung bei horizontalen und geneigten Untertagebohrungen.",
+      "table": {
+        "headers": {
+          "spec": "Spezifikation",
+          "metric": "Metrisch",
+          "imperial": "Imperial"
+        },
+        "rows": {
+          "netWeight": "Nettogewicht",
+          "length": "Länge",
+          "lengthExtended": "Ausgefahrene Länge",
+          "extensionLength": "Verlängerungslänge",
+          "pistonDiameter": "Kolbendurchmesser"
+        }
+      },
+      "twoCol": {
+        "applications": {
+          "heading": "Anwendungen",
+          "text": "Untertage-Horizontalbohrungen · Geneigte Bohrungen in Tunneln · Vortriebsarbeiten"
+        },
+        "features": {
+          "heading": "Merkmale",
+          "text": "Unten Betätigtes Überdruckventil · Drosselsteuerventil · Robuste Stahlkonstruktion · Geringes Gewicht"
+        }
+      },
+      "summaryLine": "BMK62S Luftstütze"
+    },
+    "categoryE": {
+      "name": "Druckluftzubehör",
+      "productCount": "4 Produkte · 4 Seiten",
+      "description": "Komplettes Druckluftzubehörsortiment, das sicherstellt, dass pneumatische Geräte effizient, sicher und mit minimalem Verschleiß laufen. Niemals ohne Schmiergerät bohren — genau 3 Meter vom Bohrer entfernt platziert.",
+      "table": {
+        "headers": {
+          "num": "Nr.",
+          "product": "Produkt",
+          "detail": "Detail"
+        },
+        "rows": {
+          "e1": {
+            "product": "Druckluft-Schmiergerät BLG-30",
+            "detail": "Gewicht: 3 kg (6,6 lb) | Volumen: 1,3 l (44 oz) | Luftstrom: 25–134 l/s (53–284 cfm) | 3M vom Bohrer entfernt platzieren"
+          },
+          "e3": {
+            "product": "Schellen",
+            "detail": "Druckluftschellenzubehör für Bohreranschlüsse"
+          },
+          "e4": {
+            "product": "Schlauchverbinder",
+            "detail": "Verbindungsstücke für Druckluftschlauchanschlüsse"
+          },
+          "e5": {
+            "product": "Schlauch",
+            "detail": "Hochdruck-Druckluftschlauch für pneumatische Geräte"
+          }
+        }
+      },
+      "criticalNote": "Unzureichende Schmierung verursacht Reibungsverschleiß. Der Kolben in einem durchschnittlichen Gesteinsbohrer bewegt sich etwa 1800 bis 2000 Mal pro Minute hin und her. Verwenden Sie immer Gesteinsbohröl — niemals Motoröl.",
+      "summaryLine": "BLG-30 Schmiergerät · Schellen · Schlauchverbinder · Schlauch"
+    },
+    "categoryF": {
+      "name": "Verlängerungsausrüstung",
+      "productCount": "6 Artikel · 6 Seiten",
+      "description": "Präzisionsgefertigte Bohrwerkzeuge zur Maximierung von Energieübertragung, Bohrgenauigkeit und Gerätelebensdauer. Kompatibel mit HAVA- und Atlas Copco-Systemen. Durchgehend R32- und R38-Gewinde.",
+      "table": {
+        "headers": {
+          "num": "Nr.",
+          "product": "Produkt",
+          "detail": "Detail"
+        },
+        "rows": {
+          "f1": {
+            "product": "Meißel- & Spitzbohrspitzen",
+            "detail": "Meißelspitze und Spitzbohrspitze für Straßenbrecher. Längen: 18\", 21\" & 24\""
+          },
+          "f2": {
+            "product": "Integrierte Bohrstangen",
+            "detail": "Einteilige geschmiedete Bohrstange zur Verwendung mit Gesteinsbohrern"
+          },
+          "f3": {
+            "product": "Konische Bohrstangen",
+            "detail": "Bohrstangen mit konischer Verbindung für Gesteinsbohreranwendungen"
+          },
+          "f4": {
+            "product": "R32 / R38 Schaftadapter",
+            "detail": "Schaftadapter zum Verbinden des Bohrhammers mit Verlängerungsausrüstung"
+          },
+          "f5": {
+            "product": "R32 & R38 Kupplungsmuffe",
+            "detail": "Kupplungsmuffen zum Verbinden von Bohrstangenabschnitten"
+          },
+          "f6": {
+            "product": "R32 Verlängerungsstangen",
+            "detail": "Erhältlich in Längen von 4, 6, 8, 10 Fuß"
+          }
+        }
+      },
+      "tags": {
+        "t1": "Hartgesteinsbohrung",
+        "t2": "Verlängerungsbohrung",
+        "t3": "Untertageerschließung",
+        "t4": "Oberflächenausgrabung"
+      },
+      "summaryLine": "Meißel-/Spitzbohrspitzen · Integrierte Stangen · Konische Stangen · Schaftadapter · Kupplungsmuffen · R32 Verlängerungsstangen"
+    },
+    "categoryG": {
+      "name": "Knopfbohrkronen",
+      "productCount": "2 Produktlinien · 2 Seiten",
+      "description": "Hergestellt mit hochwertigen Wolframkarbideinsätzen für maximale Durchdringung, Langlebigkeit und Lebensdauer bei Hartgesteinsbohrungen. Erhältlich in mehreren Größen passend zu Gesteinsbohrer- und Bohrhammerkonfigurationen.",
+      "twoCol": {
+        "rockDrills": {
+          "heading": "Für Gesteinsbohrer (Karbid-Knopfbohrkronen)",
+          "text": "30mm / 32mm / 34mm"
+        },
+        "drifter": {
+          "heading": "Für Bohrhammer — R32 Knopfbohrkronen",
+          "text": "45mm / 51mm / 64mm / 76mm"
+        }
+      },
+      "tags": {
+        "t1": "Bergbau",
+        "t2": "Steinbruch",
+        "t3": "Tunnelbohrung",
+        "t4": "Oberflächenausgrabung",
+        "t5": "Bankbohrung"
+      },
+      "summaryLine": "Karbid 30/32/34mm für Gesteinsbohrer · R32 45/51/64/76mm für Bohrhammer"
+    },
+    "categoryH": {
+      "name": "Ersatzteile",
+      "productCount": "Originalteile",
+      "description": "Original-HAVA-Ersatzteile, intern gefertigt nach exakt denselben Toleranzen, Materialien und Spezifikationen wie die Originalausrüstung. Da HAVA jedes Produkt herstellt, stellt HAVA auch jedes Teil her — keine Fremdbeschaffung, kein Kompromiss bei Passform oder Funktion.",
+      "whyGenuine": "Nicht spezifikationsgerechte Teile verursachen vorzeitigen Verschleiß, verminderte Schlagleistung und teure Ausfallzeiten. HAVA-Ersatzteile werden aus denselben Materialien, nach denselben Maßspezifikationen, durch dieselben CNC-Bearbeitungsprozesse hergestellt — was bei jedem Austausch Leistung auf Originalniveau gewährleistet.",
+      "whyCards": {
+        "tolerances": {
+          "title": "Exakte Toleranzen",
+          "text": "Nach denselben Maßspezifikationen bearbeitet — garantierte Passform und Leistung."
+        },
+        "materials": {
+          "title": "Gleiche Materialien",
+          "text": "Wärmebehandelt mit denselben Materialgüten wie die Originalproduktionsläufe."
+        },
+        "stock": {
+          "title": "Immer auf Lager",
+          "text": "Interne Fertigung — Teile sofort verfügbar, keine Verzögerungen durch Dritte."
+        },
+        "downtime": {
+          "title": "Reduzierte Ausfallzeiten",
+          "text": "Passgenaue Teile bedeuten schnellere Wartung und schnellere Rückkehr zum vollen Betrieb."
+        },
+        "life": {
+          "title": "Verlängerte Gerätelebensdauer",
+          "text": "Originalteile erhalten die ursprünglichen Spiele und mechanische Integrität."
+        },
+        "compat": {
+          "title": "Atlas Copco Kompatibel",
+          "text": "Alle Kits kompatibel mit HAVA-Geräten und Atlas Copco-Referenzäquivalenten."
+        }
+      }
+    },
+    "summary": {
+      "title": "Produktkategorien-Übersicht",
+      "headers": {
+        "cat": "Kat.",
+        "category": "Kategorie",
+        "products": "Produkte",
+        "pages": "Webseiten"
+      },
+      "rows": {
+        "a": {
+          "category": "Gesteinsbohrer",
+          "products": "2 Produkte (Nass T-Griff + Nass Spatengriff)",
+          "pages": "2 Seiten"
+        },
+        "b": {
+          "category": "Bohrhammer",
+          "products": "3 Produkte (BBC-120F + Schaftadapter + Kupplungsmuffe)",
+          "pages": "4 Seiten"
+        },
+        "c": {
+          "category": "Straßenbrecher",
+          "products": "2 Produkte (Feder + Klinkenverriegelung)",
+          "pages": "3 Seiten"
+        },
+        "d": {
+          "category": "Schubstütze",
+          "products": "1 Produkt (BMK62S)",
+          "pages": "1 Seite"
+        },
+        "e": {
+          "category": "Druckluftzubehör",
+          "products": "4 Produkte (BLG-30, Schellen, Schlauchverbinder, Schlauch)",
+          "pages": "4 Seiten"
+        },
+        "f": {
+          "category": "Verlängerungsausrüstung",
+          "products": "6 Artikel (Meißel/Spitzbohrer, Integriert, Konisch, Schaft, Kupplung, Verlängerungsstangen)",
+          "pages": "6 Seiten"
+        },
+        "g": {
+          "category": "Knopfbohrkronen",
+          "products": "2 Produktlinien (Karbid 30–34mm | R32 45–76mm)",
+          "pages": "2 Seiten"
+        },
+        "h": {
+          "category": "Ersatzteile",
+          "products": "Originalersatzteile — für Details anfragen",
+          "pages": "1 Seite"
+        }
+      },
+      "totalLabel": "Gesamtzahl der Produktzonenseiten",
+      "totalValue": "24 Seiten"
+    },
+    "finalCta": {
+      "title": "Nicht Sicher, Welches Produkt zu Ihrer Anwendung Passt?",
+      "body": "Teilen Sie uns Ihre Bohranforderungen, Betriebsumgebung und Projektdetails mit — unser Team empfiehlt Ihnen die passende HAVA-Lösung."
+    }
   }
 }

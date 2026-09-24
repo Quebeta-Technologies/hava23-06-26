@@ -28,9 +28,18 @@
     "title": "Découvrez Notre Site de Fabrication",
     "subtitle": "Où l'excellence en ingénierie rencontre la précision industrielle",
     "badges": {
-      "iso": { "label": "ISO 9001:2015", "sublabel": "Fabricant Certifié" },
-      "facility": { "label": "25 000+", "sublabel": "Pieds² d'Installations" },
-      "countries": { "label": "15+", "sublabel": "Pays Desservis" }
+      "iso": {
+        "label": "ISO 9001:2015",
+        "sublabel": "Fabricant Certifié"
+      },
+      "facility": {
+        "label": "25 000+",
+        "sublabel": "Pieds² d'Installations"
+      },
+      "countries": {
+        "label": "15+",
+        "sublabel": "Pays Desservis"
+      }
     }
   },
   "countries": {
@@ -69,10 +78,22 @@
     "intro": "HAVA, par Haryrock Engineering Pvt. Ltd., est un fabricant leader d'équipements de forage de roche pneumatiques, né de décennies d'expertise en ingénierie et d'un engagement indéfectible envers la qualité industrielle.",
     "description": "Notre parcours se définit par une fabrication de précision, une innovation technique et une compréhension approfondie des industries minières, de tunnellisation et de construction. Nous ne vendons pas seulement des équipements — nous concevons des solutions qui fonctionnent de manière fiable dans les environnements les plus exigeants au monde.",
     "highlights": {
-      "heritage": { "value": "Décennies", "label": "d'Héritage en Ingénierie" },
-      "direct": { "value": "100%", "label": "Direct du Fabricant" },
-      "industries": { "value": "5+", "label": "Industries Principales" },
-      "quality": { "value": "Premium", "label": "Normes de Qualité" }
+      "heritage": {
+        "value": "Décennies",
+        "label": "d'Héritage en Ingénierie"
+      },
+      "direct": {
+        "value": "100%",
+        "label": "Direct du Fabricant"
+      },
+      "industries": {
+        "value": "5+",
+        "label": "Industries Principales"
+      },
+      "quality": {
+        "value": "Premium",
+        "label": "Normes de Qualité"
+      }
     },
     "cta": "Découvrir Notre Histoire"
   },
@@ -308,5 +329,919 @@
       "hours": "Lun-Sam : 9h00 - 18h00"
     },
     "copyright": "© 2025 HAVA / Haryrock Engineering Pvt. Ltd. Tous Droits Réservés."
+  },
+  "whyHavaPage": {
+    "hero": {
+      "eyebrow": "La Différence HAVA",
+      "heading": "Fabrication de Précision. Une Confiance Mondiale. Conçu pour Votre Réussite.",
+      "subheading": "Depuis plus de cinq décennies, HAVA aide les entreprises minières, de carrière, de tunnellisation et de construction à obtenir des performances fiables grâce à des équipements de forage de roche conçus avec précision et des pièces détachées authentiques — fabriqués pour les conditions les plus exigeantes de la planète.",
+      "primaryCTA": "Demander un Devis",
+      "secondaryCTA": "Découvrir les Produits"
+    },
+    "section1": {
+      "label": "Notre Différence",
+      "title": "Conçu, Usiné et Testé en Interne — Chaque Produit, à Chaque Fois.",
+      "body": "Chaque produit passe par des processus contrôlés, un usinage de précision et une inspection interne rigoureuse avant de vous parvenir. Cela nous donne une maîtrise complète de ce qui compte le plus : la qualité qui arrive sur votre site, la constance sur laquelle vous comptez, et les pièces détachées qui vous maintiennent en activité — bien après la vente.",
+      "points": {
+        "quality": {
+          "title": "Qualité du Produit",
+          "text": "Chaque composant usiné selon les spécifications dans des conditions contrôlées dans notre installation de 25 000 pieds² à MIDC Pimpri."
+        },
+        "accuracy": {
+          "title": "Précision de Fabrication",
+          "text": "L'usinage de précision CNC garantit des tolérances strictes et une qualité reproductible à chaque lot de production."
+        },
+        "spareParts": {
+          "title": "Disponibilité des Pièces Détachées",
+          "text": "Comme nous fabriquons les pièces, nous les stockons. Un support à long terme sans dépendre de fournisseurs tiers."
+        },
+        "delivery": {
+          "title": "Engagements de Livraison",
+          "text": "Directement depuis l'usine signifie pas d'intermédiaires, pas de retards, et une visibilité totale sur l'état de votre commande."
+        }
+      }
+    },
+    "section2": {
+      "label": "Compatibilité",
+      "title": "Solutions Compatibles Atlas Copco",
+      "body": "Nos produits et pièces détachées sont conçus pour une compatibilité directe avec les systèmes Atlas Copco largement utilisés, vous offrant la performance à laquelle vous êtes habitué, à un prix direct du fabricant. Que vous ayez besoin de perforatrices de roche, de marteaux-perforateurs, de brise-roches, d'accessoires ou de pièces détachées, HAVA propose des alternatives fiables soutenues par une véritable expertise de fabrication.",
+      "points": {
+        "p1": "Coût total de possession inférieur par rapport aux originaux importés",
+        "p2": "Remplacement facile — aucune modification nécessaire",
+        "p3": "Performance fiable sur le terrain, soutenue par plus de 50 ans d'expertise",
+        "p4": "Pièces détachées facilement disponibles — pas de longs délais",
+        "p5": "Support technique direct du fabricant"
+      },
+      "disclaimer": "Les références de modèle sont uniquement destinées à l'identification de compatibilité. Les produits HAVA sont fabriqués de manière indépendante selon la norme ISO 9001:2015."
+    },
+    "section3": {
+      "label": "Processus de Qualité",
+      "title": "Chaque Produit Est Testé Avant de Vous Parvenir",
+      "body": "La qualité n'est pas négociable dans les équipements industriels. Notre processus de fabrication en huit étapes garantit que chaque unité quitte notre installation en fonctionnant exactement comme elle le devrait.",
+      "stages": {
+        "s1": "Vérification des Matières Premières",
+        "s2": "Usinage de Précision CNC",
+        "s3": "Traitement Thermique",
+        "s4": "Rectification",
+        "s5": "Contrôle Qualité et Tests Fonctionnels",
+        "s6": "Acceptation et Tests",
+        "s7": "Peinture et Emballage",
+        "s8": "Expédition"
+      },
+      "iso": "ISO 9001:2015 | Certificat n° V3QC/QMS/D26/0031 | Délivré par V3 Quality Certification | Valable jusqu'en avril 2029"
+    },
+    "section4": {
+      "label": "Où Nous Travaillons",
+      "title": "Conçu pour des Conditions de Travail Difficiles",
+      "body": "L'équipement HAVA est conçu pour des environnements où la fiabilité n'est pas optionnelle — c'est la seule norme. Des mines à ciel ouvert aux tunnels souterrains profonds.",
+      "cards": {
+        "mining": {
+          "title": "Opérations Minières",
+          "text": "Forage de carrière, minage en gradins, excavation de surface — perforatrices de roche RH-656/4W."
+        },
+        "tunnelling": {
+          "title": "Tunnellisation Souterraine",
+          "text": "Marteau-Perforateur BBC-120F et Béquille de Poussée BMK62S pour le forage horizontal et incliné."
+        },
+        "construction": {
+          "title": "Construction et Infrastructure",
+          "text": "Brise-roches de chaussée CP-117 pour la démolition de béton, sol gelé, blocs rocheux."
+        },
+        "marble": {
+          "title": "Marbre et Granit",
+          "text": "Forage de précision dans la pierre naturelle pour l'industrie de transformation du marbre et du granit."
+        },
+        "quarrying": {
+          "title": "Projets de Carrière",
+          "text": "Forage de banc robuste et excavation générale pour les opérations de carrière."
+        },
+        "export": {
+          "title": "Exportation et Approvisionnement Mondial",
+          "text": "Fournisseur d'entrepreneurs et de distributeurs dans plus de 20 pays."
+        }
+      }
+    },
+    "section5": {
+      "label": "La Vraie Différence",
+      "title": "Ce Qui Distingue HAVA",
+      "body": "Lorsque les décisions d'achat comptent dans le secteur minier et de la construction, savoir précisément auprès de qui vous achetez est essentiel — pas seulement financièrement, mais aussi opérationnellement.",
+      "rows": {
+        "facility": {
+          "category": "Installation",
+          "hava": "Installation de fabrication propre de 25 000 pieds², Pimpri, Pune",
+          "reseller": "Produits sous-traités, pas d'usine"
+        },
+        "qc": {
+          "category": "Contrôle Qualité",
+          "hava": "Processus certifiés ISO 9001:2015",
+          "reseller": "Limité, dépendant des fournisseurs"
+        },
+        "testing": {
+          "category": "Test des Produits",
+          "hava": "Tests internes avant chaque expédition",
+          "reseller": "Repose sur les déclarations du fournisseur"
+        },
+        "consistency": {
+          "category": "Constance",
+          "hava": "Précision CNC, normes reproductibles",
+          "reseller": "Varie selon le fournisseur et le lot"
+        },
+        "spareParts": {
+          "category": "Pièces Détachées",
+          "hava": "Pièces authentiques, toujours disponibles",
+          "reseller": "Souvent limitées ou indisponibles"
+        },
+        "support": {
+          "category": "Support Technique",
+          "hava": "Direct de notre équipe d'ingénierie",
+          "reseller": "Minimal, aucune connaissance du produit"
+        },
+        "pricing": {
+          "category": "Tarification",
+          "hava": "Direct du fabricant, sans majoration",
+          "reseller": "Marges empilées par les intermédiaires"
+        }
+      }
+    },
+    "section6": {
+      "label": "Notre Engagement",
+      "title": "Pourquoi les Acheteurs Reviennent Toujours vers HAVA",
+      "cards": {
+        "performance": {
+          "title": "Performance Fiable",
+          "text": "Produits conçus pour une longue durée de vie dans les conditions de terrain les plus exigeantes."
+        },
+        "value": {
+          "title": "Valeur Compétitive",
+          "text": "Tarification directe du fabricant — vous payez pour le produit, pas pour une chaîne d'intermédiaires."
+        },
+        "expertise": {
+          "title": "Expertise Technique",
+          "text": "Plus de cinq décennies de connaissances techniques internes appliquées à chaque produit."
+        },
+        "spareParts": {
+          "title": "Support de Pièces Détachées",
+          "text": "Composants authentiques disponibles à long terme. Nous fabriquons les pièces, nous les avons toujours."
+        },
+        "export": {
+          "title": "Expérience à l'Exportation",
+          "text": "Compréhension approfondie des exigences des acheteurs internationaux dans plus de 20 pays."
+        },
+        "partnership": {
+          "title": "Partenariat à Long Terme",
+          "text": "Des relations fondées sur la confiance, la qualité et la responsabilité — pas seulement des transactions."
+        }
+      }
+    },
+    "finalCta": {
+      "title": "Prêt à Travailler avec HAVA ?",
+      "body": "Que vous ayez besoin d'informations sur les produits, d'un devis, d'un support de pièces détachées ou de conseils techniques — notre équipe est prête à vous aider."
+    }
+  },
+  "aboutPage": {
+    "hero": {
+      "eyebrow": "Un Héritage en Mouvement",
+      "heading": "L'Excellence en Ingénierie du Forage de Roche Depuis 1970",
+      "body": "Depuis plus de cinq décennies, HAVA fabrique des équipements de forage de roche pneumatiques qui travaillent dur et durent longtemps — reconnus par les équipes minières, de tunnellisation, de carrière et de construction en Inde et dans plus de 20 pays à travers le monde.",
+      "stats": {
+        "years": {
+          "value": "50+",
+          "label": "Années de Fabrication"
+        },
+        "countries": {
+          "value": "20+",
+          "label": "Pays Exportateurs"
+        },
+        "facility": {
+          "value": "25 000 Pieds²",
+          "label": "Installation, Pune"
+        },
+        "iso": {
+          "value": "ISO 9001:2015",
+          "label": "Certifié"
+        }
+      }
+    },
+    "companyOverview": {
+      "intro": "HAVA est la marque phare de Haryrock Engineering Pvt. Ltd., basée à MIDC Pimpri, Pune. Nous concevons, usinons, assemblons, testons et expédions nos propres perforatrices de roche pneumatiques, pièces de forage et équipements connexes utilisés dans des projets miniers et d'infrastructure à travers le monde. Lorsque vous achetez chez HAVA, vous achetez directement auprès de ceux qui le fabriquent — vous donnant un accès direct à notre équipe de fabrication, des pièces détachées authentiques et une responsabilité totale.",
+      "brandStory": "HAVA symbolise la précision, la fiabilité et l'excellence en fabrication. Née de décennies d'expérience pratique à fournir des équipes minières et de construction dans certains des environnements les plus difficiles au monde, la marque HAVA a été officiellement créée en 1999. Aujourd'hui, les produits HAVA sont reconnus dans plus de 20 pays — des mines souterraines profondes en Scandinavie aux carrières à ciel ouvert en Afrique, des projets de tunnellisation au Moyen-Orient aux chantiers de construction à travers l'Inde.",
+      "mission": "Nous nous engageons à atteindre la satisfaction client en améliorant et innovant continuellement les produits avec une excellente qualité, une fiabilité totale, une livraison rapide et un prix compétitif.",
+      "vision": "Être le leader du marché dans l'industrie du forage de roche et fabriquer des produits innovants, offrant une facilité d'utilisation à nos utilisateurs.",
+      "manufacturingCapability": "Notre installation de fabrication de 25 000 pieds² à MIDC Pimpri, Pune, est équipée de centres d'usinage CNC avancés, de systèmes de traitement thermique, de zones d'assemblage de précision et de stations d'inspection qualité rigoureuses — un processus de fabrication complet en huit étapes, de la matière première à l'expédition.",
+      "capabilityCards": {
+        "cnc": {
+          "title": "Précision CNC",
+          "text": "Usinage multiaxe pour des tolérances strictes et une qualité reproductible."
+        },
+        "heat": {
+          "title": "Traitement Thermique",
+          "text": "Processus thermiques internes pour la dureté et la résistance à l'usure."
+        },
+        "assembly": {
+          "title": "Assemblage",
+          "text": "Lignes dédiées dotées de techniciens qualifiés."
+        },
+        "testing": {
+          "title": "Tests et Expédition",
+          "text": "Tests de performance fonctionnelle sur chaque unité avant l'expédition."
+        }
+      },
+      "exportPresence": "20 à 40 % des revenus annuels proviennent des marchés internationaux. Équipements en fonctionnement dans des mines, tunnels, carrières et chantiers de construction sur plusieurs continents.",
+      "exportRegions": {
+        "africa": {
+          "region": "Afrique",
+          "text": "Afrique du Sud, Kenya, Tanzanie, Zambie, Botswana"
+        },
+        "scandinavia": {
+          "region": "Scandinavie",
+          "text": "Norvège, Finlande, Suède"
+        },
+        "middleEast": {
+          "region": "Moyen-Orient et CEI",
+          "text": "Arabie Saoudite, Russie"
+        },
+        "southAsia": {
+          "region": "Asie du Sud",
+          "text": "Népal, Sri Lanka, Bhoutan"
+        }
+      }
+    },
+    "journey": {
+      "intro": "Une histoire construite décennie après décennie — d'un atelier de pièces détachées en 1970 à une installation de fabrication certifiée ISO de 25 000 pieds² exportant vers plus de 20 pays.",
+      "timeline": {
+        "t1970": {
+          "year": "1970",
+          "title": "Fondation",
+          "text": "M. Manohar Sajnani commence à fabriquer des pièces détachées pneumatiques pour perforatrices de roche"
+        },
+        "t1990": {
+          "year": "1990",
+          "title": "Expansion",
+          "text": "La génération suivante rejoint l'entreprise. La gamme de produits s'étend au secteur minier et des infrastructures."
+        },
+        "t1999": {
+          "year": "1999",
+          "title": "Marque HAVA",
+          "text": "La marque HAVA est officiellement créée — machines de forage de roche, accessoires, consommables, pièces détachées."
+        },
+        "t2011": {
+          "year": "2011",
+          "title": "Constitution",
+          "text": "Haryrock Engineering Pvt. Ltd. est officiellement constituée — une base plus solide pour la croissance mondiale."
+        },
+        "today": {
+          "year": "Aujourd'hui",
+          "title": "Leader Mondial",
+          "text": "Certifié ISO 9001:2015. Installation de 25 000 pieds². Exporté vers plus de 20 pays à travers le monde."
+        }
+      }
+    },
+    "leadership": {
+      "intro": "Notre direction réunit des décennies d'expertise en ingénierie, une connaissance du secteur et une volonté constante de fabrication de qualité et de satisfaction client.",
+      "founder": {
+        "role": "Fondateur et Directeur",
+        "name": "M. Manohar Sajnani",
+        "bio": "Avec plus de 50 ans dans l'industrie du forage de roche, M. Sajnani a fondé l'entreprise en 1970. Son expérience pratique en ingénierie et sa connaissance approfondie du marché continuent de guider le développement des produits et les normes de qualité de HAVA.",
+        "tags": {
+          "t1": "Plus de 50 Ans d'Expérience",
+          "t2": "Fondateur",
+          "t3": "Ingénierie"
+        }
+      },
+      "contactTitle": "Contact",
+      "quote": "Depuis plus de cinq décennies, notre priorité est restée inchangée — fournir des solutions de forage de roche fiables qui aident nos clients à travailler efficacement et de manière rentable. À mesure que les projets deviennent plus exigeants, nous continuons d'investir dans une meilleure fabrication, de meilleurs produits et de meilleures relations. C'est sur cela que HAVA est construit.",
+      "quoteCite": "— M. Manohar Sajnani, Fondateur et Directeur, Haryrock Engineering Pvt. Ltd."
+    },
+    "certifications": {
+      "intro": "La certification ISO 9001:2015 de HAVA est la reconnaissance formelle de notre engagement envers la gestion de la qualité, l'amélioration continue et la satisfaction client — vérifiée et auditée de manière indépendante.",
+      "details": {
+        "d1": {
+          "label": "Norme",
+          "value": "ISO 9001:2015 — Système de Management de la Qualité"
+        },
+        "d2": {
+          "label": "N° de Certificat",
+          "value": "V3QC/QMS/D26/0031"
+        },
+        "d3": {
+          "label": "Délivré Par",
+          "value": "V3 Quality Certification Pvt. Ltd., Rohini, Delhi 110083"
+        },
+        "d4": {
+          "label": "Accréditation",
+          "value": "UAF — United Accreditation Foundation (CB-MS-10165)"
+        },
+        "d5": {
+          "label": "Date d'Émission",
+          "value": "29 avril 2026"
+        },
+        "d6": {
+          "label": "1er Audit de Surveillance Dû",
+          "value": "28 avril 2027"
+        },
+        "d7": {
+          "label": "2e Audit de Surveillance Dû",
+          "value": "28 avril 2028"
+        },
+        "d8": {
+          "label": "Expiration du Certificat",
+          "value": "28 avril 2029"
+        },
+        "d9": {
+          "label": "Portée",
+          "value": "Importation, exportation, fabrication et commerce de machines minières pneumatiques ainsi que d'outils associés, d'équipements d'extension et d'accessoires de ligne d'air sous la marque « HAVA »."
+        }
+      },
+      "compliance": {
+        "madeInIndia": {
+          "title": "Fabriqué en Inde",
+          "text": "Fabriqué à MIDC Pimpri, Pune, sous contrôle interne total. Éligible à la certification Fabriqué en Inde et aux marchés publics."
+        },
+        "exportStandards": {
+          "title": "Normes d'Exportation",
+          "text": "Produits exportés vers plus de 20 pays. Documentation d'exportation, factures commerciales, listes de colisage et certificats d'origine gérés pour toutes les expéditions internationales."
+        },
+        "atlasCopco": {
+          "title": "Compatibilité Atlas Copco",
+          "text": "Les produits HAVA sont fabriqués de manière indépendante en tant qu'alternatives certifiées ISO. Références de modèle à des fins d'identification uniquement."
+        },
+        "qms": {
+          "title": "Système de Management de la Qualité",
+          "text": "Le SMQ couvre la matière première, l'usinage, le traitement thermique, l'assemblage, l'inspection, les tests et l'expédition — avec des procédures documentées et des audits réguliers."
+        }
+      }
+    },
+    "promise": {
+      "label": "La Promesse HAVA",
+      "title": "Solutions de Forage de Roche Fiables. À Chaque Fois. Chaque Année.",
+      "body": "Nous nous engageons à aider nos clients à obtenir une meilleure productivité, une réduction des temps d'arrêt et une performance fiable des équipements grâce à une fabrication de qualité et une amélioration continue. Cet engagement ne s'arrête pas à la vente — il s'étend à chaque pièce détachée, chaque demande technique et chaque nouvelle commande qui suit.",
+      "cards": {
+        "quality": {
+          "title": "Qualité Assurée",
+          "text": "Certifié ISO 9001:2015. Chaque unité testée avant expédition."
+        },
+        "support": {
+          "title": "Support à Long Terme",
+          "text": "Pièces détachées authentiques, conseils techniques et assistance de maintenance tout au long de la vie de l'équipement."
+        },
+        "reliability": {
+          "title": "Fiabilité Mondiale",
+          "text": "Reconnu par les entreprises minières et de construction dans plus de 20 pays."
+        },
+        "access": {
+          "title": "Accès Direct",
+          "text": "Achetez directement auprès du fabricant. Aucun intermédiaire. Responsabilité totale à chaque étape."
+        }
+      }
+    },
+    "finalCta": {
+      "title": "À la Recherche d'Équipements de Forage Fiables ?",
+      "body": "Que vous soyez un entrepreneur minier, un développeur d'infrastructures, un revendeur ou un acheteur international — notre équipe vous aidera à trouver la bonne solution."
+    }
+  },
+  "infraQualityPage": {
+    "hero": {
+      "eyebrow": "Conçu pour Fabriquer. Équipé pour Livrer.",
+      "heading": "À l'Intérieur de l'Installation de Fabrication HAVA de 25 000 Pieds²",
+      "body": "Notre installation à MIDC Pimpri, Pune, est une usine de fabrication complète — pas un entrepôt ni un point d'assemblage. La matière première arrive et l'équipement fini, testé et prêt à expédier repart. Huit étapes contrôlées. Aucun compromis. Chaque unité."
+    },
+    "factoryOverview": {
+      "title": "Usine de Fabrication MIDC Pimpri",
+      "body": "L'installation de fabrication HAVA a été continuellement modernisée depuis 1970. Aujourd'hui, elle fonctionne comme une usine entièrement autosuffisante couvrant la réception des matières premières, l'usinage de précision CNC, le traitement thermique, la rectification, l'assemblage, l'inspection qualité, les tests fonctionnels, la peinture, l'emballage et l'emballage d'exportation — le tout sous un même toit.",
+      "cards": {
+        "area": {
+          "title": "Surface Totale",
+          "text": "25 000 pieds² de locaux de fabrication"
+        },
+        "location": {
+          "title": "Emplacement",
+          "text": "A-55, H Block, MIDC Pimpri, Pune – 411018"
+        },
+        "cnc": {
+          "title": "Usinage CNC",
+          "text": "Plusieurs centres d'usinage CNC multiaxes avancés"
+        },
+        "heat": {
+          "title": "Traitement Thermique",
+          "text": "Durcissement, revenu et traitement de surface en interne"
+        },
+        "assembly": {
+          "title": "Lignes d'Assemblage",
+          "text": "Zones d'assemblage dédiées par catégorie de produit"
+        },
+        "qc": {
+          "title": "Stations de Contrôle Qualité",
+          "text": "Inspection multipoint tout au long du cycle de production"
+        },
+        "testing": {
+          "title": "Zone de Test",
+          "text": "Tests de performance fonctionnelle — pression d'air, impact, rotation"
+        },
+        "dispatch": {
+          "title": "Zone d'Expédition",
+          "text": "Zone d'emballage et de documentation prête pour l'exportation"
+        }
+      }
+    },
+    "processChart": {
+      "title": "Huit Étapes. Aucun Compromis.",
+      "body": "Chaque produit HAVA — sans exception — passe par les huit étapes de fabrication. Chaque étape est documentée, contrôlée en qualité et validée avant que la suivante ne commence. C'est ce à quoi ressemble la discipline de processus ISO 9001:2015 en pratique.",
+      "flow": {
+        "f1": {
+          "name": "Matière Première",
+          "sub": "Réception et Vérification"
+        },
+        "f2": {
+          "name": "Usinage CNC",
+          "sub": "Pièces de Précision"
+        },
+        "f3": {
+          "name": "Traitement Thermique",
+          "sub": "Durcir et Revenir"
+        },
+        "f4": {
+          "name": "Rectification",
+          "sub": "Finition de Surface"
+        },
+        "f5": {
+          "name": "CQ et Tests",
+          "sub": "Inspecter et Tester Fonctionnellement"
+        },
+        "f6": {
+          "name": "Acceptation et Tests",
+          "sub": "Acceptation Finale"
+        },
+        "f7": {
+          "name": "Peinture et Emballage",
+          "sub": "Finir et Protéger"
+        },
+        "f8": {
+          "name": "Expédition",
+          "sub": "Prêt pour l'Exportation"
+        }
+      },
+      "note": "Chaque unité · À chaque fois · Aucune exception — Certifié ISO 9001:2015",
+      "stages": {
+        "s1": {
+          "num": "Étape 01",
+          "label": "Réception et Vérification des Matières Premières",
+          "title": "Réception des Matériaux et Contrôle Qualité",
+          "body": "Toutes les matières premières — lingots d'acier, barres d'alliage, pièces moulées, composants — sont vérifiées par rapport aux spécifications de matériaux avant d'entrer en production. Le matériel non conforme est rejeté à la réception. Une traçabilité complète est maintenue tout au long du processus.",
+          "activities": "Contrôle de qualité · Vérification dimensionnelle · Examen du certificat fournisseur · Étiquetage de traçabilité"
+        },
+        "s2": {
+          "num": "Étape 02",
+          "label": "Usinage de Précision CNC",
+          "title": "Fabrication de Précision Multiaxe",
+          "body": "Des centres d'usinage CNC multiaxes avancés produisent tous les composants selon des spécifications dimensionnelles exactes. Chaque dimension est vérifiée par machine — non estimée manuellement. C'est le fondement de la qualité constante de HAVA à chaque lot de production.",
+          "activities": "Tournage · Alésage · Fraisage · Filetage · Rectification de surface · Vérification dimensionnelle CNC"
+        },
+        "s3": {
+          "num": "Étape 03",
+          "label": "Traitement Thermique",
+          "title": "Durcissement, Revenu et Traitement de Surface",
+          "body": "Le traitement thermique en interne assure la dureté, la résistance à l'usure et la résistance à la fatigue requises. Le piston, le cylindre, la barre rainurée et les composants à haute contrainte sont traités thermiquement selon des spécifications de dureté critiques pour la performance du forage de roche.",
+          "activities": "Cémentation · Durcissement complet · Revenu · Vérification de dureté"
+        },
+        "s4": {
+          "num": "Étape 04",
+          "label": "Rectification",
+          "title": "Finition de Surface et Tolérances Strictes",
+          "body": "La rectification de précision garantit que toutes les surfaces d'accouplement, alésages et arbres répondent aux tolérances strictes requises pour un assemblage fluide et une longue durée de vie. La finition de surface est vérifiée conformément aux spécifications avant que les composants ne passent à l'assemblage.",
+          "activities": "Rectification cylindrique · Rectification de surface · Rectification interne · Vérification de finition"
+        },
+        "s5": {
+          "num": "Étape 05",
+          "label": "Contrôle Qualité et Tests",
+          "title": "Inspection Multipoint + Test de Performance Fonctionnelle",
+          "body": "Chaque unité assemblée passe par une inspection de CQ multipoint structurée — vérification dimensionnelle, contrôles visuels, confirmation au niveau des composants — puis dans la zone de test. La pression d'air appliquée, le taux d'impact, la rotation, le rinçage et tous les contrôles sont vérifiés. Résultats documentés. Aucune unité n'est expédiée sans avoir réussi un test.",
+          "activities": "Inspection dimensionnelle · Test d'étanchéité · Contrôle de rotation · Taux d'impact · Test de consommation d'air"
+        },
+        "s6": {
+          "num": "Étape 06",
+          "label": "Acceptation et Tests",
+          "title": "Contrôle d'Acceptation Finale",
+          "body": "Les unités qui réussissent le CQ sont formellement acceptées comme produits finis. Une passe de vérification finale confirme que toutes les spécifications sont respectées — performance, dimensions et aspect visuel. Les unités rejetées sont renvoyées pour retouche ; aucune exception aux critères d'acceptation.",
+          "activities": "Validation d'acceptation · Validation de performance · Inspection visuelle · Boucle de retouche si nécessaire"
+        },
+        "s7": {
+          "num": "Étape 07",
+          "label": "Peinture et Emballage",
+          "title": "Finition et Protection",
+          "body": "Les unités acceptées sont nettoyées, apprêtées et peintes selon la finition standard de HAVA. Les composants sont emballés individuellement avec un enveloppement protecteur et placés dans un emballage de qualité export pour éviter les dommages pendant le transport.",
+          "activities": "Nettoyage de surface · Peinture et séchage · Enveloppement des composants · Emballage de qualité export"
+        },
+        "s8": {
+          "num": "Étape 08",
+          "label": "Expédition",
+          "title": "Emballage et Documentation Prêts pour l'Exportation",
+          "body": "Les unités validées sont expédiées avec une documentation complète — listes de colisage, factures commerciales, certificats d'origine — préparées et vérifiées avant la libération. Chaque expédition est suivie jusqu'au client. Aucune unité ne quitte l'usine sans documentation complète.",
+          "activities": "Préparation de la documentation · Facture et certificat d'origine · Libération d'expédition · Suivi jusqu'au client"
+        }
+      }
+    },
+    "qcStandards": {
+      "title": "Ce que Nous Inspectons — Et Quand",
+      "body": "Chaque processus suit des procédures documentées selon la norme ISO 9001:2015 — régulièrement auditées par V3 Quality Certification Pvt. Ltd.",
+      "rows": {
+        "r1": {
+          "type": "Vérification des Matériaux",
+          "check": "Qualité, composition et certification de la matière première",
+          "stage": "Étape 01 — Réception",
+          "method": "Certificat fournisseur + inspection à l'entrée"
+        },
+        "r2": {
+          "type": "Précision Dimensionnelle",
+          "check": "Toutes les dimensions critiques par rapport à la spécification du plan",
+          "stage": "Étape 02 — Post-CNC",
+          "method": "Vérification par machine CNC + mesure manuelle"
+        },
+        "r3": {
+          "type": "Dureté de Surface",
+          "check": "Dureté des composants traités thermiquement",
+          "stage": "Étape 03 — Post Traitement Thermique",
+          "method": "Duromètre selon spécification du composant"
+        },
+        "r4": {
+          "type": "Finition de Rectification",
+          "check": "Finition de surface et tolérance dimensionnelle après rectification",
+          "stage": "Étape 04 — Post Rectification",
+          "method": "Rugosimètre + calibre passe-ne passe pas"
+        },
+        "r5": {
+          "type": "Couple d'Assemblage",
+          "check": "Tous les fixations serrées selon spécification",
+          "stage": "Étape 05 — Assemblage",
+          "method": "Clé dynamométrique — documenté"
+        },
+        "r6": {
+          "type": "Jeu et Ajustement",
+          "check": "Jeu piston-cylindre, ajustement du mandrin, rotation",
+          "stage": "Étape 05 — Assemblage",
+          "method": "Jauge d'épaisseur / calibre passe-ne passe pas"
+        },
+        "r7": {
+          "type": "Test de Pression d'Air",
+          "check": "Aucune fuite à 6 bars de pression de fonctionnement",
+          "stage": "Étape 05 — Tests",
+          "method": "Test de pression à 6 bars / 87 PSI"
+        },
+        "r8": {
+          "type": "Test Fonctionnel",
+          "check": "Taux d'impact, rotation, rinçage, tous les contrôles",
+          "stage": "Étape 05 — Tests",
+          "method": "Test en fonctionnement sous charge — résultats documentés"
+        },
+        "r9": {
+          "type": "Acceptation Finale",
+          "check": "Confirmation de performance, dimensions et aspect visuel",
+          "stage": "Étape 06 — Acceptation et Tests",
+          "method": "Validation de la liste de contrôle d'acceptation"
+        },
+        "r10": {
+          "type": "Visuel et Final",
+          "check": "Finition de surface, marquage, intégralité, emballage",
+          "stage": "Étape 08 — Pré-Expédition",
+          "method": "Liste de contrôle d'inspection visuelle"
+        }
+      },
+      "isoNote": "ISO 9001:2015 — Certificat n° V3QC/QMS/D26/0031 : Émis le 29 avril 2026 · Valable jusqu'au 28 avril 2029 · Accrédité par UAF (CB-MS-10165) · Délivré par V3 Quality Certification Pvt. Ltd., Delhi."
+    },
+    "finalCta": {
+      "title": "Vous Voulez Voir Notre Installation en Personne ?",
+      "body": "Nous accueillons les visites d'acheteurs, de distributeurs et d'équipes d'approvisionnement souhaitant vérifier nos capacités de fabrication de première main."
+    }
+  },
+  "productsPage": {
+    "hero": {
+      "label": "Nos Produits",
+      "heading": "Solutions Complètes de Forage de Roche pour l'Exploitation Minière, les Carrières et la Construction",
+      "body": "Des perforatrices de roche pneumatiques et marteaux-perforateurs robustes aux accessoires de forage et pièces détachées authentiques — HAVA fabrique une gamme complète conçue pour la performance, la durabilité et la fiabilité dans les environnements de travail les plus difficiles.",
+      "trustStrip": "✅ Certifié ISO 9001:2015  |  🇮🇳 Fabriqué en Inde  |  🔧 Compatible Atlas Copco  |  🌍 Exporté vers plus de 20 Pays"
+    },
+    "categoryA": {
+      "name": "Perforatrices de Roche",
+      "productCount": "3 Produits · 3 Pages",
+      "description": "Perforatrices pneumatiques à rinçage air (sec) et à rinçage eau (humide) capables de forer des trous de 27 à 48mm de diamètre à l'aide d'acier intégral H22, jusqu'à 6 mètres de profondeur. Variante sèche pour le forage de carrière et de surface ; variante humide pour le forage horizontal et incliné sans poussière dans les mines souterraines et tunnels avec béquille de poussée.",
+      "table": {
+        "headers": {
+          "model": "Modèle",
+          "type": "Type",
+          "weight": "Poids",
+          "impactRate": "Taux d'Impact",
+          "drillingRate": "Taux de Forage",
+          "airHose": "Tuyau d'Air",
+          "waterHose": "Tuyau d'Eau"
+        },
+        "rowLabels": {
+          "dryFlushed": "Sec — Rinçage Air",
+          "wetFlushed": "Humide — Rinçage Eau"
+        }
+      },
+      "twoCol": {
+        "appDry": {
+          "heading": "Applications (Sec — RH-658/5L)",
+          "text": "Forage de Carrière · Minage en Gradins · Excavation Générale · Industries du Marbre et du Granit · Construction et Minage de Surface"
+        },
+        "appWet": {
+          "heading": "Applications (Humide — RH-656/4W)",
+          "text": "Mines et Tunnels Souterrains · Forage Horizontal / Incliné"
+        },
+        "features": {
+          "heading": "Caractéristiques du Produit (Humide)",
+          "text": "Rotation de Barre Rainurée · Retenue à Loquet · Vanne pour Rinçage à l'Air"
+        }
+      },
+      "note": "Chaque page produit comprend : Applications · Tableau de données techniques · Appel à l'action pièces détachées · Note de compatibilité Atlas Copco · Appel à l'action demande · Téléchargement de brochure.",
+      "summaryLine": "RH-658/5L Sec · RH-656/4W Humide Poignée en T · RH-656/4W Humide Poignée Bêche"
+    },
+    "categoryB": {
+      "name": "Marteaux-Perforateurs",
+      "productCount": "3 Produits · 4 Pages",
+      "description": "Marteau-perforateur robuste pour le forage de surface et souterrain — trous de 48mm à 89mm utilisant un équipement d'extension R32 et R38. Utilisé avec des plateformes de forage et des chariots de forage. Comprend des adaptateurs de queue et des manchons d'accouplement.",
+      "table": {
+        "headers": {
+          "item": "Article",
+          "spec": "Spécification / Détail"
+        },
+        "rows": {
+          "r1": {
+            "item": "Marteau-Perforateur BBC-120F",
+            "detail": "Poids : 70 kg | Longueur : 780mm | Diamètre du Piston : 120mm | Impact : 33 Hz / 2100 bpm | Puissance : 7,2 kW | Rotation : 210–240 tr/min | Mandrin : Queue Leyner 38mm"
+          },
+          "r2": {
+            "item": "Adaptateur de Queue R32 et R38",
+            "detail": "Connecte le marteau-perforateur à l'équipement d'extension. Disponible en filetage R32 (1¼\") et R38 (1½\")."
+          },
+          "r3": {
+            "item": "Manchon d'Accouplement R32 et R38",
+            "detail": "Manchons d'accouplement pour joindre les sections de tige de forage dans les opérations de forage d'extension."
+          }
+        }
+      },
+      "twoCol": {
+        "applications": {
+          "heading": "Applications",
+          "text": "Forage de Banc · Forage de Trous Longs · Forage de Trous d'Injection · Tunnellisation · Forage en Anneau et en Front · Havage · Tranchées"
+        },
+        "airSpecs": {
+          "heading": "Spécifications de Connexion d'Air",
+          "text": "Mécanisme d'Impact : 38mm (1,50\") · Rinçage : 19mm (0,75\") · Inversion de Rotation : 12mm (0,47\") · Besoin en Air : 6 Bars / 87 PSI / 600 kPa"
+        }
+      },
+      "summaryLine": "Marteau-Perforateur Robuste BBC-120F · Adaptateur de Queue R32 et R38 · Manchon d'Accouplement"
+    },
+    "categoryC": {
+      "name": "Brise-Roches de Chaussée",
+      "productCount": "2 Produits · 3 Pages",
+      "description": "Brise-roche de chaussée pneumatique de puissance moyenne conçu pour fonctionner à 80–90 PSI. Puissance de frappe élevée, rapport puissance-poids équilibré, lubrification par chambre à huile. Disponible en variantes Retenue à Ressort et Retenue à Loquet.",
+      "table": {
+        "headers": {
+          "spec": "Spécification",
+          "springRetainer": "Retenue à Ressort",
+          "latchRetainer": "Retenue à Loquet"
+        },
+        "rows": {
+          "model": "Modèle",
+          "weight": "Poids",
+          "airConsumption": "Consommation d'Air",
+          "pistonDiameter": "Diamètre du Piston",
+          "overallLength": "Longueur Totale",
+          "frequency": "Fréquence",
+          "airHose": "Connexion Tuyau d'Air",
+          "pressure": "Pression de Fonctionnement"
+        }
+      },
+      "twoCol": {
+        "applications": {
+          "heading": "Applications",
+          "text": "Brisage de Chaussée et de Béton · Démolition · Sol Gelé · Blocs Rocheux · Travail Général de Surface"
+        },
+        "features": {
+          "heading": "Caractéristiques du Produit",
+          "text": "Retenue Type Ressort · Ressort Amortisseur pour absorber les chocs · Lubrification par chambres à huile intégrées dans la culasse arrière"
+        }
+      },
+      "summaryLine": "CP-117 / HR-117 Retenue à Ressort · CP-117 Retenue à Loquet"
+    },
+    "categoryD": {
+      "name": "Béquille de Poussée",
+      "productCount": "1 Produit · 1 Page",
+      "description": "Béquille de Poussée HAVA BMK62S utilisée avec la Perforatrice de Roche Humide RH-656/4W en Havage et Tunnellisation. Cylindre d'avance en acier avec commande d'accélérateur et soupape de décharge actionnée en bas pour un contrôle précis de la pression d'avance pour le forage horizontal et incliné souterrain.",
+      "table": {
+        "headers": {
+          "spec": "Spécification",
+          "metric": "Métrique",
+          "imperial": "Impérial"
+        },
+        "rows": {
+          "netWeight": "Poids Net",
+          "length": "Longueur",
+          "lengthExtended": "Longueur Étendue",
+          "extensionLength": "Longueur d'Extension",
+          "pistonDiameter": "Diamètre du Piston"
+        }
+      },
+      "twoCol": {
+        "applications": {
+          "heading": "Applications",
+          "text": "Forage Horizontal Souterrain · Forage Incliné dans les Tunnels · Opérations de Havage"
+        },
+        "features": {
+          "heading": "Caractéristiques",
+          "text": "Soupape de Décharge Actionnée en Bas · Vanne de Commande d'Accélérateur · Conception en Acier Robuste · Faible Poids"
+        }
+      },
+      "summaryLine": "Béquille Pneumatique BMK62S"
+    },
+    "categoryE": {
+      "name": "Accessoires de Ligne d'Air",
+      "productCount": "4 Produits · 4 Pages",
+      "description": "Gamme complète d'accessoires de ligne d'air garantissant que l'équipement pneumatique fonctionne efficacement, en toute sécurité et avec une usure minimale. Ne jamais forer sans le lubrificateur — placé exactement à 3 mètres de la perforatrice.",
+      "table": {
+        "headers": {
+          "num": "N°",
+          "product": "Produit",
+          "detail": "Détail"
+        },
+        "rows": {
+          "e1": {
+            "product": "Lubrificateur de Ligne d'Air BLG-30",
+            "detail": "Poids : 3 kg (6,6 lb) | Volume : 1,3 l (44 oz) | Débit d'Air : 25–134 l/s (53–284 cfm) | Placer à 3M de la perforatrice"
+          },
+          "e3": {
+            "product": "Colliers",
+            "detail": "Accessoires de collier de ligne d'air pour les connexions de forage"
+          },
+          "e4": {
+            "product": "Raccords de Tuyau",
+            "detail": "Raccords de jonction pour les connexions de tuyau de ligne d'air"
+          },
+          "e5": {
+            "product": "Tuyau",
+            "detail": "Tuyau de ligne d'air haute pression pour équipement pneumatique"
+          }
+        }
+      },
+      "criticalNote": "Une lubrification insuffisante provoque une usure par frottement. Le piston d'une perforatrice de roche moyenne effectue environ 1 800 à 2 000 mouvements alternatifs par minute. Utilisez toujours de l'huile pour perforatrice de roche — jamais d'huile moteur.",
+      "summaryLine": "Lubrificateur BLG-30 · Colliers · Raccords de Tuyau · Tuyau"
+    },
+    "categoryF": {
+      "name": "Équipement d'Extension",
+      "productCount": "6 Articles · 6 Pages",
+      "description": "Outils de forage conçus avec précision pour maximiser le transfert d'énergie, la précision de forage et la durée de vie de l'équipement. Compatible avec les systèmes HAVA et Atlas Copco. Filetage R32 et R38 dans toute la gamme.",
+      "table": {
+        "headers": {
+          "num": "N°",
+          "product": "Produit",
+          "detail": "Détail"
+        },
+        "rows": {
+          "f1": {
+            "product": "Ciseaux et Pointes Moil",
+            "detail": "Pointes de ciseau et de moil pour brise-roches de chaussée. Longueurs : 18\", 21\" et 24\""
+          },
+          "f2": {
+            "product": "Tiges de Forage Intégrées",
+            "detail": "Tige de forage forgée d'une seule pièce pour utilisation avec les perforatrices de roche"
+          },
+          "f3": {
+            "product": "Tiges de Forage Coniques",
+            "detail": "Tiges de forage à connexion conique pour applications de perforatrice de roche"
+          },
+          "f4": {
+            "product": "Adaptateur de Queue R32 / R38",
+            "detail": "Adaptateurs de queue pour connecter le marteau-perforateur à l'équipement d'extension"
+          },
+          "f5": {
+            "product": "Manchon d'Accouplement R32 et R38",
+            "detail": "Manchons d'accouplement pour connecter les sections de tige de forage"
+          },
+          "f6": {
+            "product": "Tiges d'Extension R32",
+            "detail": "Disponibles en longueurs de 4, 6, 8 et 10 pieds"
+          }
+        }
+      },
+      "tags": {
+        "t1": "Forage de Roche Dure",
+        "t2": "Forage d'Extension",
+        "t3": "Développement Souterrain",
+        "t4": "Excavation de Surface"
+      },
+      "summaryLine": "Pointes de Ciseau/Moil · Tiges Intégrées · Tiges Coniques · Adaptateurs de Queue · Manchons d'Accouplement · Tiges d'Extension R32"
+    },
+    "categoryG": {
+      "name": "Taillants à Boutons",
+      "productCount": "2 Gammes de Produits · 2 Pages",
+      "description": "Fabriqués avec des inserts en carbure de tungstène de haute qualité pour une pénétration maximale, une durabilité et une durée de vie en forage de roche dure. Disponibles en plusieurs tailles pour s'adapter aux configurations de perforatrice de roche et de marteau-perforateur.",
+      "twoCol": {
+        "rockDrills": {
+          "heading": "Pour Perforatrices de Roche (Taillants à Boutons Carbure)",
+          "text": "30mm / 32mm / 34mm"
+        },
+        "drifter": {
+          "heading": "Pour Marteau-Perforateur — Taillants à Boutons R32",
+          "text": "45mm / 51mm / 64mm / 76mm"
+        }
+      },
+      "tags": {
+        "t1": "Exploitation Minière",
+        "t2": "Carrières",
+        "t3": "Forage de Tunnel",
+        "t4": "Excavation de Surface",
+        "t5": "Forage de Banc"
+      },
+      "summaryLine": "Carbure 30/32/34mm pour Perforatrices de Roche · R32 45/51/64/76mm pour Marteau-Perforateur"
+    },
+    "categoryH": {
+      "name": "Pièces Détachées",
+      "productCount": "Pièces Authentiques",
+      "description": "Pièces détachées authentiques HAVA fabriquées en interne selon les mêmes tolérances, matériaux et spécifications exactes que l'équipement d'origine. Comme HAVA fabrique chaque produit, HAVA fabrique chaque pièce — pas d'approvisionnement tiers, aucun compromis sur l'ajustement ou la fonction.",
+      "whyGenuine": "Les pièces hors spécification provoquent une usure prématurée, une performance d'impact réduite et des temps d'arrêt coûteux. Les pièces détachées HAVA sont produites à partir des mêmes matériaux, selon les mêmes spécifications dimensionnelles, via les mêmes processus d'usinage CNC — garantissant une performance de niveau original à chaque remplacement.",
+      "whyCards": {
+        "tolerances": {
+          "title": "Tolérances Exactes",
+          "text": "Usinées selon les mêmes spécifications dimensionnelles — ajustement et performance garantis."
+        },
+        "materials": {
+          "title": "Mêmes Matériaux",
+          "text": "Traitées thermiquement en utilisant les mêmes qualités de matériaux que les lots de production originaux."
+        },
+        "stock": {
+          "title": "Toujours en Stock",
+          "text": "Fabrication interne — pièces disponibles immédiatement, sans délais de tiers."
+        },
+        "downtime": {
+          "title": "Temps d'Arrêt Réduit",
+          "text": "Des pièces bien ajustées signifient une maintenance plus rapide et un retour plus rapide au fonctionnement complet."
+        },
+        "life": {
+          "title": "Durée de Vie Prolongée de l'Équipement",
+          "text": "Les pièces authentiques maintiennent les jeux d'origine et l'intégrité mécanique."
+        },
+        "compat": {
+          "title": "Compatible Atlas Copco",
+          "text": "Tous les kits compatibles avec l'équipement HAVA et les équivalents de référence Atlas Copco."
+        }
+      }
+    },
+    "summary": {
+      "title": "Résumé des Catégories de Produits",
+      "headers": {
+        "cat": "Cat.",
+        "category": "Catégorie",
+        "products": "Produits",
+        "pages": "Pages Web"
+      },
+      "rows": {
+        "a": {
+          "category": "Perforatrices de Roche",
+          "products": "2 produits (Poignée en T Humide + Poignée Bêche Humide)",
+          "pages": "2 pages"
+        },
+        "b": {
+          "category": "Marteau-Perforateur",
+          "products": "3 produits (BBC-120F + Adaptateur de Queue + Manchon d'Accouplement)",
+          "pages": "4 pages"
+        },
+        "c": {
+          "category": "Brise-Roches de Chaussée",
+          "products": "2 produits (Ressort + Retenue à Loquet)",
+          "pages": "3 pages"
+        },
+        "d": {
+          "category": "Béquille de Poussée",
+          "products": "1 produit (BMK62S)",
+          "pages": "1 page"
+        },
+        "e": {
+          "category": "Accessoires de Ligne d'Air",
+          "products": "4 produits (BLG-30, Colliers, Raccords de Tuyau, Tuyau)",
+          "pages": "4 pages"
+        },
+        "f": {
+          "category": "Équipement d'Extension",
+          "products": "6 articles (Ciseau/Moil, Intégrée, Conique, Queue, Accouplement, Tiges d'Extension)",
+          "pages": "6 pages"
+        },
+        "g": {
+          "category": "Taillants à Boutons",
+          "products": "2 gammes de produits (Carbure 30–34mm | R32 45–76mm)",
+          "pages": "2 pages"
+        },
+        "h": {
+          "category": "Pièces Détachées",
+          "products": "Pièces détachées authentiques — nous consulter pour plus de détails",
+          "pages": "1 page"
+        }
+      },
+      "totalLabel": "Total des Pages de la Zone Produits",
+      "totalValue": "24 pages"
+    },
+    "finalCta": {
+      "title": "Vous Ne Savez Pas Quel Produit Convient à Votre Application ?",
+      "body": "Indiquez-nous vos besoins de forage, votre environnement d'exploitation et les détails de votre projet — notre équipe vous recommandera la solution HAVA adaptée."
+    }
   }
 }
