@@ -1,3 +1,4 @@
+import "./i18n";
 import "@/App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ModernHomePage } from "./pages/ModernHomePage";
