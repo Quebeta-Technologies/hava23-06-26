@@ -1,8 +1,92 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Mail, ChevronDown } from 'lucide-react';
+import { Menu, X, Mail, ChevronDown, Globe } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import { headerData } from '../data/mock';
 import { Button } from './ui/button';
+
+const LANGUAGES = [
+  { code: 'en', label: 'EN', name: 'English' },
+  { code: 'es', label: 'ES', name: 'Español' },
+  { code: 'fr', label: 'FR', name: 'Français' },
+  { code: 'de', label: 'DE', name: 'Deutsch' },
+];
+
+const LanguageSwitcher = ({ variant = 'desktop' }) => {
+  const { i18n } = useTranslation();
+  const [open, setOpen] = useState(false);
+  const ref = useRef(null);
+
+  const current = LANGUAGES.find((l) => l.code === i18n.language) || LANGUAGES[0];
+
+  useEffect(() => {
+    function handleClickOutside(e) {
+      if (ref.current && !ref.current.contains(e.target)) {
+        setOpen(false);
+      }
+    }
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
+
+  const changeLanguage = (code) => {
+    i18n.changeLanguage(code);
+    setOpen(false);
+  };
+
+  if (variant === 'mobile') {
+    return (
+      <div className="grid grid-cols-4 gap-2">
+        {LANGUAGES.map((lang) => (
+          <button
+            key={lang.code}
+            onClick={() => changeLanguage(lang.code)}
+            className={`py-2 rounded-lg text-sm font-semibold border transition-colors ${
+              lang.code === current.code
+                ? 'border-hava-red text-hava-red bg-hava-red/5'
+                : 'border-steel-gray text-charcoal hover:border-trust-blue'
+            }`}
+          >
+            {lang.label}
+          </button>
+        ))}
+      </div>
+    );
+  }
+
+  return (
+    <div className="relative" ref={ref}>
+      <button
+        onClick={() => setOpen((o) => !o)}
+        type="button"
+        className="flex items-center gap-1.5 text-xs sm:text-sm font-medium text-white hover:text-accent-orange transition-colors"
+        aria-haspopup="listbox"
+        aria-expanded={open}
+      >
+        <Globe className="w-3.5 h-3.5" />
+        {current.label}
+        <ChevronDown className={`w-3 h-3 transition-transform ${open ? 'rotate-180' : ''}`} />
+      </button>
+
+      {open && (
+        <div className="absolute right-0 mt-2 w-36 bg-white rounded-md shadow-lg border border-steel-gray py-1 z-[60]">
+          {LANGUAGES.map((lang) => (
+            <button
+              key={lang.code}
+              onClick={() => changeLanguage(lang.code)}
+              className={`w-full text-left px-4 py-2 text-sm hover:bg-gray-50 transition-colors flex items-center justify-between ${
+                lang.code === current.code ? 'text-hava-red font-semibold' : 'text-charcoal'
+              }`}
+            >
+              <span>{lang.name}</span>
+              <span className="text-xs text-steel-gray">{lang.label}</span>
+            </button>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+};
 
 export const Header = ({ onQuoteClick }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -49,6 +133,8 @@ export const Header = ({ onQuoteClick }) => {
                   Draft Annual Return
                 </Button>
               </a>
+              {/* Language Switcher - Desktop */}
+              <LanguageSwitcher variant="desktop" />
             </div>
           </div>
         </div>
@@ -220,7 +306,10 @@ export const Header = ({ onQuoteClick }) => {
         </div>
 
         {/* Drawer Footer */}
-        <div className="px-4 py-4 border-t border-steel-gray space-y-2">
+        <div className="px-4 py-4 border-t border-steel-gray space-y-3">
+          {/* Language Switcher - Mobile */}
+          <LanguageSwitcher variant="mobile" />
+
           <a href="/assets/Draft_Annual_Return.pdf" target="_blank" rel="noopener noreferrer" className="block">
             <Button className="w-full bg-trust-blue hover:bg-trust-blue/90 text-white font-semibold">
               Draft Annual Return
