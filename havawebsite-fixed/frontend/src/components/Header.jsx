@@ -6,10 +6,10 @@ import { headerData } from '../data/mock';
 import { Button } from './ui/button';
 
 const LANGUAGES = [
-  { code: 'en', label: 'EN', name: 'English' },
-  { code: 'es', label: 'ES', name: 'Español' },
-  { code: 'fr', label: 'FR', name: 'Français' },
-  { code: 'de', label: 'DE', name: 'Deutsch' },
+  { code: 'en', label: 'EN', name: 'English', flag: '🇬🇧' },
+  { code: 'es', label: 'ES', name: 'Español', flag: '🇪🇸' },
+  { code: 'fr', label: 'FR', name: 'Français', flag: '🇫🇷' },
+  { code: 'de', label: 'DE', name: 'Deutsch', flag: '🇩🇪' },
 ];
 
 const LanguageSwitcher = ({ variant = 'desktop' }) => {
@@ -41,13 +41,14 @@ const LanguageSwitcher = ({ variant = 'desktop' }) => {
           <button
             key={lang.code}
             onClick={() => changeLanguage(lang.code)}
-            className={`py-2 rounded-lg text-sm font-semibold border transition-colors ${
+            className={`py-2 rounded-lg text-sm font-semibold border transition-colors flex flex-col items-center gap-0.5 ${
               lang.code === current.code
                 ? 'border-hava-red text-hava-red bg-hava-red/5'
                 : 'border-steel-gray text-charcoal hover:border-trust-blue'
             }`}
           >
-            {lang.label}
+            <span className="text-base leading-none">{lang.flag}</span>
+            <span>{lang.label}</span>
           </button>
         ))}
       </div>
@@ -69,18 +70,24 @@ const LanguageSwitcher = ({ variant = 'desktop' }) => {
       </button>
 
       {open && (
-        <div className="absolute right-0 mt-2 w-36 bg-white rounded-md shadow-lg border border-steel-gray py-1 z-[60]">
-          {LANGUAGES.map((lang) => (
-            <button
-              key={lang.code}
-              onClick={() => changeLanguage(lang.code)}
-              className={`w-full text-left px-4 py-2 text-sm hover:bg-gray-50 transition-colors flex items-center justify-between ${
-                lang.code === current.code ? 'text-hava-red font-semibold' : 'text-charcoal'
-              }`}
-            >
-              <span>{lang.name}</span>
-              <span className="text-xs text-steel-gray">{lang.label}</span>
-            </button>
+        <div className="absolute right-0 mt-2 bg-white rounded-md shadow-lg border border-steel-gray py-2 px-2 z-[60] flex items-center gap-1">
+          {LANGUAGES.map((lang, i) => (
+            <React.Fragment key={lang.code}>
+              <button
+                onClick={() => changeLanguage(lang.code)}
+                className={`flex items-center gap-1 px-2 py-1 rounded text-sm transition-colors whitespace-nowrap ${
+                  lang.code === current.code
+                    ? 'text-hava-red font-semibold bg-hava-red/5'
+                    : 'text-charcoal hover:text-trust-blue hover:bg-gray-50'
+                }`}
+              >
+                <span>{lang.flag}</span>
+                <span>{lang.label}</span>
+              </button>
+              {i < LANGUAGES.length - 1 && (
+                <span className="text-steel-gray text-xs">|</span>
+              )}
+            </React.Fragment>
           ))}
         </div>
       )}
