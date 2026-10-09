@@ -14,24 +14,11 @@ const LANGUAGES = [
 
 const LanguageSwitcher = ({ variant = 'desktop' }) => {
   const { i18n } = useTranslation();
-  const [open, setOpen] = useState(false);
-  const ref = useRef(null);
 
   const current = LANGUAGES.find((l) => l.code === i18n.language) || LANGUAGES[0];
 
-  useEffect(() => {
-    function handleClickOutside(e) {
-      if (ref.current && !ref.current.contains(e.target)) {
-        setOpen(false);
-      }
-    }
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
-  }, []);
-
   const changeLanguage = (code) => {
     i18n.changeLanguage(code);
-    setOpen(false);
   };
 
   if (variant === 'mobile') {
@@ -56,41 +43,25 @@ const LanguageSwitcher = ({ variant = 'desktop' }) => {
   }
 
   return (
-    <div className="relative" ref={ref}>
-      <button
-        onClick={() => setOpen((o) => !o)}
-        type="button"
-        className="flex items-center gap-1.5 text-xs sm:text-sm font-medium text-white hover:text-accent-orange transition-colors"
-        aria-haspopup="listbox"
-        aria-expanded={open}
-      >
-        <Globe className="w-3.5 h-3.5" />
-        {current.label}
-        <ChevronDown className={`w-3 h-3 transition-transform ${open ? 'rotate-180' : ''}`} />
-      </button>
-
-      {open && (
-        <div className="absolute right-0 mt-2 bg-white rounded-md shadow-lg border border-steel-gray py-2 px-2 z-[60] flex items-center gap-1">
-          {LANGUAGES.map((lang, i) => (
-            <React.Fragment key={lang.code}>
-              <button
-                onClick={() => changeLanguage(lang.code)}
-                className={`flex items-center gap-1 px-2 py-1 rounded text-sm transition-colors whitespace-nowrap ${
-                  lang.code === current.code
-                    ? 'text-hava-red font-semibold bg-hava-red/5'
-                    : 'text-charcoal hover:text-trust-blue hover:bg-gray-50'
-                }`}
-              >
-                <span>{lang.flag}</span>
-                <span>{lang.label}</span>
-              </button>
-              {i < LANGUAGES.length - 1 && (
-                <span className="text-steel-gray text-xs">|</span>
-              )}
-            </React.Fragment>
-          ))}
-        </div>
-      )}
+    <div className="flex items-center gap-1">
+      {LANGUAGES.map((lang, i) => (
+        <React.Fragment key={lang.code}>
+          <button
+            onClick={() => changeLanguage(lang.code)}
+            className={`flex items-center gap-1 text-xs sm:text-sm font-medium transition-colors ${
+              lang.code === current.code
+                ? 'text-accent-orange font-semibold'
+                : 'text-white/80 hover:text-white'
+            }`}
+          >
+            <span>{lang.flag}</span>
+            <span>{lang.label}</span>
+          </button>
+          {i < LANGUAGES.length - 1 && (
+            <span className="text-white/40 text-xs">|</span>
+          )}
+        </React.Fragment>
+      ))}
     </div>
   );
 };
