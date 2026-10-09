@@ -6,10 +6,10 @@ import { headerData } from '../data/mock';
 import { Button } from './ui/button';
 
 const LANGUAGES = [
-  { code: 'en', label: 'EN', name: 'English', flag: '🇬🇧' },
-  { code: 'es', label: 'ES', name: 'Español', flag: '🇪🇸' },
-  { code: 'fr', label: 'FR', name: 'Français', flag: '🇫🇷' },
-  { code: 'de', label: 'DE', name: 'Deutsch', flag: '🇩🇪' },
+  { code: 'en', label: 'EN', name: 'English', flagUrl: 'https://flagcdn.com/16x12/gb.png' },
+  { code: 'es', label: 'ES', name: 'Español', flagUrl: 'https://flagcdn.com/16x12/es.png' },
+  { code: 'fr', label: 'FR', name: 'Français', flagUrl: 'https://flagcdn.com/16x12/fr.png' },
+  { code: 'de', label: 'DE', name: 'Deutsch', flagUrl: 'https://flagcdn.com/16x12/de.png' },
 ];
 
 const LanguageSwitcher = ({ variant = 'desktop' }) => {
@@ -34,7 +34,7 @@ const LanguageSwitcher = ({ variant = 'desktop' }) => {
                 : 'border-steel-gray text-charcoal hover:border-trust-blue'
             }`}
           >
-            <span className="text-base leading-none">{lang.flag}</span>
+            <img src={lang.flagUrl} alt={lang.name} className="w-5 h-3.5 object-cover rounded-sm" />
             <span>{lang.label}</span>
           </button>
         ))}
@@ -54,7 +54,7 @@ const LanguageSwitcher = ({ variant = 'desktop' }) => {
                 : 'text-white/80 hover:text-white'
             }`}
           >
-            <span>{lang.flag}</span>
+            <img src={lang.flagUrl} alt={lang.name} className="w-4 h-3 object-cover rounded-sm" />
             <span>{lang.label}</span>
           </button>
           {i < LANGUAGES.length - 1 && (
