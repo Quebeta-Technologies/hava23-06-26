@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Mail, ChevronDown, Globe } from 'lucide-react';
+import { Menu, X, Mail, ChevronDown } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { headerData } from '../data/mock';
 import { Button } from './ui/button';
