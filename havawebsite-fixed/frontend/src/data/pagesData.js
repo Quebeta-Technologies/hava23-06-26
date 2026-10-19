@@ -556,6 +556,8 @@ export const productsPageData = {
       twoCol: [
         { heading: "For Rock Drills (Carbide Button Bits)", text: "30mm / 32mm / 34mm" },
         { heading: "For Drifter — R32 Button Bits", text: "45mm / 51mm / 64mm / 76mm" },
+        { heading: "DTH (Down The Hole) Hammer — M40-115", text: "4.5 inch" },
+        { heading: "For DTH Hammer — K4-120", text: "4.74 inch" },
       ],
       tags: ["Mining", "Quarrying", "Tunnel Drilling", "Surface Excavation", "Bench Drilling"],
       summaryLine: "Carbide 30/32/34mm for Rock Drills · R32 45/51/64/76mm for Drifter",

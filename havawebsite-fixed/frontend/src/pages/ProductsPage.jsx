@@ -427,8 +427,8 @@ const CategoryContent = ({ cat, onEnquire, t }) => {
     }
 
     if (cat.code === 'G') {
-      const images = ['/products/caribe.jpeg', '/products/r32.png'];
-      const twoColKeys = ['rockDrills', 'drifter'];
+      const images = ['/products/caribe.jpeg', '/products/r32.png', '/products/button-bits.jpg', '/products/button-bits.jpg'];
+      const twoColKeys = ['rockDrills', 'drifter', 'dth1', 'dth2'];
       return (
         <div className="space-y-4">
           {twoColKeys.map((tck, i) => {

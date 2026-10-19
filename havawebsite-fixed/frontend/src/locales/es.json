@@ -1143,6 +1143,14 @@
         "drifter": {
           "heading": "Para Martillo Perforador — Brocas de Botones R32",
           "text": "45mm / 51mm / 64mm / 76mm"
+        },
+        "dth1": {
+          "heading": "DTH (Down The Hole) Hammer — M40-115",
+          "text": "4.5 inch"
+        },
+        "dth2": {
+          "heading": "For DTH Hammer — K4-120",
+          "text": "4.74 inch"
         }
       },
       "tags": {
