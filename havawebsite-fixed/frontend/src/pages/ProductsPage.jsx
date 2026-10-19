@@ -10,7 +10,7 @@ import {
   ChevronDown,
   ChevronUp,
 } from 'lucide-react';
-import { Drill, Layers, Zap, Wind, Link, CircleDot, Package } from 'lucide-react';
+import { Drill, Layers, Zap, Wind, Link, CircleDot, Package, Droplets } from 'lucide-react';
 import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
 import { QuoteModal } from '../components/QuoteModal';
@@ -19,8 +19,8 @@ import { Button } from '../components/ui/button';
 import { Toaster } from 'sonner';
 import { productsPageData as d } from '../data/pagesData';
 
-const categoryIcons = { A: Drill, B: Zap, C: Wrench, D: Wind, E: Link, F: Layers, G: CircleDot, H: Package };
-const categoryTransKey = { A: 'categoryA', B: 'categoryB', C: 'categoryC', D: 'categoryD', E: 'categoryE', F: 'categoryF', G: 'categoryG', H: 'categoryH' };
+const categoryIcons = { A: Drill, B: Zap, C: Wrench, D: Wind, E: Link, F: Layers, G: CircleDot, H: Package, I: Droplets };
+const categoryTransKey = { A: 'categoryA', B: 'categoryB', C: 'categoryC', D: 'categoryD', E: 'categoryE', F: 'categoryF', G: 'categoryG', H: 'categoryH', I: 'categoryI' };
 
 // ─── Generic Product Card ────────────────────────────────────────────────────
 const ProductCard = ({ title, subtitle, image, specs, catCode, onEnquire, badge, t }) => {
@@ -427,7 +427,7 @@ const CategoryContent = ({ cat, onEnquire, t }) => {
     }
 
     if (cat.code === 'G') {
-      const images = ['/products/caribe.jpeg', '/products/r32.png', '/products/button-bits.jpg', '/products/button-bits.jpg'];
+      const images = ['/products/caribe.jpeg', '/products/r32.png', '/products/Frame%201316.jpg.jpeg', '/products/Frame%201315.jpg.jpeg'];
       const twoColKeys = ['rockDrills', 'drifter', 'dth1', 'dth2'];
       return (
         <div className="space-y-4">
@@ -496,6 +496,36 @@ const CategoryContent = ({ cat, onEnquire, t }) => {
             ))}
           </div>
         </>
+      );
+    }
+
+    if (cat.code === 'I') {
+      const products = [{ key: 'lubri100', image: '/products/Frame%201317.jpg.jpeg' }];
+      return (
+        <div className="space-y-4">
+          {products.map(({ key, image }) => {
+            const heading = t(`productsPage.categoryI.products.${key}.heading`);
+            const text = t(`productsPage.categoryI.products.${key}.text`);
+            return (
+              <div key={key} className="bg-white rounded-2xl border-2 border-steel-gray hover:border-hava-red/40 hover:shadow-xl transition-all overflow-hidden flex flex-col sm:flex-row">
+                <div className="w-full sm:w-44 lg:w-52 flex-shrink-0 bg-gradient-to-br from-slate-100 to-blue-50 overflow-hidden" style={{ minHeight: '220px' }}>
+                  <img src={image} alt={heading} className="w-full h-full object-cover" style={{ minHeight: '220px' }} />
+                </div>
+                <div className="flex-1 p-5 flex flex-col">
+                  <div className="flex items-start justify-between gap-3 mb-3">
+                    <p className="font-black text-charcoal text-lg leading-tight" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>{heading}</p>
+                    <button onClick={onEnquire} className="text-xs font-bold bg-gradient-to-r from-hava-red to-accent-orange text-white px-3 py-1.5 rounded-lg whitespace-nowrap flex-shrink-0 hover:opacity-90 transition-opacity">
+                      {t('header.primaryCTA')}
+                    </button>
+                  </div>
+                  <div className="flex flex-wrap gap-2">
+                    {text.split(' / ').map((size, si) => <span key={si} className="text-sm font-bold bg-slate-50 border-2 border-steel-gray text-charcoal px-4 py-2 rounded-xl">{size}</span>)}
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+        </div>
       );
     }
 
@@ -718,7 +748,7 @@ export const ProductsPage = () => {
               <div className="bg-white rounded-3xl border-2 border-steel-gray shadow-xl overflow-hidden sticky top-28">
                 <div className="bg-gradient-to-br from-charcoal to-trust-blue px-5 py-3">
                   <p className="text-accent-orange text-xs font-bold uppercase tracking-[2px]">Product Categories</p>
-                  <p className="text-white font-black text-sm mt-0.5" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>8 Categories</p>
+                  <p className="text-white font-black text-sm mt-0.5" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>{d.categories.length} Categories</p>
                 </div>
                 <div className="divide-y divide-steel-gray">
                   {d.categories.map((cat) => {

@@ -582,6 +582,16 @@ export const productsPageData = {
         { title: "Atlas Copco Compatible", text: "All kits compatible with HAVA equipment and Atlas Copco reference equivalents." },
       ],
     },
+    // CAT I — LUBRICATION OIL
+    {
+      code: "I",
+      name: "Lubrication Oil",
+      brochureUrl: null,
+      productCount: "1 Product",
+      image: "/products/Frame%201317.jpg.jpeg",
+      description:
+        "HAVA lubrication oil formulated for pneumatic rock drills, drifters and pusher legs — reduces internal wear, protects against corrosion and keeps your drilling equipment performing at its best.",
+    },
   ],
   summary: {
     title: "Product Category Summary",
@@ -595,8 +605,9 @@ export const productsPageData = {
       ["F", "Extension Equipment", "6 items (Chisel/Moil, Integrated, Taper, Shank, Coupling, Extension Rods)", "6 pages"],
       ["G", "Button Bits", "2 product lines (Carbide 30–34mm | R32 45–76mm)", "2 pages"],
       ["H", "Spare Parts", "Genuine spare parts — enquire for details", "1 page"],
+      ["I", "Lubrication Oil", "1 product (Lubri 100 Plus — 1 Ltr | 3 Ltr)", "1 page"],
     ],
-    total: { label: "Total Product Zone Pages", value: "24 pages" },
+    total: { label: "Total Product Zone Pages", value: "25 pages" },
   },
   finalCta: {
     title: "Not Sure Which Product Suits Your Application?",

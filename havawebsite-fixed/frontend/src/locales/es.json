@@ -1162,6 +1162,17 @@
       },
       "summaryLine": "Carburo 30/32/34mm para Perforadoras de Roca · R32 45/51/64/76mm para Martillo Perforador"
     },
+    "categoryI": {
+      "name": "Lubrication Oil",
+      "productCount": "1 Product",
+      "description": "HAVA lubrication oil formulated for pneumatic rock drills, drifters and pusher legs — reduces internal wear, protects against corrosion and keeps your drilling equipment performing at its best.",
+      "products": {
+        "lubri100": {
+          "heading": "Lubri 100 Plus",
+          "text": "1 Ltr / 3 Ltr"
+        }
+      }
+    },
     "categoryH": {
       "name": "Repuestos",
       "productCount": "Piezas Originales",
