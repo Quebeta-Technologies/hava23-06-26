@@ -113,7 +113,7 @@ export const Header = ({ onQuoteClick }) => {
               >
                 {t('header.topBar.exportText')}
               </button>
-              <a href="/assets/Draft_Annual_Return.pdf" target="_blank" rel="noopener noreferrer">
+              <a href="/assets/dr1.pdf" target="_blank" rel="noopener noreferrer">
                 <Button className="bg-white text-trust-blue hover:bg-gray-100 font-semibold px-4 py-1 text-xs shadow h-auto">
                   Draft Annual Return
                 </Button>
@@ -295,7 +295,7 @@ export const Header = ({ onQuoteClick }) => {
           {/* Language Switcher - Mobile */}
           <LanguageSwitcher variant="mobile" />
 
-          <a href="/assets/Draft_Annual_Return.pdf" target="_blank" rel="noopener noreferrer" className="block">
+          <a href="/assets/dr1.pdf" target="_blank" rel="noopener noreferrer" className="block">
             <Button className="w-full bg-trust-blue hover:bg-trust-blue/90 text-white font-semibold">
               Draft Annual Return
             </Button>
